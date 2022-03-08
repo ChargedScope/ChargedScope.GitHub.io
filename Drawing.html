@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body><br><br>
+  
+<canvas id="myCanvas" width="400" height="400" style="border:2px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas><br>
+<a href="javascript:White_Hexie()"><canvas id="myCanvas1" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Red_Hexie()"><canvas id="myCanvas2" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Green_Hexie()"><canvas id="myCanvas3" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Blue_Hexie()"><canvas id="myCanvas4" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Yellow_Hexie()"><canvas id="myCanvas5" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Aqua_Hexie()"><canvas id="myCanvas6" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Purple_Hexie()"><canvas id="myCanvas7" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Black_Hexie()"><canvas id="myCanvas8" width="25" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<a href="javascript:Multi_Hexie()"><canvas id="myCanvas9" width="150" height="25" style="border:1px solid #000000;">
+Your browser does not support the HTML canvas tag.
+</canvas></a>
+<p id="Colour-Picker" contenteditable="true">#ff00af</p>
+To change the colour of the pink box above replace the text above with another hex.<br>
+To get the hex code for the colour you want, go to <a href="https://imagecolorpicker.com/en/">this website</a>.
+
+<script>
+var hexie = "#ffffff";
+var xrect = 0;
+var yrect = 0;
+function White_Hexie() {hexie = "#ffffff";}
+function Red_Hexie() {hexie = "#ff0000";}
+function Green_Hexie() {hexie = "#00ff00";}
+function Blue_Hexie() {hexie = "#0000ff";}
+function Yellow_Hexie() {hexie = "#ffff00";}
+function Aqua_Hexie() {hexie = "#00ffff";}
+function Purple_Hexie() {hexie = "#ff00ff";}
+function Black_Hexie() {hexie = "#000000";}
+function Multi_Hexie() {hexie = document.getElementById("Colour-Picker").textContent;}
+
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+var i = 1;
+while (i < 16) {
+  ctx.moveTo(0, i*25);
+  ctx.lineTo(400, i*25);
+  ctx.stroke();
+  i++;
+}
+var v = 1;
+while (v < 16) {
+  ctx.moveTo(v*25, 0);
+  ctx.lineTo(v*25, 400);
+  ctx.stroke();
+  v++;
+}
+
+var c2 = document.getElementById("myCanvas2");
+var ctx2 = c2.getContext("2d");
+ctx2.beginPath();
+ctx2.rect(0, 0, 25, 25);
+ctx2.fillStyle = "#ff0000";
+ctx2.fill();
+
+var c3 = document.getElementById("myCanvas3");
+var ctx3 = c3.getContext("2d");
+ctx3.beginPath();
+ctx3.rect(0, 0, 25, 25);
+ctx3.fillStyle = "#00ff00";
+ctx3.fill();
+
+var c4 = document.getElementById("myCanvas4");
+var ctx4 = c4.getContext("2d");
+ctx4.beginPath();
+ctx4.rect(0, 0, 25, 25);
+ctx4.fillStyle = "#0000ff";
+ctx4.fill();
+
+var c5 = document.getElementById("myCanvas5");
+var ctx5 = c5.getContext("2d");
+ctx5.beginPath();
+ctx5.rect(0, 0, 25, 25);
+ctx5.fillStyle = "#ffff00";
+ctx5.fill();
+
+var c6 = document.getElementById("myCanvas6");
+var ctx6 = c6.getContext("2d");
+ctx6.beginPath();
+ctx6.rect(0, 0, 25, 25);
+ctx6.fillStyle = "#00ffff";
+ctx6.fill();
+
+var c7 = document.getElementById("myCanvas7");
+var ctx7 = c7.getContext("2d");
+ctx7.beginPath();
+ctx7.rect(0, 0, 25, 25);
+ctx7.fillStyle = "#ff00ff";
+ctx7.fill();
+
+var c8 = document.getElementById("myCanvas8");
+var ctx8 = c8.getContext("2d");
+ctx8.beginPath();
+ctx8.rect(0, 0, 25, 25);
+ctx8.fillStyle = "#000000";
+ctx8.fill();
+
+var c9 = document.getElementById("myCanvas9");
+var ctx9 = c9.getContext("2d");
+
+function Colour_Pick() {
+ctx9.beginPath();
+ctx9.rect(0, 0, 150, 25);
+ctx9.fillStyle = document.getElementById("Colour-Picker").textContent;
+ctx9.fill();}
+
+function getCursorPosition(canvas, event) {
+    const rect = canvas.getBoundingClientRect()
+    const x = event.clientX - rect.left
+    const y = event.clientY - rect.top
+    xrect = Math.floor(x/25)
+    yrect = Math.floor(y/25)
+    ctx.beginPath();
+    ctx.rect(xrect*25, yrect*25, 25, 25);
+    ctx.fillStyle = hexie;
+    ctx.fill();
+}
+
+const canvas = document.querySelector('canvas')
+canvas.addEventListener('mousedown', function(e) {
+    getCursorPosition(canvas, e)
+})
+
+setInterval(Colour_Pick,50);
+</script>
+  </body>
+</html>
