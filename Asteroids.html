@@ -1,13 +1,15 @@
 <head>
-  <script>
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = blue;
-ctx.fillRect(0, 0, 350, 500);
-</script>
 </head>
 <body>
   <canvas id="myCanvas" width="350" height="500" style="border:1px solid #000000;"></canvas><br>
   <canvas id="LeftCanvas" width="175" height="100" style="border:1px solid #000000;"></canvas>
   <canvas id="RightCanvas" width="175" height="100" style="border:1px solid #000000;"></canvas>
+    <script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+ctx.fillStyle = 'blue';
+ctx.fillRect(0, 0, 350, 500);
+ctx.fillStyle = 'black';
+ctx.fillRect(150, 400, 100, 100);
+</script>
 </body>
