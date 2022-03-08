@@ -2,5 +2,17 @@
 </head> 
 <body> 
   <canvas id="myCanvas" width="300" height="500" style="border:lpx solid #000000;"></canvas><br> 
-  <a href="javascript:if (x>0){x--};"><canvas id="LeftCanvas" width="145" height="100" style="border:lpx solid #000000;"></canvas></a> <a href="javascript:if (x<2){x++};"><canvas id="RightCanvas" width="145" height="100" style="border:lpx solid #000000;"></canvas></a> <script> var x= 1; var Asteroidx = 1; var Asteroidy = —100; var speed = 3; var score = 0; var c = document.getElementById("myCanvas"); var ctx = c.getContext("2d"); setInterval(always,16.666); function always(){ ctx.fill5tyle = 'blue'; ctx.fillRect(0, 0, 300, 500); ctx.fill5tyle = 'black'; ctx.fillRect(100*x, 400, 100, 100); ctx.fill5tyle = 'red'; ctx.fillRect(A0*Asteroidx,Asteroidy,100,100); Asteroidy = Asteroidy + speed; if (Asteroidy>=500){ Asteroidy = —100; (speed < 8){ speed = speed + < i;} (speed < 71)1 speed = speed + 1;1 score++; Asteroidx = Math.floor(Math.random()*);} (Asteroidy>400,Asteroidx=x){ document.write();} 
+  <a href="javascript:if (x>0){x--};"><canvas id="LeftCanvas" width="145" height="100" style="border:lpx solid #000000;"></canvas></a> 
+  <a href="javascript:if (x<2){x++};"><canvas id="RightCanvas" width="145" height="100" style="border:lpx solid #000000;"></canvas></a> 
+  <script> 
+    var x= 1;
+    var Asteroidx = 1;
+    var Asteroidy = —100; 
+    var speed = 3; 
+    var score = 0; 
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d"); 
+    setInterval(always,16.666); 
+    function always(){ 
+      ctx.fillStyle = 'blue'; ctx.fillRect(0, 0, 300, 500); ctx.fillStyle = 'black'; ctx.fillRect(100*x, 400, 100, 100); ctx.fillStyle = 'red'; ctx.fillRect(A0*Asteroidx,Asteroidy,100,100); Asteroidy = Asteroidy + speed; if (Asteroidy>=500){ Asteroidy = —100; (speed < 8){ speed = speed + < i;} (speed < 71)1 speed = speed + 1;1 score++; Asteroidx = Math.floor(Math.random()*);} 
 } </script> </body> 
