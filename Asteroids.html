@@ -1,9 +1,17 @@
 <head> 
 </head> 
 <body> 
-  <canvas id="myCanvas" width="300" height="500" style="border:1px solid #000000;"></canvas><br> 
-  <a href="javascript:if (x>0){x--};"><canvas id="LeftCanvas" width="145" height="100" style="border:1px solid #000000;"></canvas></a> 
-  <a href="javascript:if (x<2){x++};"><canvas id="RightCanvas" width="145" height="100" style="border:1px solid #000000;"></canvas></a> 
+  <canvas id="myCanvas" width="300" height="500" style="border:1px solid #000000;">
+  </canvas>
+  <br> 
+  <a href="javascript:if (x>0){x--};">
+    <canvas id="LeftCanvas" width="145" height="100" style="border:1px solid #000000;">
+    </canvas>
+  </a> 
+  <a href="javascript:if (x<2){x++};">
+    <canvas id="RightCanvas" width="145" height="100" style="border:1px solid #000000;">
+    </canvas>
+  </a> 
   <script> 
     var x = 1;
     var Asteroidx = 1;
@@ -22,9 +30,10 @@
       ctx.fillRect(100*Asteroidx,Asteroidy,100,100);
       Asteroidy = Asteroidy + speed; 
       if (Asteroidy>=500){ 
-        Asteroidy = —100; 
-      if (speed < 8){speed = speed + .1;} 
-      if (speed < 15){speed = speed + .1;}
+        Asteroidy = —100;
+        if (speed < 8){speed = speed + 0.1;} 
+        if (speed < 15){speed = speed + 0.1;}
         score++; 
-        Asteroidx = Math.floor(Math.random()*3);} 
-} </script> </body> 
+        Asteroidx = Math.floor(Math.random()*3);}}
+  </script>
+</body> 
