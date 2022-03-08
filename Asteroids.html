@@ -14,5 +14,17 @@
     var ctx = c.getContext("2d"); 
     setInterval(always,16.666); 
     function always(){ 
-      ctx.fillStyle = 'blue'; ctx.fillRect(0, 0, 300, 500); ctx.fillStyle = 'black'; ctx.fillRect(100*x, 400, 100, 100); ctx.fillStyle = 'red'; ctx.fillRect(A0*Asteroidx,Asteroidy,100,100); Asteroidy = Asteroidy + speed; if (Asteroidy>=500){ Asteroidy = —100; (speed < 8){ speed = speed + < i;} (speed < 71)1 speed = speed + 1;1 score++; Asteroidx = Math.floor(Math.random()*);} 
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(0, 0, 300, 500);
+      ctx.fillStyle = 'black';
+      ctx.fillRect(100*x, 400, 100, 100);
+      ctx.fillStyle = 'red';
+      ctx.fillRect(A0*Asteroidx,Asteroidy,100,100);
+      Asteroidy = Asteroidy + speed; 
+      if (Asteroidy>=500){ 
+        Asteroidy = —100; 
+      if (speed < 8){speed = speed + .1;} 
+      if (speed < 15){speed = speed + .1;}
+        score++; 
+        Asteroidx = Math.floor(Math.random()*3);} 
 } </script> </body> 
