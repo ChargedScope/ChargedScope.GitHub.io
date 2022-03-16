@@ -31,10 +31,9 @@
       Asteroidy = Asteroidy + speed; 
       if (Asteroidy>=301){
         let scorestr = score.toString();
-        alert("You lost, with "+scorestr+" point(s).");
-        alert(Asteroidx);
-        alert(x);
-      }
+        if (Asteroidx==x){
+          alert("You lost, with "+scorestr+" point(s).");
+      }}
       if (Asteroidy>=500){ 
         Asteroidy = -100;
         if (speed < 8){speed = speed + 0.1;} 
