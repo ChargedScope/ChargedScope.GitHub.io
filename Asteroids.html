@@ -32,7 +32,8 @@
       if (Asteroidy>=301){
         let scorestr = score.toString();
         if (Asteroidx==x){
-          document.write("You got "+scorestr+" point(s).");
+          document.write("You lost, with "+scorestr+" point(s).");
+          throw new Error("Something went badly wrong!");
       }}
       if (Asteroidy>=500){ 
         Asteroidy = -100;
