@@ -30,7 +30,8 @@
       ctx.fillRect(100*Asteroidx,Asteroidy,100,100);
       Asteroidy = Asteroidy + speed; 
       if (Asteroidy>=301){
-        alert("You lost, with "+score.toString();+" points.");
+        let scorestr = score.toString();
+        alert("You lost, with "+scorestr+" points.");
       }
       if (Asteroidy>=500){ 
         Asteroidy = -100;
