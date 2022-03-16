@@ -15,7 +15,7 @@
   <script> 
     var x = 1;
     var Asteroidx = 1;
-    var Asteroidy = —100; 
+    var Asteroidy = -100; 
     var speed = 3; 
     var score = 0; 
     var c = document.getElementById("myCanvas");
@@ -30,7 +30,7 @@
       ctx.fillRect(100*Asteroidx,Asteroidy,100,100);
       Asteroidy = Asteroidy + speed; 
       if (Asteroidy>=500){ 
-        Asteroidy = —100;
+        Asteroidy = -100;
         if (speed < 8){speed = speed + 0.1;} 
         if (speed < 15){speed = speed + 0.1;}
         score++; 
