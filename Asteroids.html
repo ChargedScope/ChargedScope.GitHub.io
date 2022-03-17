@@ -14,6 +14,7 @@
   </a> 
   <script> 
     var x = 1;
+    var i = 0;
     var Asteroidx = 1;
     var Asteroidy = -100; 
     var speed = 3; 
@@ -31,10 +32,12 @@
       Asteroidy = Asteroidy + speed; 
       if (Asteroidy>=301){
         let scorestr = score.toString();
-        if (Asteroidx==x){
-          document.write("You lost, with "+scorestr+" point(s).");}
-        if (speed>=15){
-        document.write("You won, with the legendary score of "+scorestr+" point(s).");}
+        if (Asteroidx==x and speed<15 and i==0){
+          document.write("You lost, with "+scorestr+" point(s).");
+          i++;}
+        if (speed>=15 and i==0){
+          document.write("You won, with the legendary score of "+scorestr+" point(s).");
+          i++;}
       }
       if (Asteroidy>=500){ 
         Asteroidy = -100;
