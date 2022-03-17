@@ -14,7 +14,6 @@
   </a> 
   <script> 
     var x = 1;
-    var i = 0;
     var Asteroidx = 1;
     var Asteroidy = -100; 
     var speed = 3; 
@@ -32,7 +31,7 @@
       Asteroidy = Asteroidy + speed; 
       if (Asteroidy>=301){
         let scorestr = score.toString();
-        if (Asteroidx==x and speed<15){
+        if (Asteroidx==x){
           document.write("You lost, with "+scorestr+" point(s).");
           i++;}
         if (speed>=15){
