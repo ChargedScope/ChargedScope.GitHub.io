@@ -10,18 +10,30 @@ var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 var blocknum = 0;
 const Colours = [];
-ctx.fillStyle = '#00c900';
-ctx.fillRect(0, 0, 250, 250);
-ctx.fillStyle = '#c90000';
-ctx.fillRect(250, 250, 250, 250);
-ctx.fillStyle = '#0000c9';
-ctx.fillRect(250, 0, 250, 250);
-ctx.fillStyle = '#c9c900';
-ctx.fillRect(0, 250, 250, 250);
 setInterval(Memory,500);
     function Memory(){
+    ctx.fillStyle = '#00c900';
+    ctx.fillRect(0, 0, 250, 250);
+    ctx.fillStyle = '#c90000';
+    ctx.fillRect(250, 250, 250, 250);
+    ctx.fillStyle = '#0000c9';
+    ctx.fillRect(250, 0, 250, 250);
+    ctx.fillStyle = '#c9c900';
+    ctx.fillRect(0, 250, 250, 250);
     blocknum = Math.floor(Math.random() * 4);
     Colours.push(blocknum);
+    if (blocknum==0){
+      ctx.fillStyle = '#00ff00';
+      ctx.fillRect(0, 0, 250, 250);}
+    else if (blocknum==1){
+      ctx.fillStyle = '#ff0000';
+      ctx.fillRect(250, 250, 250, 250);}
+    else if (blocknum==2){
+      ctx.fillStyle = '#0000ff';
+      ctx.fillRect(250, 0, 250, 250);}
+    else if (blocknum==3){
+      ctx.fillStyle = '#c9c900';
+      ctx.fillRect(0, 250, 250, 250);}
     document.getElementById("demo").innerHTML = Colours;
     }
 </script>
