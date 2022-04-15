@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test board 2</title>
+<script src="testBoard2.js"></script>
+<link href="testBoard2.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onLoad="resetBoard()">
+<h1>Test board 2</h1>
+<form action="" method="get">
+<div><span class="narrow">&nbsp;</span>
+<span class="narrower">Outer</span>
+<span class="narrower">Swap</span>
+<span class="narrower">Inner</span>
+<span class="narrower">Match</span>
+</div>
+<div>
+<span class="narrow">Colour</span>
+<input type="text" id="outercolour" style="width: 4em" onInput="updateBoard(0)">
+<input type="text" id="swapcolour" style="width: 4em" onInput="updateBoard(0)">
+<input type="text" id="innercolour" style="width: 4em" onInput="updateBoard(0)">
+<input type="text" id="matchcolour" style="width: 4em" onInput="updateBoard(0)">
+</div>
+<div>
+<span class="narrow">Radius</span>
+<input type="number" id="outerradius" min="10" max="400" style="width: 4em" onInput="document.getElementById('radius').value = this.value;updateBoard(0)">
+<input type="number" id="swapradius" min="10" max="400" style="width: 4em" onInput="document.getElementById('radius').value = this.value;updateBoard(0)">
+<input type="number" id="innerradius" min="10" max="400" style="width: 4em" onInput="document.getElementById('radius').value = this.value;updateBoard(0)">
+<input type="number" id="matchradius" min="10" max="400" style="width: 4em" onInput="document.getElementById('radius').value = this.value;updateBoard(0)">
+</div>
+<div>
+<span class="narrow">Width</span>
+<input type="number" id="outerwidth" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="swapwidth" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="innerwidth" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="matchwidth" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+</div>
+<div>
+<span class="narrow">Height</span>
+<input type="number" id="outerheight" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="swapheight" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="innerheight" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="matchheight" min="10" max="800" style="width: 4em" onInput="updateBoard(0)">
+</div>
+<div>
+<span class="narrow">Corner radius</span>
+<input type="number" id="outercorner" min="0" max="100" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="swapcorner" min="0" max="100" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="innercorner" min="0" max="100" style="width: 4em" onInput="updateBoard(0)">
+<input type="number" id="matchcorner" min="0" max="100" style="width: 4em" onInput="updateBoard(0)">
+</div>
+<div>
+Radius <span id="radval">0</span> 0<input type="range" id="radius" min="0" max="400" step="1" value="200" onInput="updateBoard(this.value)">400
+
+<div>
+<input type="button" value="Reset board" onClick="resetBoard()">
+<input type="button" value="Generate CSS code" onClick="generateCSS()">
+Select ring <select id="ring" onChange="updateBoard(0)">
+<option selected="selected">Select a ring</option>
+<option value="outer">Outer ring</option>
+<option value="swap">Swap ring</option>
+<option value="inner">Inner ring</option>
+<option value="match">Match ring</option>
+</select>
+</div>
+<div id="container">
+	<img src="ims/canvas3.png" width="800" height="800" alt="Artefact" id="artefact">
+	<span id="outer0" class="outer">&nbsp;</span>
+	<span id="outer1" class="outer">&nbsp;</span>
+	<span id="outer2" class="outer">&nbsp;</span>
+	<span id="outer3" class="outer">&nbsp;</span>
+	<span id="outer4" class="outer">&nbsp;</span>
+	<span id="outer5" class="outer">&nbsp;</span>
+	<span id="outer6" class="outer">&nbsp;</span>
+	<span id="outer7" class="outer">&nbsp;</span>
+	<span id="inner0" class="inner">&nbsp;</span>
+	<span id="inner1" class="inner">&nbsp;</span>
+	<span id="inner2" class="inner">&nbsp;</span>
+	<span id="inner3" class="inner">&nbsp;</span>
+	<span id="inner4" class="inner">&nbsp;</span>
+	<span id="inner5" class="inner">&nbsp;</span>
+	<span id="inner6" class="inner">&nbsp;</span>
+	<span id="inner7" class="inner">&nbsp;</span>
+	<span id="match0" class="match">&nbsp;</span>
+	<span id="match1" class="match">&nbsp;</span>
+	<span id="match2" class="match">&nbsp;</span>
+	<span id="match3" class="match">&nbsp;</span>
+	<span id="match4" class="match">&nbsp;</span>
+	<span id="match5" class="match">&nbsp;</span>
+	<span id="match6" class="match">&nbsp;</span>
+	<span id="match7" class="match">&nbsp;</span>
+	<span id="swap0" class="swap" onClick="swap(0)">&harr;</span>
+	<span id="swap1" class="swap" onClick="swap(1)">&harr;</span>
+	<span id="swap2" class="swap" onClick="swap(2)">&harr;</span>
+	<span id="swap3" class="swap" onClick="swap(3)">&harr;</span>
+	<span id="swap4" class="swap" onClick="swap(4)">&harr;</span>
+	<span id="swap5" class="swap" onClick="swap(5)">&harr;</span>
+	<span id="swap6" class="swap" onClick="swap(6)">&harr;</span>
+	<span id="swap7" class="swap" onClick="swap(7)">&harr;</span>
+</div>
+</form>
+<hr>
+<span id="csscode">&nbsp;</span>
+</body>
+</html>

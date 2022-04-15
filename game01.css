@@ -1,0 +1,68 @@
+@charset "utf-8";
+/* CSS Document */
+
+BODY {
+	backgroundColor: silver;
+}
+#Artefact {
+	opacity: 0.8;
+}
+#container {
+	position: relative;
+}
+
+
+.outer { /* radius = 313*/ position: absolute; z-index: 1; width: 60px;height: 85px;border: 2px solid black;border-radius: 10px;}#outer0 {left: 683px;top: 357px;transform: rotate(0deg)}#outer1 {left: 591px;top: 578px;transform: rotate(45deg)}#outer2 {left: 370px;top: 670px;transform: rotate(90deg)}#outer3 {left: 149px;top: 578px;transform: rotate(135deg)}#outer4 {left: 57px;top: 357px;transform: rotate(180deg)}#outer5 {left: 149px;top: 136px;transform: rotate(225deg)}#outer6 {left: 370px;top: 44px;transform: rotate(270deg)}#outer7 {left: 591px;top: 136px;transform: rotate(315deg)}
+
+
+.match { /* radius = 127*/ position: absolute; z-index: 1; width: 60px;height: 85px;border: 2px solid black;border-radius: 40px;}
+
+#match0 {left: 497px;top: 357px;transform: rotate(0deg)}
+
+#match1 {left: 460px;top: 447px;transform: rotate(45deg)}
+
+#match2 {left: 370px;top: 484px;transform: rotate(90deg)}
+
+#match3 {left: 280px;top: 447px;transform: rotate(135deg)}
+
+#match4 {left: 243px;top: 357px;transform: rotate(180deg)}
+
+#match5 {left: 280px;top: 267px;transform: rotate(225deg)}
+
+#match6 {left: 370px;top: 230px;transform: rotate(270deg)}
+
+#match7 {left: 460px;top: 267px;transform: rotate(315deg)}
+
+
+.swap { /* radius = 253*/ position: absolute; z-index: 1; width: 50px;height: 65px;border: 2px solid black;border-radius: 10px;vertical-align:middle;font-size:48px;font-weight:bolder;background-color:silver;color:gold;}#swap0 {left: 628px;top: 367px;transform: rotate(0deg)}#swap1 {left: 554px;top: 546px;transform: rotate(45deg)}#swap2 {left: 375px;top: 620px;transform: rotate(90deg)}#swap3 {left: 196px;top: 546px;transform: rotate(135deg)}#swap4 {left: 122px;top: 367px;transform: rotate(180deg)}#swap5 {left: 196px;top: 188px;transform: rotate(225deg)}#swap6 {left: 375px;top: 114px;transform: rotate(270deg)}#swap7 {left: 554px;top: 188px;transform: rotate(315deg)}
+
+.inner { /* radius = 193*/ position: absolute; z-index: 1; width: 60px;height: 85px;border: 2px solid black;border-radius: 10px;}#inner0 {left: 563px;top: 357px;transform: rotate(0deg)}#inner1 {left: 506px;top: 493px;transform: rotate(45deg)}#inner2 {left: 370px;top: 550px;transform: rotate(90deg)}#inner3 {left: 234px;top: 493px;transform: rotate(135deg)}#inner4 {left: 177px;top: 357px;transform: rotate(180deg)}#inner5 {left: 234px;top: 221px;transform: rotate(225deg)}#inner6 {left: 370px;top: 164px;transform: rotate(270deg)}#inner7 {left: 506px;top: 221px;transform: rotate(315deg)}
+
+#outer_up {
+	position: absolute;
+	left: 700px;
+	top: 300px;
+	transform: rotate(0deg);
+	z-index: 2;
+}
+#outer_down {
+	position: absolute;
+	left: 700px;
+	top: 450px;
+	transform: rotate(180deg);
+	z-index: 1;
+}
+#inner_up {
+	position: absolute;
+	left: 575px;
+	top: 300px;
+	transform: rotate(0deg);
+	z-index: 1;
+}
+#inner_down {
+	position: absolute;
+	left: 575px;
+	top: 450px;
+	transform: rotate(180deg);
+	z-index: 1;
+}

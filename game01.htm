@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Game 01</title>
+<script src="game01.js"></script>
+<link href="game01.css" rel="stylesheet" type="text/css">
+</head>
+
+<body onLoad="init()">
+<h1>Game</h1>
+<form action="" method="get">
+
+<div>
+<input type="button" value="Random colours" onClick="randomColours()">
+<input type="button" value="Dim the lights" onClick="dimMatches()">
+<input type="hidden" name="rotateStart" id="rotateStart" size="4"> &nbsp;
+<input type="hidden" name="start" id="start" size="4">
+</div>
+<div>
+<input type="button" value="Test timer" onClick="testTimer(0)">
+<input type="button" value="Test timer 2" onClick="radiateColours()">
+<input type="button" value="Start game" onClick="startGame()">
+</div>
+<div id="container">
+	<img src="Ims/BiblicalAngel.png" width="800" height="800" alt="Artefact" id="Artefact">
+	<span id="outer0" class="outer">&nbsp;</span>
+	<span id="outer1" class="outer">&nbsp;</span>
+	<span id="outer2" class="outer">&nbsp;</span>
+	<span id="outer3" class="outer">&nbsp;</span>
+	<span id="outer4" class="outer">&nbsp;</span>
+	<span id="outer5" class="outer">&nbsp;</span>
+	<span id="outer6" class="outer">&nbsp;</span>
+	<span id="outer7" class="outer">&nbsp;</span>
+	<span id="inner0" class="inner">&nbsp;</span>
+	<span id="inner1" class="inner">&nbsp;</span>
+	<span id="inner2" class="inner">&nbsp;</span>
+	<span id="inner3" class="inner">&nbsp;</span>
+	<span id="inner4" class="inner">&nbsp;</span>
+	<span id="inner5" class="inner">&nbsp;</span>
+	<span id="inner6" class="inner">&nbsp;</span>
+	<span id="inner7" class="inner">&nbsp;</span>
+	<span id="match0" class="match">&nbsp;</span>
+	<span id="match1" class="match">&nbsp;</span>
+	<span id="match2" class="match">&nbsp;</span>
+	<span id="match3" class="match">&nbsp;</span>
+	<span id="match4" class="match">&nbsp;</span>
+	<span id="match5" class="match">&nbsp;</span>
+	<span id="match6" class="match">&nbsp;</span>
+	<span id="match7" class="match">&nbsp;</span>
+	<span id="swap0" class="swap" onClick="swap(0)">&harr;</span>
+	<span id="swap1" class="swap" onClick="swap(1)">&harr;</span>
+	<span id="swap2" class="swap" onClick="swap(2)">&harr;</span>
+	<span id="swap3" class="swap" onClick="swap(3)">&harr;</span>
+	<span id="swap4" class="swap" onClick="swap(4)">&harr;</span>
+	<span id="swap5" class="swap" onClick="swap(5)">&harr;</span>
+	<span id="swap6" class="swap" onClick="swap(6)">&harr;</span>
+	<span id="swap7" class="swap" onClick="swap(7)">&harr;</span>
+	<span id="outer_up" onClick="rotateLeft('outer', outerc)"><img src="ims/arrow.png" width="50" height="50"></span>
+	<span id="outer_down" onClick="rotateRight('outer', outerc)"><img src="ims/arrow.png" width="50" height="50"></span>
+	<span id="inner_up" onClick="rotateLeft('inner', innerc)"><img src="ims/arrow.png" width="50" height="50"></span>
+	<span id="inner_down" onClick="rotateRight('inner', innerc)"><img src="ims/arrow.png" width="50" height="50"></span>
+</div>
+</form>
+</body>
+</html>

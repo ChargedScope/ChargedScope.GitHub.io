@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+#artefact {
+	opacity: .25;
+}
+#container {
+	position: relative;
+}
+.narrow {
+	display: inline-block;
+	width: 100px;
+}
+
+.narrower {
+	display: inline-block;
+	width: 60px;
+}
+
+#radval	{
+	padding: 2px;
+	border: 1px solid black;
+}
+
+.outer	{
+	position:absolute;
+	z-index: 1;
+	border: 2px solid blue;
+	background-color: red;
+	color:black;
+	content: "Outer";
+}
+
+#outer0,
+#outer1,
+#outer2,
+#outer3,
+#outer4,
+#outer5,
+#outer6,
+#outer7	{
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+.inner { /* radius = 193*/ position: absolute; z-index: 1; width: 60px;height: 85px;border: 2px solid black;border-radius: 10px;}#inner0 {left: 563px;top: 357px;transform: rotate(0deg)}#inner1 {left: 506px;top: 493px;transform: rotate(45deg)}#inner2 {left: 370px;top: 550px;transform: rotate(90deg)}#inner3 {left: 234px;top: 493px;transform: rotate(135deg)}#inner4 {left: 177px;top: 357px;transform: rotate(180deg)}#inner5 {left: 234px;top: 221px;transform: rotate(225deg)}#inner6 {left: 370px;top: 164px;transform: rotate(270deg)}#inner7 {left: 506px;top: 221px;transform: rotate(315deg)}
+
+.match { /* radius = 127*/ position: absolute; z-index: 1; width: 60px;height: 85px;border: 2px solid black;border-radius: 40px;}
+
+#match0 {left: 497px;top: 357px;transform: rotate(0deg)}
+
+#match1 {left: 460px;top: 447px;transform: rotate(45deg)}
+
+#match2 {left: 370px;top: 484px;transform: rotate(90deg)}
+
+#match3 {left: 280px;top: 447px;transform: rotate(135deg)}
+
+#match4 {left: 243px;top: 357px;transform: rotate(180deg)}
+
+#match5 {left: 280px;top: 267px;transform: rotate(225deg)}
+
+#match6 {left: 370px;top: 230px;transform: rotate(270deg)}
+
+#match7 {left: 460px;top: 267px;transform: rotate(315deg)}
+
+.swap {
+	position:absolute;
+	width:50px;
+	height:65px;
+	vertical-align:middle;
+	font-size:48px;
+	font-weight:bolder;
+	border: 2px solid gold;
+	color:gold;
+	z-index: 1;
+}
+#swap0 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+#swap1 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+#swap2 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+#swap3 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+#swap4 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+#swap5 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+#swap6 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
+#swap7 {
+	top: 0px;
+	left: 0px;
+	transform: rotate(0deg);
+}
