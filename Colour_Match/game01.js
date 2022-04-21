@@ -62,9 +62,6 @@ showColours("inner", innerc);
 }
 function randomColours(){
 MoveNumber = int(Math.random*12);
-if (MoveNumber<8;){
-swap(MoveNumber);
-}
 showColours("outer", outerc);
 showColours("inner", innerc);
 showColours("match", matchc);
