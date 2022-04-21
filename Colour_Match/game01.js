@@ -61,8 +61,12 @@ showColours("outer", outerc);
 showColours("inner", innerc);
 }
 function randomColours(){
+MoveNumber = Math.random*12;
+if (MoveNumber==0){
 
+}
 showColours("outer", outerc);
 showColours("inner", innerc);
+showColours("match", matchc);
 }
 
