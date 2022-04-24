@@ -10,6 +10,7 @@
   //Setting up Background
   var canvas = document.getElementById("gameWindow");
   var ctx = canvas.getContext("2d");
+  Scene = "Main";
   function clear(){
   ctx.fillStyle = "#7777ff";
   ctx.fillRect(0,0,854,480);}
@@ -38,6 +39,7 @@
   
   //Activities function
   function Activities(){
+  Scene = "Activities";
   ctx.fillStyle = "#666666";
   ctx.fillRect(10,10,140,50);
   ctx.fillStyle = "#999999";
@@ -59,19 +61,22 @@
   //Making buttons work
   function buttons(){
   if (clicked == true){
-  clicked=false;
-  if (x >= 310 && x <= 530 && y >= 130 && y <= 190){
+  clicked = false;
+  if (Scene == "Main" && x >= 310 && x <= 530 && y >= 130 && y <= 190){
   clear();
   Activities();
   }
-  if (x >= 310 && x <= 530 && y >= 210 && y <= 270){
+  if (Scene == "Main" && x >= 310 && x <= 530 && y >= 210 && y <= 270){
   document.write("Bosses Clicked");
   }
-  if (x >= 310 && x <= 530 && y >= 290 && y <= 350){
+  if (Scene == "Main" && x >= 310 && x <= 530 && y >= 290 && y <= 350){
   document.write("Stats Clicked");
   }
-  if (x >= 310 && x <= 530 && y >= 370 && y <= 430){
+  if (Scene == "Main" && x >= 310 && x <= 530 && y >= 370 && y <= 430){
   document.write("Settings Clicked");
+  }
+  if (Scene == "Activities" && x >= 15 && x <= 145 && y >= 15 && y <= 55){
+  document.write("P E B B L E S");
   }
   }}
 </script>
