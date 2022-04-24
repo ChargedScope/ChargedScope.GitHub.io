@@ -5,10 +5,13 @@
 <canvas id='gameWindow' width='854' height='480' style="border:1px solid #000000;">
 </canvas>
 <script>
+  //Setting up Background
   var canvas = document.getElementById("gameWindow");
   var ctx = canvas.getContext("2d");
   ctx.fillStyle = "#7777ff";
   ctx.fillRect(0,0,854,480);
+  
+  //Setting up Buttons
   ctx.fillStyle = "#666666";
   ctx.fillRect(300,120,240,80);
   ctx.fillRect(300,200,240,80);
@@ -19,6 +22,8 @@
   ctx.fillRect(310,210,220,60);
   ctx.fillRect(310,290,220,60);
   ctx.fillRect(310,370,220,60);
+  
+  //Text on Buttons
   ctx.fillStyle = "#000000";
   ctx.font = "45px Arial";
   ctx.fillText("GrindQuest", 300, 100);
@@ -26,6 +31,21 @@
   ctx.fillText("Bosses", 350, 260);
   ctx.fillText("Stats", 365, 340);
   ctx.fillText("Settings", 340, 420);
+  
+  //Checking for clicks and click locations
+  canvas.addEventListener('click', (e) => {
+  clicked = true;
+  x=e.clientX;
+  y=e.clientY;
+  });
+  
+  //Making buttons work
+  function buttons(){
+  if (clicked == true){
+  clicked=false;
+  if (x >= 310,x <= 530,y >= 130,y <= 190){
+  document.write("Activities Clicked");
+  }}}
 </script>
 </body>
 </html>
