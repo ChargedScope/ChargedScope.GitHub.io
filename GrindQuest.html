@@ -10,8 +10,10 @@
   //Setting up Background
   var canvas = document.getElementById("gameWindow");
   var ctx = canvas.getContext("2d");
+  function clear(){
   ctx.fillStyle = "#7777ff";
-  ctx.fillRect(0,0,854,480);
+  ctx.fillRect(0,0,854,480);}
+  clear()
   
   //Setting up Buttons
   ctx.fillStyle = "#666666";
@@ -34,6 +36,14 @@
   ctx.fillText("Stats", 365, 340);
   ctx.fillText("Settings", 340, 420);
   
+  //Activities function
+  function Activities(){
+  ctx.fillStyle = "#666666";
+  ctx.fillRect(10,10,200,50);
+  ctx.fillStyle = "#999999";
+  ctx.fillRect(15,15,190,40);
+  }
+
   //Checking for clicks and click locations
   canvas.addEventListener('click', (e) => {
   clicked = true;
@@ -46,8 +56,19 @@
   if (clicked == true){
   clicked=false;
   if (x >= 310 && x <= 530 && y >= 130 && y <= 190){
-  document.write("Activities Clicked");
-  }}}
+  clear();
+  Activities();
+  }
+  if (x >= 310 && x <= 530 && y >= 210 && y <= 270){
+  document.write("Bosses Clicked");
+  }
+  if (x >= 310 && x <= 530 && y >= 290 && y <= 350){
+  document.write("Stats Clicked");
+  }
+  if (x >= 310 && x <= 530 && y >= 370 && y <= 430){
+  document.write("Settings Clicked");
+  }
+  }}
 </script>
 </body>
 </html>
