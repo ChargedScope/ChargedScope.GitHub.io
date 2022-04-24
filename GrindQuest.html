@@ -50,6 +50,17 @@
   ctx.fillStyle = "#00ff00";
   ctx.fillText("No Requirements", 20, 50);
   }
+  
+  //Pebble Gathering function
+  function PebbleGathering(){
+  Scene = "PebbleGathering";
+  ctx.fillStyle = "#00ff00";
+  ctx.fillRect(0,0,854,480);
+  ctx.fillStyle = "#000000";
+  ctx.font = "15px Arial";
+  Energy = 100;
+  ctx.fillText(("Energy:" + Energy + "%"), 20, 30);
+  }
 
   //Checking for clicks and click locations
   canvas.addEventListener('click', (e) => {
@@ -76,7 +87,7 @@
   document.write("Settings Clicked");
   }
   if (Scene == "Activities" && x >= 15 && x <= 145 && y >= 15 && y <= 55){
-  document.write("P E B B L E S");
+  PebbleGathering();
   }
   }}
 </script>
