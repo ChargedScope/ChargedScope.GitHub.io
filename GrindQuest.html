@@ -60,6 +60,9 @@
   ctx.font = "15px Arial";
   Energy = 100;
   ctx.fillText(("Energy:" + Energy + "%"), 20, 30);
+  playerx=x-25;
+  playery=y-25;
+  ctx.fillRect(playerx,playery,50,50);
   }
 
   //Checking for clicks and click locations
@@ -87,7 +90,7 @@
   document.write("Settings Clicked");
   }
   if (Scene == "Activities" && x >= 15 && x <= 145 && y >= 15 && y <= 55){
-  PebbleGathering();
+  setInterval(PebbleGathering,20);
   }
   }}
 </script>
