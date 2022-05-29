@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <div
+      id="box"
+      style="
+        height: 100px;
+        width: 100px;
+        background-color: salmon;
+        display: none;
+      "
+    >
+      Box
+    </div>
+    <button id="btn">Coal</button>
+
+    <script>const btn = document.getElementById('btn');
+
+btn.addEventListener('click', () => {
+  // 👇️ hide button
+  btn.style.display = 'none';
+
+  // 👇️ show div
+  const box = document.getElementById('box');
+  box.style.display = 'block';
+});
+</script>
+  </body>
+</html>
