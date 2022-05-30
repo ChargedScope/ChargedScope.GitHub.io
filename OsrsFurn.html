@@ -12,22 +12,30 @@
     <button id="btn5">Rune 2</button>
 <script>
 const btn = document.getElementById('btn');
+const btn2 = document.getElementById('btn2');
+const btn3 = document.getElementById('btn3');
+const btn4 = document.getElementById('btn4');
+const btn5 = document.getElementById('btn5');
+btn2.style.display = 'none';
+btn3.style.display = 'none';
+btn4.style.display = 'none';
+btn5.style.display = 'none';
 btn.addEventListener('click', () => {
 btn.style.display = 'none';
+btn2.style.display = 'inline';
 });
-const btn2 = document.getElementById('btn2');
 btn2.addEventListener('click', () => {
 btn2.style.display = 'none';
+btn3.style.display = 'inline';
 });
-const btn3 = document.getElementById('btn3');
 btn3.addEventListener('click', () => {
 btn3.style.display = 'none';
+btn4.style.display = 'inline';
 });
-const btn4 = document.getElementById('btn4');
 btn4.addEventListener('click', () => {
 btn4.style.display = 'none';
+btn5.style.display = 'inline';
 });
-const btn5 = document.getElementById('btn5');
 btn5.addEventListener('click', () => {
 btn4.style.display = 'inline';
 btn3.style.display = 'inline';
