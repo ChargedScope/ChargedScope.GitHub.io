@@ -7,14 +7,36 @@
   <link rel="stylesheet">
 </head>
 <body>
-  Choose your starting cash <button onclick="addPenny()">a penny</button><button>a nickel</button><button>a dime</button><button>a quarter</button><button>a dollar note</button>
+  Choose your starting cash <button onclick="addPenny()">a penny</button><button onclick="addNickel()">a nickel</button><button onclick="addDime()">a dime</button><button onclick="addQuarter()">a quarter</button><button onclick="addDollar()">a dollar note</button>
   <button>a five dollar note</button><button>A ten dollar note</button><button>a twenty dollar note</button><button>a fifty dollar note</button><button>a one hundred dollar note</button>
-  You have <div id='cash'>Error</div>
+  You have $<div id='cash'>0.00</div>
   <script>
   cash=0.00;
+  pennies=0;
+    nickels=0;
+    dimes=0;
+    quarters=0;
+    dollars=0;
   const Cash = document.getElementById("cash");
   function addPenny(){
   cash=cash+0.01;
+  pennies=pennies+1;
+  Cash.innerHTML = cash;
+  function addNickel(){
+  cash=cash+0.05;
+  nickels=nickels+1;
+  Cash.innerHTML = cash;
+  function addDime(){
+  cash=cash+0.1;
+  dimes=dimes+1;
+  Cash.innerHTML = cash;
+  function addQuarter(){
+  cash=cash+0.25;
+  quarters=quarters+1;
+  Cash.innerHTML = cash;
+  function addDollar(){
+  cash=cash+1;
+  dollars=dollars+1;
   Cash.innerHTML = cash;
   }</script>
 </body>
