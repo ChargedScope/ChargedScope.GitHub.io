@@ -8,7 +8,7 @@
 </head>
 <body>
   Choose your starting cash <button onclick="addPenny()">a penny</button><button onclick="addNickel()">a nickel</button><button onclick="addDime()">a dime</button><button onclick="addQuarter()">a quarter</button><button onclick="addDollar()">a dollar note</button>
-  <button>a five dollar note</button><button>A ten dollar note</button><button>a twenty dollar note</button><button>a fifty dollar note</button><button>a one hundred dollar note</button>
+  <button onclick="addFiveDollar()">a five dollar note</button><button onclick="addTenDollar()">A ten dollar note</button><button>a twenty dollar note</button><button>a fifty dollar note</button><button>a one hundred dollar note</button>
   You have $<div id='cash'>0.00</div>
   <script>
   cash=0.00;
@@ -17,6 +17,8 @@
     dimes=0;
     quarters=0;
     dollars=0;
+    fivedollars=0;
+    tendollars=0;
   const Cash = document.getElementById("cash");
   function addPenny(){
   cash=cash+0.01;
@@ -37,6 +39,14 @@
   function addDollar(){
   cash=cash+1;
   dollars=dollars+1;
+  Cash.innerHTML = cash;
+  function addFiveDollar(){
+  cash=cash+5;
+  fivedollars=fivedollars+1;
+  Cash.innerHTML = cash;
+  function addTenDollar(){
+  cash=cash+1;
+  tendollars=tendollars+1;
   Cash.innerHTML = cash;
   }</script>
 </body>
