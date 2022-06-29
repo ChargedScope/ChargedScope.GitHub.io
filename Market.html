@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>My Page Title</title>
+  <meta name="description" content="My Page Description">
+  <link rel="stylesheet">
+</head>
+<body>
+  Choose your starting cash <button onclick="addPenny()">a penny</button><button>a nickel</button><button>a dime</button><button>a quarter</button><button>a dollar note</button>
+  <button>a five dollar note</button><button>A ten dollar note</button><button>a twenty dollar note</button><button>a fifty dollar note</button><button>a one hundred dollar note</button>
+  You have <div id='cash'>Error</div>
+  <script>
+  cash=0.00;
+  const Cash = document.getElementById("cash");
+  function addPenny(){
+  cash=cash+0.01;
+  Cash.innerHTML = cash;
+  }</script>
+</body>
+</html>
