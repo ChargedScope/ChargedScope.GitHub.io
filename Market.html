@@ -8,8 +8,9 @@
 </head>
 <body>
   Choose your starting cash <button onclick="addPenny()">a penny</button><button onclick="addNickel()">a nickel</button><button onclick="addDime()">a dime</button><button onclick="addQuarter()">a quarter</button><button onclick="addDollar()">a dollar note</button>
-  <button onclick="addFiveDollar()">a five dollar note</button><button onclick="addTenDollar()">A ten dollar note</button><button>a twenty dollar note</button><button>a fifty dollar note</button><button>a one hundred dollar note</button>
-  You have $<div id='cash'>0.00</div>
+  <button onclick="addFiveDollar()">a five dollar note</button><button onclick="addTenDollar()">A ten dollar note</button><button onclick="addTwentyDollar()">a twenty dollar note</button><button onclick="addFiftyDollar()">a fifty dollar note</button><button onclick="addHundredDollar()">a one hundred dollar note</button>
+  </br>You have $<div id='cash'>0.00</div></br>
+In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nickels, <div id='dimes'>0</div> dimes, <div id='quarters'>0</div> quarters, <div id='dollars'>0</div> one dollar notes, <div id='fivedollars'>0</div> five dollar notes, <div id='tendollars'>0</div> ten dollar notes, <div id='twentydollars'>0</div> twenty dollar notes, <div id='fiftydollars'>0</div> fifty dollar notes and <div id='hundreddollars'>0</div> one hundred dollar notes.
   <script>
   cash=0.00;
   pennies=0;
@@ -19,7 +20,11 @@
     dollars=0;
     fivedollars=0;
     tendollars=0;
+    twentydollars=0;
+    fiftydollars=0;
+    hundreddollars=0;
   const Cash = document.getElementById("cash");
+  const pennies = document.getElementById("cash");
   function addPenny(){
   cash=cash+0.01;
   pennies=pennies+1;
@@ -45,8 +50,20 @@
   fivedollars=fivedollars+1;
   Cash.innerHTML = cash;}
   function addTenDollar(){
-  cash=cash+1;
+  cash=cash+10;
   tendollars=tendollars+1;
+  Cash.innerHTML = cash;}
+  function addTwentyDollar(){
+  cash=cash+20;
+  twentydollars=twentydollars+1;
+  Cash.innerHTML = cash;}
+  function addFiftyDollar(){
+  cash=cash+50;
+  fiftydollars=fiftydollars+1;
+  Cash.innerHTML = cash;}
+  function addHundredDollar(){
+  cash=cash+100;
+  hundreddollars=hundreddollars+1;
   Cash.innerHTML = cash;}
   </script>
 </body>
