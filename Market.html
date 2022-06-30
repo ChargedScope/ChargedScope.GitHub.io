@@ -24,46 +24,65 @@ In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nick
     fiftydollars=0;
     hundreddollars=0;
   const Cash = document.getElementById("cash");
-  const pennies = document.getElementById("cash");
+  const Pennies = document.getElementById("pennies");
+  const Nickels = document.getElementById("nickels");
+  const Dimes = document.getElementById("dimes");
+  const Quarters = document.getElementById("quarters");
+  const Dollars = document.getElementById("dollars");
+  const Fivedollars = document.getElementById("fivedollars");
+  const Tendollars = document.getElementById("tendollars");
+  const Twentydollars = document.getElementById("twentydollars");
+  const Fiftydollars = document.getElementById("fiftydollars");
+  const Hundreddollars = document.getElementById("hundreddollars");
   function addPenny(){
   cash=cash+0.01;
   pennies=pennies+1;
+  Pennies.innerHTML = pennies;
   Cash.innerHTML = cash;}
   function addNickel(){
   cash=cash+0.05;
   nickels=nickels+1;
+  Nickels.innerHTML = nickels;
   Cash.innerHTML = cash;}
   function addDime(){
   cash=cash+0.1;
   dimes=dimes+1;
+  Dimes.innerHTML = dimes;
   Cash.innerHTML = cash;}
   function addQuarter(){
   cash=cash+0.25;
   quarters=quarters+1;
+  Quarters.innerHTML = quarters;
   Cash.innerHTML = cash;}
   function addDollar(){
   cash=cash+1;
   dollars=dollars+1;
+  Dollars.innerHTML = dollars;
   Cash.innerHTML = cash;}
   function addFiveDollar(){
   cash=cash+5;
   fivedollars=fivedollars+1;
+  Fivedollars.innerHTML = fivedollars;
   Cash.innerHTML = cash;}
   function addTenDollar(){
   cash=cash+10;
   tendollars=tendollars+1;
+  Tendollars.innerHTML = tendollars;
   Cash.innerHTML = cash;}
   function addTwentyDollar(){
   cash=cash+20;
   twentydollars=twentydollars+1;
+  Twentydollars.innerHTML = twentydollars;
   Cash.innerHTML = cash;}
   function addFiftyDollar(){
   cash=cash+50;
   fiftydollars=fiftydollars+1;
+  Fiftydollars.innerHTML = fiftydollars;
   Cash.innerHTML = cash;}
   function addHundredDollar(){
   cash=cash+100;
   hundreddollars=hundreddollars+1;
+  Hundreddollars.innerHTML = hundreddollars;
   Cash.innerHTML = cash;}
   </script>
 </body>
