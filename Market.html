@@ -7,10 +7,10 @@
   <link rel="stylesheet">
 </head>
 <body>
-  Choose your starting cash <button onclick="addPenny()">a penny</button><button onclick="addNickel()">a nickel</button><button onclick="addDime()">a dime</button><button onclick="addQuarter()">a quarter</button><button onclick="addDollar()">a dollar note</button>
+  <div id='startmenu'>Choose your starting cash <button onclick="addPenny()">a penny</button><button onclick="addNickel()">a nickel</button><button onclick="addDime()">a dime</button><button onclick="addQuarter()">a quarter</button><button onclick="addDollar()">a dollar note</button></div>
   <button onclick="addFiveDollar()">a five dollar note</button><button onclick="addTenDollar()">A ten dollar note</button><button onclick="addTwentyDollar()">a twenty dollar note</button><button onclick="addFiftyDollar()">a fifty dollar note</button><button onclick="addHundredDollar()">a one hundred dollar note</button>
   </br>You have $<div id='cash'>0.00</div></br>
-In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nickels, <div id='dimes'>0</div> dimes, <div id='quarters'>0</div> quarters, <div id='dollars'>0</div> one dollar notes, <div id='fivedollars'>0</div> five dollar notes, <div id='tendollars'>0</div> ten dollar notes, <div id='twentydollars'>0</div> twenty dollar notes, <div id='fiftydollars'>0</div> fifty dollar notes and <div id='hundreddollars'>0</div> one hundred dollar notes.
+In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nickels, <div id='dimes'>0</div> dimes, <div id='quarters'>0</div> quarters, <div id='dollars'>0</div> one dollar notes, <div id='fivedollars'>0</div> five dollar notes, <div id='tendollars'>0</div> ten dollar notes, <div id='twentydollars'>0</div> twenty dollar notes, <div id='fiftydollars'>0</div> fifty dollar notes and <div id='hundreddollars'>0</div> one hundred dollar notes.</br><button onclick='start()'>Start</button>
   <script>
   cash=0.00;
   pennies=0;
@@ -34,6 +34,7 @@ In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nick
   const Twentydollars = document.getElementById("twentydollars");
   const Fiftydollars = document.getElementById("fiftydollars");
   const Hundreddollars = document.getElementById("hundreddollars");
+  const Startmenu = document.getElementById("startmenu");
   function addPenny(){
   cash=cash+0.01;
   pennies=pennies+1;
@@ -84,6 +85,9 @@ In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nick
   hundreddollars=hundreddollars+1;
   Hundreddollars.innerHTML = hundreddollars;
   Cash.innerHTML = cash;}
+  function start(){
+  Startmenu.style.display=none;
+  }
   </script>
 </body>
 </html>
