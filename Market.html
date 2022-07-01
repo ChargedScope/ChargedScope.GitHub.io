@@ -100,12 +100,16 @@ In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nick
       Begresponse.innerHTML='You were given a penny, Woohoo!';
       cash+=0.01;
       pennies+=1;
+      Pennies.innerHTML = pennies;
+      Cash.innerHTML = cash;
   }
   if (option==2){
     if (pennies>0){
       Begresponse.innerHTML='Someone stole a penny off of you, welp';
       cash-=0.01;
       pennies-=1;
+      Pennies.innerHTML = pennies;
+      Cash.innerHTML = cash; 
     } else {
       Begresponse.innerHTML='Someone tried to steal from you but failed, yay I guess?';
     }
@@ -114,6 +118,8 @@ In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nick
       Begresponse.innerHTML='Someone threw a penny at you, you feel impartial';
       cash+=0.01;
       pennies+=1;
+      Pennies.innerHTML = pennies;
+      Cash.innerHTML = cash;
   }
   if (option==4){
       Begresponse.innerHTML='You were ignored, ah well what did you expect?';
