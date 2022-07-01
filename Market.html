@@ -94,32 +94,32 @@ In the form of <div id='pennies'>0</div> pennies, <div id='nickels'>0</div> nick
   function beg(){
   const option=Math.floor(Math.random() * 6);
   if (option==0){
-      Begresponse.style.display='Someone spat on you, YUCK!';
+      Begresponse.innerHTML='Someone spat on you, YUCK!';
   }
   if (option==1){
-      Begresponse.style.display='You were given a penny, Woohoo!';
+      Begresponse.innerHTML='You were given a penny, Woohoo!';
       cash+=0.01;
       pennies+=1;
   }
   if (option==2){
     if (pennies>0){
-      Begresponse.style.display='Someone stole a penny off of you, welp';
+      Begresponse.innerHTML='Someone stole a penny off of you, welp';
       cash-=0.01;
       pennies-=1;
     } else {
-      Begresponse.style.display='Someone tried to steal from you but failed, yay I guess?';
+      Begresponse.innerHTML='Someone tried to steal from you but failed, yay I guess?';
     }
   }
   if (option==3){
-      Begresponse.style.display='Someone threw a penny at you, you feel impartial';
+      Begresponse.innerHTML='Someone threw a penny at you, you feel impartial';
       cash+=0.01;
       pennies+=1;
   }
   if (option==4){
-      Begresponse.style.display='You were ignored, ah well what did you expect?';
+      Begresponse.innerHTML='You were ignored, ah well what did you expect?';
   }
   if (option==5){
-      Begresponse.style.display='What are you doing? no one is near you';
+      Begresponse.innerHTML='What are you doing? no one is near you';
   }
   }
   </script>
