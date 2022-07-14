@@ -30,7 +30,8 @@
       ctx.fillStyle = 'red';
       ctx.fillRect(100*Asteroidx,Asteroidy,100,100);
       Asteroidy = Asteroidy + speed;
-      document.getElementById("score").innerHTML=scorestr;
+      const scoreboard = document.getElementById("score");
+        scoreboard.innerHTML=scorestr;
       if (Asteroidy>=301){
         let scorestr = score.toString();
         if (Asteroidx==x){
