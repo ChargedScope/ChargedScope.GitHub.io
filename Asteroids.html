@@ -11,8 +11,7 @@
   <a href="javascript:if (x<2){x++};">
     <img id="RightCanvas" width="145" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Right_arrow.svg/2442px-Right_arrow.svg.png">
     </img>
-  </a> 
-<div id='score'></div>
+  </a>
   <script> 
     var x = 1;
     var Asteroidx = 1;
@@ -30,8 +29,6 @@
       ctx.fillStyle = 'red';
       ctx.fillRect(100*Asteroidx,Asteroidy,100,100);
       Asteroidy = Asteroidy + speed;
-      const scoreboard = document.getElementById("score");
-        scoreboard.innerHTML=scorestr;
       if (Asteroidy>=301){
         let scorestr = score.toString();
         if (Asteroidx==x){
