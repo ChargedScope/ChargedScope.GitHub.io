@@ -12,6 +12,7 @@
     <img id="RightCanvas" width="145" height="100" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Right_arrow.svg/2442px-Right_arrow.svg.png">
     </img>
   </a> 
+<div id='score'></div>
   <script> 
     var x = 1;
     var Asteroidx = 1;
@@ -28,7 +29,8 @@
       ctx.fillRect(100*x, 400, 100, 100);
       ctx.fillStyle = 'red';
       ctx.fillRect(100*Asteroidx,Asteroidy,100,100);
-      Asteroidy = Asteroidy + speed; 
+      Asteroidy = Asteroidy + speed;
+      document.getElementById("score").innerHTML=scorestr;
       if (Asteroidy>=301){
         let scorestr = score.toString();
         if (Asteroidx==x){
