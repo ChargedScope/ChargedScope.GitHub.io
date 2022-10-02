@@ -46,7 +46,7 @@ tr:nth-child(even) {
 </form></td>
     <td>Germany</td>
     <td>Germany</td>
-    <td>Germany</td>
+    <td><button onclick='planted()'>Planted</button></td>
   </tr>
   <tr>
     <td>Varrock</td>
@@ -63,7 +63,7 @@ tr:nth-child(even) {
 </form></td>
     <td>Mexico</td>
     <td>Germany</td>
-    <td>Germany</td>
+    <td><button onclick='planted()'>Planted</button></td>
   </tr>
   <tr>
     <td>Falador</td>
@@ -80,7 +80,7 @@ tr:nth-child(even) {
 </form></td>
     <td>Austria</td>
     <td>Germany</td>
-    <td>Germany</td>
+    <td><button onclick='planted()'>Planted</button></td>
   </tr>
   <tr>
     <td>Taverley</td>
@@ -97,7 +97,7 @@ tr:nth-child(even) {
 </form></td>
     <td>UK</td>
     <td>Germany</td>
-    <td>Germany</td>
+    <td><button onclick='planted()'>Planted</button></td>
   </tr>
   <tr>
     <td>Tree Gnome Stronghold</td>
@@ -114,7 +114,7 @@ tr:nth-child(even) {
 </form></td>
     <td>Canada</td>
     <td>Germany</td>
-    <td>Germany</td>
+    <td><button onclick='planted()'>Planted</button></td>
   </tr>
   <tr>
     <td>Farming Guild</td>
@@ -131,10 +131,20 @@ tr:nth-child(even) {
 </form></td>
     <td>Italy</td>
     <td>Germany</td>
-    <td>Germany</td>
+    <td><button onclick='planted()'>Planted</button></td>
   </tr>
 </table>
 
 </body>
+  <script>
+    var today = new Date();
+   function planted() {
+     var hourend = today.getHours()+3;
+     var minend = today.getMinutes()+20;
+     var secend = today.getSeconds();
+     var timend = hourend.toString() + ':' + minend.toString() + ':' + secend.toString();
+     document.getElementById("EndTime").value = timend;
+   }
+  </script>
 </html>
 
