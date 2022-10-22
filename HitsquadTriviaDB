@@ -30,6 +30,7 @@ tr:nth-child(even) {
     <th>Wrong Answer #2</th>
     <th>Wrong Answer #3</th>
     <th>Correct Answer</th>
+    <th>Answer Number</th>
   </tr>
   <tr>
     <td>2005 Gatorade duel 1</td>
@@ -37,7 +38,568 @@ tr:nth-child(even) {
     <td>Germany</td>
     <td>Ger</td>
     <td>Michael Waltrip</td>
-
+    <td>Unknown</td>
+</tr>
+  <tr>
+    <td>What are horizontal stabilizers called when</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Canards</td>
+    <td>!answer1</td>
+</tr>
+  <tr>
+    <td>What band released the album titled American</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Grateful Dead</td>
+    <td>/</td>
+</tr>
+  <tr>
+    <td>Which of the following is a method of gathering info</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Survey</td>
+    <td>!answer3</td>
+</tr>
+  <tr>
+    <td>Ownership of an idea is defined as what?</td>
+    <td>Innovation</td>
+    <td>Creation</td>
+    <td>Intangible Property</td>
+    <td>Intellectual Property</td>
+    <td>!answer1</td>
+</tr>
+  <tr>
+    <td>Steve Marriott Jimmy Winston Kenney Jones</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Small Faces</td>
+    <td>!answer2</td>
+</tr>
+  <tr>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Idealization</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>In January of 2013 the Detroit</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Grizzlies and Raptors</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What nation made an</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Japan</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Christina on Grey's Anatomy</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Sandra Oh</td>
+    <td>!answer2</td>
+</tr>
+  <tr>
+    <td>Which social network broke the news of Osama Bin Laden</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Twitter</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which company released the Tablet PC in 2001?</td>
+    <td>IBM</td>
+    <td>Sony</td>
+    <td>/</td>
+    <td>Microsoft</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What was the first product sold by IBM?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>!answer2</td>
+</tr>
+  <tr>
+    <td>In Twisted Metal what does Sweet Tooth ask for when he wins</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>A Paper Bag</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Charlie Hunnam stars as the titular monarch in which 2017 film on the medieval legend's reign?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>King Arthur: Legend Of The Sword</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>One of K.J. Choi's high school teachers recommended he try which sport?</td>
+    <td>Fencing</td>
+    <td>Swimming</td>
+    <td>Wrestling</td>
+    <td>Golf</td>
+    <td>!answer4</td>
+</tr>
+  <tr>
+    <td>The Xbox needs what type of special equipment to play DVDs?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Remote Control</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What was the title of the TBS Super Station premiere of National Geographic Wildlife?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Africa Unbottled</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>How many teams played in the NHL suring the 2005-2006 season?</td>
+    <td>36</td>
+    <td>15</td>
+    <td>27</td>
+    <td>30</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Heavy water contains what isotopic form of hydrogen?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Deuterium</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which shortcut in Windows</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Shift + Delete</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who was the first team to win</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>San</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>In season three of</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Time hump chronicles</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who coined the term Information Superhighway in 1994?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Al Gore</td>
+    <td>!answer3</td>
+</tr>
+  <tr>
+    <td>What liquid is used a standard when measuring density?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Water</td>
+    <td>!answer1</td>
+</tr>
+  <tr>
+    <td>What does the acronym CMOS</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Complementary Metal Oxide Semiconductor</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which man is considered the Godfather of Punk?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Iggy Pop</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which of these is an example of an extinct animal?</td>
+    <td>Rhinoceros</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Saber-Tooth Cat</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who overtook Nokia to become the #1 seller of mobile phones in 2012?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Samsung</td>
+    <td>!answer</td>dirt 
+</tr>
+  <tr>
+    <td>Who produced the hit Jay-Z song Dirt Off Your Shoulder?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Timbaland</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What was Jimmy Hoffa's middle name?</td>
+    <td>King</td>
+    <td>Tiger</td>
+    <td>Milhouse</td>
+    <td>Riddle</td>
+    <td>!answer1</td>
+</tr>
+  <tr>
+    <td>What is a six-letter word meaning to mumble something over and over?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Patter</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which character is not one of the three lead protagonists in the video game Grand Theft Auto V</td>
+    <td>Scout</td>
+    <td>Missy</td>
+    <td>Kat</td>
+    <td>Skeeter</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which company launched its Galaxy S4 smartphone in 2013?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Samsung</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who developed the reset key combination Ctrl + Alt + Delete?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>David Bradley</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which shortcut in a Windows application allows you to put text in italics?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td></td>
+    <td>!answer3</td>
+</tr>
+  <tr>
+    <td>What does a lionfish have in its spiny fins?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>poison</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which internet expression is used to show disapproval of something?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Fail</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who is not a member of the New Youngbloods</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who originally built the Berlin Wall?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Communist East Germany</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>De soto was a subsidiary of what car manufacturer?</td>
+    <td>Toyota</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Chrysler</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What type of government prevailed in Cuba from 1970 into the 21st century?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Communism</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>In the 2014 video game Destiny Guardians are tasked with reviving</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>The Traveler</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who originally recorded Stone Cold Crazy?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Queen</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>When you build with AirBlox </td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Inflate Them</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which is a puzzle game with dots that traverse through challenging levels?</td>
+    <td>Climendo</td>
+    <td>/</td>
+    <td>/</td>
+    <td>TwoDots</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which alien alliance does Master Chief once again battle in Halo 4</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>The Covenant</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Who was the 2005 USAR</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Benny Gor</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What is the name of Captain Ahab's ship?</td>
+    <td>Sea Farer</td>
+    <td>/</td>
+    <td>/</td>
+    <td>The Pequod</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which art supply is useful for cleaning suede?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Pencil Eraser</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Where does most evaporation of water occur?</td>
+    <td>Lakes</td>
+    <td>Rivers</td>
+    <td>/</td>
+    <td>Oceans</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What team was Jake Long on in 2016?</td>
+    <td>Dallas Cowboys</td>
+    <td>Buffalo Bills</td>
+    <td>/</td>
+    <td>Minnesota Vikings</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What liquid is a fuel commonly used in automobiles?</td>
+    <td>Water</td>
+    <td>Milk</td>
+    <td>Kerosene</td>
+    <td>Gasoline</td>
+    <td>!answer4</td>
+</tr>
+  <tr>
+    <td>What year would the headline Mexico declares independence from Spain have been printed?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>1821</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What driving technique is used to create an advantage on superspeedways</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Drafting</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>What is the up and down movement of ocean water caused by wind called?</td>
+    <td>Goodbye</td>
+    <td>Blowing</td>
+    <td>Hello</td>
+    <td>Wave</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>How many dimples does a</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>336</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>With which superhero team was Dick Grayson associated throughout his time as Robin?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which of these actors had a part in the horror film Friday the 13th?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Kevin Bacon</td>
+    <td>!answer</td>
+</tr>
+  <tr>
+    <td>Which team was the best in the NFL in rushing during the 2012 regular season</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Redskins</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>Which computer company ran the infamous</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Apple</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>Wimbledon events were relocated to near what road in 1922</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Church Road</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>What is the militia group</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>The Watchmen</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>What song did Elton John sing You can't plant me in your penthouse?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Goodbye Yellow Brick Road</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>In what city does the movie Lost in Translation take place?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Tokyo</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>Whose face can you change by switching his stick-on facial features?</td>
+    <td>Gumby</td>
+    <td>Yoda</td>
+    <td>Elmo</td>
+    <td>Mr. Potato Head</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>Valletta is the capital of which island nation?</td>
+    <td>Madagascar</td>
+    <td>Cyprus</td>
+    <td>Corsica</td>
+    <td>Malta</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>What uniform number did Denver retire for NFL great John Elway?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>7</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>Which European explorer discovered the Pacific Ocean?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>Vasco Nunez De</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>How many variations of the game Solitaire are there?</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>1000+</td>
+    <td>!answer</td>
+</tr>
+<tr>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>/</td>
+    <td>!answer</td>
+</tr>
 </table>
 
 </body>
