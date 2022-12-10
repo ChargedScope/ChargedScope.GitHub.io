@@ -1,0 +1,21 @@
+<canvas id="myCanvas" width="400" height="400" style="border: 1px solid black;"></canvas>
+
+<script>
+var canvas=document.getElementById("myCanvas");
+var ctx=canvas.getContext("2d");
+var gridSize=20;
+var gridWidth=canvas.width/gridSize;
+var gridHeight=canvas.height/gridSize;
+var snake=[{x:7,y:7}];
+var direction="right";
+var food={x:10,y:10};
+var gameSpeed=100;
+function drawSquare(x,y){ctx.fillRect(x*gridSize,y*gridSize,gridSize,gridSize);}
+function drawSnake(){ctx.fillStyle="green";for(var i=0;i<snake.length;i++){drawSquare(snake[i].x,snake[i].y);}}
+function drawFood(){ctx.fillStyle="red";drawSquare(food.x,food.y);}
+function updateSnake(){var headX=snake[0].x;var headY=snake[0].y;if(direction=="right"){headX++;}else if(direction=="left"){headX--;}else if(direction=="up"){headY--;}else if(direction=="down"){headY++;}if(headX<0||headX>=gridWidth||headY<0||headY>=gridHeight||checkCollision(headX,headY,snake)){clearInterval(gameInterval);return;}snake.unshift({x:headX,y:headY});if(headX==food.x&&headY==food.y){food={x:Math.floor(Math.random()*gridWidth),y:Math.floor(Math.random()*gridHeight)};}else{snake.pop();}}
+function checkCollision(x,y,array){for(var i=0;i<array.length;i++){if(array[i].x===x&&array[i].y===y){return true;}}return false;}
+function draw(){ctx.clearRect(0,0,canvas.width,canvas.height);drawSnake();drawFood();updateSnake();}
+document.addEventListener("keydown",function(e){if(e.keyCode==37&&direction!="right"){direction="left";}else if(e.keyCode==38&&direction!="down"){direction="up";}else if(e.keyCode==39&&direction!="left"){direction="right";}else if(e.keyCode==40&&direction!="up"){direction="down";}});
+var gameInterval=setInterval(draw,gameSpeed);
+</script>
