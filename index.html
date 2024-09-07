@@ -1,9 +1,10 @@
+<html onkeydown="myFunction(event)">
 <head>
   <style>
 div {text-align: center;}
 </style>
-  <script type="module">
-  // Import the functions you need from the SDKs you need
+  <script>
+  /* // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
   import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
   // TODO: Add SDKs for Firebase products that you want to use
@@ -23,7 +24,24 @@ div {text-align: center;}
 
   // Initialize Firebase
   const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  const analytics = getAnalytics(app);*/
+
+  function myFunction(event) {
+  let key = event.key;
+  if (key == "s" || key == "S") { 
+    secretvalue = 1;
+  }
+    if (key == "e" || key == "E") { 
+    if (secretvalue==1){secretvalue=2;}
+  }
+  if (key == "x" || key == "X") { 
+      if (secretvalue==2){let text = "<a href='/states.html'><button>funny US states game</button></a>";
+    document.getElementById("demo").innerHTML = text;}
+  }
+  if (key != "x" && key != "X" && key != "e" && key != "E" && key != "s" && key != "S") { 
+  secretvalue = 0;
+  }
+  }
 </script>
 </head>
 <body>
@@ -36,6 +54,7 @@ div {text-align: center;}
     <a href='/Turret.html'><button>Turret</button></a>
     <a href='/3D-Platformer.html'><button>3D Platformer</button></a>
     <a href='/Snake.html'><button>Snake</button></a>
+    <p id="demo"></p>
   </div>
 </body>
-
+</html>
