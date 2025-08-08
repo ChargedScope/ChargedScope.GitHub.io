@@ -47,7 +47,6 @@ https://quizzly.ai/play/romanian-government-formation
 https://quizzly.ai/play/star-wars-and-disney
 https://quizzly.ai/play/understanding-autoencoders
 https://quizzly.ai/play/understanding-traction-control-systems
-https://quizzly.ai/brands
 https://quizzly.ai/play/100-days-in-office
 https://quizzly.ai/play/access-restoration
 https://quizzly.ai/play/after-putin-and-trump-zelenskyy-to-skip-russia-ukraine-peace-talks-in-turkey
@@ -1522,7 +1521,6 @@ https://quizzly.ai/play/axiom-4-mission-what-shubhanshu-shuklas-trip-to-iss-mean
 https://quizzly.ai/play/basic-indian-languages
 https://quizzly.ai/play/best-time-to-visit-india
 https://quizzly.ai/play/bhakti-and-sufi-movements
-https://quizzly.ai/play/card/india
 https://quizzly.ai/play/caste-census-in-india
 https://quizzly.ai/play/causes-of-civil-wars-in-india
 https://quizzly.ai/play/chennai
@@ -2216,7 +2214,6 @@ https://quizzly.ai/play/beehive-management
 https://quizzly.ai/play/beekeeper
 https://quizzly.ai/play/bisaya-food
 https://quizzly.ai/play/brainteaser-quest-challenge-your-iq-food-drink
-https://quizzly.ai/play/card/food
 https://quizzly.ai/play/chicken-soup
 https://quizzly.ai/play/climate-change-impact-in-the-philippines
 https://quizzly.ai/play/climate-change-impact-philippines
@@ -2341,7 +2338,6 @@ https://quizzly.ai/play/apricot-growing-regions
 https://quizzly.ai/play/bahrain-alliance
 https://quizzly.ai/play/billboard-charts
 https://quizzly.ai/play/burj-khalifa
-https://quizzly.ai/play/card/united-kingdom
 https://quizzly.ai/play/chris-van-hollen
 https://quizzly.ai/play/defense-department-orders
 https://quizzly.ai/play/donald-trump-address
