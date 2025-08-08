@@ -38,6 +38,16 @@ document.addEventListener("DOMContentLoaded", function() {
         let days = Math.floor((now - startOfYear) / (24 * 60 * 60 * 1000));
         return Math.ceil((days + startOfYear.getDay() + 1) / 7);
     }
+
+    let currentWeek = getCurrentWeek();
+    let storedWeek = localStorage.getItem("visitedWeek");
+
+    // Reset if it's a new week
+    if (storedWeek !== String(currentWeek)) {
+        localStorage.setItem("visitedWeek", String(currentWeek));
+        localStorage.setItem("visitedLinks", JSON.stringify([]));
+    }
+    
     // Load visited links from localStorage or create empty array
     let visited = JSON.parse(localStorage.getItem("visitedLinks") || "[]");
 
