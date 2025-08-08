@@ -11,8 +11,6 @@ fetch('QuizzerRedirect.txt')
   .then(text => {
     const links = text.split('\n').map(line => line.trim()).filter(Boolean);
     // use links array here
-  })
-  .catch(err => console.error('Failed to load links:', err));
 
 
     function getCurrentWeek() {
@@ -53,6 +51,8 @@ fetch('QuizzerRedirect.txt')
 
     // Redirect
     window.location.assign(chosen);
+})
+  .catch(err => console.error('Failed to load links:', err));
 
 });
 </script>
