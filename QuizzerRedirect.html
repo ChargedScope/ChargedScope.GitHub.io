@@ -26,10 +26,9 @@ document.addEventListener("DOMContentLoaded", function() {
     let remaining = links.filter(link => !visited.includes(link));
 
     if (remaining.length === 0) {
-        // All links visited — reset
-        localStorage.removeItem("visitedLinks");
-        alert("All links visited! Starting over.");
-        remaining = [...links];
+        //localStorage.removeItem("visitedLinks");
+        alert("All links visited! Will restart next week");
+        //remaining = [...links];
     }
 
     // Pick a random remaining link
