@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Link Redirector</title>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Your 10 example links
+    const links = [
+        "https://quizzly.ai/play/interstate-highways",
+        "https://quizzly.ai/play/manila-traffic",
+        "https://quizzly.ai/play/pakistan-road-projects",
+        "https://quizzly.ai/play/zamboanga-traffic-incidents",
+        "https://quizzly.ai/play/short-lived-obstruction",
+        "https://quizzly.ai/play/scenic-route",
+        "https://quizzly.ai/play/vehicle-accident",
+        "https://quizzly.ai/play/hyderabad-to-bangalore-road-trip",
+        "https://quizzly.ai/play/automobile-accident",
+        "https://quizzly.ai/play/introduction-to-off-road-driving"
+    ];
+
+    // Load visited links from localStorage or create empty array
+    let visited = JSON.parse(localStorage.getItem("visitedLinks") || "[]");
+
+    // Find remaining links
+    let remaining = links.filter(link => !visited.includes(link));
+
+    if (remaining.length === 0) {
+        // All links visited — reset
+        localStorage.removeItem("visitedLinks");
+        alert("All links visited! Starting over.");
+        remaining = [...links];
+    }
+
+    // Pick a random remaining link
+    let chosen = remaining[Math.floor(Math.random() * remaining.length)];
+
+    // Save visit
+    visited.push(chosen);
+    localStorage.setItem("visitedLinks", JSON.stringify(visited));
+
+    // Redirect
+    window.location.assign(chosen);
+
+});
+</script>
+</head>
+<body>
+<p>Redirecting...</p>
+</body>
+</html>
