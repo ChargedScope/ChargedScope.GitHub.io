@@ -6,9 +6,14 @@
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     // Your 10 example links
-    const links = [
+fetch('QuizzerRedirect.txt')
+  .then(response => response.text())
+  .then(text => {
+    const links = text.split('\n').map(line => line.trim()).filter(Boolean);
+    // use links array here
+  })
+  .catch(err => console.error('Failed to load links:', err));
 
-    ];
 
     function getCurrentWeek() {
         let now = new Date();
