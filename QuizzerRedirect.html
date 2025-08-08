@@ -51,6 +51,10 @@ fetch('QuizzerRedirect.txt')
 
     // Redirect
     window.location.assign(chosen);
+
+    setTimeout(() => {
+        location.reload();
+    }, 10000);
 })
   .catch(err => console.error('Failed to load links:', err));
 
