@@ -26,8 +26,6 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         let visited = JSON.parse(localStorage.getItem("visitedLines") || "[]");
-
-        // Find remaining
         let remaining = lines.filter(line => !visited.includes(line));
 
         if (remaining.length === 0) {
@@ -35,21 +33,18 @@ document.addEventListener("DOMContentLoaded", function() {
             return;
         }
 
-        // Pick random line
         let chosenLine = remaining[Math.floor(Math.random() * remaining.length)];
         visited.push(chosenLine);
         localStorage.setItem("visitedLines", JSON.stringify(visited));
 
-        // Parse chosen line
+        // Parse "url, [answers]"
         let [url, answersStr] = chosenLine.split(",");
         url = url.trim();
-        let answers = JSON.parse(answersStr.trim());
+        let answers = answersStr.trim();
 
-        // Save answers to localStorage for Tampermonkey
-        localStorage.setItem("quizAnswers", JSON.stringify(answers));
-
-        // Redirect
-        window.location.assign(url);
+        // Redirect with answers in hash
+        let redirectUrl = url + "#answers=" + encodeURIComponent(answers);
+        window.location.assign(redirectUrl);
 
         // Optional auto-refresh
         setTimeout(() => {
