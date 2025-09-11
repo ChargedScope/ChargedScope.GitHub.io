@@ -1,10161 +1,1164 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+https://quizzly.ai/play/1-missing-in-landslide-in-san-ricardo-southern-leyte, [1,4,1,2,4,2,2,2,3,4]
+https://quizzly.ai/play/13-colonies, [1,4,3,3,2,4,4,2,1,1]
+https://quizzly.ai/play/13th-14th-and-15th-amendments, [1,3,4,1,4,4,2,1,3,2]
+https://quizzly.ai/play/15-of-army-time-lost-to-fake-news-during-op-sindoor-cds-gen-anil-chauhan, [4,2,1,2,2,4,2,2,3,4]
+https://quizzly.ai/play/2026-milestone, [2,3,4,2,3,1,2,2,1,2]
+https://quizzly.ai/play/2026-timeline, [2,4,1,1,1,3,3,4,2,1]
+https://quizzly.ai/play/501c3-status, [2,4,3,3,3,2,2,1,3,4]
+https://quizzly.ai/play/a-breakthrough-on-u.s.-china-tariffs-and-a-new-summer-air-travel-warning, [2,4,1,2,2,4,4,3,2,1]
+https://quizzly.ai/play/abuse-of-judicial-power, [4,3,3,2,3,2,1,4,3,1]
+https://quizzly.ai/play/academic-opportunities-for-foreigners, [1,1,3,2,4,4,1,2,4,1]
+https://quizzly.ai/play/active-directory-basics, [3,4,2,1,3,3,2,2,4,3]
+https://quizzly.ai/play/actress, [3,1,1,3,1,2,4,4,3,1]
+https://quizzly.ai/play/advaita-vedanta-philosophy, [2,1,1,2,1,4,2,1,4,1]
+https://quizzly.ai/play/advanced-ai-in-climate-science-k8ytkb, [3,2,3,2,4,1,1,4,3,2]
+https://quizzly.ai/play/advanced-ai-in-education, [3,2,3,2,2,2,2,4,3,2]
+https://quizzly.ai/play/advanced-augmented-reality, [1,2,4,3,1,1,3,1,1,3]
+https://quizzly.ai/play/advanced-blockchain-security, [2,4,1,4,1,4,4,2,3,1]
+https://quizzly.ai/play/advanced-case-study-evaluations, [1,3,3,3,2,1,1,3,4,2]
+https://quizzly.ai/play/advanced-cloud-services-juwzia, [2,1,4,2,2,1,4,4,2,3]
+https://quizzly.ai/play/advanced-cnc-techniques, [4,3,2,1,3,1,3,3,3,1]
+https://quizzly.ai/play/advanced-cybersecurity-strategies, [2,3,1,3,3,2,3,4,1]
+https://quizzly.ai/play/advanced-data-strategy, [1,4,3,4,2,4,2,2,3,4]
+https://quizzly.ai/play/advanced-economic-modelling-in-competition-cases, [3,4,1,2,1,1,1,4,3,2]
+https://quizzly.ai/play/advanced-electric-vehicle-systems, [3,2,2,4,1,4,1,2,4,3]
+https://quizzly.ai/play/advanced-email-segmentation-9du2bg, [4,2,3,1,3,4,2,3,1,2]
+https://quizzly.ai/play/advanced-excel-techniques, [4,2,3,1,2,1,4,1,2,1]
+https://quizzly.ai/play/advanced-machine-learning-rf5jn2, [4,4,3,1,1,2,1,2,2,1]
+https://quizzly.ai/play/advanced-market-segmentation, [4,1,3,4,1,4,4,1,2,3]
+https://quizzly.ai/play/advanced-network-theory, [3,2,3,2,2,2,1,2,1,2]
+https://quizzly.ai/play/advanced-network-theory, [3,2,3,2,2,2,1,2,1,2]https://quizzly.ai/play/state-control, [4,1,4,4,2,1,1,3,2,2]https://quizzly.ai/play/hollywoods-approach-to-augmented-reality-films, [1,4,3,1,4,1,4,1,2,1]https://quizzly.ai/play/chennai-it-corridor, [1,4,1,3,3,1,1,3,2,1]https://quizzly.ai/play/nbi-arrests-baguio-city-mayoral-candidate-on-multiple-fraud-charges, [4,1,1,4,3,3,1,2,1,3]https://quizzly.ai/play/islamabad-response-team, [1,3,4,1,3,3,4,4,4,1]https://quizzly.ai/play/dravidian-architecture, [2,1,3,1,4,1,4,1,3,4]https://quizzly.ai/play/carnatic-music, [2,1,3,2,4,2,1,4,1,3]https://quizzly.ai/play/trump-favorability, [4,4,3,3,4,3,2,2,4,3]https://quizzly.ai/play/boolean-data-type, [2,3,4,1,1,4,2,3,1]https://quizzly.ai/play/south-korea, [4,4,2,2,1,3,4,3,1,1]https://quizzly.ai/play/trump-official-statement, [1,1,1,2,1,3,4,3,2,2]https://quizzly.ai/play/bangkok-travel, [3,3,1,3,3,4,3,3,2,1]https://quizzly.ai/play/introduction-to-nosql-databases-i3bvzj, [4,2,3,4,1,2,4,3,3,1]https://quizzly.ai/play/trade-war-with-mexico, [2,1,4,3,2,3,4,4,3,1]https://quizzly.ai/play/the-statute-of-westminster-1275, [3,4,1,2,3,3,2,3,4,1]https://quizzly.ai/play/pop-music-and-theoretical-analysis, [2,1,4,4,3,4,4,2,3,3]https://quizzly.ai/play/phones, [2,4,3,2,3,1,4,3,3,1]https://quizzly.ai/play/phones, [2,4,3,2,3,1,4,3,3,1]https://quizzly.ai/play/pharmaceutical-patent-law, [2,4,1,2,4,4,2,4,1,2]https://quizzly.ai/play/trumps-involvement, [3,2,4,2,2,3,1,4,4,1]https://quizzly.ai/play/saudi-arabia-and-allies, [1,3,4,1,3,3,2,2,3,4]https://quizzly.ai/play/advanced-data-strategy, [1,4,3,4,2,4,2,2,3,4]https://quizzly.ai/play/introduction-to-vehicle-telemetry, [2,3,2,2,4,3,1,1,1,4]https://quizzly.ai/play/grammar, [4,3,3,2,3,2,1,3,2,3]https://quizzly.ai/play/contentious-canal-project, [2,1,1,4,2,1,4,4,2,4]https://quizzly.ai/play/dust-masks, [2,1,2,2,3,3,3,4,2,2]https://quizzly.ai/play/uk-temporarily-spared-from-donald-trumps-50-metal-tariffs, [3,4,3,1,4,3,3,4,4,1]https://quizzly.ai/play/indian-religious-diversity, [1,2,3,1,1,4,1,4,3]https://quizzly.ai/play/top-lessons, [1,3,3,4,2,2,1,4,2,2]https://quizzly.ai/play/mark-zuckerberg, [3,3,2,2,4,3,4,3,1,3]https://quizzly.ai/play/championships, [2,1,3,4,4,4,3,1,4,4]https://quizzly.ai/play/grapes, [1,1,1,3,1,1,2,4,4,3]https://quizzly.ai/play/biogeochemical-cycles, [4,3,3,2,4,1,1,3,3,3]https://quizzly.ai/play/electricity-disruption-portugal, [3,1,3,4,4,2,4,2,4,1]https://quizzly.ai/play/pop-music-and-data-analytics, [3,1,2,4,4,1,4,1,2,4]https://quizzly.ai/play/popcorn-and-soda, [2,2,4,2,1,2,4,3,1,2]https://quizzly.ai/play/advanced-machine-learning-rf5jn2, [4,4,3,1,1,2,1,2,2,1]https://quizzly.ai/play/amaravati-developments, [1,1,1,3,2,1,2,3,2,1]https://quizzly.ai/play/trumps-trade-war, [3,3,2,4,4,1,4,3,1,1]https://quizzly.ai/play/quiz, [1,1,1,1,3,2,1,2,1,2]https://quizzly.ai/play/disney-villains, [4,3,3,3,1,4,1]https://quizzly.ai/play/long-distance-train, [2,3,2,3,3,2,4,2,2,1]https://quizzly.ai/play/introduction-to-veneering, [2,4,2,4,3,2,4,1,3,2]https://quizzly.ai/play/using-comments-and-notes, [3,3,1,1,4,1,1,1,1,4]https://quizzly.ai/play/yesterdays-quiz, [3,4,1,3,1,2,3,2,4,1]https://quizzly.ai/play/mekong-river, [4,2,1,4,4,4,1,3,4,3]https://quizzly.ai/play/birthright-citizenship, [1,1,1,2,3,1,3,3,1,4]https://quizzly.ai/play/sydney-opera-house, [3,3,4,3,1,4,4,4,2,3]https://quizzly.ai/play/disneys-impact-on-global-media-infrastructure, [3,3,4,3,1,4,3,4,4,2]https://quizzly.ai/play/trump-and-machine-learning, [4,2,3,1,1,4,4,1,4,1]https://quizzly.ai/play/digital-video-content, [3,1,1,2,2,1,1,2,4,2]https://quizzly.ai/play/climate-vs.-weather, [2,4,3,1,4,4,3,4,4,2]https://quizzly.ai/play/trump-as-catholic-pope-ai, [2,4,3,2,3,3,3,4,2]https://quizzly.ai/play/deped-vows-to-cooperate-with-ombudsman-in-p2.4-b-laptops-graft-case, [1,2,3,4,3,1,2,2,4,2]https://quizzly.ai/play/the-rock, [1,2,1,4,4,3,4,3,4]https://quizzly.ai/play/advanced-case-study-evaluations, [1,3,3,3,2,1,1,3,4,2]https://quizzly.ai/play/apricot-trade-regulations, [1,4,4,4,3,4,4,2,4,4]https://quizzly.ai/play/foreign-assistance-programs, [2,2,1,4,4,3,2,2,2,2]https://quizzly.ai/play/game-development-studio, [4,1,1,1,3,3,1,1,3,4]https://quizzly.ai/play/strategy, [2,1,3,2,2,2,4,1,1,1]https://quizzly.ai/play/prison-conditions, [1,1,3,4,1,1,2,2,4,1]https://quizzly.ai/play/cheesecake, [1,4,4,2,2,1,3,4,1,2]https://quizzly.ai/play/consumer-decision-making-process-t5e7s1, [3,4,1,3,2,1,1,3,1,1]https://quizzly.ai/play/data-sharing, [3,2,3,2,2,2,2,1,4]https://quizzly.ai/play/designing-next-generation-plumbing-systems, [3,2,2,1,4,2,2,2,2,1]https://quizzly.ai/play/email-marketing-strategy-leadership-wgqckf, [2,1,3,3,4,4,4,3,1,1]https://quizzly.ai/play/advanced-email-segmentation-9du2bg, [4,2,3,1,3,4,2,3,1,2]https://quizzly.ai/play/podcasting-pioneers, [3,3,4,2,4,4,3,4,2,1]https://quizzly.ai/play/advanced-cloud-services-juwzia, [2,1,4,2,2,1,4,4,2,3]https://quizzly.ai/play/barron-trump-was-trending-because-of-birthright-citizenship.-heres-what-to-know, [2,4,4,2,3,1,1,3,1,2]https://quizzly.ai/play/power-consolidation, [3,1,2,2,2,4,2,3,4,2]https://quizzly.ai/play/uk-india-technology-partnerships, [2,4,1,4,1,2,4,4,1,2]https://quizzly.ai/play/confidential-files, [3,3,2,4,3,2,3,1,3,1]https://quizzly.ai/play/skeletal-remains-found-in-taal-area, [1,2,1,1,2,1,1,4,2]https://quizzly.ai/play/judge-pauses-trumps-effort-to-reduce-the-size-of-the-federal-government, [1,1,3,2,2,1,4,4,1,4]https://quizzly.ai/play/trump-backed-candidates, [4,1,4,4,2,3,3,3,4,4]https://quizzly.ai/play/islamic-education, [2,2,3,3,1,2,3,2,3,3]https://quizzly.ai/play/legislators, [3,2,2,3,2,1,4,2,2,3]https://quizzly.ai/play/uks-cultural-heritage-preservation, [1,3,4,3,4,3,3,3,4,1]https://quizzly.ai/play/leader-of-the-ruling-party, [4,2,2,4,3,3,3,1,3,4]https://quizzly.ai/play/mediation-efforts-in-ukraine-conflict, [1,1,4,3,3,4,2,1,4]https://quizzly.ai/play/animal-rights-activism, [3,3,2,1,2,3,1,3]https://quizzly.ai/play/cyclonic-circulation, [2,3,1,3,2,2,2,1,3,2]https://quizzly.ai/play/how-northern-ireland-commemorates-the-second-world-war-on-the-80th-anniversary-of-ve-day, [2,2,2,4,2,1,3,1,2]https://quizzly.ai/play/great-chance, [1,4,3,3,3,3,2,3,3,1]https://quizzly.ai/play/trump-says-used-us-trade-ties-to-persuade-india-pakistan-on-ceasefire, [3,3,4,1,2,3]https://quizzly.ai/play/biodiversity-offsetting, [3,3,1,3,1,1,4,4,1,4]https://quizzly.ai/play/security-in-mindanao, [2,2,2,4,3,4,3,2,1]https://quizzly.ai/play/international-treaties, [3,2,1,3,4,3,3,3,1,3]https://quizzly.ai/play/data-driven-business-transformation, [3,2,4,3,2,2,3,1,2,4]https://quizzly.ai/play/advanced-optimization-techniques, [2,3,2,3,1,4,1,3,3,1]https://quizzly.ai/play/data-type-conversion, [4,1,2,2,3,2,4,3,3,1]https://quizzly.ai/play/prayer-and-meditation, [2,2,4,1,2,2,1,4,4,2]https://quizzly.ai/play/ai-in-advanced-robotics, [1,4,1,3,4,3,4,3,3,1]https://quizzly.ai/play/uks-economic-history, [2,2,2,2,4,2,1,4,1]https://quizzly.ai/play/advanced-ai-in-education, [3,2,3,2,2,2,2,4,3,2]https://quizzly.ai/play/advocates-for-womens-rights, [2,2,4,4,3,2,1,4]https://quizzly.ai/play/main-characters-js55pn, [3,4,2,3,1,1,1,4,2]https://quizzly.ai/play/world-tour, [4,3,3,4,4,4,3,4,2,2]https://quizzly.ai/play/operating-system-basics, [1,3,2,2,3,3,1,2,3,3]https://quizzly.ai/play/duterte-international-law, [1,2,1,4,2,2,4,3,4,4]https://quizzly.ai/play/student-visas-revoked, [1,2,3,3,2,3,2,3,2,1]https://quizzly.ai/play/typhoons-in-the-philippines, [3,2,3,4,3,2,3,1,1,1]https://quizzly.ai/play/crop-cultivation, [1,4,4,2,1,1,1,1,4,1]https://quizzly.ai/play/understanding-future-vehicle-technologies, [3,1,2,4,4,2,2,1,4,2]https://quizzly.ai/play/immigrant-deportation-violation, [2,1,1,3,2,2,3,4,3,1]https://quizzly.ai/play/advanced-blockchain-security, [2,4,1,4,1,4,4,2,3,1]https://quizzly.ai/play/the-role-of-the-reader-in-literature, [3,1,3,1,3,3,4,1,2,2]https://quizzly.ai/play/e-commerce-strategic-alliances, [3,4,4,1,3,3,1,4,1,4]https://quizzly.ai/play/flags-with-cultural-symbols, [3,1,3,4,3,1,4,3,1,1]https://quizzly.ai/play/popular-marvel-movies, [2,2,1,3,1,3,2,1,3]https://quizzly.ai/play/vietnamese-cuisine, [1,2,3,3,3,4,1,3,1,4]https://quizzly.ai/play/1-missing-in-landslide-in-san-ricardo-southern-leyte, [1,4,1,2,4,2,2,2,3,4]https://quizzly.ai/play/database-query, [2,2,2,1,2,2,4,3,3,3]https://quizzly.ai/play/legal-response, [1,4,1,1,2,1,4,3,3,3]https://quizzly.ai/play/student-visa-interview, [2,3,2,2,2,1,2,2,3,1]https://quizzly.ai/play/supervised-learning, [3,2,2,1,3,2,2,1,4,1]https://quizzly.ai/play/measuring-and-marking, [2,2,2,1,1,3,1,3,2,4]https://quizzly.ai/play/president-trump-defends-federal-flooding-response-in-texas-visit, [4,4,3,3,3,1,3,2,2,2]https://quizzly.ai/play/russias-reaction, [1,3,1,2,3,4,3,4,3,4]https://quizzly.ai/play/uk-healthcare-system, [4,4,2,4,4,3,2,3,1,1]https://quizzly.ai/play/advanced-augmented-reality, [1,2,4,3,1,1,3,1,1,3]https://quizzly.ai/play/health-threats, [3,2,1,1,4,1,1,4,3,2]https://quizzly.ai/play/granting-wishes, [4,1,2,4,1,4,4,4,4]https://quizzly.ai/play/paper-cup, [4,4,3,1,1,4,3,1,1,2]https://quizzly.ai/play/pakistan-army-human-rights-issues, [3,3,1,4,2,4,2]https://quizzly.ai/play/advocates-for-school-safety, [3,1,3,2,3,3,3,4,3,3]https://quizzly.ai/play/gemstones-commonly-used-in-indian-wedding-jewellery, [1,1,4,1,4,4,1,4,3,1]https://quizzly.ai/play/impact-on-public-programs, [2,1,4,3,1,4,4,1,2,3]https://quizzly.ai/play/actress, [3,1,1,3,1,2,4,4,3,1]https://quizzly.ai/play/ethics-in-baseball, [1,2,1,4,1,4,4,3,4]https://quizzly.ai/play/exams, [1,2,4,2,4,3,4,4,2,4]https://quizzly.ai/play/apricot-export-challenges, [4,4,3,4,4,4,3,2,3,2]https://quizzly.ai/play/uks-advanced-scientific-research, [3,1,2,4,4,2,2,2,4,1]https://quizzly.ai/play/brainteaser-quest-challenge-your-iq-fine-art, [1,4,2,2,2,1,1,3,3,3]https://quizzly.ai/play/generative-adversarial-networks-gans, [4,3,4,2,2,4,2,1,2,4]https://quizzly.ai/play/building-takeovers, [3,2,3,1,1,3,1,1,1]
+https://quizzly.ai/play/advanced-optimization-techniques, [2,3,2,3,1,4,1,3,3,1]
+https://quizzly.ai/play/advanced-plumbing-codes, [1,1,1,4,2,1,4,1,3,4]
+https://quizzly.ai/play/advanced-plumbing-system-research-and-development, [2,4,3,1,3,3,3,2,3,3]
+https://quizzly.ai/play/advanced-quantum-cryptography-6cbx1f, [3,2,4,1,2,4,1,4,1,2]
+https://quizzly.ai/play/advanced-rally-driving-techniques, [1,3,2,2,3,4,1,3,1,4]
+https://quizzly.ai/play/advanced-reinforcement-learning-algorithms, [4,2,1,3,1,3,1,1,2,2]
+https://quizzly.ai/play/advanced-scenario-planning, [4,4,3,1,2,1,1,2,2,2]
+https://quizzly.ai/play/advanced-stochastic-calculus-in-finance, [1,2,4,4,3,1,4,3,3,2]
+https://quizzly.ai/play/advanced-technical-indicators, [4,1,3,2,3,3,3,2,2,4]
+https://quizzly.ai/play/advanced-theoretical-discussions, [2,2,4,4,4,2,3,1,2,3]
+https://quizzly.ai/play/advanced-time-series-analysis, [4,4,1,3,3,4,2,1,1,4]
+https://quizzly.ai/play/advanced-vegan-cooking, [2,1,1,3,4,4,2,2,2,4]
+https://quizzly.ai/play/advanced-vehicle-prototyping-techniques, [4,1,2,1,4,2,2,3,2,2]
+https://quizzly.ai/play/advanced-wine-tasting, [4,4,3,3,2,3,1,2,4,3]
+https://quizzly.ai/play/advanced-wireless-security, [2,2,3,1,2,4,2,3]
+https://quizzly.ai/play/advocates-for-school-safety, [3,1,3,2,3,3,3,4,3,3]
+https://quizzly.ai/play/advocates-for-womens-rights, [2,2,4,4,3,2,1,4]
+https://quizzly.ai/play/ai-and-misinformation, [4,2,4,4,3,4,1,3,2,1]
+https://quizzly.ai/play/ai-and-quantum-computing, [3,3,2,3,3,1,4,1,1,3]
+https://quizzly.ai/play/ai-expert-insights, [4,3,3,4,3,4,3,4,1,3]
+https://quizzly.ai/play/ai-for-sustainable-development, [3,1,1,2,4,4,1,4,3,1]
+https://quizzly.ai/play/ai-generated-trump-pope, [4,4,3,3,4,1,2,2,1,3]
+https://quizzly.ai/play/ai-governance-and-policy, [1,1,2,3,3,1,1,4,3,2]
+https://quizzly.ai/play/ai-in-advanced-robotics, [1,4,1,3,4,3,4,3,3,1]
+https://quizzly.ai/play/ai-in-anthropology, [4,4,1,2,1,3,1,4,4,4]
+https://quizzly.ai/play/ai-in-emotional-intelligence, [1,2,3,1,4,4,2,2,1,1]
+https://quizzly.ai/play/ai-in-financial-trading, [3,3,4,3,1,1,3,1,4,3]
+https://quizzly.ai/play/ai-in-multi-agent-systems, [4,2,1,4,4,3,2,3,2,3]
+https://quizzly.ai/play/ai-in-software-development, [1,4,4,4,3,2,2,3,4,3]
+https://quizzly.ai/play/ai-platforms-for-fast-language-learning, [2,1,2,3,3,4,4,1,2,2]
+https://quizzly.ai/play/ai-policy-and-regulation, [1,1,4,3,4,4,3,4,4,3]
+https://quizzly.ai/play/ai-specialist-commentary, [3,3,4,3,3,2,2,2,1,2]
+https://quizzly.ai/play/ai-tools-and-frameworks, [3,4,2,3,3,2,1,1,2,3]
+https://quizzly.ai/play/aid-to-developing-countries, [3,4,2,1,3,4,2,1,3,1]
+https://quizzly.ai/play/air, [1,3,3,2,1,3,2,4,4,1]
+https://quizzly.ai/play/air-passenger-rights, [4,4,4,3,4,3,2,4,4,2]
+https://quizzly.ai/play/air-pollution-control-technologies, [3,3,4,3,2,2,1,4,2,2]
+https://quizzly.ai/play/aircraft, [4,4,1,2,2,4,4,3,2,2]
+https://quizzly.ai/play/airport, [4,3,3,1,2,3,3,1,2,2]
+https://quizzly.ai/play/airport-safety-measures, [1,2,3,2,2,4,3,4,2,1]
+https://quizzly.ai/play/al-capone-inmate, [3,2,3,2,1,3,1,3,2]
+https://quizzly.ai/play/alien-and-sedition-acts, [2,3,3,2,3,4,4,1,4,4]
+https://quizzly.ai/play/amaravati-developments, [1,1,1,3,2,1,2,3,2,1]
+https://quizzly.ai/play/amazon, [1,3,4,4,1,1,2,3,4,4]
+https://quizzly.ai/play/america-first-policy, [4,2,3,1,2,1,4,1,4,2]
+https://quizzly.ai/play/amigo, [2,4,2,3,4,4,3,4,1,1]
+https://quizzly.ai/play/analog-clock, [3,4,3,3,4,3,3,4,3,2]
+https://quizzly.ai/play/andres-bonifacio, [1,1,1,1,1,2,3,1,1,4]
+https://quizzly.ai/play/anglo-saxon-england, [4,1,2,3,1,1,2,1,3]
+https://quizzly.ai/play/animal-rights-activism, [3,3,2,1,2,3,1,3]
+https://quizzly.ai/play/anthony-edwards-highlights, [3,3,2,1,2,3,4,1]
+https://quizzly.ai/play/anthropogenic-climate-change, [1,4,3,1,3,3,1,3,2,2]
+https://quizzly.ai/play/antonyms, [4,1,1,3,2,3,1,1,1]
+https://quizzly.ai/play/appeals-court-pauses-ruling-that-blocked-trumps-tariffs, [1,3,4,2,1,3,2,4,2,2]
+https://quizzly.ai/play/apricot-and-climate-mitigation, [2,2,4,1,3,4,3,1,1,2]
+https://quizzly.ai/play/apricot-and-pollination, [3,4,4,1,1,3,1,1,3,2]
+https://quizzly.ai/play/apricot-and-soil-health, [2,3,3,3,4,4,2,2,4,2]
+https://quizzly.ai/play/apricot-circular-economy, [2,2,3,3,2,4,1,1,1,2]
+https://quizzly.ai/play/apricot-export-challenges, [4,4,3,4,4,4,3,2,3,2]
+https://quizzly.ai/play/apricot-festivals, [1,4,2,2,3,2,1,3,1,3]
+https://quizzly.ai/play/apricot-in-sociopolitical-discourse, [3,4,4,2,1,4,3,2,1,4]
+https://quizzly.ai/play/apricot-synthetic-biology, [1,2,3,2,3,1,3,2,1,2]
+https://quizzly.ai/play/apricot-trade-regulations, [1,4,4,4,3,4,4,2,4,4]
+https://quizzly.ai/play/apricot-tree-characteristics, [1,3,2,3,1,1,1,3,1,2]
+https://quizzly.ai/play/aquatic-life, [4,3,1,4,4,3,2,4,1,4]
+https://quizzly.ai/play/armenian-influence-in-the-middle-east, [2,2,3,3,4,1,3,1,1]
+https://quizzly.ai/play/arnis, [4,1,4,3,4,1,4,2,2]
+https://quizzly.ai/play/arrivals-and-departures, [3,2,3,1,3,3,3,3,1,3]
+https://quizzly.ai/play/arrived-back-in-the-us, [1,1,2,4,4,3,2,3,3,4]
+https://quizzly.ai/play/ashokas-edicts, [2,4,3,1,2,1,2,2,1,2]
+https://quizzly.ai/play/associated-with-young-indian-pvt-ltd, [4,4,1,1,3,2,3,3,3,4]
+https://quizzly.ai/play/asylum-applications, [2,4,3,3,1,3,4,4,1]
+https://quizzly.ai/play/athlete-salaries, [4,3,4,3,4,1,2,4,4,2]
+https://quizzly.ai/play/atmospheric-pressure-drop, [3,3,3,1,3,2,1,1,2,3]
+https://quizzly.ai/play/australian-politics, [3,3,3,4,4,2,1,2,2,2]
+https://quizzly.ai/play/automobile-accident, [4,4,3,4,4,1,3,1]
+https://quizzly.ai/play/aviation-regulations-south-asia, [1,1,4,1,2,1,3,3,4,2]
+https://quizzly.ai/play/award-winning-performances, [4,4,2,2,3,4,3,3,2,3]
+https://quizzly.ai/play/backlash-from-canada, [2,1,3,2,3,3,3,2,4,1]
+https://quizzly.ai/play/balanced-diet, [2,1,2,4,2,2,3,2,1,1]
+https://quizzly.ai/play/bali, [2,1,4,1,1,1,1,3,2,3]
+https://quizzly.ai/play/bangalore-weather-update-may-2025, [4,1,1,4,1,1,2,3,4,2]
+https://quizzly.ai/play/bangkok-travel, [3,3,1,3,3,4,3,3,2,1]
+https://quizzly.ai/play/bangladesh, [3,1,2,1,4,2,2,2,4,1]
+https://quizzly.ai/play/baptism-rituals, [4,1,2,2,3,3,4,4,4,1]
+https://quizzly.ai/play/barracks-regulations, [2,2,2,3,1,4,2,1,4,3]
+https://quizzly.ai/play/barron-trump-was-trending-because-of-birthright-citizenship.-heres-what-to-know, [2,4,4,2,3,1,1,3,1,2]
+https://quizzly.ai/play/baseball-and-identity, [2,4,2,1,3,1,3,3,1,4]
+https://quizzly.ai/play/baseball-broadcasting-and-media, [3,1,2,4,2,2,1,1,1,4]
+https://quizzly.ai/play/baseball-game-structure, [4,2,1,3,4,1,1,4,2,4]
+https://quizzly.ai/play/baseball-hall-of-fame-0yonpm, [1,1,1,1,2,1,1,2,3,4]
+https://quizzly.ai/play/basic-assessment-techniques, [3,4,1,2,1,4,3,2,1,2]
+https://quizzly.ai/play/basic-budgeting-techniques, [1,3,2,3,4,1,4,3,4,3]
+https://quizzly.ai/play/basic-data-interpretation-reqxyv, [3,2,1,1,4,2,3,2,2,4]
+https://quizzly.ai/play/basic-keyboard-shortcuts-for-data-entry, [1,1,4,2,4,3,2,4,2,3]
+https://quizzly.ai/play/basic-squash-strokes, [4,3,2,3,1,4,2,2,4,3]
+https://quizzly.ai/play/basic-sushi-making, [3,4,1,3,1,4,3,3,4,1]
+https://quizzly.ai/play/basic-towing-knowledge, [2,2,1,4,1,3,3,3,2,2]
+https://quizzly.ai/play/basics-of-baking, [3,2,1,2,2,3,1,3,2,1]
+https://quizzly.ai/play/bawku-crisis-management, [3,1,1,3,4]
+https://quizzly.ai/play/bee-biodiversity, [2,2,1,1,2,4,3,2,1,4]
+https://quizzly.ai/play/bee-communication, [2,3,2,4,4,3,4,3,4,1]
+https://quizzly.ai/play/bee-conservation-policy, [2,3,2,4,4,2,1,1,1,1]
+https://quizzly.ai/play/bee-foraging-patterns, [3,4,1,3,3,1,2,2,4,2]
+https://quizzly.ai/play/bee-friendly-plants, [1,3,3,1,2,2,4,1,1,1]
+https://quizzly.ai/play/bee-genomic-conservation, [3,1,2,3,3,1,1,3,3]
+https://quizzly.ai/play/bee-pollination-networks, [1,2,1,2,2,2,1,2,4,2]
+https://quizzly.ai/play/bee-population-viability, [1,1,1,3,2,2,2,2,4]
+https://quizzly.ai/play/bee-reproduction, [2,3,3,4,2,1,2,2,4]
+https://quizzly.ai/play/beehive-management, [3,1,3,1,4,2,3,3,4,2]
+https://quizzly.ai/play/bengaluru-flood-risk-may-2025, [3,2,2,4,4,4,2,4,4,3]
+https://quizzly.ai/play/best-picture-winner, [3,3,3,4,2,3,4,2,3,4]
+https://quizzly.ai/play/best-time-to-visit-kashmir-safely, [4,2,3,1,2,4,2,4,3,2]
+https://quizzly.ai/play/bilateral-visa-arrangement, [4,2,2,2,2,2,4,1,3,1]
+https://quizzly.ai/play/biodiversity-offsetting, [3,3,1,3,1,1,4,4,1,4]
+https://quizzly.ai/play/biogeochemical-cycles, [4,3,3,2,4,1,1,3,3,3]
+https://quizzly.ai/play/birthright-citizenship, [1,1,1,2,3,1,3,3,1,4]
+https://quizzly.ai/play/bisaya-traditions, [2,4,2,2,4,1,3,4,4,4]
+https://quizzly.ai/play/bishop-of-rome, [3,4,1,1,2,4,1,2,4,3]
+https://quizzly.ai/play/blockbuster-movies, [2,3,1,4,2,4,1,4,1,3]
+https://quizzly.ai/play/blockbuster-movies-gip1ya, [2,3,1,3,1,2,4,3,3,3]
+https://quizzly.ai/play/blockchain-in-marketing, [4,1,1,4,4,3,2,2,2,3]
+https://quizzly.ai/play/book-club, [1,1,4,2,1,2,1,4,4,1]
+https://quizzly.ai/play/boolean-data-type, [2,3,4,1,1,4,2,3,1]
+https://quizzly.ai/play/border-crossings, [2,3,4,2,2,2,4,4,1]
+https://quizzly.ai/play/bovine, [3,2,3,2,1,3,4,2,1,2]
+https://quizzly.ai/play/brain-cells, [3,3,4,3,3,2,2,1,1,3]
+https://quizzly.ai/play/brainteaser-quest-challenge-your-iq-fine-art, [1,4,2,2,2,1,1,3,3,3]
+https://quizzly.ai/play/brainteaser-quest-challenge-your-iq-healthy-living, [1,3,3,1,4,4,1,2,1,1]
+https://quizzly.ai/play/branding-basics, [2,3,4,3,2,4,3,2,3,1]
+https://quizzly.ai/play/bridge-safety-inspection, [1,3,3,2,2,2,4,2,3,4]
+https://quizzly.ai/play/building, [3,2,4,2,2,3,1,3,2,3]
+https://quizzly.ai/play/canada-tariffs, [2,3,1,2,1,4,2,2,3,1]
+https://quizzly.ai/play/canadian-federal-election, [2,1,3,3,3,3,1,1,4,4]
+https://quizzly.ai/play/canadian-parliament-election-2025, [4,4,4,1,1,4,3,4,2,2]
+https://quizzly.ai/play/cancelled-flights, [2,4,1,4,3,4,2,2,3,4]
+https://quizzly.ai/play/cape-coast-castle, [3,2,3,1,2,3,3,4,4,1]
+https://quizzly.ai/play/career-clarification, [4,4,3,4,1,2,1,4,4,1]
+https://quizzly.ai/play/carnatic-music, [2,1,3,2,4,2,1,4,1,3]
+https://quizzly.ai/play/catastrophe-recovery, [2,3,1,2,2,1,2,1,1,2]
+https://quizzly.ai/play/cause-of-death, [3,4,2,3,3,2]
+https://quizzly.ai/play/ceasefire-breakdown, [4,1,1,2,1,1,2,2,4]
+https://quizzly.ai/play/ceasefire-violation, [2,3,2,3,2,2,3,1,4,2]
+https://quizzly.ai/play/central-american-man, [4,1,3,1,1,1,2,4,1,4]
+https://quizzly.ai/play/central-bank-policies, [2,4,1,1,4,3,3,4,3,1]
+https://quizzly.ai/play/challenges-to-trump, [2,4,2,1,3,1,4,3,3,4]
+https://quizzly.ai/play/championships, [2,1,3,4,4,4,3,1,4,4]
+https://quizzly.ai/play/chapel-for-private-use, [3,4,1,3,4,2,3,4,3,4]
+https://quizzly.ai/play/charles-darwin, [1,2,2,3,4,3,1,4,2,1]
+https://quizzly.ai/play/cheesecake, [1,4,4,2,2,1,3,4,1,2]
+https://quizzly.ai/play/chennai, [4,2,1,1,1,4,1,1,4,2]
+https://quizzly.ai/play/chennai-it-corridor, [1,4,1,3,3,1,1,3,2,1]
+https://quizzly.ai/play/chicken-soup, [4,2,3,1,3,2,4,3,4,2]
+https://quizzly.ai/play/childrens-books, [3,2,1,4,3,3,1,4,3,1]
+https://quizzly.ai/play/chinese-maritime-expansion, [2,3,4,2,1,4,1,3,1,1]
+https://quizzly.ai/play/chittoor-temples, [4,1,3,3,3,3,3,3,1,2]
+https://quizzly.ai/play/clash-over-towns-ve-day-80th-anniversary-display-as-some-councillors-brand-decorations-dismal, [1,2,2,2,1,4,2,1,1,1]
+https://quizzly.ai/play/climate-change-mitigation-7zgt9t, [3,3,3,3,2,4,4,3,4,3]
+https://quizzly.ai/play/climate-vs.-weather, [2,4,3,1,4,4,3,4,4,2]
+https://quizzly.ai/play/clock, [3,2,1,4,1,1,3,3,2,3]
+https://quizzly.ai/play/clrscr-alternative-in-c, [3,2,4,4,1,4,3,4,1,2]
+https://quizzly.ai/play/cobit, [4,1,2,2,1,3,3,3,2,3]
+https://quizzly.ai/play/cold-war-beginnings, [4,3,3,4,4,4,1,4,4,3]
+https://quizzly.ai/play/college-evaluation-criteria, [2,1,2,4,3,2,2,2,2,4]
+https://quizzly.ai/play/comparative-study-of-baseball-and-cricket, [2,4,2,4,4,2,2,1,3,2]
+https://quizzly.ai/play/compelling-behavior, [4,1,3,3,2,4,1,3,3,2]
+https://quizzly.ai/play/competition-law-and-the-future-of-work, [2,3,2,2,1,1,4,1,4,4]
+https://quizzly.ai/play/complex-wood-bending, [1,1,1,1,3,1,4,3,4,2]
+https://quizzly.ai/play/computer-networking, [4,2,1,3,1,3,1,4,3,4]
+https://quizzly.ai/play/confidential-files, [3,3,2,4,3,2,3,1,3,1]
+https://quizzly.ai/play/conflict-zones, [3,3,3,3,1,4,4,4,1]
+https://quizzly.ai/play/conforming, [2,1,4,1,2,2,3,4,2,1]
+https://quizzly.ai/play/conservation, [2,2,1,4,4,2,3,1,3,1]
+https://quizzly.ai/play/consumer-decision-making-process-t5e7s1, [3,4,1,3,2,1,1,3,1,1]
+https://quizzly.ai/play/containerization-and-orchestration-s0hzc4, [3,2,1,2,3,2,3,3,1,1]
+https://quizzly.ai/play/content-creator, [3,4,3,3,2,2,3,4,3,2]
+https://quizzly.ai/play/contentious-canal-project, [2,1,1,4,2,1,4,4,2,4]
+https://quizzly.ai/play/continuous-improvement, [1,1,2,4,2,2,2,2,3,1]
+https://quizzly.ai/play/controversial-trump-proposal, [3,4,4,2,2,3,4,4,4,3]
+https://quizzly.ai/play/conversion-rate-optimization-wv9n7q, [4,2,1,4,4,3,1,1,3,4]
+https://quizzly.ai/play/cooperative-credit-society, [2,2,4,3,1,1,3,1,4,2]
+https://quizzly.ai/play/coordinated-response, [2,1,4,2,1,3,3,1,2,4]
+https://quizzly.ai/play/corporate-valuation-techniques-7z2qg3, [2,1,4,4,4,4,2,4,4,3]
+https://quizzly.ai/play/correctional-facility, [1,2,3,3,1,2,4,3,1,2]
+https://quizzly.ai/play/country-in-southeast-asia, [3,1,4,2,3,1,4,4,2,4]
+https://quizzly.ai/play/crash-on-golf-course, [4,1,3,2,3,4,1,1]
+https://quizzly.ai/play/cricket-records-in-1992, [3,3,1,1,1,2,4,2,4,2]
+https://quizzly.ai/play/cricket-rules, [4,1,2,2,4,4,4,1,2,1]
+https://quizzly.ai/play/criminal-charges-filed-against-trio, [3,2,2,3,2,4,1,1,1,3]
+https://quizzly.ai/play/criminal-defense, [3,4,2,1,1,2,1,1,1]
+https://quizzly.ai/play/critical-evaluation-of-models, [1,2,4,1,4,1,3,4,3,1]
+https://quizzly.ai/play/crop-cultivation, [1,4,4,2,1,1,1,1,4,1]
+https://quizzly.ai/play/cross-platform-development, [2,2,1,4,2,3,3,2,3,2]
+https://quizzly.ai/play/cryptocurrency-regulation, [1,3,3,1,3,2,2,2,4,3]
+https://quizzly.ai/play/cultural-events, [4,1,4,2,1,1,1,1,4,4]
+https://quizzly.ai/play/cultural-significance, [4,2,4,2,1,2,4,1,3,4]
+https://quizzly.ai/play/currency, [3,2,1,2,1,1,2,4,3,3]
+https://quizzly.ai/play/currency-exchange, [3,2,2,2,1,4,4,4,2,4]
+https://quizzly.ai/play/current-polling-data, [1,1,2,1,4,3,3,2,1,1]
+https://quizzly.ai/play/current-trump-officials, [1,1,1,2,3,3,1,4,4,2]
+https://quizzly.ai/play/custom-hardware-builds, [3,2,2,3,4,2,1,4,4,3]
+https://quizzly.ai/play/customer-lifetime-value-analysis-306kp5, [3,1,4,4,2,3,1,3,4,3]
+https://quizzly.ai/play/customs-enforcement, [2,1,3,4,3,1,2,2,3,4]
+https://quizzly.ai/play/cutting-edge-financial-technologies, [2,3,1,4,4,4,2,1,3,1]
+https://quizzly.ai/play/cyber-security, [1,3,2,1,3,1,4,2,4,1]
+https://quizzly.ai/play/cybersecurity-in-healthcare, [3,3,3,1,1,3,4,3,3]
+https://quizzly.ai/play/cybersecurity-incidents, [2,2,2,4,3,1,2,4,2]
+https://quizzly.ai/play/cyclonic-circulation, [2,3,1,3,2,2,2,1,3,2]
+https://quizzly.ai/play/daca-recipients, [1,2,4,4,2,3,2,2,3,2]
+https://quizzly.ai/play/dairy-cow, [3,2,3,2,1,3,2,3,1,2]
+https://quizzly.ai/play/data-analysis-with-neural-networks, [4,3,2,2,1,4,2,3,4,2]
+https://quizzly.ai/play/data-analysis-with-spark, [1,4,2,2,3,2,1,2,2,1]
+https://quizzly.ai/play/data-analytics-for-cybersecurity, [1,4,3,1,1,4,4,3,1]
+https://quizzly.ai/play/data-breach-case-studies, [3,3,2,4,2,2,3,3,3]
+https://quizzly.ai/play/data-collection, [1,4,4,2,4,4,1,2,2,4]
+https://quizzly.ai/play/data-driven-business-transformation, [3,2,4,3,2,2,3,1,2,4]
+https://quizzly.ai/play/data-ethics-and-compliance, [3,2,3,1,4,2,4,4,3,1]
+https://quizzly.ai/play/data-points, [2,2,4,4,1,3,3,3,1,4]
+https://quizzly.ai/play/data-quality-assessment, [4,3,2,3,4,2,3,3,4,3]
+https://quizzly.ai/play/data-serialization-formats, [3,3,3,3,3,1,2,1,3,4]
+https://quizzly.ai/play/data-sharing, [3,2,3,2,2,2,2,1,4]
+https://quizzly.ai/play/data-strategy-development, [2,2,2,4,1,1,4,4,2,3]
+https://quizzly.ai/play/data-streaming-and-processing, [2,3,1,4,4,1,1,4,3,2]
+https://quizzly.ai/play/data-structures-for-big-data, [1,2,4,1,1,3,4,3,2,2]
+https://quizzly.ai/play/data-type-conversion, [4,1,2,2,3,2,4,3,3,1]
+https://quizzly.ai/play/database-query, [2,2,2,1,2,2,4,3,3,3]
+https://quizzly.ai/play/davao-gulf, [3,4,4,4,2,1,1,4,1,4]
+https://quizzly.ai/play/dbms-3nf, [4,4,2,1,1,2,1,4,2,3]
+https://quizzly.ai/play/de-escalation-strategies, [1,3,2,2,3,3,2,3,2,3]
+https://quizzly.ai/play/deep-reinforcement-learning-in-finance, [1,4,1,4,4,4,4,1,2,3]
+https://quizzly.ai/play/defense-department-visit, [1,4,1,3,3,4,1,4,1,1]
+https://quizzly.ai/play/deficit-reduction-plan, [1,3,1,4,2,4,4,1,3,3]
+https://quizzly.ai/play/delhi-rain-live-updates-ncr-sees-light-showers-airport-issues-travel-advisory, [1,1,4,4,2,2,1,2,2,4]
+https://quizzly.ai/play/deped-vows-to-cooperate-with-ombudsman-in-p2.4-b-laptops-graft-case, [1,2,3,4,3,1,2,2,4,2]
+https://quizzly.ai/play/deportation-mishap, [3,2,3,4,2,1,3,2,3]
+https://quizzly.ai/play/deported-individuals, [1,1,4,3,3,1,4,1,4,2]
+https://quizzly.ai/play/descriptive-statistics-3ixzwu, [3,2,4,3,3,1,3,2,3,1]
+https://quizzly.ai/play/design-a-quiz, [4,1,1,1,2,4,1,1,3,1]
+https://quizzly.ai/play/design-software, [1,3,1,1,4,2,4,2,2,3]
+https://quizzly.ai/play/designing-next-generation-plumbing-systems, [3,2,2,1,4,2,2,2,2,1]
+https://quizzly.ai/play/dialogue, [2,3,1,1,1,4,4,4,4,1]
+https://quizzly.ai/play/digital-camera, [4,4,2,4,3,3,1,2,4,1]
+https://quizzly.ai/play/digital-video-content, [3,1,1,2,2,1,1,2,4,2]
+https://quizzly.ai/play/diplomatic-relations, [2,4,1,3,3,2,3,2,3,2]
+https://quizzly.ai/play/diplomatic-relations-pakistan, [1,4,3,4,2,3,1,1,2,2]
+https://quizzly.ai/play/diplomatic-responses-to-kashmir-events, [4,1,1,1,3,3,3,3,3,4]
+https://quizzly.ai/play/diplomatic-ties-between-india-and-pakistan, [3,3,1,4,3,2,4,4,4,2]
+https://quizzly.ai/play/direct-current, [1,1,3,2,1,1,4,4,3,1]
+https://quizzly.ai/play/disney-villains, [4,3,3,3,1,4,1]
+https://quizzly.ai/play/disneys-acquisition-of-marvel, [4,1,2,2,3,3,2,3,3,1]
+https://quizzly.ai/play/disneys-animal-kingdom, [4,4,4,3,2,3,4,3,2,1]
+https://quizzly.ai/play/disneys-approach-to-global-brand-expansion, [4,3,4,4,4,3,3,3,2,4]
+https://quizzly.ai/play/disneys-approach-to-global-media-convergence, [3,3,2,3,1,2,3,4,1,2]
+https://quizzly.ai/play/disneys-approach-to-global-media-strategy, [4,4,2,4,4,1,2,4,1,4]
+https://quizzly.ai/play/disneys-cultural-representation, [4,2,4,4,1,1,1,2,3,1]
+https://quizzly.ai/play/disneys-global-expansion, [1,1,4,1,2,2,2,1,2,4]
+https://quizzly.ai/play/disneys-impact-on-global-entertainment-economies, [3,3,3,1,4,3,1,3,1,2]
+https://quizzly.ai/play/disneys-impact-on-global-media-infrastructure, [3,3,4,3,1,4,3,4,4,2]
+https://quizzly.ai/play/disneys-influence-on-childhood-development, [1,1,1,4,2,4,3,4,3,3]
+https://quizzly.ai/play/disneys-influence-on-international-film-markets, [4,2,1,2,1,1,1,3,3,4]
+https://quizzly.ai/play/disneys-influence-on-music, [2,1,3,1,3,4,3,1,2,1]
+https://quizzly.ai/play/disneys-merchandising-strategies, [3,4,4,4,4,2,2,4,3,2]
+https://quizzly.ai/play/disneys-role-in-the-evolution-of-cgi, [3,3,3,4,4,2,1,2,1,4]
+https://quizzly.ai/play/dravidian-architecture, [2,1,3,1,4,1,4,1,3,4]
+https://quizzly.ai/play/dust-masks, [2,1,2,2,3,3,3,4,2,2]
+https://quizzly.ai/play/duterte-international-law, [1,2,1,4,2,2,4,3,4,4]
+https://quizzly.ai/play/e-commerce-legal-considerations, [2,2,4,4,2,4,4,1,2,1]
+https://quizzly.ai/play/e-commerce-payment-systems, [3,1,1,2,3,4,4,1,1,1]
+https://quizzly.ai/play/e-commerce-platforms-overview-lsn8vm, [4,1,2,2,2,4,2,1,2,4]
+https://quizzly.ai/play/e-commerce-strategic-alliances, [3,4,4,1,3,3,1,4,1,4]
+https://quizzly.ai/play/e-commerce-taxation, [2,3,1,1,1,4,2,3,3]
+https://quizzly.ai/play/e-commerce-taxation-qn3r7n, [3,3,4,2,4,1,1,3,4,2]
+https://quizzly.ai/play/early-election, [3,4,4,3,2,4,2,2,2,1]
+https://quizzly.ai/play/earth-day, [3,3,2,1,1,4,1,4,1,4]
+https://quizzly.ai/play/east-asian-countries, [4,2,2,2,1,1,1,2,2,3]
+https://quizzly.ai/play/economic-crisis-in-pakistan, [3,4,3,1,2,3,3,3,4,2]
+https://quizzly.ai/play/economic-growth-in-kashmir, [1,4,4,4,1,1,1,2,1,4]
+https://quizzly.ai/play/education-funding, [3,4,1,1,4,1,2,3,4,2]
+https://quizzly.ai/play/election-results, [4,3,4,1,2,1,4,1,4,4]
+https://quizzly.ai/play/electricity-disruption-portugal, [3,1,3,4,4,2,4,2,4,1]
+https://quizzly.ai/play/electricity-loss-in-spain, [3,3,1,3,1,1,3,1,1,3]
+https://quizzly.ai/play/electricity-shortage, [2,1,2,3,2,2,4,4,3,4]
+https://quizzly.ai/play/elementary-problem-solving, [4,4,3,3,1,3,3,2,4,3]
+https://quizzly.ai/play/elon-musk, [4,1,1,1,2,1,4,3,4,4]
+https://quizzly.ai/play/elon-musk-vs-donald-trump-potus-to-sell-his-beautiful-red-tesla-amid-spat-with-ex-doge-chief-report, [4,3,4,4,3,4,3,4,2]
+https://quizzly.ai/play/email-list-building, [4,1,4,2,4,2,1,1,3]
+https://quizzly.ai/play/email-marketing-automation-dzc8jn, [3,3,1,4,1,4,3,4,3,2]
+https://quizzly.ai/play/email-marketing-strategy-leadership-wgqckf, [2,1,3,3,4,4,4,3,1,1]
+https://quizzly.ai/play/email-personalization-techniques, [4,3,1,2,1,1,4,1,3,4]
+https://quizzly.ai/play/embassy-notification, [4,3,3,3,1,1,1,4,3,4]
+https://quizzly.ai/play/emotional-distress, [4,3,1,2,4,3,4,1,1,3]
+https://quizzly.ai/play/emotional-resilience, [1,1,4,2,1,4,2,3,4,3]
+https://quizzly.ai/play/employment-details, [3,3,4,1,2,1,1,2,4,1]
+https://quizzly.ai/play/employment-opportunities, [1,3,3,2,2,4,1,2,1,2]
+https://quizzly.ai/play/empowering-states, [4,4,3,1,4,1,1,4,3,4]
+https://quizzly.ai/play/enduring-influence, [1,4,4,1,3,1,3,2,3,3]
+https://quizzly.ai/play/engine-fuel-switches-cut-off-before-air-india-crash-that-killed-260-preliminary-report-finds, [1,1,3,1,4,1,1]
+https://quizzly.ai/play/engineering-analysis, [1,1,2,3,2,1,1,1,4,4]
+https://quizzly.ai/play/enhanced-identification-cards, [4,1,4,1,2,3,2,3,2,1]
+https://quizzly.ai/play/ensemble-methods-bagging-and-boosting, [3,1,1,3,1,3,2,3,3,1]
+https://quizzly.ai/play/enterprise-hardware-strategy, [3,1,3,1,4,2,1,3,3,2]
+https://quizzly.ai/play/entertainment-industry, [2,1,2,2,3,1,2,2,4,2]
+https://quizzly.ai/play/entrepreneur, [3,3,3,3,3,3,3,3,4,2]
+https://quizzly.ai/play/environmental-cases, [3,4,3,2,1,4,2,2,2,2]
+https://quizzly.ai/play/esports, [2,4,1,1,1,3,2,2,3,3]
+https://quizzly.ai/play/ethical-guidelines, [1,2,1,3,2,3,2,2,4,4]
+https://quizzly.ai/play/ethics-in-baseball, [1,2,1,4,1,4,4,3,4]
+https://quizzly.ai/play/eu-defence-spending, [4,1,3,2,4,3,2,3,2,4]
+https://quizzly.ai/play/europe-blackout, [2,4,1,2,2,4,2,3,3,2]
+https://quizzly.ai/play/europe-retaliation, [4,1,2,1,1,1,3,1,3]
+https://quizzly.ai/play/evacuation-plan, [2,4,2,2,4,4,4,4,3,4]
+https://quizzly.ai/play/exams, [1,2,4,2,4,3,4,4,2,4]
+https://quizzly.ai/play/exciting-updates, [4,4,1,2,2,2,2,1,3,1]
+https://quizzly.ai/play/expert-wood-carving, [1,4,2,1,2,3,3,4,4,4]
+https://quizzly.ai/play/exploring-complex-system-dynamics, [4,2,4,1,2,4,3,2,2,1]
+https://quizzly.ai/play/exploring-korean-fermented-foods, [2,2,2,4,3,4,3,3,2,1]
+https://quizzly.ai/play/exploring-scandinavian-foods, [1,3,4,1,4,2,4,3,1,3]
+https://quizzly.ai/play/export-import-uk-india, [4,4,4,2,2,2,3,4,2,4]
+https://quizzly.ai/play/extreme-weather-conditions, [4,4,3,3,3,3,3,2,3,2]
+https://quizzly.ai/play/facebook-ceo, [1,3,3,2,3,1,3,3,3,1]
+https://quizzly.ai/play/faisal-islam-background, [2,2,1,2,2,3,2,1,1,3]
+https://quizzly.ai/play/faith-based-organizations, [1,4,1,2,1,1,2,2,1,1]
+https://quizzly.ai/play/fake-news, [4,3,4,2,2,3,2,4,3,3]
+https://quizzly.ai/play/famous-battles, [1,3,2,1,2,3,3,3]
+https://quizzly.ai/play/famous-literary-periods, [4,3,3,1,3,4,2,1,2,3]
+https://quizzly.ai/play/famous-pop-artists, [2,3,3,1,2,1,1,2,1,1]
+https://quizzly.ai/play/farewell-to-the-pope, [3,3,2,4,1,2,1,1,3,1]
+https://quizzly.ai/play/fashion-trends, [3,1,1,1,1,4,4,1,2,1]
+https://quizzly.ai/play/fbi-director-during-trumps-presidency, [4,2,1,4,4,3,3,3,3]
+https://quizzly.ai/play/federal-elections-in-canada, [1,1,4,4,1,3,2,3,1,3]
+https://quizzly.ai/play/festival, [1,3,3,3,2,1,3,3,3,4]
+https://quizzly.ai/play/filmography, [3,4,3,1,1,1,4,1,3]
+https://quizzly.ai/play/financial-slashes, [4,2,1,3,2,2,4,3,3,1]
+https://quizzly.ai/play/finding-nemo, [2,4,4,1,4,2,4,1]
+https://quizzly.ai/play/first-100-days, [3,2,1,1,4,4,4,1,2,4]
+https://quizzly.ai/play/first-jesuit-pope, [3,2,3,4,4,3,1,2,4,2]
+https://quizzly.ai/play/flags-of-countries-with-complex-laws, [4,4,1,3,1,3,2,3,1,2]
+https://quizzly.ai/play/flags-with-cultural-symbols, [3,1,3,4,3,1,4,3,1,1]
+https://quizzly.ai/play/flags-with-religious-symbols, [2,3,4,2,4,3,3,2,3,2]
+https://quizzly.ai/play/food-and-drug-administration, [4,3,3,3,2,3,2,1,2,1]
+https://quizzly.ai/play/food-festival, [3,3,1,2,1,4,3,4,2,2]
+https://quizzly.ai/play/food-security, [2,1,1,2,4,2,1,4,2,4]
+https://quizzly.ai/play/foreign-assistance-programs, [2,2,1,4,4,3,2,2,2,2]
+https://quizzly.ai/play/forest-conservation, [2,2,2,4,3,1,1,4,4,3]
+https://quizzly.ai/play/formal-notification, [3,2,1,4,4,2,3,3,3,2]
+https://quizzly.ai/play/fuel-market-prediction, [3,3,2,4,3,1,3,4,1,1]
+https://quizzly.ai/play/fundamentals-of-property-law, [4,3,2,2,4,2,4,3,1,3]
+https://quizzly.ai/play/furniture-design, [2,4,1,1,4,1,3,2,2,2]
+https://quizzly.ai/play/future-trends-in-data-analytics, [2,3,3,4,3,3,3,3,3,1]
+https://quizzly.ai/play/game-development-studio, [4,1,1,1,3,3,1,1,3,4]
+https://quizzly.ai/play/gemstones-commonly-used-in-indian-wedding-jewellery, [1,1,4,1,4,4,1,4,3,1]
+https://quizzly.ai/play/gender-discrimination, [2,3,1,4,3,4,4,3,3]
+https://quizzly.ai/play/generative-adversarial-networks-gans, [4,3,4,2,2,4,2,1,2,4]
+https://quizzly.ai/play/german-parliament, [2,1,3,2,3,3,4,2,2,4]
+https://quizzly.ai/play/germany-politics, [4,1,1,1,4,2,2,2,2,1]
+https://quizzly.ai/play/ghana-to-exit-imf-program-in-2026-president-mahama, [3,4,2,4,2,1,1,1,4,4]
+https://quizzly.ai/play/ghanas-real-economic-test-will-be-after-2026-when-imf-exits-prof-bokpin, [3,4,2,4,3,2,1,2,3,1]
+https://quizzly.ai/play/global-instability, [4,4,4,2,3,3,3,2,2,4]
+https://quizzly.ai/play/gold-coast, [1,3,3,1,4,4,4,1,3,1]
+https://quizzly.ai/play/gold-rush, [3,3,2,2,2,3,2,2,2,2]
+https://quizzly.ai/play/golden-statuettes, [1,2,1,2,2,1,3,1,3,2]
+https://quizzly.ai/play/government-announcement, [4,1,4,4,4,4,3,1,3,3]
+https://quizzly.ai/play/government-budget-issues, [3,1,3,2,3,1,1,2,2,2]
+https://quizzly.ai/play/government-cybersecurity, [3,3,3,2,2,1,1,1,1,4]
+https://quizzly.ai/play/government-issued-id, [4,4,1,1,1,1,1,1,1,2]
+https://quizzly.ai/play/government-reaction, [2,2,2,3,4,1,4,1,2,4]
+https://quizzly.ai/play/government-rules, [3,2,4,4,4,2,3,3,1,4]
+https://quizzly.ai/play/grammar, [4,3,3,2,3,2,1,3,2,3]
+https://quizzly.ai/play/granting-wishes, [4,1,2,4,1,4,4,4,4]
+https://quizzly.ai/play/grapes, [1,1,1,3,1,1,2,4,4,3]
+https://quizzly.ai/play/great-chance, [1,4,3,3,3,3,2,3,3,1]
+https://quizzly.ai/play/groundwater-and-aquifers, [4,4,2,3,2,4,3,2,4,1]
+https://quizzly.ai/play/group-policy-management, [1,1,2,4,4,1,1,4,1,1]
+https://quizzly.ai/play/gui-applications, [3,2,4,3,3,3,4,3,2,2]
+https://quizzly.ai/play/gun-ownership-statistics, [2,3,4,3,1,4,3,3,1]
+https://quizzly.ai/play/gupta-empire-achievements, [2,2,4,4,4,4,4,4,3,1]
+https://quizzly.ai/play/harbor-safety, [4,1,3,2,1,2,3,2,1]
+https://quizzly.ai/play/hard-work, [3,3,2,1,1,1,4,4,2,1]
+https://quizzly.ai/play/hardware-procurement-strategies, [1,4,1,4,4,2,3,1,3,4]
+https://quizzly.ai/play/health-assessment, [1,4,3,2,4,2,2,4,1]
+https://quizzly.ai/play/health-threats, [3,2,1,1,4,1,1,4,3,2]
+https://quizzly.ai/play/heart-wrenching-scenes, [4,2,2,1,4,2,2,4,2,3]
+https://quizzly.ai/play/heres-what-u.s.-catholics-are-saying-about-the-election-of-pope-leo-xiv, [2,1,3,4,3,2,1,1,2,2]
+https://quizzly.ai/play/hindi-cinema, [3,2,1,2,3,4,1,1,2,2]
+https://quizzly.ai/play/historical-baseball-scandals, [4,4,3,2,2,3,2,4,3,4]
+https://quizzly.ai/play/history-of-england, [1,1,1,2,1,4,3,1,4,4]
+https://quizzly.ai/play/hitting-against-different-pitch-types, [3,1,2,2,1,4,2,2,2]
+https://quizzly.ai/play/hollywood-screenwriting, [4,3,4,2,3,4,2,4,4,1]
+https://quizzly.ai/play/hollywood-soundtracks, [4,4,4,2,1,3,1,1,3,3]
+https://quizzly.ai/play/hollywoods-approach-to-animation, [1,4,3,1,2,4,3,1,2,4]
+https://quizzly.ai/play/hollywoods-approach-to-augmented-reality-films, [1,4,3,1,4,1,4,1,2,1]
+https://quizzly.ai/play/hollywoods-approach-to-documentaries, [1,1,4,3,3,4,3,3,2,1]
+https://quizzly.ai/play/hollywoods-approach-to-sequels-and-franchises, [3,2,3,1,3,3,4,1,3,1]
+https://quizzly.ai/play/hollywoods-economic-impact-zawvk5, [1,2,4,4,4,3,3,1,4,3]
+https://quizzly.ai/play/home-demolition-in-kashmir, [3,4,3,4,2,4,2,1,4]
+https://quizzly.ai/play/home-to-it-companies, [2,2,2,1,2,3,4,4,3,1]
+https://quizzly.ai/play/hostile-political-tactics, [4,3,1,3,2,3,3,3,2]
+https://quizzly.ai/play/hotel-in-london, [4,3,1,2,2,1,4,4,2,1]
+https://quizzly.ai/play/houthi-rebels, [4,4,3,4,2,4,4,2,3]
+https://quizzly.ai/play/how-canadians-vote, [1,2,3,2,2,4,4,2,2,4]
+https://quizzly.ai/play/how-northern-ireland-commemorates-the-second-world-war-on-the-80th-anniversary-of-ve-day, [2,2,2,4,2,1,3,1,2]
+https://quizzly.ai/play/how-to-reach-pahalgam, [1,3,4,4,3,1,1,1,4,1]
+https://quizzly.ai/play/how-to-serve-in-squash, [3,3,1,4,2,2,3,4,2,4]
+https://quizzly.ai/play/human-rights-of-deportees, [3,4,1,3,1,3,1,4,2,2]
+https://quizzly.ai/play/humanitarian-crisis, [2,4,4,3,2,2,2,1,2,2]
+https://quizzly.ai/play/ict-development, [4,3,1,3,4,3,4,2,3,1]
+https://quizzly.ai/play/id-verification, [3,1,4,4,2,4,1,1,4,1]
+https://quizzly.ai/play/identification, [3,4,1,1,1,3,1,2,1,1]
+https://quizzly.ai/play/imaginative-thinking, [3,2,1,1,4,3,4,3,2,2]
+https://quizzly.ai/play/immigrant-deportation-violation, [2,1,1,3,2,2,3,4,3,1]
+https://quizzly.ai/play/immigration-enforcement, [3,3,1,2,3,4,1,1,4,4]
+https://quizzly.ai/play/immigration-issues, [4,1,4,3,4,3,1,2,4,1]
+https://quizzly.ai/play/immigration-security, [2,3,1,2,4,2,3,4,4,2]
+https://quizzly.ai/play/impact-on-public-programs, [2,1,4,3,1,4,4,1,2,3]
+https://quizzly.ai/play/import-taxes-on-canadian-goods, [3,2,1,4,2,2,1,2,3,1]
+https://quizzly.ai/play/importexport-limits, [1,4,4,2,3,3,1,2,2,3]
+https://quizzly.ai/play/inauguration-speech, [2,3,4,1,4,2,4,2,3,3]
+https://quizzly.ai/play/incident-response-planning, [1,3,1,2,1,4,3,4,4,1]
+https://quizzly.ai/play/income-consequences, [3,4,2,1,2,2,3,2,2,4]
+https://quizzly.ai/play/income-tax-department-investigation, [2,4,3,3,2,4,1,1,4,4]
+https://quizzly.ai/play/india-pakistan-conflict, [1,4,4,3,1,3,1,3,1,2]
+https://quizzly.ai/play/india-pakistan-war, [1,3,1,4,2,1,3,3,1,3]
+https://quizzly.ai/play/india-uk-strategic-partnership, [1,1,3,3,4,1,2,3,1,1]
+https://quizzly.ai/play/indian-historical-events, [2,1,2,3,3,1,3]
+https://quizzly.ai/play/indian-historical-figures, [2,1,2,3,1,3,1,2,2]
+https://quizzly.ai/play/indian-religious-diversity, [1,2,3,1,1,4,1,4,3]
+https://quizzly.ai/play/indias-state-capitals, [3,2,1,4,2,1,1,2,3,1]
+https://quizzly.ai/play/indie-video-games, [3,3,3,2,2,4,4,1,1]
+https://quizzly.ai/play/information-and-communication-technology, [2,2,1,4,4,4,1,2,2,1]
+https://quizzly.ai/play/information-technology, [4,3,2,4,2,4,2,1,3]
+https://quizzly.ai/play/infrastructure-development-in-pakistan, [2,4,4,4,3,1,2,2,2,4]
+https://quizzly.ai/play/infrastructure-projects, [2,2,2,2,3,1,2,1,2,4]
+https://quizzly.ai/play/inspired-by-the-martyrdom-of-jose-rizal, [3,2,3,4,4,2,1,2]
+https://quizzly.ai/play/inspired-by-trumps-positive-attitude-towards-challenges, [1,4,1,1,4,3,3,3,2,4]
+https://quizzly.ai/play/installing-advanced-water-filtration, [1,3,1,2,3,2,2,1,1,2]
+https://quizzly.ai/play/interactive-language-learning-platforms, [4,2,1,3,3,2,4,2,1,1]
+https://quizzly.ai/play/international-conflict-prevention, [3,2,1,2,4,2,4,2,1,4]
+https://quizzly.ai/play/international-humanitarian-law, [4,1,3,3,2,3,3,4]
+https://quizzly.ai/play/international-maritime-agreement, [3,4,2,3,2,1,1,4,2,1]
+https://quizzly.ai/play/international-protocols, [1,2,4,1,4,1,1,4,4,2]
+https://quizzly.ai/play/international-reactions, [2,1,1,2,3,2,2,4,1,1]
+https://quizzly.ai/play/international-recognition, [2,4,3,4,1,2,3,1,3,2]
+https://quizzly.ai/play/international-tournament, [1,2,1,3,3,2,1,4,2,1]
+https://quizzly.ai/play/international-treaties, [3,2,1,3,4,3,3,3,1,3]
+https://quizzly.ai/play/internet-memes, [4,2,3,2,1,3,3,2,2,2]
+https://quizzly.ai/play/introduction-to-advertising, [2,4,1,1,4,1,2,4,2,2]
+https://quizzly.ai/play/introduction-to-artificial-intelligence-d4w8l6, [2,1,1,1,2,3,3,2,4,1]
+https://quizzly.ai/play/introduction-to-behavioral-game-theory, [3,4,1,4,3,3,2,2,3,1]
+https://quizzly.ai/play/introduction-to-country-by-country-reporting, [4,1,3,2,4,1,1,3,3,2]
+https://quizzly.ai/play/introduction-to-food-allergies, [1,3,1,3,1,4,4,4,1,3]
+https://quizzly.ai/play/introduction-to-global-hospitality-management, [3,3,3,3,2,2,4,3,1,2]
+https://quizzly.ai/play/introduction-to-internet, [2,4,2,3,1,4,2,2,4,2]
+https://quizzly.ai/play/introduction-to-interplanetary-driving, [2,1,3,2,4,3,4,1,1,1]
+https://quizzly.ai/play/introduction-to-literacy-development, [2,1,4,3,2,4,3,4,4,4]
+https://quizzly.ai/play/introduction-to-marketing-q00861, [3,3,3,1,1,1,1,2,2,1]
+https://quizzly.ai/play/introduction-to-musculoskeletal-system, [4,4,2,4,4,4,4,3,4,3]
+https://quizzly.ai/play/introduction-to-nosql-databases-i3bvzj, [4,2,3,4,1,2,4,3,3,1]
+https://quizzly.ai/play/introduction-to-nutrition, [1,4,2,2,2,3,3,2,3,1]
+https://quizzly.ai/play/introduction-to-off-road-driving, [2,4,1,4,2,4,4,2,3,3]
+https://quizzly.ai/play/introduction-to-options-trading, [1,3,3,3,2,4,4,4,4,3]
+https://quizzly.ai/play/introduction-to-pedestrian-crossings, [1,1,4,2,1,2,1,1,3,4]
+https://quizzly.ai/play/introduction-to-ppc-advertising, [2,1,2,3,1,1,4,1,1,1]
+https://quizzly.ai/play/introduction-to-railways, [2,4,3,4,2,3,3,4,2,1]
+https://quizzly.ai/play/introduction-to-umpiring, [1,4,1,4,3,3,3,4,3,2]
+https://quizzly.ai/play/introduction-to-vehicle-telemetry, [2,3,2,2,4,3,1,1,1,4]
+https://quizzly.ai/play/introduction-to-veneering, [2,4,2,4,3,2,4,1,3,2]
+https://quizzly.ai/play/investment-in-education, [4,1,3,4,3,4,4,1,1,4]
+https://quizzly.ai/play/investor-shares, [3,3,2,3,2,1,1,4,4,3]
+https://quizzly.ai/play/iphone, [3,2,2,4,1,3,4,1,4,2]
+https://quizzly.ai/play/iran, [1,1,1,1,2,3,2,3,4,4]
+https://quizzly.ai/play/iranian-coastal-explosion, [1,3,4,2,3,3,1]
+https://quizzly.ai/play/iranian-nationals, [4,3,3,3,2,3,2,3,2,2]
+https://quizzly.ai/play/islamabad-response-team, [1,3,4,1,3,3,4,4,4,1]
+https://quizzly.ai/play/islamic-education, [2,2,3,3,1,2,3,2,3,3]
+https://quizzly.ai/play/islamic-leader, [3,3,2,1,1,2,4,1,1,2]
+https://quizzly.ai/play/islamic-pilgrimage, [3,3,1,2,3,3,2,1,1]
+https://quizzly.ai/play/island-history, [1,4,4,1,2,1,4,1,1,1]
+https://quizzly.ai/play/isoiec-38500, [4,1,4,4,4,2,1,4,2,4]
+https://quizzly.ai/play/israel-ground-operations, [2,4,1,2,2,3,1]
+https://quizzly.ai/play/israels-engagement, [3,1,4,1,4,2,3,3,1,3]
+https://quizzly.ai/play/it-project-management, [2,2,1,4,3,3,3,2,3,1]
+https://quizzly.ai/play/its-ridiculous-donald-trump-mocks-elon-musks-america-party-says-he-can-have-fun-with-it, [3,3,1,4,4,3,1,2,4,1]
+https://quizzly.ai/play/iwt-regulatory-action, [3,2,4,3,3,1,3,4,1,2]
+https://quizzly.ai/play/jd-vance-campaign-trail, [1,3,2,3,1,1,4,4,4]
+https://quizzly.ai/play/jd-vance-response, [2,1,4,4,2,4,4,2,3,4]
+https://quizzly.ai/play/judge-pauses-trumps-effort-to-reduce-the-size-of-the-federal-government, [1,1,3,2,2,1,4,4,1,4]
+https://quizzly.ai/play/judges-decree-on-voting-procedures, [3,1,2,4,2,3,1,4,2,2]
+https://quizzly.ai/play/judicial-corruption, [2,4,4,3,1,1,2,4,3,3]
+https://quizzly.ai/play/judicial-liability, [1,3,2,1,4,3,4,4,3,2]
+https://quizzly.ai/play/judicial-order-impacting-trump-administration, [4,2,1,4,1,1,4,2,3,2]
+https://quizzly.ai/play/judicial-sentencing, [2,3,3,2,4,1,4,4,4]
+https://quizzly.ai/play/karnataka-state, [4,1,3,1,3,4,1,1,2,4]
+https://quizzly.ai/play/kitty, [1,1,4,1,3,3,2,3,4,2]
+https://quizzly.ai/play/kona, [4,4,4,2,3,2,3,2,1,1]
+https://quizzly.ai/play/kremlin-and-trump-aides-raise-nuclear-war-fears-after-ukraine-drone-strike, [3,2,2,4]
+https://quizzly.ai/play/kuwait, [3,3,1,4,1,4,2,1,3,2]
+https://quizzly.ai/play/lasting-impact, [3,2,1,2,4,3,2,2,3,3]
+https://quizzly.ai/play/law-of-armed-conflict, [1,2,2,2,2,1,1,2]
+https://quizzly.ai/play/leader-of-the-ruling-party, [4,2,2,4,3,3,3,1,3,4]
+https://quizzly.ai/play/lebanese-cuisine, [2,3,3,4,1,2,4,1,2,4]
+https://quizzly.ai/play/legal-response, [1,4,1,1,2,1,4,3,3,3]
+https://quizzly.ai/play/legislation-impacting-education, [2,1,3,2,1,4,4,1,1,3]
+https://quizzly.ai/play/legislators, [3,2,2,3,2,1,4,2,2,3]
+https://quizzly.ai/play/line-of-control, [4,2,4,2,1,4,1,3,2,2]
+https://quizzly.ai/play/line-of-succession, [2,3,4,1,4,2,1,2,2,4]
+https://quizzly.ai/play/lithium-deposits-ukraine, [4,4,3,2,2,4,1,4,1,1]
+https://quizzly.ai/play/live-election-results, [2,3,2,1,2,4,2,2,2,4]
+https://quizzly.ai/play/long-distance-train, [2,3,2,3,3,2,4,2,2,1]
+https://quizzly.ai/play/mabuhay-ang-pilipinas, [4,3,4,3,4,1,3,3,2,4]
+https://quizzly.ai/play/machine-learning-for-high-frequency-trading, [3,2,1,1,4,3,3,1,4,4]
+https://quizzly.ai/play/main-characters-js55pn, [3,4,2,3,1,1,1,4,2]
+https://quizzly.ai/play/major-cities-in-armenia, [3,2,2,3,4,1,2,2,2,2]
+https://quizzly.ai/play/major-cotton-producing-countries, [1,3,1,1,1,3,4,2,3,3]
+https://quizzly.ai/play/major-leagues, [1,3,3,4,3,4,3,3,3,1]
+https://quizzly.ai/play/make-a-quiz, [2,4,1,3,3,4,1,4,1,1]
+https://quizzly.ai/play/manila-ocean-park, [1,1,4,3,1,3,1,2,4,2]
+https://quizzly.ai/play/marathon, [3,3,1,3,4,2,1,1,3,1]
+https://quizzly.ai/play/marcos-appoints-raul-villanueva-as-sc-associate-justice, [4,1,4,1,1,3,2,3,2,4]
+https://quizzly.ai/play/marcos-to-meet-trump-in-washington-rubio-says, [2,1,1,2,3,2,4,3,4]
+https://quizzly.ai/play/marine-life-in-the-pacific-ocean, [4,4,3,2,4,1,4,2,4,1]
+https://quizzly.ai/play/mark-zuckerberg, [3,3,2,2,4,3,4,3,1,3]
+https://quizzly.ai/play/market-research-methods-ryz23p, [3,3,4,3,1,2,1,2,4,1]
+https://quizzly.ai/play/marvels-acquisition-by-disney, [3,1,2,4,4,4,3,3,2,3]
+https://quizzly.ai/play/mastering-woodworking-for-fine-art, [4,4,2,4,4,1,2,1,2,1]
+https://quizzly.ai/play/mastering-woodworking-for-precision-instruments, [3,4,2,1,1,4,4,4,2,3]
+https://quizzly.ai/play/may-8-ceasefire, [3,1,4,1,1,3,4,3,4,3]
+https://quizzly.ai/play/meal-planning, [2,1,4,3,4,2,1,2,1,3]
+https://quizzly.ai/play/meal-preparation, [1,4,4,1,1,3,3,2,3,2]
+https://quizzly.ai/play/measuring-and-marking, [2,2,2,1,1,3,1,3,2,4]
+https://quizzly.ai/play/mediation-efforts-in-ukraine-conflict, [1,1,4,3,3,4,2,1,4]
+https://quizzly.ai/play/medical-solutions, [4,2,3,2,3,2,2,2,1,2]
+https://quizzly.ai/play/mekong-river, [4,2,1,4,4,4,1,3,4,3]
+https://quizzly.ai/play/michael-jordan, [4,3,4,4,2,1,4,4,3]
+https://quizzly.ai/play/michelangelos-dome, [3,2,3,3,4,4,3,1,2,1]
+https://quizzly.ai/play/middle-east, [2,2,4,4,4,3,1,2,1,2]
+https://quizzly.ai/play/military-forces-of-pakistan, [3,2,3,2,3,3,2,3,1,3]
+https://quizzly.ai/play/military-intervention-in-gaza, [4,3,4,3,4,1,3,4]
+https://quizzly.ai/play/military-operations-in-waziristan, [1,3,1,1,4,2,3,2]
+https://quizzly.ai/play/military-standoffs, [4,1,1,4,2,1,2]
+https://quizzly.ai/play/milwaukee-county-judge, [4,4,3,1,2,2,2,1,4,2]
+https://quizzly.ai/play/milwaukee-judge, [2,1,2,3,3,3,3,3,4,4]
+https://quizzly.ai/play/mine-safety, [4,1,4,1,3,3,2,1,2,4]
+https://quizzly.ai/play/ministers-and-preachers, [2,4,2,3,3,1,3,2,4,3]
+https://quizzly.ai/play/ml-in-genomics, [2,3,4,4,2,1,4,2,2,3]
+https://quizzly.ai/play/mole-animal, [1,1,3,2,3,1,1,1,1,2]
+https://quizzly.ai/play/momentum-in-trade-collaborations, [4,1,3,4,4,3,1,4,2,1]
+https://quizzly.ai/play/money-talks, [3,2,2,1,1,2,1,3,4,4]
+https://quizzly.ai/play/monocropping, [1,3,2,1,1,1,3,3,2,2]
+https://quizzly.ai/play/mother-from-abroad, [1,2,1,3,1,4,1,4,2,4]
+https://quizzly.ai/play/mourning-pope-francis-in-manila, [1,4,2,4,2,4,1,2,1]
+https://quizzly.ai/play/movie-trailers, [1,3,2,4,1,2,2,2,4,2]
+https://quizzly.ai/play/ms-13-gang, [2,2,3,2,1,3,2,1]
+https://quizzly.ai/play/muscle, [4,1,4,2,3,3,3,3,2,1]
+https://quizzly.ai/play/myanmar, [3,4,2,3,3,3,2,4,4,1]
+https://quizzly.ai/play/narrative-theory, [2,3,3,3,1,2,3,2,2,4]
+https://quizzly.ai/play/national-reservations, [4,3,1,4,2,2,4,1,3,4]
+https://quizzly.ai/play/national-security-adviser-replacement, [1,3,1,4,1,2,2,4,3,1]
+https://quizzly.ai/play/national-transportation-safety-board, [2,4,4,2,2,1,1,3,4,1]
+https://quizzly.ai/play/nbi-arrests-baguio-city-mayoral-candidate-on-multiple-fraud-charges, [4,1,1,4,3,3,1,2,1,3]
+https://quizzly.ai/play/nine-justices, [2,4,2,2,4,2,1,2,1,2]
+https://quizzly.ai/play/normalization-basics, [3,1,2,2,4,2,2,1,1,1]
+https://quizzly.ai/play/numerical-sequence, [3,3,1,4,4,2,2,2,2,1]
+https://quizzly.ai/play/nursing-trainee-allowances-to-be-paid-in-january-2026-by-controller-president-mahama, [1,1,1,3,2,1,1,4,3,2]
+https://quizzly.ai/play/nutrient-cycle-scenarios/, [1,3,3,2,1,2,4,1,1,4]
+https://quizzly.ai/play/oath-of-office, [2,1,4,2,4,3,1,1,1,3]
+https://quizzly.ai/play/objection, [3,4,2,3,1,2,1,4,1,1]
+https://quizzly.ai/play/octa-survey, [3,3,4,3,4,1,4,1,4,2]
+https://quizzly.ai/play/officer-training, [4,4,2,1,2,1,3,4,1,2]
+https://quizzly.ai/play/official-capital, [3,3,3,1,3,3,4,2,4,1]
+https://quizzly.ai/play/official-reports, [1,2,2,2,3,4,2,4,3,4]
+https://quizzly.ai/play/ohio-politics, [3,2,2,2,1,1,3,1,1,2]
+https://quizzly.ai/play/online-content-creators, [2,4,4,3,3,4,3,4,4,4]
+https://quizzly.ai/play/operating-system-basics, [1,3,2,2,3,3,1,2,3,3]
+https://quizzly.ai/play/operating-system-customization, [1,3,1,1,1,1,4,3,3,4]
+https://quizzly.ai/play/operating-system-virtualization, [3,2,2,4,3,3,4,1,1,3]
+https://quizzly.ai/play/opinion-poll, [3,4,3,1,1,2,3,1,2,3]
+https://quizzly.ai/play/opinion-polls, [3,1,1,4,1,3,1,4,1,4]
+https://quizzly.ai/play/outlaw-country, [4,1,4,4,2,3,1,1,4,2]
+https://quizzly.ai/play/pahalgam-address, [3,3,3,2,4,4,4,1,4,3]
+https://quizzly.ai/play/pahalgam-security-alerts, [1,1,1,2,4,4,2,1,3,3]
+https://quizzly.ai/play/pahalgam-security-incident, [2,3,2,2,4,4,1,1,1,2]
+https://quizzly.ai/play/pahalgam-unrest, [3,4,2,3,3,1,3,2,2,1]
+https://quizzly.ai/play/pakistan-army-conflicts, [4,1,2,2,4,1,3,3,3]
+https://quizzly.ai/play/pakistan-army-human-rights-issues, [3,3,1,4,2,4,2]
+https://quizzly.ai/play/pakistan-india-water-dispute, [2,2,4,3,4,2,3,4,1,4]
+https://quizzly.ai/play/pakistan-reopens-airspace-resumes-hajj-flights-after-india-ceasefire, [2,3,2,4,4,3,1]
+https://quizzly.ai/play/pakistan-response-actions, [4,3,1,2,3,2,2,4,2,4]
+https://quizzly.ai/play/papal-ceremonies, [3,1,1,4,1,1,3,1,3,4]
+https://quizzly.ai/play/papal-conclave, [4,2,2,3,2,1,1,1,3,1]
+https://quizzly.ai/play/papal-encyclicals, [2,1,1,3,2,3,4,2,1,2]
+https://quizzly.ai/play/papal-succession, [2,3,1,1,2,2,1,1,4]
+https://quizzly.ai/play/paper-cup, [4,4,3,1,1,4,3,1,1,2]
+https://quizzly.ai/play/parental-notification, [1,3,2,1,2,1,1,3,1,3]
+https://quizzly.ai/play/parliament-address, [4,3,3,4,2,3,3,3,4,2]
+https://quizzly.ai/play/pasig-river-ferry-services-suspended-on-election-day, [2,4,4,2,2,1,1,3,2,2]
+https://quizzly.ai/play/passing-of-the-pontiff, [2,1,1,1,4,3,3,3,2,1]
+https://quizzly.ai/play/passport-requirement, [1,4,1,4,2,2,4,2,2,4]
+https://quizzly.ai/play/paying-respects, [4,3,4,3,1,3,1,2,1,4]
+https://quizzly.ai/play/pc-games, [1,1,1,4,1,1,1,1,1,4]
+https://quizzly.ai/play/performance-analysis, [4,4,1,2,1,2,3,2,1,2]
+https://quizzly.ai/play/permanent-disability, [1,1,3,3,4,3,1,3,3]
+https://quizzly.ai/play/personal-jurisdiction-at-icc, [4,1,4,4,1,1,1,2,4,3]
+https://quizzly.ai/play/pete-hegseth-military-changes, [3,4,3,4,1,2,3,3,1,1]
+https://quizzly.ai/play/pharmaceutical-patent-law, [2,4,1,2,4,4,2,4,1,2]
+https://quizzly.ai/play/philippine-army-camp, [4,4,4,4,2,1,1,2,2,1]
+https://quizzly.ai/play/philippine-criminal-law, [4,2,4,4,1,4,1,2]
+https://quizzly.ai/play/philippine-independence, [4,4,4,4,3,3,2,2,1,2]
+https://quizzly.ai/play/philippine-political-history, [2,1,4,4,1,2,3,2,3,2]
+https://quizzly.ai/play/philippine-revolution, [4,1,3,1,1,1,4,1,1,1]
+https://quizzly.ai/play/philippine-territory, [2,3,3,2,4,1,4,2,3,3]
+https://quizzly.ai/play/philippines-climate, [1,4,3,4,3,4,2,2,4,3]
+https://quizzly.ai/play/philippines-hosted-conference, [4,1,2,3,3,1,1,2,1,1]
+https://quizzly.ai/play/philippines-weather-events, [1,1,2,2,1,4,1,3,2,4]
+https://quizzly.ai/play/phones, [2,4,3,2,3,1,4,3,3,1]
+https://quizzly.ai/play/physical-chemistry, [3,3,4,4,2,2,4,4,1,3]
+https://quizzly.ai/play/physical-examination-results, [4,1,3,3,4,1,2,3,2,3]
+https://quizzly.ai/play/physics-chemistry-medicine-literature-peace-and-economic-sciences, [1,4,1,4,3,3,4,2,2,2]
+https://quizzly.ai/play/pia-cayetano-objects-to-gomez-as-pco-chief-over-tobacco-industry-ties, [2,4,4,1,2,2,2,3,2,3]
+https://quizzly.ai/play/pilot-error, [2,4,4,1,3,1,3,4,1,2]
+https://quizzly.ai/play/plastic-packaging, [3,3,3,4,3,4,1,3,4,2]
+https://quizzly.ai/play/plastic-pollution-civklc, [3,4,3,1,1,2,3,2,4,3]
+https://quizzly.ai/play/podcasting-pioneers, [3,3,4,2,4,4,3,4,2,1]
+https://quizzly.ai/play/police-investigation, [2,1,1,3,1,3,2,3,3,1]
+https://quizzly.ai/play/political-campaign, [1,2,3,2,2,4,1,2,4,1]
+https://quizzly.ai/play/political-disputes, [4,1,2,4,1,1,2,3,2,3]
+https://quizzly.ai/play/political-hints, [3,1,4,4,1,4,4,2,1,1]
+https://quizzly.ai/play/political-statements, [1,2,2,1,3,4,3,2,4,3]
+https://quizzly.ai/play/political-updates, [2,1,1,1,1,4,1,2,4,4]
+https://quizzly.ai/play/pop-music-and-cover-songs, [3,4,2,1,3,2,2,4,1,1]
+https://quizzly.ai/play/pop-music-and-data-analytics, [3,1,2,4,4,1,4,1,2,4]
+https://quizzly.ai/play/pop-music-and-environmental-impact, [3,4,1,4,1,4,3,1,2,1]
+https://quizzly.ai/play/pop-music-and-experimental-sounds, [1,2,4,4,2,1,4,1,4,4]
+https://quizzly.ai/play/pop-music-and-future-trends, [4,2,3,3,3,4,4,2,1,4]
+https://quizzly.ai/play/pop-music-and-neoliberalism, [1,4,1,2,1,3,4,2,4,1]
+https://quizzly.ai/play/pop-music-and-postmodernism, [1,3,2,1,3,2,4,3,1,3]
+https://quizzly.ai/play/pop-music-and-semiotics, [3,2,4,4,2,1,2,4,1,4]
+https://quizzly.ai/play/pop-music-and-theoretical-analysis, [2,1,4,4,3,4,4,2,3,3]
+https://quizzly.ai/play/pop-music-and-viral-trends, [1,3,1,4,1,2,3,4,3]
+https://quizzly.ai/play/pop-music-production, [4,2,2,1,3,2,3,2,4,4]
+https://quizzly.ai/play/popcorn-and-soda, [2,2,4,2,1,2,4,3,1,2]
+https://quizzly.ai/play/pope-francis-age-88, [3,2,3,1,3,2,1,1,1,1]
+https://quizzly.ai/play/popular-marvel-movies, [2,2,1,3,1,3,2,1,3]
+https://quizzly.ai/play/popular-pop-songs, [1,2,3,4,3,4,4,4,3,3]
+https://quizzly.ai/play/popular-soups-and-stews, [3,2,2,1,4,4,1,1,3,3]
+https://quizzly.ai/play/popular-video-games, [2,2,2,2,3,1,1,1,3,1]
+https://quizzly.ai/play/potential-venue, [4,4,1,1,2,1,4,4,4,1]
+https://quizzly.ai/play/power-consolidation, [3,1,2,2,2,4,2,3,4,2]
+https://quizzly.ai/play/power-outage-in-portugal, [3,4,1,2,4,4,3,3,4,3]
+https://quizzly.ai/play/power-restoration-process, [3,1,3,4,1,1,2,3,2,2]
+https://quizzly.ai/play/prayer-and-meditation, [2,2,4,1,2,2,1,4,4,2]
+https://quizzly.ai/play/pre-colonial-philippines, [1,3,4,2,2,4,1,3,3,4]
+https://quizzly.ai/play/precision-woodturning, [2,1,2,2,1,3,2,3,3,1]
+https://quizzly.ai/play/predatory-pricing-and-margin-squeeze, [2,3,1,3,1,3,2,2,2,4]
+https://quizzly.ai/play/president-trump-defends-federal-flooding-response-in-texas-visit, [4,4,3,3,3,1,3,2,2,2]
+https://quizzly.ai/play/president-trumps-speech, [2,1,3,1,4,2,1,2,4,4]
+https://quizzly.ai/play/presidential-campaigns, [2,1,1,4,1,4,2,4,3,1]
+https://quizzly.ai/play/presidential-medal-of-freedom, [2,3,3,3,2,1,2,2,2,2]
+https://quizzly.ai/play/preventing-escalation, [2,1,4,3,4,4,1,2,3,4]
+https://quizzly.ai/play/prime-minister-of-australia, [4,3,4,1,4,1,3,3,1,2]
+https://quizzly.ai/play/prime-minister-selection, [4,4,1,3,4,2,3,2,3,3]
+https://quizzly.ai/play/printer-network-management, [4,2,4,1,2,2,4,4,1,1]
+https://quizzly.ai/play/prison-conditions, [1,1,3,4,1,1,2,2,4,1]
+https://quizzly.ai/play/pristine-beaches, [3,1,4,4,4,4,3,3,1,2]
+https://quizzly.ai/play/private-chapel, [4,3,2,2,3,2,2,3,2,2]
+https://quizzly.ai/play/property, [2,2,2,3,2,2,4,2,4,3]
+https://quizzly.ai/play/property-demolition-kashmir, [1,1,1,4,2,2,4,2,3]
+https://quizzly.ai/play/protected-area, [4,1,2,1,1,2,3,1,4,1]
+https://quizzly.ai/play/protestantism, [2,3,4,2,3,2,1,4]
+https://quizzly.ai/play/province-in-pakistan, [2,4,3,1,4,3,2,4,4,3]
+https://quizzly.ai/play/psychoanalytic-criticism, [4,3,4,3,2,2,2,1,1,4]
+https://quizzly.ai/play/public-address, [1,1,2,3,4,3,2,4,1,1]
+https://quizzly.ai/play/public-health, [1,2,3,1,2,3,2,4,4]
+https://quizzly.ai/play/public-opinion, [2,2,3,1,4,2,1,4,3,4]
+https://quizzly.ai/play/purchasing-power-parity, [4,3,1,1,3,1,1,2,4,1]
+https://quizzly.ai/play/quantum-machine-learning-hdcfz6, [1,4,4,4,3,3,4,1,2,3]
+https://quizzly.ai/play/quiz, [1,1,1,1,3,2,1,2,1,2]
+https://quizzly.ai/play/railway-capacity-planning, [2,1,3,3,4,2,3,1,3,3]
+https://quizzly.ai/play/railway-industry-global-leadership, [1,3,3,3,4,1,2,4,3,3]
+https://quizzly.ai/play/railway-industry-leadership, [1,1,1,1,1,4,3,4,2,1]
+https://quizzly.ai/play/railway-infrastructure-innovation, [4,1,3,1,3,1,3,1,2,4]
+https://quizzly.ai/play/railway-passenger-flow-management, [3,4,2,3,1,4,2,3,4]
+https://quizzly.ai/play/railway-signaling-and-control-systems, [3,2,4,1,3,4,1,2,3,4]
+https://quizzly.ai/play/railway-system-resilience-planning, [4,3,4,4,2,3,4,1,1,4]
+https://quizzly.ai/play/railway-system-simulation, [1,3,3,4,4,4,1,2,1,1]
+https://quizzly.ai/play/railway-ticketing-systems, [4,1,4,1,1,2,3,4,4,4]
+https://quizzly.ai/play/railway-track-components, [4,3,1,3,4,3,2,4,4,2]
+https://quizzly.ai/play/ramayana, [3,4,2,3,4,1,4,4]
+https://quizzly.ai/play/reading-pitchers-and-catchers, [4,1,4,3,3,4,2,1,2,3]
+https://quizzly.ai/play/real-options-valuation, [1,4,2,2,2,4,4,1,4,3]
+https://quizzly.ai/play/reciprocal-tariffs, [2,3,1,2,3,1,3,3,3,3]
+https://quizzly.ai/play/reconstruction-era, [2,1,2,4,4,2,3,1,3,4]
+https://quizzly.ai/play/recorded-footage, [3,2,1,3,2,1,2,4,3,2]
+https://quizzly.ai/play/recycling-fundamentals, [3,2,3,1,1,3,3,1,4,2]
+https://quizzly.ai/play/red-fox, [4,3,1,4,1,2,4,2,4,3]
+https://quizzly.ai/play/regenerative-agriculture, [2,4,4,3,4,2,2,4,4,2]
+https://quizzly.ai/play/religious-authority, [4,2,2,3,4,1,1,1,3,2]
+https://quizzly.ai/play/religious-buildings, [3,1,1,2,1,2,4,4,1,3]
+https://quizzly.ai/play/resignation-email, [2,2,3,2,1,3,2,3,4,1]
+https://quizzly.ai/play/resignation-notice-period, [4,4,3,1,1,1,1,1,4,2]
+https://quizzly.ai/play/resolve-dispute-within-7-days-lands-minister-orders-azumah-resources-and-engineers-and-planners, [2,3,4,2,3,2,2,3,3,3]
+https://quizzly.ai/play/retaliatory-politics, [1,1,4,3,2,4,3,4,3,1]
+https://quizzly.ai/play/retired, [4,1,4,1,1,2,1,4,3,1]
+https://quizzly.ai/play/ribbon-cutting-events, [4,3,1,3,1,1,4,2,3,3]
+https://quizzly.ai/play/robustness-and-reliability-in-ml, [4,2,1,3,1,2,2,2,1,2]
+https://quizzly.ai/play/roman-britain, [4,4,4,4,3,4,1,1,1,1]
+https://quizzly.ai/play/romance, [3,3,2,3,2,1,2,4,3]
+https://quizzly.ai/play/romanian-political-extremism, [4,2,1,1,2,4,4,3,2,4]
+https://quizzly.ai/play/roshens-advanced-leadership-in-global-strategy, [1,1,1,2,4,3,4,2,2,4]
+https://quizzly.ai/play/roshens-advanced-market-analytics, [1,4,4,4,4,2,2,2,1,2]
+https://quizzly.ai/play/roshens-corporate-social-responsibility, [4,1,2,2,3,1,1,3,4,3]
+https://quizzly.ai/play/roshens-long-term-growth-plans, [4,3,2,1,2,1,1,4,1,1]
+https://quizzly.ai/play/roshens-market-position, [2,1,1,4,3,4,4,4,1,1]
+https://quizzly.ai/play/roshens-role-in-global-economic-policy, [3,1,3,1,3,1,2,3,3,4]
+https://quizzly.ai/play/roshens-role-in-shaping-global-consumer-behavior, [1,4,4,3,4,4,4,3,3,3]
+https://quizzly.ai/play/roshens-strategic-influence-on-global-markets, [1,1,3,3,3,1,2,4,3,3]
+https://quizzly.ai/play/rubber-tree, [2,4,4,2,4,2,1,3,4,4]
+https://quizzly.ai/play/rubio-meets-with-chinese-foreign-minister, [3,1,3,4,3,2,4,1,3,1]
+https://quizzly.ai/play/running, [3,3,4,1,1,2,3,1,2,2]
+https://quizzly.ai/play/rural-connectivity-projects, [2,1,2,1,2,4,2,4,4,1]
+https://quizzly.ai/play/russia-ukraine-tensions, [2,3,3,1,1,1,3,3,2,3]
+https://quizzly.ai/play/russian-revolution, [4,2,1,1,1,2,4,3,4,3]
+https://quizzly.ai/play/russias-reaction, [1,3,1,2,3,4,3,4,3,4]
+https://quizzly.ai/play/satellite-imagery, [1,4,2,4,4,3,3,2,1,3]
+https://quizzly.ai/play/saudi-arabia-and-allies, [1,3,4,1,3,3,2,2,3,4]
+https://quizzly.ai/play/scale, [3,3,1,1,3,3,1,2,1,3]
+https://quizzly.ai/play/secure-detention, [3,1,1,2,3,4,2,2,2,3]
+https://quizzly.ai/play/secure-messaging, [4,3,2,1,2,4,1,4,2,3]
+https://quizzly.ai/play/security-alert, [4,1,2,4,3,2,1,4,3,1]
+https://quizzly.ai/play/security-awareness-training, [4,4,1,3,3,3,2,4]
+https://quizzly.ai/play/security-in-mindanao, [2,2,2,4,3,4,3,2,1]
+https://quizzly.ai/play/security-testing, [3,1,3,2,3,4,2,2,1,2]
+https://quizzly.ai/play/seismic-activity, [2,4,3,1,2,4,3,4,2,4]
+https://quizzly.ai/play/senatorial-election-polls, [3,4,2,2,4,1,1,1,4,3]
+https://quizzly.ai/play/severe-weather-warning, [2,2,3,2,4,3,4,2,3,1]
+https://quizzly.ai/play/sheikh-zayed-grand-mosque, [1,4,2,4,2,2,3,1,4,4]
+https://quizzly.ai/play/should, [2,1,1,1,3,1,3,4,1,4]
+https://quizzly.ai/play/simple-algorithms-5sw15s, [1,1,1,3,1,3,1,3,2,3]
+https://quizzly.ai/play/simple-breakfast-recipes, [4,4,4,1,1,4,1,4,1,2]
+https://quizzly.ai/play/simple-joints, [3,2,2,4,2,4,2,3,4,1]
+https://quizzly.ai/play/simple-melodies, [2,4,2,3,4,1,2,2,2,4]
+https://quizzly.ai/play/sistine-chapel, [3,2,3,4,2,3,3,3,2,4]
+https://quizzly.ai/play/skeletal-remains-found-in-taal-area, [1,2,1,1,2,1,1,4,2]
+https://quizzly.ai/play/smartphones, [1,4,1,4,4,2,2,4,3,2]
+https://quizzly.ai/play/smoke-signal, [3,1,3,1,4,2,3,1,1,3]
+https://quizzly.ai/play/snorkeling, [2,1,2,3,1,4,1,2,3]
+https://quizzly.ai/play/social-engineering-tactics, [1,3,2,3,3]
+https://quizzly.ai/play/social-media-advertising-5ztb37, [4,4,1,2,2,3,2,1,4,2]
+https://quizzly.ai/play/sodium-chloride, [1,3,4,2,3,3,4,3,4,4]
+https://quizzly.ai/play/soil-texture, [2,2,1,1,3,3,3,4,2,3]
+https://quizzly.ai/play/solidarity, [1,3,1,2,4,1,1,3,3,1]
+https://quizzly.ai/play/son-of-former-president-marcos, [1,1,1,1,2,1,2,1,3,1]
+https://quizzly.ai/play/soundgarden, [3,3,3,2,4,2,1,3,1,2]
+https://quizzly.ai/play/south-korea, [4,4,2,2,1,3,4,3,1,1]
+https://quizzly.ai/play/spacex-careers, [1,3,1,3,4,1,2,4,4,4]
+https://quizzly.ai/play/speech-by-putin, [1,1,4,4,3,4,4,1,3,2]
+https://quizzly.ai/play/speech-impediment, [3,1,3,2,3,2,4,3,3,1]
+https://quizzly.ai/play/sport, [2,3,3,2,3,1,1,2,1]
+https://quizzly.ai/play/sql-queries, [3,2,3,2,4,2,2,4,2,4]
+https://quizzly.ai/play/standoff-resolution, [4,1,3,4,3,3,2,2,3]
+https://quizzly.ai/play/state-aid-rules-and-regulations, [4,4,1,1,1,3,4,3,2,2]
+https://quizzly.ai/play/state-authority, [2,4,4,4,4,2,1,2,3,4]
+https://quizzly.ai/play/state-control, [4,1,4,4,2,1,1,3,2,2]
+https://quizzly.ai/play/state-sponsored-attacks, [1,1,1,2,2,4,4,2]
+https://quizzly.ai/play/statements-on-pakistan-foreign-policy, [3,4,4,3,2,3,1,2,4,2]
+https://quizzly.ai/play/states-at-risk, [2,4,2,3,3,4,3,4,1]
+https://quizzly.ai/play/states-under-emergency, [2,3,3,4,4,1,3,2,4,1]
+https://quizzly.ai/play/stocks-and-bonds, [3,2,3,2,2,3,2,1,2,4]
+https://quizzly.ai/play/strategic-partnership-meeting, [2,2,4,4,2,4,4,4,3,2]
+https://quizzly.ai/play/strategy, [2,1,3,2,2,2,4,1,1,1]
+https://quizzly.ai/play/student-exchange-program, [3,3,3,3,4,2,3,1,3,1]
+https://quizzly.ai/play/student-loan-regulations, [4,4,2,3,3,2,1,3,1,4]
+https://quizzly.ai/play/student-visa-interview, [2,3,2,2,2,1,2,2,3,1]
+https://quizzly.ai/play/student-visas-revoked, [1,2,3,3,2,3,2,3,2,1]
+https://quizzly.ai/play/subcontinent-neighbors, [4,2,2,1,1,1,2,3,2,1]
+https://quizzly.ai/play/sunday-launch, [4,3,4,4,1,3,2,2,1,4]
+https://quizzly.ai/play/sunday-unveiling, [3,4,4,1,4,3,4,1,2,3]
+https://quizzly.ai/play/supervised-learning, [3,2,2,1,3,2,2,1,4,1]
+https://quizzly.ai/play/supporter-assemblies, [2,4,2,4,1,4,2,2,1,4]
+https://quizzly.ai/play/surgical-strike, [3,3,1,4]
+https://quizzly.ai/play/surprise-election, [2,2,4,3,2,3,2,3,1,1]
+https://quizzly.ai/play/sustainable-development-goals, [3,1,3,4,3,3,2,4,4,2]
+https://quizzly.ai/play/sustainable-marketing-practices-s518n4, [3,1,1,2,3,2,1,3,3,2]
+https://quizzly.ai/play/sustainable-transportation, [1,1,4,2,1,2,4,3,2,2]
+https://quizzly.ai/play/sustainable-water-management, [3,3,4,2,2,2,3,3,1,1]
+https://quizzly.ai/play/sydney-opera-house, [3,3,4,3,1,4,4,4,2,3]
+https://quizzly.ai/play/syllubus, [1,2,1,3,2,4,1,1,1,3]
+https://quizzly.ai/play/synonyms, [1,2,3,3,3,1,1,2,1,1]
+https://quizzly.ai/play/systemic-risk-analysis, [3,1,4,2,2,1,1,2,2,3]
+https://quizzly.ai/play/tamil-language, [3,3,3,3,4,2,2,1,1,1]
+https://quizzly.ai/play/tariff-disputes, [2,2,1,2,4,4,4,2,3,3]
+https://quizzly.ai/play/tattoo-identification, [4,2,4,2,2,3,4,2]
+https://quizzly.ai/play/tax-incentives, [4,1,4,1,1,1,1,1,2,2]
+https://quizzly.ai/play/teaching-staff-at-fsu, [3,4,1,4,4,3,1,3,2,1]
+https://quizzly.ai/play/team-work, [2,2,1,2,4,2,3,3,4,3]
+https://quizzly.ai/play/teams-from-around-the-world, [4,2,4,1,2,1,2,4,1,4]
+https://quizzly.ai/play/telangana-districts, [4,3,2,3,3,2,3,1,2,4]
+https://quizzly.ai/play/telugu-cinema, [1,4,4,4,4,3,1,2,3,4]
+https://quizzly.ai/play/telugu-film-industry, [3,1,4,2,3,2,4,2,1,4]
+https://quizzly.ai/play/tens-of-thousands-of-mourners, [3,4,2,2,1,2,4,3,2,1]
+https://quizzly.ai/play/tension-in-indo-pacific, [1,4,2,2,1,3,3,4,2,2]
+https://quizzly.ai/play/tesla-stock-is-falling.-heres-where-its-going., [1,4,3,2,4,1,1,2,2,2]
+https://quizzly.ai/play/thar-desert, [4,3,4,1,4,4,3,4,4,1]
+https://quizzly.ai/play/the-boer-wars, [1,2,2,3,4,4,4,4,3,4]
+https://quizzly.ai/play/the-darien-scheme, [2,4,2,1,3,4,2,3,2,4]
+https://quizzly.ai/play/the-future-of-baseball-technology, [2,2,3,1,2,4,2,3,3,3]
+https://quizzly.ai/play/the-good-friday-agreement, [3,2,2,4,3,3,4,1,2,1]
+https://quizzly.ai/play/the-history-of-the-ultraverse, [2,3,4,2,3,1,2,2,1]
+https://quizzly.ai/play/the-impact-of-competition-law-on-technological-convergence, [2,2,3,2,3,2,2,4,1,2]
+https://quizzly.ai/play/the-rock, [1,2,1,4,4,3,4,3,4]
+https://quizzly.ai/play/the-role-of-competition-law-in-addressing-inequality, [1,2,3,3,4,3,1,1,2,2]
+https://quizzly.ai/play/the-role-of-the-reader-in-literature, [3,1,3,1,3,3,4,1,2,2]
+https://quizzly.ai/play/the-statute-of-westminster-1275, [3,4,1,2,3,3,2,3,4,1]
+https://quizzly.ai/play/the-treaty-of-falaise, [1,1,2,2,3,4,2,1,4]
+https://quizzly.ai/play/the-treaty-of-wedmore, [1,2,2,1,2,4,2,3]
+https://quizzly.ai/play/time-value-of-money, [2,3,3,3,3,3,3,3,2,4]
+https://quizzly.ai/play/top-lessons, [1,3,3,4,2,2,1,4,2,2]
+https://quizzly.ai/play/tourist-police-in-kashmir, [4,1,2,2,1,4,4,3,2,3]
+https://quizzly.ai/play/trade-war-with-china, [4,4,2,2,4,1,4,1,2,2]
+https://quizzly.ai/play/trade-war-with-mexico, [2,1,4,3,2,3,4,4,3,1]
+https://quizzly.ai/play/traditional-breakfasts-around-the-world, [4,3,4,4,2,4,3,4,4,1]
+https://quizzly.ai/play/transportation-network, [1,4,3,4,4,4,4,1,3,2]
+https://quizzly.ai/play/transportation-safety, [1,3,2,2,3,4,2,1,4,2]
+https://quizzly.ai/play/transportation-services, [3,1,4,2,2,2,1,2,1,1]
+https://quizzly.ai/play/trauma-response, [1,4,4,2,4,4,1,1,4,4]
+https://quizzly.ai/play/travel-restrictions, [3,4,2,4,4,4,3,2,1,1]
+https://quizzly.ai/play/trending-memes, [2,3,3,3,4,1,3,3,2,1]
+https://quizzly.ai/play/trendy-bar, [4,3,2,1,3,2,3,1,2,1]
+https://quizzly.ai/play/trip, [1,1,1,2,2,1,2,4,1,2]
+https://quizzly.ai/play/trivia-questions, [1,2,3,2,2,3,4,2,1,3]
+https://quizzly.ai/play/trudeau-scandals, [4,2,4,2,4,3,4,4,1,3]
+https://quizzly.ai/play/trump-administration-immigration-actions, [4,4,4,1,2,3,3,3,3,3]
+https://quizzly.ai/play/trump-and-machine-learning, [4,2,3,1,1,4,4,1,4,1]
+https://quizzly.ai/play/trump-as-catholic-pope-ai, [2,4,3,2,3,3,3,4,2]
+https://quizzly.ai/play/trump-backed-candidates, [4,1,4,4,2,3,3,3,4,4]
+https://quizzly.ai/play/trump-being-trump-ex-us-nsa-on-president-claiming-credit-for-india-pakistan-ceasefire, [1,3,4,3,4,2,4,3]
+https://quizzly.ai/play/trump-cabinet-officials, [3,4,2,3,1,4,4,1,1,4]
+https://quizzly.ai/play/trump-favorability, [4,4,3,3,4,3,2,2,4,3]
+https://quizzly.ai/play/trump-official-statement, [1,1,1,2,1,3,4,3,2,2]
+https://quizzly.ai/play/trump-public-statement, [3,4,2,4,1,2,4,1,2,4]
+https://quizzly.ai/play/trump-reelection, [2,4,1,3,1,2,3,1,4,2]
+https://quizzly.ai/play/trump-says-used-us-trade-ties-to-persuade-india-pakistan-on-ceasefire, [3,3,4,1,2,3]
+https://quizzly.ai/play/trump-tariff-order, [4,3,3,4,3,3,1,3,2,4]
+https://quizzly.ai/play/trump-zelensky-relations, [1,4,3,1,2,3,4,3,1,2]
+https://quizzly.ai/play/trumps-aggressive-rhetoric, [1,1,2,1,4,4,2,4,4,2]
+https://quizzly.ai/play/trumps-frustration-with-putin-boils-over-with-no-ukraine-peace-deal-in-sight, [3,1,3,2,3,1,4,4]
+https://quizzly.ai/play/trumps-involvement, [3,2,4,2,2,3,1,4,4,1]
+https://quizzly.ai/play/trumps-trade-war, [3,3,2,4,4,1,4,3,1,1]
+https://quizzly.ai/play/tuna-capital-of-the-philippines, [3,2,4,4,1,1,3,2,1,2]
+https://quizzly.ai/play/types-of-malware, [3,1,2,2,3,3,2]
+https://quizzly.ai/play/typhoons-in-the-philippines, [3,2,3,4,3,2,3,1,1,1]
+https://quizzly.ai/play/uk-education-system, [1,2,3,2,1,3,4,4,1,2]
+https://quizzly.ai/play/uk-healthcare-system, [4,4,2,4,4,3,2,3,1,1]
+https://quizzly.ai/play/uk-india-technology-partnerships, [2,4,1,4,1,2,4,4,1,2]
+https://quizzly.ai/play/uk-local-elections, [3,3,2,3,2,2,2,3,4,4]
+https://quizzly.ai/play/uk-police-arrest-man-for-arson-after-fire-at-pm-starmers-house, [1,2,1,4,2,4,1,2,1]
+https://quizzly.ai/play/uk-temporarily-spared-from-donald-trumps-50-metal-tariffs, [3,4,3,1,4,3,3,4,4,1]
+https://quizzly.ai/play/uk-transportation, [1,3,3,3,2,4,2,3,4,1]
+https://quizzly.ai/play/ukraine-russia-truce-negotiations, [2,2,1,2,3,3,1,1,1,2]
+https://quizzly.ai/play/uks-advanced-environmental-technologies, [2,4,1,3,2,2,2,2,2,2]
+https://quizzly.ai/play/uks-advanced-scientific-research, [3,1,2,4,4,2,2,2,4,1]
+https://quizzly.ai/play/uks-cultural-heritage-preservation, [1,3,4,3,4,3,3,3,4,1]
+https://quizzly.ai/play/uks-economic-history, [2,2,2,2,4,2,1,4,1]
+https://quizzly.ai/play/uks-educational-reforms, [2,3,1,4,3,4,2,2,4,3]
+https://quizzly.ai/play/uks-historical-social-theories, [3,3,4,4,1,4,2,2,2,1]
+https://quizzly.ai/play/understanding-antivirus-software, [4,2,4,1,2,4,1,2,1,3]
+https://quizzly.ai/play/understanding-autoencoders, [3,4,3,2,2,4,2,1,4,4]
+https://quizzly.ai/play/understanding-autonomous-vehicle-ethics, [2,2,4,1,1,1,2,3,4,4]
+https://quizzly.ai/play/understanding-capital-budgeting, [2,4,4,3,2,3,3,2,2,1]
+https://quizzly.ai/play/understanding-customer-needs-xjgr7a, [4,2,2,4,1,4,3,3,1,1]
+https://quizzly.ai/play/understanding-depreciation-methods, [3,1,4,3,4,1,3,2,3,3]
+https://quizzly.ai/play/understanding-financial-statements, [3,2,2,4,4,1,1,1,1,3]
+https://quizzly.ai/play/understanding-future-vehicle-technologies, [3,1,2,4,4,2,2,1,4,2]
+https://quizzly.ai/play/understanding-hybrid-vehicles, [1,3,3,1,4,2,1,2,2,2]
+https://quizzly.ai/play/understanding-market-cycles, [3,1,1,2,2,3,4,2,3,4]
+https://quizzly.ai/play/understanding-mortgages, [2,3,3,4,4,3,1,3,3,3]
+https://quizzly.ai/play/understanding-neural-network-for-healthcare, [3,4,4,1,4,3,1,2,1,3]
+https://quizzly.ai/play/understanding-plumbing-system-sustainability, [4,3,1,1,1,1,3,1,4,1]
+https://quizzly.ai/play/understanding-portion-sizes, [1,3,1,4,4,1,2,3,4,3]
+https://quizzly.ai/play/understanding-road-markings, [3,3,3,2,4,2,1,2,1,2]
+https://quizzly.ai/play/understanding-shapes-and-forms, [4,1,1,3,2,4,3,4,1,2]
+https://quizzly.ai/play/understanding-the-infield-and-outfield, [3,4,4,1,1,1,3,4,2,3]
+https://quizzly.ai/play/understanding-vehicle-modifications, [4,2,3,3,2,3,1,3,3,1]
+https://quizzly.ai/play/unexpected-party, [4,3,1,4,4,4,2,3,1,2]
+https://quizzly.ai/play/unpaid-wages, [1,3,3,2,3,4,3,2,1,2]
+https://quizzly.ai/play/updates-on-german-cities, [3,1,2,3,2,2,1,3,2,2]
+https://quizzly.ai/play/upsc-2024-first-rank, [2,4,3,2,1,3,1,4,1,2]
+https://quizzly.ai/play/urban-highways, [3,3,1,3,4,3,1,4,1,3]
+https://quizzly.ai/play/urbanization, [2,3,2,2,1,4,2,4,1,1]
+https://quizzly.ai/play/us-china-relations-cal6kq, [4,2,1,1,3,3,3,4,1,2]
+https://quizzly.ai/play/us-support-for-ukraine, [4,1,1,3,3,4,1,4,4]
+https://quizzly.ai/play/using-comments-and-notes, [3,3,1,1,4,1,1,1,1,4]
+https://quizzly.ai/play/utility-company, [1,2,3,4,2,3,2,4,3,1]
+https://quizzly.ai/play/valuables, [4,2,2,4,1,4,2,2,1,3]
+https://quizzly.ai/play/vancouver-police, [4,2,2,3,2,3,1,1,1,1]
+https://quizzly.ai/play/vatican, [3,2,1,1,3,1,1,1,4]
+https://quizzly.ai/play/vatican-traditions, [3,2,4,4,1,4,4,2,3,3]
+https://quizzly.ai/play/video-game, [3,3,2,2,2,2,3,4,2]
+https://quizzly.ai/play/video-games, [1,4,3,4,3,4,3,4,3]
+https://quizzly.ai/play/vietnamese-cuisine, [1,2,3,3,3,4,1,3,1,4]
+https://quizzly.ai/play/virtual-machine-setup, [1,1,1,4,4,4,3,1,1,3]
+https://quizzly.ai/play/virtualization-management, [4,3,1,2,2,4,3,1,2]
+https://quizzly.ai/play/visibility-concerns, [3,2,3,2,1,4,2,4,1,3]
+https://quizzly.ai/play/volta-region, [1,1,1,4,2,1,2,4,1,3]
+https://quizzly.ai/play/vulgar-expression, [3,4,4,3,4,2,3,4]
+https://quizzly.ai/play/warfare-strategies, [2,3,3,4]
+https://quizzly.ai/play/water, [4,2,2,2,4,4,1,4,3,1]
+https://quizzly.ai/play/water-hyacinth, [4,2,3,3,4,4,2,3,4,1]
+https://quizzly.ai/play/water-rescue-operations, [2,4,3,3,1,2,1,4,3,3]
+https://quizzly.ai/play/water-supply-systems, [3,3,2,1,1,3,3,2,2,3]
+https://quizzly.ai/play/weather-forecast-philippines, [1,4,2,2,3,3,2,4,1,1]
+https://quizzly.ai/play/weather-in-the-philippines, [2,3,1,1,1,3,2,3,4,1]
+https://quizzly.ai/play/welcome, [4,2,3,2,2,3,4,2,1,4]
+https://quizzly.ai/play/what-you-need-to-know-filipino-seafarers-caught-in-red-sea-attacks, [2,2,4,3,1,1]
+https://quizzly.ai/play/whatsapp-messages, [1,1,3,1,4,2,2,4,1,1]
+https://quizzly.ai/play/who-invented-chips, [3,1,3,4,2,1,1,1,2,1]
+https://quizzly.ai/play/who-invented-computer, [3,4,1,3,3,3,4,2,2,3]
+https://quizzly.ai/play/wildfires-destroy-historic-lodge-on-grand-canyons-north-rim-park-says, [1,1,2,2,3,1,3,1,1]
+https://quizzly.ai/play/wireless-security, [2,2,1,1,1,2,1,2,2]
+https://quizzly.ai/play/wood-preservation-techniques, [1,2,1,1,3,4,4,2,3,3]
+https://quizzly.ai/play/working-together, [3,2,1,2,3,1,2,4,1,1]
+https://quizzly.ai/play/world-tour, [4,3,3,4,4,4,3,4,2,2]
+https://quizzly.ai/play/yesterdays-quiz, [3,4,1,3,1,2,3,2,4,1]
+https://quizzly.ai/play/zuckerberg-election-remarks, [4,4,1,4,2,3,3,3,1,4]
+https://quizzly.ai/play/malayalam-alphabet, [1,2,1,2,2,1,1,1,2,1]
+https://quizzly.ai/play/judicial-response, [2,2,2,4,1,1,4,1,4,4]
+https://quizzly.ai/play/predictive-analytics-basics, [2,3,3,1,1,2,3,3,3,3]
+https://quizzly.ai/play/apricot-in-mythology, [2,3,1,1,3,3,4,4,2,2]
+https://quizzly.ai/play/sources-of-air-pollution, [2,4,4,3,1,1,1,1,2,1]
+https://quizzly.ai/play/telugu-blockbuster-films, [3,2,3,4,3,3,2,2,1]
+https://quizzly.ai/play/the-atlantic, [4,3,2,2,2,2,3,4,2]
+https://quizzly.ai/play/advanced-theoretical-physics-applications, [2,2,4,1,2,4,1,2,3,2]
+https://quizzly.ai/play/quantitative-risk-assessment, [3,2,4,4,4,1,1,3,3,2]
+https://quizzly.ai/play/alliance-among-asian-states, [3,3,2,4,3,2,2,3,1,3]
+https://quizzly.ai/play/health-and-safety-protocols, [4,2,1,3,1,2,3,2,4]
+https://quizzly.ai/play/font-selection, [2,2,3,4,2,4,4,2,2,4]
+https://quizzly.ai/play/trump, [3,4,1,4,1,4,2,1,2,3]
+https://quizzly.ai/play/srinagar-resident, [4,3,4,1,4,3,1,3,3,3]
+https://quizzly.ai/play/dagbon-kingdom, [4,2,4,2,3,2,2,2,3,2]
+https://quizzly.ai/play/faith-based-family-rights, [1,3,4,2,1,1,3,4,4,2]
+https://quizzly.ai/play/understanding-market-orders, [4,1,3,3,1,3,1,2]
+https://quizzly.ai/play/nuclear-energy-ceasefire, [3,1,1,2,4,4,4,3,3,2]
+https://quizzly.ai/play/bee-health-monitoring, [3,3,3,3,2,1,3,2,3,1]
+https://quizzly.ai/play/adjective, [2]
+https://quizzly.ai/play/the-role-of-myth-in-literature, [3,4,2,1,2,3,4,2,3,1]
+https://quizzly.ai/play/cutting-edge-ai-techniques-in-data-analytics, [1,1,1,1,4,1,1,3,3,3]
+https://quizzly.ai/play/pope-francis-passing-saddens-filipinos, [4,1,1,3,4,1,2,3,1,3]
+https://quizzly.ai/play/trump-white-house-directives, [1,1,2,2,1,1,4,4,4,4]
+https://quizzly.ai/play/ethical-ai-implementation, [1,2,2,2,3,1,4,2,2,4]
+https://quizzly.ai/play/enterprise-software-solutions, [1,4,3,2,3,1,2,2,4,2]
+https://quizzly.ai/play/ai-acceptance-by-the-public, [4,1,3,2,1,2,2,2,3,1]
+https://quizzly.ai/play/trumps-threats-to-rivals, [3,3,4,3]
+https://quizzly.ai/play/legal-action-against-vloggers, [4,3,1,3,2,3,1,4,1,1]
+https://quizzly.ai/play/understanding-plumbing-system-integration, [4,3,4,2,2,1,1,1,1,4]
+https://quizzly.ai/play/introduction-to-railway-engineering, [3,2,4,4,4,4,4,4,2,4]
+https://quizzly.ai/play/pilgrims-and-puritans, [3,4,1,2,3,3,1,2,3,4]
+https://quizzly.ai/play/convolutional-neural-networks-cnns, [1,1,1,4,3,4,3,1,3,2]
+https://quizzly.ai/play/exploring-cultural-and-societal-shifts, [3,3,1,2,4,1,4,1,2,4]
+https://quizzly.ai/play/viral-tiktok-challenges, [2,3,1,4,2,4,3,4,4,1]
+https://quizzly.ai/play/advanced-wood-finishing, [2,3,4,2,1,1,4,1,3,3]
+https://quizzly.ai/play/group-discussion, [1,4,4,4,2,2,1,1,1,2]
+https://quizzly.ai/play/railway-network-global-optimization, [2,3,2,4,1,2,3,2,1,1]
+https://quizzly.ai/play/environmental-impact, [3,1,4,2,4,1,3,4,1,4]
+https://quizzly.ai/play/aviation-accidents, [2,2,2,4,3,2,4,2,1,2]
+https://quizzly.ai/play/biomes-and-their-characteristics, [1,1,3,1,1,2,4,3,1,4]
+https://quizzly.ai/play/internal-memo, [4,4,4,3,2,1,3,1,1,1]
+https://quizzly.ai/play/netanyahu-official-statements, [1,4,2,3,4,4,4,2,3,3]
+https://quizzly.ai/play/occupational-safety-and-health, [3,4,4,3,2,1,3,2,3,4]
+https://quizzly.ai/play/traveling-domestically-with-real-id, [3,2,3,1,1,2,1,4,3,4]
+https://quizzly.ai/play/fbi-indictment, [1,1,4,2,3,2,1,1,4,3]
+https://quizzly.ai/play/advanced-techniques-in-gastronomy, [1,4,1,3,2,4,1,3,3,4]
+https://quizzly.ai/play/present-simple-exercises, [3,1,2,3,4,4,1,1,1,1]
+https://quizzly.ai/play/the-merthyr-rising, [1,4,1,1,2,2,4]
+https://quizzly.ai/play/bee-evolutionary-genetics, [3,2,4,4,1,2,2,1,1]
+https://quizzly.ai/play/severe-weather-alerts-in-india, [4,3,2,3,2,4,1,1,3,3]
+https://quizzly.ai/play/introduction-to-neural-network-for-genomics, [2,1,2,2,3,1,3,2,4,1]
+https://quizzly.ai/play/flooding-due-to-rainfall, [4,1,2,2,2,4,4,2,2,1]
+https://quizzly.ai/play/mistakes-in-the-workplace, [2,4,4,4,3,1,2,3,4,1]
+https://quizzly.ai/play/employment-based-visas, [4,3,2,2,2,1,3,2,3,3]
+https://quizzly.ai/play/political-parties-in-australia, [1,2,1,2,3,3,1,4,3,1]
+https://quizzly.ai/play/harvard-says-trump-administrations-block-on-international-student-enrollment-unlawful-us-politics-live, [3,3,4,3,4,4,1,4,1,2]
+https://quizzly.ai/play/overview-of-criminal-law, [3,2,2,3,3,1,3,1,3,2]
+https://quizzly.ai/play/baseball-strategy-and-tactics, [4,2,1,3,3,1,3,4]
+https://quizzly.ai/play/homophones, [3,3,4,1,1,4,3,4,1,4]
+https://quizzly.ai/play/advanced-iot-solutions-y0dd36, [2,3,3,2,3,3,1,1,4,1]
+https://quizzly.ai/play/germany-urges-tough-eu-response-if-fair-deal-cannot-be-reached-on-us-tariffs, [1,1,2,2,2,4,4,1,3,2]
+https://quizzly.ai/play/bee-adaptations, [3,2,4,4,3,2,3,3,1,3]
+https://quizzly.ai/play/free-fair, [4,3,2,3,1,2,1,2,1,2]
+https://quizzly.ai/play/iranian-international-relations, [4,4,4,4,4,1,2,4,2]
+https://quizzly.ai/play/best-time-to-visit-kailasakona, [4,1,2,3,1,2,4,3,2,1]
+https://quizzly.ai/play/hollywoods-approach-to-adventure-films, [2,1,1,3,4,2,1,3,4,2]
+https://quizzly.ai/play/manila-tokyo-diplomacy, [3,1,4,4,3,4,1,2,3,3]
+https://quizzly.ai/play/international-financial-management, [2,2,4,1,1,4,3,3,2,4]
+https://quizzly.ai/play/hollywoods-approach-to-war-films, [1,3,1,3,2,1,3,1,4,2]
+https://quizzly.ai/play/student-visa-processing-time, [1,2,4,1,3,3,4,1,3,2]
+https://quizzly.ai/play/understanding-bid-and-ask-prices, [4,2,2,2,1,3,3,2,4,4]
+https://quizzly.ai/play/waltz-substitute, [1,2,4,3,2,4,1,1,4,1]
+https://quizzly.ai/play/supervisor, [3,4,1,1,4,1,3,4,2,4]
+https://quizzly.ai/play/dbms-join-operations, [2,4,2,1,3,3,1,4,2,2]
+https://quizzly.ai/play/exploring-seafood-and-fish, [2,3,2,4,1,2,1,2,4,3]
+https://quizzly.ai/play/international-law-enforcement, [4,3,3,2,1,2,4]
+https://quizzly.ai/play/handling-urban-traffic, [3,1,2,2,4,1,3,2,2,4]
+https://quizzly.ai/play/toyota-rav4, [4,1,2,2,4,4,1,4,3,3]
+https://quizzly.ai/play/history-of-india, [3,4,4,4,2,1,3,3,2,4]
+https://quizzly.ai/play/introduction-to-managerial-economics, [1,3,4,2,1,4,1,3,3,3]
+https://quizzly.ai/play/anthony-edwards-vs-lebron-james, [3,4,3,4,1,2,3,4,2]
+https://quizzly.ai/play/understanding-grain-direction, [3,4,1,4,3,3,4,1,4,4]
+https://quizzly.ai/play/consumer-decision-making-process, [1,4,1,4,4,3,3,4,1,3]
+https://quizzly.ai/play/political-rivals, [4,4,4,3,2,4,2,2,1,4]
+https://quizzly.ai/play/clrscr-not-working, [4,4,4,1,2,3,2,4,2,4]
+https://quizzly.ai/play/uk-innovation-and-research, [1,1,4,1,4,2,3,4,4,3]
+https://quizzly.ai/play/uks-strategic-alliances, [2,1,2,1,1,4,3,1,2,2]
+https://quizzly.ai/play/introduction-to-food-sustainability, [4,2,4,2,1,4,4,2,2,3]
+https://quizzly.ai/play/qs-asia-university-rankings, [2,3,3,4,1,4,4,1,2,2]
+https://quizzly.ai/play/barista, [1,1,2,3,1,3,3,1,1,1]
+https://quizzly.ai/play/diddy, [4,4,1,4,4,2,2,4,3,2]
+https://quizzly.ai/play/auxiliary-verbs, [4,4,3,3,3,2,3,3,3,4]
+https://quizzly.ai/play/advanced-autonomous-systems-bhxefs, [3,1,3,3,4,3,1,2,1,4]
+https://quizzly.ai/play/understanding-file-systems, [3,1,1,3,2,3,2,1,2,2]
+https://quizzly.ai/play/military-operations-in-gaza, [4,4,4,4,4,1,1]
+https://quizzly.ai/play/advanced-off-road-driving, [4,1,2,4,2,1,3,4,1,1]
+https://quizzly.ai/play/cloud-infrastructure-management, [1,2,2,1,2,2,3,1,1,1]
+https://quizzly.ai/play/israel-emergency-alerts, [1,2,3,2,4,1,1,3,4,3]
+https://quizzly.ai/play/quantitative-portfolio-management, [1,2,4,1,3,4,4,3,1,3]
+https://quizzly.ai/play/geopolitics-62yo5n, [4,1,4,3,2,2,4,3,4,3]
+https://quizzly.ai/play/famous-for-its-spicy-cuisine, [1,2,2,1,4,3,1,1,3,2]
+https://quizzly.ai/play/indian-security-forces, [3,2,3,2,1,1,1,2,4,1]
+https://quizzly.ai/play/introduction-to-public-health, [4,1,4,2,2,4,3,1,3]
+https://quizzly.ai/play/ecological-economics, [2,4,1,4,3,3,1,1,3,1]
+https://quizzly.ai/play/how-the-feud-between-elon-musk-and-donald-trump-exploded-over-72-hours, [1,2,3,2,1,3,3,3,4,1]
+https://quizzly.ai/play/trumps-big-beautiful-tax-bill-passes-final-vote-advances-to-presidents-desk, [3,1,2,4,3,2,3,2,3,1]
+https://quizzly.ai/play/catchy-tunes, [3,1,3,3,1,2,3,1,1,2]
+https://quizzly.ai/play/pakistani-security-forces-statements, [1,3,3,4,1,1,3,3,2,1]
+https://quizzly.ai/play/judge-presses-trump-administration-about-reported-deportations-to-south-sudan, [1,1,2,1,2,1,1,4,1]
+https://quizzly.ai/play/chairperson-of-the-democratic-national-committee, [2,2,2,3,1,4,3,2,1,1]
+https://quizzly.ai/play/pasig-river, [4,2,3,4,4,2,1,4,4,1]
+https://quizzly.ai/play/invasive-species-management, [2,4,4,1,1,2,3,3,1]
+https://quizzly.ai/play/prepaid-funeral-plans, [2,4,3,1,1,2,3,4,4]
+https://quizzly.ai/play/structured-content, [4,4,1,4,2,1,1,1,4,1]
+https://quizzly.ai/play/netanyahu-statements, [3,3,3,4,4,3,3,3,3,3]
+https://quizzly.ai/play/quantitative-fixed-income-strategies, [2,2,1,4,3,2,3,2,4,3]
+https://quizzly.ai/play/disneyland, [3,1,3,4,4,3,3,2,4,4]
+https://quizzly.ai/play/sibling-immigration, [1,4,2,3,3,4,2,3,2,2]
+https://quizzly.ai/play/understanding-fats-and-oils, [4,3,2,4,1,3,1,3,1,1]
+https://quizzly.ai/play/apricot-and-biodiversity, [2,4,2,2,1,2,3,4,1,3]
+https://quizzly.ai/play/exploring-the-cuisine-of-the-himalayas, [1,1,3,4,1,1,4,1,4,1]
+https://quizzly.ai/play/worlds-top-copper-producer-chile-in-wait-and-see-mode-after-trump-tariff-bombshell, [4,1,2,3,3,3,2,4,4,1]
+https://quizzly.ai/play/islamic-faith, [3,2,1,2,4,1,2,2,4,4]
+https://quizzly.ai/play/basic-baseball-drills, [4,4,2,4,4,2,4,1,2,3]
+https://quizzly.ai/play/reflective-approach, [4,3,2,2,2,3,1,2,1,1]
+https://quizzly.ai/play/minor-league-baseball, [4,3,4,1,1,3,4,3,4,2]
+https://quizzly.ai/play/understanding-plumbing-system-design, [4,1,2,4,1,4,1,3,2,4]
+https://quizzly.ai/play/europe-sidelined, [3,4,2,1,2,2,3,4,1,2]
+https://quizzly.ai/play/java-programming-language, [4,4,1,2,3,2,1,4,2,1]
+https://quizzly.ai/play/greenland, [3,1,1,2,1,1,3,1,1,4]
+https://quizzly.ai/play/sustainable-finance, [4,2,1,3,3,4,1,1,3,1]
+https://quizzly.ai/play/bee-ecological-impact-assessment, [1,4,1,4,4,1,3,3,4]
+https://quizzly.ai/play/mutual-funds, [4,4,3,3,1,4,2,4,3,4]
+https://quizzly.ai/play/philippines-cybersecurity, [1,4,1,3,3,3,2,3,2]
+https://quizzly.ai/play/trumps-public-statements, [2,1,1,3,1,4,1,1,2,4]
+https://quizzly.ai/play/bitcoin, [3,2,1,3,4,3,1,1,1,3]
+https://quizzly.ai/play/spacex-engineers, [2,3,2,4,4,1,4,4,1,2]
+https://quizzly.ai/play/jurisdictional-objections-at-icc, [4,1,1,4,1,2,1,3,1,4]
+https://quizzly.ai/play/bilateral-agreement-with-china, [1,4,3,4,3,1,3,1,2,1]
+https://quizzly.ai/play/end-of-life-care, [4,3,3,3,1,1,2,1,3,3]
+https://quizzly.ai/play/public-finance-challenges, [4,1,3,3,4,3,2,2,2,2]
+https://quizzly.ai/play/apricot-genetic-diversity, [3,1,1,1,3,1,3,1,3,2]
+https://quizzly.ai/play/putin-and-the-oligarchs, [1,3,1,3,3,4,1,1,2,2]
+https://quizzly.ai/play/armenian-diaspora-global-networks, [3,1,3,3,3,4,4,1,3]
+https://quizzly.ai/play/big-dam-projects, [3,2,4,3,4,1,3,2,1,2]
+https://quizzly.ai/play/cricket, [4,2,3,1,3,3,4,1,4,2]
+https://quizzly.ai/play/disneys-animation-techniques, [2,1,4,4,4,2,1,3,3,4]
+https://quizzly.ai/play/president-of-the-philippines, [2,4,2,3,4,4,2,4,1,4]
+https://quizzly.ai/play/mayhem, [4,1,4,1,3,4,4,2,3]
+https://quizzly.ai/play/scanner-example, [4,4,3,2,2,4,3,3,2,2]
+https://quizzly.ai/play/papal-passing, [4,1,1,2,4,3,4]
+https://quizzly.ai/play/pakistan-economy, [3,4,1,2,1,1,4,4,4,2]
+https://quizzly.ai/play/the-lost-generation, [2,2,3,2,3,1,3,4,4]
+https://quizzly.ai/play/exploring-the-cuisine-of-the-indian-subcontinent, [3,3,1,4,3,1,3,1,1,4]
+https://quizzly.ai/play/hospital-release, [2,3,4,1,3,3,3,3,3,2]
+https://quizzly.ai/play/ukraine-visa-refusal, [4,1,3,3,3,3,3,1,2]
+https://quizzly.ai/play/srinagarite, [4,2,2,1,1,3,3,4,2,1]
+https://quizzly.ai/play/samuel-family-in-the-bible, [3,3,1,4,1,3,2,1,1]
+https://quizzly.ai/play/freedmens-bureau, [3,4,2,4,3,2,3,4,3,2]
+https://quizzly.ai/play/corporate-takeover, [2,3,1,4,2,3,2,4,1,3]
+https://quizzly.ai/play/social-media-crisis-management-8f47cn, [1,1,1,4,1,2,2,4,4,3]
+https://quizzly.ai/play/no-kings-protests-stir-us-as-trump-celebrates-birthday-with-military-parade-in-pictures, [3,3,4,2,1,3,1,1,4,4]
+https://quizzly.ai/play/religious-community-reactions, [3,3,3,1,1,4,1,3,1,2]
+https://quizzly.ai/play/outboard-motors, [1,3,4,4,1,3,3,1,4,4]
+https://quizzly.ai/play/northern-region-ghana, [2,4,3,3,2,1,1,2,2,2]
+https://quizzly.ai/play/ntsb-report, [1,4,2,1,1,2,1,1,1,2]
+https://quizzly.ai/play/cebu, [3,4,4,1,1,1,1,3,1,3]
+https://quizzly.ai/play/cinemas, [3,4,1,2,4,1,4,1,4,1]
+https://quizzly.ai/play/meteorology-basics, [1,4,3,1,3,4,2,3,2,3]
+https://quizzly.ai/play/japanese-internment-camps, [2,2,1,3,1,1,1,4,3]
+https://quizzly.ai/play/basic-networking-concepts, [4,1,3,3,1,2,3,4,3,2]
+https://quizzly.ai/play/software-development-life-cycle, [2,3,1,2,1,1,3,1,2,1]
+https://quizzly.ai/play/major-railway-station, [4,1,1,3,3,3,3,2,1,3]
+https://quizzly.ai/play/water-is-pakistans-red-line-pak-army-chief-asim-munir-says-will-not-compromise-on-basic-right-of-240, [1,1,3,1,2,2]
+https://quizzly.ai/play/curriculum-modifications, [2,4,1,4,1,4,1,2,1,3]
+https://quizzly.ai/play/immigration-policy-debates, [3,2,3,2,1,3,4,3,2,4]
+https://quizzly.ai/play/crisis-communication, [4,2,4,3,4,1,3,2,2,4]
+https://quizzly.ai/play/rainfall-activity, [4,2,4,2,3,4,2,4,1,2]
+https://quizzly.ai/play/hollywood-box-office, [1,2,2,2,1,2,1,1,2]
+https://quizzly.ai/play/foundational-theories, [2,2,1,1,3,2,1,1,3,2]
+https://quizzly.ai/play/disney, [1,1,3,2,2,3,2,1,1,4]
+https://quizzly.ai/play/legal-ruling-against-trump-officials, [2,2,3,1,4,3,4,4,3,1]
+https://quizzly.ai/play/geosciences, [4,4,1,3,4,2,4,4,2,4]
+https://quizzly.ai/play/using-volume-indicators, [2,3,1,2,3,2,3,2,3,4]
+https://quizzly.ai/play/ai-and-the-future-of-work, [4,4,1,2,1,3,4,4,4,4]
+https://quizzly.ai/play/apricot-and-sustainable-agriculture, [3,1,4,4,4,2,4,1,3,4]
+https://quizzly.ai/play/flash-flood, [2,3,2,4,4,3,1,1,2,2]
+https://quizzly.ai/play/border-wall, [4,2,4,3,4,2,3,1,4,1]
+https://quizzly.ai/play/israel-border-incidents, [2,1,3,2,4,3,4,3,1]
+https://quizzly.ai/play/simion-public-speeches, [4,4,1,3,3,2,2,3,4,2]
+https://quizzly.ai/play/advanced-vehicle-telemetry-analysis, [2,2,1,3,1,3,1,1,4,3]
+https://quizzly.ai/play/data-ethics-in-ai, [3,3,3,3,3,1,2,4,3,4]
+https://quizzly.ai/play/synthesizers, [3,4,2,4,4,1,4,3,2,2]
+https://quizzly.ai/play/digital-transformation-initiatives, [4,1,3,2,3,1,1,4,2,3]
+https://quizzly.ai/play/record-breaking-speech-duration, [3,1,4,2,4,1,3,1,2,2]
+https://quizzly.ai/play/indian-nuclear-program, [1,4,1,2,3,2,3,4,2,3]
+https://quizzly.ai/play/seneca-falls-convention, [4,4,4,4,3,2,4,2,3,1]
+https://quizzly.ai/play/woodworking-for-architecture, [3,4,3,1,4,2,3,4,1,3]
+https://quizzly.ai/play/changes-in-movie-genres, [4,2,3,3,1,4,4,1,2,3]
+https://quizzly.ai/play/journalist, [1,1,1,2,3,1,1,4,4,3]
+https://quizzly.ai/play/advanced-ai-techniques, [1,4,3,1,4,4,3,4,1,1]
+https://quizzly.ai/play/keyboard-navigation, [3,3,1,4,4,2,3,1,3,1]
+https://quizzly.ai/play/new-deadline-douses-spark-of-pti-protest, [2,1,4,4,4,2,2,3,2,1]
+https://quizzly.ai/play/hollywoods-technological-innovations, [1,4,3,2,1,4,1,1,4,3]
+https://quizzly.ai/play/computer-networks, [2,2,2,4,3,4,4,4,1,2]
+https://quizzly.ai/play/compelling-arguments, [3,4,1,1,3,1,2,4,2,3]
+https://quizzly.ai/play/india-and-pakistan, [1,1,3,2,2,3,3,4,2,3]
+https://quizzly.ai/play/immigration-policy-debate, [3,3,3,3,2,3,3,3,4,2]
+https://quizzly.ai/play/flags-of-countries-with-rare-colors, [2,2,4,1,2,3,4,4,1,1]
+https://quizzly.ai/play/legal-system-in-the-philippines, [2,4,4,1,1,1,3,1,1,4]
