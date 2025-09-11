@@ -40,10 +40,11 @@ document.addEventListener("DOMContentLoaded", function() {
         // Parse "url, [answers]"
         let [url, answersStr] = chosenLine.split(",");
         url = url.trim();
-        let answers = answersStr.trim();
+        let answers = JSON.parse(answersStr.trim()); // convert to array
 
-        // Redirect with answers in hash
-        let redirectUrl = url + "#answers=" + encodeURIComponent(answers);
+        // Put back as clean JSON
+        let redirectUrl = url + "#answers=" + encodeURIComponent(JSON.stringify(answers));
+
         window.location.assign(redirectUrl);
 
         // Optional auto-refresh
