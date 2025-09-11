@@ -38,9 +38,16 @@ document.addEventListener("DOMContentLoaded", function() {
         localStorage.setItem("visitedLines", JSON.stringify(visited));
 
         // Parse "url, [answers]"
-        let [url, answersStr] = chosenLine.split(",");
-        url = url.trim();
-        let answers = JSON.parse(answersStr.trim()); // convert to array
+ let firstComma = chosenLine.indexOf(",");
+if (firstComma === -1) {
+    console.error("Invalid line format:", chosenLine);
+    return;
+}
+
+let url = chosenLine.slice(0, firstComma).trim();
+let answersStr = chosenLine.slice(firstComma + 1).trim();
+let answers = JSON.parse(answersStr); // convert to array
+
 
         // Put back as clean JSON
         let redirectUrl = url + "#answers=" + encodeURIComponent(JSON.stringify(answers));
