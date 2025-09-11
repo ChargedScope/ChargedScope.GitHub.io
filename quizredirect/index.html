@@ -2,14 +2,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Link Redirector</title>
+<title>Link Redirector (robust)</title>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
-    fetch('QuizzerRedirectNumbers.txt')
+    // Fetch the file
+    fetch('QuizzerRedirectAnswers.txt')
       .then(response => response.text())
       .then(text => {
-        const lines = text.split('\n').map(line => line.trim()).filter(Boolean);
+        // Try to extract all URL + array pairs from the entire file first
+        // Matches patterns like: https://example/... , [1,2,3]
+        const pairRegex = /(https?:\/\/[^\s,]+)\s*,\s*(\[[^\]]*\])/g;
+        let matches = [];
+        let m;
+        while ((m = pairRegex.exec(text)) !== null) {
+            matches.push({ url: m[1].trim(), answersStr: m[2].trim() });
+        }
 
+        // Fallback: try line-by-line after stripping HTML tags (useful if GitHub returned an HTML page)
+        if (matches.length === 0) {
+            const lines = text.split('\n');
+            for (let rawLine of lines) {
+                let line = rawLine.replace(/<[^>]*>/g, '').trim(); // remove tags
+                if (!line) continue;
+                let mm = line.match(/(https?:\/\/[^\s,]+)\s*,\s*(\[[^\]]*\])/);
+                if (mm) matches.push({ url: mm[1].trim(), answersStr: mm[2].trim() });
+            }
+        }
+
+        if (matches.length === 0) {
+            console.error('No valid "URL, [answers]" lines found in the fetched file.');
+            return;
+        }
+
+        // Helper to get current week number (same logic you had)
         function getCurrentWeek() {
             let now = new Date();
             let startOfYear = new Date(now.getFullYear(), 0, 1);
@@ -19,45 +44,48 @@ document.addEventListener("DOMContentLoaded", function() {
 
         let currentWeek = getCurrentWeek();
         let storedWeek = localStorage.getItem("visitedWeek");
-
         if (storedWeek !== String(currentWeek)) {
             localStorage.setItem("visitedWeek", String(currentWeek));
-            localStorage.setItem("visitedLines", JSON.stringify([]));
+            localStorage.setItem("visitedURLs", JSON.stringify([]));
         }
 
-        let visited = JSON.parse(localStorage.getItem("visitedLines") || "[]");
-        let remaining = lines.filter(line => !visited.includes(line));
+        // Load visited URLs (not raw lines) so we avoid mismatches from HTML or extra text
+        let visited = JSON.parse(localStorage.getItem("visitedURLs") || "[]");
+
+        // Filter matches to only those with URLs not visited this week
+        let remaining = matches.filter(p => !visited.includes(p.url));
 
         if (remaining.length === 0) {
-            alert("All links visited! Will restart next week");
+            alert("All links visited this week. Will restart next week.");
             return;
         }
 
-        let chosenLine = remaining[Math.floor(Math.random() * remaining.length)];
-        visited.push(chosenLine);
-        localStorage.setItem("visitedLines", JSON.stringify(visited));
+        // Pick random remaining pair
+        let chosen = remaining[Math.floor(Math.random() * remaining.length)];
 
-        // Parse "url, [answers]"
- let firstComma = chosenLine.indexOf(",");
-if (firstComma === -1) {
-    console.error("Invalid line format:", chosenLine);
-    return;
-}
+        // Save visited URL
+        visited.push(chosen.url);
+        localStorage.setItem("visitedURLs", JSON.stringify(visited));
 
-let url = chosenLine.slice(0, firstComma).trim();
-let answersStr = chosenLine.slice(firstComma + 1).trim();
-let answers = JSON.parse(answersStr); // convert to array
+        // Parse answers string safely
+        let answers;
+        try {
+            // normalize single quotes if any, remove stray spaces
+            let s = chosen.answersStr.replace(/'/g, '"').trim();
+            answers = JSON.parse(s);
+            if (!Array.isArray(answers)) throw new Error("Parsed answers is not an array");
+        } catch (err) {
+            console.error("Failed to parse answers for", chosen.url, "->", chosen.answersStr, err);
+            return;
+        }
 
-
-        // Put back as clean JSON
-        let redirectUrl = url + "#answers=" + encodeURIComponent(JSON.stringify(answers));
-
+        // Redirect with JSON-encoded, URI-encoded answers in the hash
+        let redirectUrl = chosen.url + "#answers=" + encodeURIComponent(JSON.stringify(answers));
+        console.log("Redirecting to:", redirectUrl);
         window.location.assign(redirectUrl);
 
-        // Optional auto-refresh
-        setTimeout(() => {
-            location.reload();
-        }, 20000);
+        // optional fallback reload in case something goes wrong
+        setTimeout(() => { location.reload(); }, 20000);
     })
     .catch(err => console.error('Failed to load links:', err));
 });
