@@ -35,12 +35,15 @@ fetch('QuizzerRedirect.txt')
     // Find remaining links
     let remaining = links.filter(link => !visited.includes(link));
 
-    if (remaining.length === 0) {
-        //localStorage.removeItem("visitedLinks");
-        alert("All links visited! Will restart next week");
-        //remaining = [...links];
-        return;
-    }
+if (remaining.length === 0) {
+    alert("All links visited! Restarting now...");
+    // Clear visited links so all links become available again
+    localStorage.setItem("visitedLinks", JSON.stringify([]));
+    // Reload the page to pick a new link
+    location.reload();
+    return;
+}
+
 
     // Pick a random remaining link
     let chosen = remaining[Math.floor(Math.random() * remaining.length)];
