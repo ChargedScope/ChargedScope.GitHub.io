@@ -257,7 +257,6 @@ https://quizzly.ai/play/advanced-excel-techniques
 https://quizzly.ai/play/advanced-fermentation-techniques
 https://quizzly.ai/play/advanced-file-handling-8qxijl
 https://quizzly.ai/play/advanced-financial-derivatives-25g6ry
-https://quizzly.ai/play/advanced-financial-econometrics-wbq8uj
 https://quizzly.ai/play/advanced-financial-engineering
 https://quizzly.ai/play/advanced-financial-network-theory
 https://quizzly.ai/play/advanced-financial-planning-dx7ac2
@@ -1407,7 +1406,6 @@ https://quizzly.ai/play/body-worn-cameras
 https://quizzly.ai/play/bolivian-artist
 https://quizzly.ai/play/bollywood
 https://quizzly.ai/play/bollywood-actor
-https://quizzly.ai/play/bollywood-fashion-2c78z0
 https://quizzly.ai/play/bollywood-films
 https://quizzly.ai/play/bollywood-movies
 https://quizzly.ai/play/bollywood-stars
@@ -1518,6 +1516,7 @@ https://quizzly.ai/play/building-commencement
 https://quizzly.ai/play/building-demolition-kashmir
 https://quizzly.ai/play/building-rapport
 https://quizzly.ai/play/building-strong-communities
+https://quizzly.ai/play/building-takeovers
 https://quizzly.ai/play/building-takeovers
 https://quizzly.ai/play/building-trust-through-nuclear-talks
 https://quizzly.ai/play/bulk
@@ -2706,6 +2705,7 @@ https://quizzly.ai/play/diplomatic-relations-pakistan
 https://quizzly.ai/play/diplomatic-resolutions
 https://quizzly.ai/play/diplomatic-response-to-kashmir-attack
 https://quizzly.ai/play/diplomatic-response-to-pakistan
+https://quizzly.ai/play/diplomatic-responses-to-kashmir-events
 https://quizzly.ai/play/diplomatic-staff-dismissed-over-corruption
 https://quizzly.ai/play/diplomatic-standoffs
 https://quizzly.ai/play/diplomatic-statement
@@ -3406,6 +3406,7 @@ https://quizzly.ai/play/facing-prosecution-for-alleged-offenses
 https://quizzly.ai/play/facts
 https://quizzly.ai/play/faisal-islam-background
 https://quizzly.ai/play/faith-and-papacy-in-the-philippines
+https://quizzly.ai/play/faith-based-family-rights
 https://quizzly.ai/play/faith-based-organization-reactions
 https://quizzly.ai/play/faith-based-organizations
 https://quizzly.ai/play/fake-news
@@ -3441,7 +3442,6 @@ https://quizzly.ai/play/famous-eatery-creator
 https://quizzly.ai/play/famous-english-authors
 https://quizzly.ai/play/famous-english-novels
 https://quizzly.ai/play/famous-fairs
-https://quizzly.ai/play/famous-film-producers
 https://quizzly.ai/play/famous-for-its-biryani
 https://quizzly.ai/play/famous-for-its-kadayawan-festival
 https://quizzly.ai/play/famous-for-its-pagodas-and-temples
@@ -4302,6 +4302,7 @@ https://quizzly.ai/play/holy-see-customs
 https://quizzly.ai/play/holy-see-succession
 https://quizzly.ai/play/home-affairs-minister
 https://quizzly.ai/play/home-court-advantage
+https://quizzly.ai/play/home-demolition-in-kashmir
 https://quizzly.ai/play/home-minister-of-india-former
 https://quizzly.ai/play/home-rule
 https://quizzly.ai/play/home-to-a-variety-of-bird-species
@@ -5208,6 +5209,7 @@ https://quizzly.ai/play/islamic-civilization
 https://quizzly.ai/play/islamic-culture
 https://quizzly.ai/play/islamic-customs
 https://quizzly.ai/play/islamic-education
+https://quizzly.ai/play/islamic-education
 https://quizzly.ai/play/islamic-faith
 https://quizzly.ai/play/islamic-history
 https://quizzly.ai/play/islamic-holy-month
@@ -5500,6 +5502,7 @@ https://quizzly.ai/play/largest-land-animal
 https://quizzly.ai/play/largest-ocean-on-earth
 https://quizzly.ai/play/largest-province-in-pakistan
 https://quizzly.ai/play/las-cruces
+https://quizzly.ai/play/lasting-impact
 https://quizzly.ai/play/latest-news
 https://quizzly.ai/play/latest-political-developments
 https://quizzly.ai/play/launch-anniversary
@@ -7897,6 +7900,7 @@ https://quizzly.ai/play/running-shoes
 https://quizzly.ai/play/runway-looks
 https://quizzly.ai/play/rural-connectivity-projects
 https://quizzly.ai/play/russia-ukraine-conflict
+https://quizzly.ai/play/russia-ukraine-tensions
 https://quizzly.ai/play/russian-gas-supply-cuts
 https://quizzly.ai/play/russian-missiles-and-drones-pound-ukrainian-capital-ahead-of-rome-summit
 https://quizzly.ai/play/russian-revolution
@@ -8218,6 +8222,7 @@ https://quizzly.ai/play/solid-north-fares
 https://quizzly.ai/play/solid-north-online-booking
 https://quizzly.ai/play/solid-north-routes
 https://quizzly.ai/play/solid-north-transit
+https://quizzly.ai/play/solidarity
 https://quizzly.ai/play/solidarity-formation
 https://quizzly.ai/play/solitary-bees
 https://quizzly.ai/play/solon
@@ -8426,6 +8431,7 @@ https://quizzly.ai/play/student-protests
 https://quizzly.ai/play/student-suspension
 https://quizzly.ai/play/student-visa-for-usa
 https://quizzly.ai/play/student-visa-interview
+https://quizzly.ai/play/student-visa-processing-time
 https://quizzly.ai/play/student-visa-program
 https://quizzly.ai/play/student-visa-rules
 https://quizzly.ai/play/student-visas-revoked
@@ -9100,6 +9106,7 @@ https://quizzly.ai/play/trump-administration-bars-harvard-from-enrolling-interna
 https://quizzly.ai/play/trump-administration-criticized
 https://quizzly.ai/play/trump-administration-diplomacy
 https://quizzly.ai/play/trump-administration-gathering
+https://quizzly.ai/play/trump-administration-immigration-actions
 https://quizzly.ai/play/trump-administration-live-updates-pleasing-trump-nato-leaders-make-spending-pledge-but-keep-some-flexibility
 https://quizzly.ai/play/trump-administration-live-updates-president-bars-people-from-12-countries-from-entering-u.s.
 https://quizzly.ai/play/trump-administration-looking-at-suspending-habeas-corpus-for-migrants-stephen-miller-says
@@ -10149,7 +10156,6 @@ https://quizzly.ai/play/zack-snyder
 https://quizzly.ai/play/zakat-fund-at-international-level
 https://quizzly.ai/play/zamboanga-city-crash-news
 https://quizzly.ai/play/zelensky-challenges-putin-to-meet-him-after-trump-demands-ukraine-russia-talks
-https://quizzly.ai/play/zelenskys-war-room
 https://quizzly.ai/play/zelenskyy-administration
 https://quizzly.ai/play/zenbook-series
 https://quizzly.ai/play/zero-gst
