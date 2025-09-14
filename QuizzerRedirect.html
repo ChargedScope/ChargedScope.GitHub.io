@@ -4,6 +4,10 @@
 <meta charset="UTF-8">
 <title>Link Redirector</title>
 <script>
+
+    //uncomment following line to refresh link visit history
+    localStorage.setItem("visitedLinks", JSON.stringify([]));
+    
 document.addEventListener("DOMContentLoaded", function() {
     // Your 10 example links
 fetch('QuizzerRedirect.txt')
