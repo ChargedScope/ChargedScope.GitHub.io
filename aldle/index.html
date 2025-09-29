@@ -186,7 +186,13 @@
 
       const actual = currentItem.price;
       const diff = (actual - guess).toFixed(2);
+      if (guesscount==0) {
+      document.getElementById("result").textContent =
+        "Item price: €"+price+" | You didn't get it";
+      document.getElementById("guessbtn").remove();
+      } else {
       guesscount = guesscount + 1;
+      }
       document.getElementById("guess-count").textContent = "You have "+(6-guesscount)+"/6 guesses remaining";      
 
       if ((actual-guess)>0) {
