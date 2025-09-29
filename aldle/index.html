@@ -10,6 +10,7 @@
 </head>
 <body>
   <h1>Aldle</h1>
+  <img id="corner-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/960px-Flag_of_Ireland.svg.png?20160516044543" alt="Logo">
   <div id="game">
     <p id="item-name"></p>
     <p id="guess-count"></p>
@@ -326,5 +327,15 @@
     // Start game with first item
     nextItem();
   </script>
+  <style>
+    #corner-img {
+  position: fixed;   /* fixed so it stays in the corner when scrolling */
+  top: 10px;         /* distance from top */
+  right: 10px;       /* distance from right */
+  width: 50px;       /* adjust size */
+  height: auto;      /* keep aspect ratio */
+  z-index: 1000;     /* make sure it’s on top of other elements */
+}
+  </style>
 </body>
 </html>
