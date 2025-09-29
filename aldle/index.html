@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aldle</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; padding: 2rem; }
+    #result { margin-top: 1rem; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>Aldle</h1>
+  <div id="game">
+    <p id="item-name"></p>
+    <input type="number" step="0.01" id="guess" placeholder="Enter your guess (€)">
+    <button onclick="checkGuess()">Submit Guess</button>
+    <p id="result"></p>
+    <button onclick="nextItem()">Next Item</button>
+  </div>
+
+  <script>
+    const items = [
+      { name: "Whole Milk (2L)", price: 2.45 },
+    ];
+
+    let currentItem;
+
+    function nextItem() {
+      currentItem = items[Math.floor(Math.random() * items.length)];
+      document.getElementById("item-name").textContent =
+        "Guess the price of: " + currentItem.name;
+      document.getElementById("guess").value = "";
+      document.getElementById("result").textContent = "";
+    }
+
+    function checkGuess() {
+      const guess = parseFloat(document.getElementById("guess").value);
+      if (isNaN(guess)) return;
+
+      const actual = currentItem.price;
+      const diff = Math.abs(actual - guess).toFixed(2);
+
+      document.getElementById("result").textContent =
+        `Actual: €${actual.toFixed(2)} | Your guess: €${guess.toFixed(2)} | Difference: €${diff}`;
+    }
+
+    // Start game with first item
+    nextItem();
+  </script>
+</body>
+</html>
