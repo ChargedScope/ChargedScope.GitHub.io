@@ -15,7 +15,7 @@
     <p id="guess-count"></p>
     <p id="result"></p>
     <input type="number" step="0.01" id="guess" placeholder="Enter your guess (€)">
-    <button onclick="checkGuess()">Submit Guess</button>
+    <button id="guessbtn" onclick="checkGuess()">Submit Guess</button>
   </div>
 
   <script>
@@ -200,6 +200,7 @@
       if ((actual-guess)==0) {
       document.getElementById("result").textContent =
         `Your guess: €${guess.toFixed(2)} | You got it`;
+      document.getElementById("guessbtn").textContent = "";
       }
     }
 
