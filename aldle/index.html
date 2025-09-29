@@ -15,7 +15,6 @@
     <input type="number" step="0.01" id="guess" placeholder="Enter your guess (€)">
     <button onclick="checkGuess()">Submit Guess</button>
     <p id="result"></p>
-    <button onclick="nextItem()">Next Item</button>
   </div>
 
   <script>
@@ -25,8 +24,12 @@
       { name: 'Chicken Tikka Masala (400g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/b2fd0c66-d2cf-49ac-b6bc-7e8aa043af5d/Chicken%20Tikka%20Masala">', price: 3.99 },
       { name: 'Spaghetti (500g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/9c8de9da-7bda-46b3-b467-4d97e0b894ff/Spaghetti">', price: 0.59 },
       { name: 'Ginger Nuts (300g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/30712e23-a1a7-4d8a-9034-05be158d29d2/Ginger%20Nuts">', price: 0.59 },
-      { name: 'Fresh White Sliced Bread (800g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/418256eb-80c3-4661-818a-c8034d50e7df/Fresh%20White%20Sliced%20Bread">', price: 0.95},
-      { name: 'Cheese & Tomato Pizza (114g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/06e68b98-b350-4512-97b4-0602e44eef27/Cheese%20%20Tomato%20Pizza">', price: 0.49}
+      { name: 'Fresh White Sliced Bread (800g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/418256eb-80c3-4661-818a-c8034d50e7df/Fresh%20White%20Sliced%20Bread">', price: 0.95 },
+      { name: 'Cheese & Tomato Pizza (114g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/06e68b98-b350-4512-97b4-0602e44eef27/Cheese%20%20Tomato%20Pizza">', price: 0.49 },
+      { name: 'Medium Turkey (4.7kg) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/941d4256-72d2-43fb-9af3-d04c77691f7a/Medium%20Turkey">', price: 19.99 },
+      { name: 'Irish Whiskey (750ml) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/c521ed00-1bd8-4b6d-b988-d163f7a3eb6b/Irish%20Whiskey">', price: 32.50 },
+      { name: 'Straight Cut Fry Chips (2.5kg) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/1e5b02f4-c9ec-4c2a-8cbd-2ae3952d3ba3/Straight%20Cut%20Fry%20Chips">', price: 2.69 },
+      { name: 'Ripple Swiss Roll () </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/4ab61ae1-f3a2-4e08-855c-ad732d21f755/Ripple%20Swiss%20Roll">', price: 2.49 }
     ];
 
     let currentItem;
