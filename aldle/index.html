@@ -12,6 +12,7 @@
   <h1>Aldle</h1>
   <div id="game">
     <p id="item-name"></p>
+    <p id="guess-count"></p>
     <p id="result"></p>
     <input type="number" step="0.01" id="guess" placeholder="Enter your guess (€)">
     <button onclick="checkGuess()">Submit Guess</button>
@@ -169,12 +170,14 @@
     ];
 
     let currentItem;
-
+    let guesscount=0;
+    
     function nextItem() {
       currentItem = items[Math.floor(Math.random() * items.length)];
       document.getElementById("item-name").innerHTML = currentItem.name;
       document.getElementById("guess").value = "";
       document.getElementById("result").textContent = "";
+      document.getElementById("guess-count").textContent = "You have "+(6-guesscount)+"/6 guesses remaining";      
     }
 
     function checkGuess() {
@@ -183,7 +186,8 @@
 
       const actual = currentItem.price;
       const diff = (actual - guess).toFixed(2);
-
+      guesscount = guesscount + 1
+      
       document.getElementById("result").textContent =
         `Your guess: €${guess.toFixed(2)} | Difference: €${diff}`;
     }
