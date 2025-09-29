@@ -186,10 +186,21 @@
 
       const actual = currentItem.price;
       const diff = (actual - guess).toFixed(2);
-      guesscount = guesscount + 1
-      
+      guesscount = guesscount + 1;
+      document.getElementById("guess-count").textContent = "You have "+(6-guesscount)+"/6 guesses remaining";      
+
+      if ((actual-guess)>0) {
       document.getElementById("result").textContent =
-        `Your guess: €${guess.toFixed(2)} | Difference: €${diff}`;
+        `Your guess: €${guess.toFixed(2)} | Too Low`;
+      }
+      if ((actual-guess)<0) {
+      document.getElementById("result").textContent =
+        `Your guess: €${guess.toFixed(2)} | Too High`;
+      }
+      if ((actual-guess)==0) {
+      document.getElementById("result").textContent =
+        `Your guess: €${guess.toFixed(2)} | You got it`;
+      }
     }
 
     // Start game with first item
