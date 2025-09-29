@@ -188,7 +188,7 @@
       const diff = (actual - guess).toFixed(2);
       if (guesscount==0) {
       document.getElementById("result").textContent =
-        "Item price: €"+price+" | You didn't get it";
+        "Item price: €"${price.toFixed(2)}" | You didn't get it";
       document.getElementById("guessbtn").remove();
       } else {
       guesscount = guesscount + 1;
