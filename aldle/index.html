@@ -20,6 +20,15 @@
   </div>
 
   <script>
+    const cornerImg = document.getElementById("corner-img");
+
+cornerImg.addEventListener("click", () => {
+  if (cornerImg.src.includes("https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/960px-Flag_of_Ireland.svg.png?20160516044543")) {
+    cornerImg.src = "https://upload.wikimedia.org/wikipedia/en/thumb/0/03/Flag_of_Italy.svg/330px-Flag_of_Italy.svg.png"; // second image
+  } else {
+    cornerImg.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/960px-Flag_of_Ireland.svg.png?20160516044543"; // toggle back
+  }
+});
     const items = [
       { name: 'Whole Milk (2L) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/b2b050c3-3076-4e7e-bbe6-39928c2ca5e1/Irish%20Fresh%20Milk%203.5%25%20Fat">', price: 2.45 },
       { name: 'Bake from Frozen All Butter Pains Au Chocolat 6 Pack (360g) </br><img src="https://dm.emea.cms.aldi.cx/is/image/aldiprodeu/product/jpg/scaleWidth/432/7d5d7829-d170-4d9a-ae8a-f51f79296538/Bake%20from%20Frozen%20All%20Butter%20Pains%20Au%20Chocolat%206%20Pack">', price: 3.69 },
@@ -328,14 +337,19 @@
     nextItem();
   </script>
   <style>
-    #corner-img {
-  position: fixed;   /* fixed so it stays in the corner when scrolling */
-  top: 10px;         /* distance from top */
-  right: 10px;       /* distance from right */
-  width: 50px;       /* adjust size */
-  height: auto;      /* keep aspect ratio */
-  z-index: 1000;     /* make sure it’s on top of other elements */
+#corner-img {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  width: 50px;
+  height: auto;
+  z-index: 1000;
+  border: 2px solid black;   /* black box */
+  cursor: pointer;           /* shows it’s clickable */
+  padding: 2px;              /* optional spacing inside the border */
+  background-color: white;   /* optional contrast */
 }
+
   </style>
 </body>
 </html>
