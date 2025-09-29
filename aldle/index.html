@@ -28,7 +28,7 @@
     function nextItem() {
       currentItem = items[Math.floor(Math.random() * items.length)];
       document.getElementById("item-name").textContent =
-        "Guess the price of: " + currentItem.name;
+        currentItem.name;
       document.getElementById("guess").value = "";
       document.getElementById("result").textContent = "";
     }
