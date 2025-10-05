@@ -136590,5 +136590,125 @@
   [
     "Which work is considered a key Enlightenment text by John Locke?",
     "Two Treatises of Government"
+  ],
+  [
+    "In text processing, what is \"stemming\"?",
+    "A technique to reduce words to their base or root form"
+  ],
+  [
+    "Which programming language is commonly used for text processing tasks?",
+    "Python"
+  ],
+  [
+    "What is the purpose of \"stop words\" in text processing?",
+    "To remove common words that add little meaning"
+  ],
+  [
+    "What is the primary purpose of text processing?",
+    "To manipulate and analyze text data"
+  ],
+  [
+    "Which of the following is NOT a reason to \"Keep what you have\"?",
+    "Desire for new experiences"
+  ],
+  [
+    "In financial terms, \"Keep what you have\" can help with:",
+    "Building savings"
+  ],
+  [
+    "Which type of dockyard equipment is often involved in incidents?",
+    "All of the above"
+  ],
+  [
+    "What is a common reason for foreigners to seek academic opportunities abroad?",
+    "To gain international experience"
+  ],
+  [
+    "What is a common requirement for international students applying to universities?",
+    "A high school diploma from their home country"
+  ],
+  [
+    "What type of tariff is applied uniformly to all imports?",
+    "Specific tariff"
+  ],
+  [
+    "Which of the following is an example of food sovereignty?",
+    "Local communities controlling their own food systems"
+  ],
+  [
+    "What role do governments play in ensuring food rights?",
+    "They can create policies to promote food security."
+  ],
+  [
+    "What is the significance of the Universal Declaration of Human Rights in relation to food?",
+    "It includes the right to food as a fundamental human right."
+  ],
+  [
+    "What does \"risk tolerance\" refer to in the context of quantitative risk assessment?",
+    "The degree of risk an organization is willing to accept"
+  ],
+  [
+    "What does a plumbing renovation typically involve?",
+    "Replacing or upgrading plumbing fixtures"
+  ],
+  [
+    "Which of the following is a common material used for plumbing pipes?",
+    "PVC"
+  ],
+  [
+    "What is a potential risk of using non-interpretable AI models?",
+    "They may lead to biased or harmful decisions"
+  ],
+  [
+    "In which court do most civil legal actions begin?",
+    "District Court"
+  ],
+  [
+    "What is the purpose of KYC in banking?",
+    "Know Your Customer"
+  ],
+  [
+    "Which of the following is a feature of a savings account?",
+    "Interest earned on the balance"
+  ],
+  [
+    "What is the primary function of the Reserve Bank of India?",
+    "Issuing currency"
+  ],
+  [
+    "What is the primary language used in the Vatican for official documents?",
+    "Latin"
+  ],
+  [
+    "What happens to goods that exceed tariff limits when crossing the border?",
+    "They may be subject to additional taxes"
+  ],
+  [
+    "What year did India and Pakistan first go to war over Kashmir?",
+    "1947"
+  ],
+  [
+    "Which international organization has been involved in mediating the Kashmir conflict?",
+    "United Nations"
+  ],
+  [
+    "What is the main benefit of using automation?",
+    "Increased efficiency"
+  ],
+  [
+    "What is the minimum age requirement to register for the CA course in India?",
+    "15 years"
+  ],
+  [
+    "Which of the following is a key component of the CA final examination?",
+    "Practical Training"
+  ],
+  [
+    "What is the function of GABA in the brain?",
+    "It is an inhibitory neurotransmitter"
+  ],
+  [
+    "What are neurotransmitters primarily responsible for in the nervous system?",
+    "Transmitting signals between neurons"
   ]
 ]
