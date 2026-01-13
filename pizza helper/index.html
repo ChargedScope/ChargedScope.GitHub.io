@@ -597,7 +597,7 @@ function removals(build, target) {
     }
     if (depth > 16) return;
 
-    for (const t of toppings) {
+    for (const t of relevantToppings) {
       dfs({
         items: [...state.items, t.name],
         cost: state.cost + t.cost,
