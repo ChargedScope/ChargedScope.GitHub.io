@@ -573,6 +573,12 @@ function removals(build, target) {
   }
   return r;
 }
+    const target = {
+  cheese: 1, 
+  pepperoni: 1,
+  ranch: 1
+};
+    
     const relevantToppings = toppings.filter(t => {
   const key = Object.keys(t.adds)[0];
   return target[key] !== undefined;
@@ -608,12 +614,6 @@ function removals(build, target) {
 
   return best;
     }
-    const target = {
-  cheese: 1, 
-  pepperoni: 1,
-  ranch: 1
-};
-
     
 const result = findCheapest(target);
 const extra = removals(result.adds, target);
