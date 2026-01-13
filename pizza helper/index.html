@@ -17,6 +17,15 @@
     <option value="the-limo">The Limo</option>
   </select>
   <br><br>
+      <label for="cheese">Choose cheese level:</label>
+    <select id="cheese">
+      <option value="standard">Standard Cheese</option>
+      <option value="extra">Extra Cheese</option>
+      <option value="double-extra">Double Extra Cheese</option>
+      <option value="vegan">Vegan Cheese</option>
+      <option value="none">No Cheese</option>
+    </select>
+    <br><br>
   <input type="submit" value="Submit">
 </form>
 
@@ -26,7 +35,11 @@
   form.addEventListener('submit', function(event) {
     event.preventDefault(); // stops the server submission
     const selectedCar = document.getElementById('pizzas').value;
-    console.log('Selected pizza:', selectedpizza);
+    const selectedCheese = document.getElementById('cheese').value;
+    
+    console.log('Pizza:', selectedPizza);
+  console.log('Cheese:', selectedCheese);
+
     // you can do anything else with selectedCar here
   });
 </script>
