@@ -17,6 +17,16 @@
     <option value="the-limo">The Limo</option>
   </select>
   <br><br>
+            <label for="crust">Choose crust type:</label>
+    <select id="crust">
+      <option value="pan">Pan</option>
+      <option value="thin-n-crispy">Thin 'n Crispy</option>
+      <option value="sourdough">Hand Crafted Sourdough</option>
+      <option value="gluten-free">Gluten Free</option>
+      <option value="mozzarella-stuffed">Mozzarella Stuffed Crust</option>
+      <option value="cheesy-garlic-stuffed">Cheesy Garlic Stuffed Crust</option>
+    </select>
+    <br><br>
       <label for="cheese">Choose cheese level:</label>
     <select id="cheese">
       <option value="standard">Standard Cheese</option>
@@ -34,11 +44,13 @@
 
   form.addEventListener('submit', function(event) {
     event.preventDefault(); // stops the server submission
-    const selectedCar = document.getElementById('pizzas').value;
+    const selectedPizza = document.getElementById('pizzas').value;
+    const selectedCrust = document.getElementById('crust').value;
     const selectedCheese = document.getElementById('cheese').value;
     
     console.log('Pizza:', selectedPizza);
-  console.log('Cheese:', selectedCheese);
+    //
+    console.log('Cheese:', selectedCheese);
 
     // you can do anything else with selectedCar here
   });
