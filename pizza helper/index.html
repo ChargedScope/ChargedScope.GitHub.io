@@ -680,7 +680,6 @@ function removals(build, target) {
   return r;
 }
     
-const target = buildTargetFromSelections();
     
     const relevantToppings = toppings.filter(t => {
   const key = Object.keys(t.adds)[0];
@@ -706,33 +705,35 @@ const target = buildTargetFromSelections();
     }
     if (depth > 16) return;
 
-    for (const t of relevantToppings) {
-      dfs({
-        items: [...state.items, t.name],
-        cost: state.cost + t.cost,
-        adds: addIngredients(state.adds, t.adds)
-      }, depth + 1);
-    }
-  }
+
 
   return best;
     }
     
-const result = findCheapest(target);
-const extra = removals(result.adds, target);
 
-let msg = "Cheapest build:\n\n";
-msg += result.items.join(" + ") + "\n\n";
 
-if (extra.length) {
-  msg += "Remove:\n";
-  msg += extra.join(", ") + "\n\n";
-}
+  const form = document.getElementById('pizza-size-picker');
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-msg += "Total cost: $" + result.cost.toFixed(2);
+    const target = buildTargetFromSelections();
+    const relevantToppings = toppings.filter(t => {
+        const key = Object.keys(t.adds)[0];
+        return target[key] !== undefined;
+    });
+    
+    const result = findCheapest(target);
+    const extra = removals(result.adds, target);
 
-window.alert(msg);
-    // you can do anything else with selectedCar here
+    let msg = "Cheapest build:\n\n";
+    msg += result.items.join(" + ") + "\n\n";
+
+    if (extra.length) {
+        msg += "Remove:\n" + extra.join(", ") + "\n\n";
+    }
+
+    msg += "Total cost: $" + result.cost.toFixed(2);
+    window.alert(msg);
   });
 </script>
   </body>
