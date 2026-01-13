@@ -12,18 +12,21 @@
     <option value="regular">Regular</option>
     <option value="large">Large</option>
     <option value="extra-large">Extra Large</option>
+    <option value="crustless">Crustless</option>
+    <option value="xl-slab">XL Slab</option>
+    <option value="the-limo">The Limo</option>
   </select>
   <br><br>
   <input type="submit" value="Submit">
 </form>
 
 <script>
-  const form = document.getElementById('carForm');
+  const form = document.getElementById('pizza-size-picker');
 
   form.addEventListener('submit', function(event) {
     event.preventDefault(); // stops the server submission
-    const selectedCar = document.getElementById('cars').value;
-    console.log('Selected car:', selectedCar);
+    const selectedCar = document.getElementById('pizzas').value;
+    console.log('Selected pizza:', selectedpizza);
     // you can do anything else with selectedCar here
   });
 </script>
