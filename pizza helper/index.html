@@ -507,6 +507,11 @@ const bases = [
     adds: { cheese: 1, ham: 1, pineapple: 1 },
 },
   {
+    name: "Cheesy Garlic",
+    cost: 8.99,
+    adds: { cheese: 2, oregano: 1, aioli: 1 },
+},
+  {
     name: "Garlic Shrimp Deluxe",
     cost: 18.99,
     adds: { cheese: 1, shrimp: 1, aioli: 1, periperi: 1 },
@@ -515,7 +520,8 @@ const bases = [
     const toppings = [
   { name: "Shrimp", cost: 3, adds: { shrimp: 1 } },
   { name: "Aioli", cost: 0.59, adds: { aioli: 1 } },
-  { name: "Peri Peri", cost: 0.59, adds: { periperi: 1 } }
+  { name: "Peri Peri", cost: 0.59, adds: { periperi: 1 } },
+  { name: "Oregano", cost: 0, adds: { oregano: 1 } }
 ];
     function addIngredients(a, b) {
   const r = { ...a };
@@ -569,10 +575,10 @@ function removals(build, target) {
   return best;
     }
     const target = {
-  cheese: 1,
-  shrimp: 1,
+  cheese: 2,
+
   aioli: 1,
-  periperi: 1
+  oregano: 1
 };
 
 const result = findCheapest(target);
