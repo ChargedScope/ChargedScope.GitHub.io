@@ -413,21 +413,21 @@
       <option value="nothing">No topping</option>
       <option value="oregano">Oregano</option>
       <option value="garlic-sprinkle">Garlic Sprinkle</option>
-      <option value="chilli-flakes">Chilli Flakes</option>
-      <option value="cranberry-drizzle">Cranberry Drizzle</option>
-      <option value="mayo-drizzle">Mayo Drizzle</option>
-      <option value="buffalo-drizzle">Buffalo Drizzle</option>
-      <option value="bbq-drizzle">BBQ Drizzle</option>
-      <option value="ranch-drizzle">Ranch Drizzle</option>
-      <option value="apricot-drizzle">Apricot Drizzle</option>
-      <option value="peri-peri-drizzle">Peri Peri Drizzle</option>
-      <option value="aioli-drizzle">Aioli Drizzle</option>
-      <option value="basil-pesto-drizzle">Basil Pesto Drizzle</option>
-      <option value="parmesan-cheese">Parmesan Cheese</option>
-      <option value="green-capsicum">Green Capsicum</option>
-      <option value="red-onion">Red Onion</option>
-      <option value="onion-rings">Onion Rings</option>
-      <option value="tomato-pieces">Tomato</option>
+      <option value="chilliflakes">Chilli Flakes</option>
+      <option value="cranberry">Cranberry Drizzle</option>
+      <option value="mayo">Mayo Drizzle</option>
+      <option value="buffalo">Buffalo Drizzle</option>
+      <option value="bbq">BBQ Drizzle</option>
+      <option value="ranch">Ranch Drizzle</option>
+      <option value="apricot">Apricot Drizzle</option>
+      <option value="peri">Peri Peri Drizzle</option>
+      <option value="aioli">Aioli Drizzle</option>
+      <option value="basilpesto">Basil Pesto Drizzle</option>
+      <option value="parmesan">Parmesan Cheese</option>
+      <option value="greencapsicum">Green Capsicum</option>
+      <option value="redonion">Red Onion</option>
+      <option value="onionrings">Onion Rings</option>
+      <option value="tomatopieces">Tomato</option>
       <option value="olives">Olives</option>
       <option value="pineapple">Pineapple</option>
       <option value="jalapenos">Jalapenos</option>
@@ -437,7 +437,7 @@
       <option value="beef">Beef</option>
       <option value="ham">Ham</option>
       <option value="shrimp">Shrimp</option>
-      <option value="italian-sausage">Italian Sausage</option>
+      <option value="italiansausage">Italian Sausage</option>
       <option value="chicken">Chicken</option>
     </select>
     <br><br>
@@ -530,6 +530,7 @@ const bases = [
   { name: "Beef", cost: 3, adds: { beef: 1 } },
   { name: "Bacon", cost: 3, adds: { bacon: 1 } },
   { name: "Pepperoni", cost: 3, adds: { pepperoni: 1 } },
+  { name: "Cheese", cost: 3, adds: { cheese: 1 } },
   { name: "Mushroom", cost: 2, adds: { mushroom: 1 } },
   { name: "Jalapenos", cost: 2, adds: { jalapenos: 1 } },
   { name: "Pineapple", cost: 2, adds: { pineapple: 1 } },
@@ -543,9 +544,14 @@ const bases = [
   { name: "Apricot Drizzle", cost: 0.59, adds: { apricot: 1 } },
   { name: "Ranch Drizzle", cost: 0.59, adds: { ranch: 1 } },
   { name: "BBQ Drizzle", cost: 0.59, adds: { bbq: 1 } },
+  { name: "Buffalo Drizzle", cost: 0.59, adds: { buffalo: 1 } },
+  { name: "Mayo Drizzle", cost: 0.59, adds: { mayo: 1 } },
+  { name: "Cranberry Drizzle", cost: 0.59, adds: { cranberry: 1 } },
   { name: "Aioli Drizzle", cost: 0.59, adds: { aioli: 1 } },
   { name: "Peri Peri Drizzle", cost: 0.59, adds: { periperi: 1 } },
-  { name: "Oregano", cost: 0, adds: { oregano: 1 } }
+  { name: "Oregano", cost: 0, adds: { oregano: 1 } },
+  { name: "Chilli Flakes", cost: 0, adds: { chilliflakes: 1 } },
+  { name: "Garlic Sprinkle", cost: 0, adds: { garlicsprinkle: 1 } }
 ];
     function addIngredients(a, b) {
   const r = { ...a };
