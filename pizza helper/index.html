@@ -412,7 +412,7 @@
     <select id="topping-twelve">
       <option value="nothing">No topping</option>
       <option value="oregano">Oregano</option>
-      <option value="garlic-sprinkle">Garlic Sprinkle</option>
+      <option value="garlicsprinkle">Garlic Sprinkle</option>
       <option value="chilliflakes">Chilli Flakes</option>
       <option value="cranberry">Cranberry Drizzle</option>
       <option value="mayo">Mayo Drizzle</option>
@@ -489,37 +489,107 @@ const bases = [
   {
     name: "Ham & Cheese",
     cost: 6.49,
-    adds: { cheese: 1, ham: 1 },
+    adds: { tomatobase: 1, cheese: 1, ham: 1 },
 },
   {
     name: "Classic Cheese",
     cost: 6.99,
-    adds: { cheese: 2 },
+    adds: { tomatobase: 1, cheese: 2 },
   },
   {
     name: "Pepperoni",
     cost: 7.49,
-    adds: { cheese: 1, pepperoni: 1 },
+    adds: { tomatobase: 1, cheese: 1, pepperoni: 1 },
   },
   {
     name: "Hawaiian",
     cost: 7.49,
-    adds: { cheese: 1, ham: 1, pineapple: 1 },
+    adds: { tomatobase: 1, cheese: 1, ham: 1, pineapple: 1 },
+},
+  {
+    name: "Classic Veggie",
+    cost: 7.99,
+    adds: { tomatobase: 1, cheese: 1, greencapsicum: 1, pineapple: 1, redonion: 1, tomato: 1 },
+},
+  {
+    name: "Beef & Onion",
+    cost: 7.99,
+    adds: { tomatobase: 1, cheese: 1, beef: 1, redonion: 1},
+},
+  {
+    name: "Americano",
+    cost: 8.99,
+    adds: { tomatobase: 1, cheese: 1, pepperoni: 1, olives: 1, mushroom: 1 },
+},
+  {
+    name: "Bacon & Aioli",
+    cost: 8.99,
+    adds: { tomatobase: 1, cheese: 1, bacon: 1, aioli: 1 },
 },
   {
     name: "Cheesy Garlic",
     cost: 8.99,
-    adds: { cheese: 2, oregano: 1, aioli: 1 },
+    adds: { tomatobase: 1, cheese: 2, oregano: 1, aioli: 1 },
+},
+  {
+    name: "Margherita",
+    cost: 11.69,
+    adds: { tomatobase: 1, cheese: 1, tomatopieces: 1, basilpesto: 1 },
+},
+  {
+    name: "Beef, Bacon & Caramelized Onion",
+    cost: 11.99,
+    adds: { onionbase: 1, cheese: 1, bacon: 1, beef: 1 },
 },
   {
     name: "Meat Lovers",
     cost: 12.99,
-    adds: { cheese: 1, pepperoni: 1, bbq: 1, ham: 1, bacon: 1, beef: 1, italiansausage: 1 },
+    adds: { tomatobase: 1, cheese: 1, pepperoni: 1, bbq: 1, ham: 1, bacon: 1, beef: 1, italiansausage: 1 },
+},
+   {
+    name: "Super Supreme",
+    cost: 13.99,
+    adds: { tomatobase: 1, cheese: 1, pepperoni: 1, ham: 1, italiansausage: 1, redonion: 1, greencapsicum: 1, mushroom: 1, pineapple: 1},
+},
+  {
+    name: "Loaded Pepperoni With Double Toppings",
+    cost: 12.99,
+    adds: { tomatobase: 1, cheese: 2, pepperoni: 2 },
+},
+  {
+    name: "Loaded Hawaiian With Double Toppings",
+    cost: 12.99,
+    adds: { tomatobase: 1, cheese: 2, ham: 2, pineapple: 2 },
+},
+  {
+    name: "BBQ Beef & Onion",
+    cost: 10.99,
+    adds: { bbqbase: 1, cheese: 1, beef: 1, redonion: 1, mayo: 1 },
+},
+  {
+    name: "BBQ Bacon & Mushroom",
+    cost: 11.99,
+    adds: { tomatobase: 1, cheese: 1, bbq: 1, redonion: 1, bacon: 1, mushroom: 1 },
+},
+  {
+    name: "Italian Lovers",
+    cost: 13.49,
+    adds: { tomatobase: 1, cheese: 1, oregano: 1, pepperoni: 1, garlicsprinkle: 1, olives: 1, greencapsicum: 1, mushroom: 1, italiansausage: 1},
+},
+  {
+    name: "Hot & Spicy Veggie",
+    cost: 10.99,
+    adds: { tomatobase: 1, cheese: 1, greencapsicum: 1, redonion: 1, jalapenos: 1, chilliflakes: 1 },
+},
+  {
+    name: "Veggie Lovers",
+    cost: 12.49,
+    adds: { tomatobase: 1, cheese: 1, garlicsprinkle: 1, oregano: 1, basilpesto: 1, tomatopieces: 1, greencapsicum: 1, mushroom: 1, redonion: 1, pineapple: 1},
 },
   {
     name: "Garlic Shrimp Deluxe",
     cost: 18.99,
-    adds: { cheese: 1, shrimp: 1, aioli: 1, periperi: 1 },
+    adds: { tomatobase: 1, cheese: 1, shrimp: 1, aioli: 1, periperi: 1 },
 }
 ];
     const toppings = [
@@ -549,6 +619,10 @@ const bases = [
   { name: "Cranberry Drizzle", cost: 0.59, adds: { cranberry: 1 } },
   { name: "Aioli Drizzle", cost: 0.59, adds: { aioli: 1 } },
   { name: "Peri Peri Drizzle", cost: 0.59, adds: { periperi: 1 } },
+  { name: "Caramelized Onion Sauce", cost: 0.5, adds: { onionbase: 1 } },
+  { name: "Buffalo Sauce", cost: 0.5, adds: { buffalobase: 1 } },
+  { name: "BBQ Sauce", cost: 0, adds: { bbqbase: 1 } },
+  { name: "Authentic Tomato", cost: 0, adds: { tomatobase: 1 } },
   { name: "Oregano", cost: 0, adds: { oregano: 1 } },
   { name: "Chilli Flakes", cost: 0, adds: { chilliflakes: 1 } },
   { name: "Garlic Sprinkle", cost: 0, adds: { garlicsprinkle: 1 } }
@@ -574,9 +648,10 @@ function removals(build, target) {
   return r;
 }
     const target = {
-  cheese: 1, 
-  pepperoni: 1,
-  bbq: 1, beef: 1, ham: 1
+  bbqbase: 1, cheese: 1, basilpesto: 1, tomatopieces: 1, greencapsicum: 1, mushroom: 1, redonion: 1, pineapple: 1},
+
+  
+
 };
     
     const relevantToppings = toppings.filter(t => {
