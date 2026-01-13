@@ -573,6 +573,10 @@ function removals(build, target) {
   }
   return r;
 }
+    const relevantToppings = toppings.filter(t => {
+  const key = Object.keys(t.adds)[0];
+  return target[key] !== undefined;
+});
     
     function findCheapest(target) {
   let best = { cost: Infinity };
@@ -610,6 +614,7 @@ function removals(build, target) {
   ranch: 1
 };
 
+    
 const result = findCheapest(target);
 const extra = removals(result.adds, target);
 
