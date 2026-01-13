@@ -485,6 +485,89 @@
 
     window.alert("you chose a "+selectedPizza+" pizza with a "+selectedCrust+" crust and a base of "+selectedBaseSauce+" and a "+selectedCheese+" amount of cheese")
 
+const bases = [
+  {
+    name: "Ham & Cheese",
+    cost: 6.49,
+    adds: { cheese: 1, ham: 1 },
+},
+  {
+    name: "Classic Cheese",
+    cost: 6.99,
+    adds: { cheese: 2 },
+  },
+  {
+    name: "Pepperoni",
+    cost: 7.49,
+    adds: { cheese: 1, pepperoni: 1 },
+  },
+  {
+    name: "Hawaiian",
+    cost: 7.49,
+    adds: { cheese: 1, ham: 1, pineapple: 1 },
+},
+  {
+    name: "Garlic Shrimp Deluxe",
+    cost: 18.99,
+    adds: { cheese: 1, shrimp: 1, aioli: 1, periperi: 1 },
+}
+];
+    const toppings = [
+  { name: "Shrimp", cost: 3, adds: { shrimp: 1 } },
+  { name: "Aioli", cost: 0.59, adds: { aioli: 1 } },
+  { name: "Peri Peri", cost: 0.59, adds: { periperi: 1 } }
+];
+    function addIngredients(a, b) {
+  const r = { ...a };
+  for (const k in b) r[k] = (r[k] || 0) + b[k];
+  return r;
+}
+
+function covers(have, need) {
+  for (const k in need)
+    if ((have[k] || 0) < need[k]) return false;
+  return true;
+}
+
+    function findCheapest(target) {
+  let best = { cost: Infinity };
+
+  for (const base of bases) {
+    dfs({
+      items: [base.name],
+      cost: base.cost,
+      adds: base.adds
+    }, 0);
+  }
+
+  function dfs(state, depth) {
+    if (state.cost >= best.cost) return;
+    if (covers(state.adds, target)) {
+      best = state;
+      return;
+    }
+    if (depth > 6) return;
+
+    for (const t of toppings) {
+      dfs({
+        items: [...state.items, t.name],
+        cost: state.cost + t.cost,
+        adds: addIngredients(state.adds, t.adds)
+      }, depth + 1);
+    }
+  }
+
+  return best;
+    }
+    const target = {
+  cheese: 1,
+  shrimp: 1,
+  aioli: 1,
+  periperi: 1
+};
+
+const result = findCheapest(target);
+window.alert(result);
     // you can do anything else with selectedCar here
   });
 </script>
