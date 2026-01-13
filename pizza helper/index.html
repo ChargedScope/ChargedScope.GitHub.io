@@ -27,6 +27,15 @@
       <option value="cheesy-garlic-stuffed">Cheesy Garlic Stuffed Crust</option>
     </select>
     <br><br>
+      <label for="base-sauce">Choose base sauce:</label>
+    <select id="base-sauce">
+      <option value="tomato">Tomato</option>
+      <option value="bbq">BBQ</option>
+      <option value="no">No sauce</option>
+      <option value="onion">Caramelized Onion</option>
+      <option value="buffalo">Buffalo</option>
+    </select>
+    <br><br>
       <label for="cheese">Choose cheese level:</label>
     <select id="cheese">
       <option value="standard">Standard Cheese</option>
@@ -46,9 +55,11 @@
     event.preventDefault(); // stops the server submission
     const selectedPizza = document.getElementById('pizzas').value;
     const selectedCrust = document.getElementById('crust').value;
+    const selectedBaseSauce= document.getElementById('base-sauce').value;
     const selectedCheese = document.getElementById('cheese').value;
     
     console.log('Pizza:', selectedPizza);
+    //
     //
     console.log('Cheese:', selectedCheese);
 
