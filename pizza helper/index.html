@@ -567,7 +567,11 @@ function covers(have, need) {
 };
 
 const result = findCheapest(target);
-window.alert(result);
+window.alert(
+  "Cheapest build:\n\n" +
+  result.items.join(" + ") +
+  "\n\nTotal cost: $" + result.cost.toFixed(2)
+);
     // you can do anything else with selectedCar here
   });
 </script>
