@@ -512,15 +512,39 @@ const bases = [
     adds: { cheese: 2, oregano: 1, aioli: 1 },
 },
   {
+    name: "Meat Lovers",
+    cost: 12.99,
+    adds: { cheese: 1, pepperoni: 1, bbq: 1, ham: 1, bacon: 1, beef: 1, italiansausage: 1 },
+},
+  {
     name: "Garlic Shrimp Deluxe",
     cost: 18.99,
     adds: { cheese: 1, shrimp: 1, aioli: 1, periperi: 1 },
 }
 ];
     const toppings = [
+  { name: "Chicken", cost: 4, adds: { chicken: 1 } },
+  { name: "Italian Sausage", cost: 3, adds: { italiansausage: 1 } },
   { name: "Shrimp", cost: 3, adds: { shrimp: 1 } },
-  { name: "Aioli", cost: 0.59, adds: { aioli: 1 } },
-  { name: "Peri Peri", cost: 0.59, adds: { periperi: 1 } },
+  { name: "Ham", cost: 3, adds: { ham: 1 } },
+  { name: "Beef", cost: 3, adds: { beef: 1 } },
+  { name: "Bacon", cost: 3, adds: { bacon: 1 } },
+  { name: "Pepperoni", cost: 3, adds: { pepperoni: 1 } },
+  { name: "Mushroom", cost: 2, adds: { mushroom: 1 } },
+  { name: "Jalapenos", cost: 2, adds: { jalapenos: 1 } },
+  { name: "Pineapple", cost: 2, adds: { pineapple: 1 } },
+  { name: "Olives", cost: 2, adds: { olives: 1 } },
+  { name: "Tomato", cost: 2, adds: { tomatopieces: 1 } },
+  { name: "Onion Rings", cost: 2, adds: { onionrings: 1 } },
+  { name: "Red Onion", cost: 2, adds: { redonion: 1 } },
+  { name: "Green Capsicum", cost: 2, adds: { greencapsicum: 1 } },
+  { name: "Parmesan Cheese", cost: 1, adds: { parmesan: 1 } },
+  { name: "Basil Pesto Drizzle", cost: 0.59, adds: { basilpesto: 1 } },
+  { name: "Apricot Drizzle", cost: 0.59, adds: { apricot: 1 } },
+  { name: "Ranch Drizzle", cost: 0.59, adds: { ranch: 1 } },
+  { name: "BBQ Drizzle", cost: 0.59, adds: { bbq: 1 } },
+  { name: "Aioli Drizzle", cost: 0.59, adds: { aioli: 1 } },
+  { name: "Peri Peri Drizzle", cost: 0.59, adds: { periperi: 1 } },
   { name: "Oregano", cost: 0, adds: { oregano: 1 } }
 ];
     function addIngredients(a, b) {
@@ -575,10 +599,10 @@ function removals(build, target) {
   return best;
     }
     const target = {
-  cheese: 2,
+  cheese: 1, pepperoni: 1, ranch: 1, ham: 1, bacon: 1, beef: 1, italiansausage: 1 
 
-  aioli: 1,
-  oregano: 1
+  
+
 };
 
 const result = findCheapest(target);
