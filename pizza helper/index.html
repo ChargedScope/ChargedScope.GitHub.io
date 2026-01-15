@@ -485,14 +485,10 @@
 
     window.alert("you chose a "+selectedPizza+" pizza with a "+selectedCrust+" crust and a base of "+selectedBaseSauce+" and a "+selectedCheese+" amount of cheese")
 
-    form.addEventListener('submit', function(event) {
-    event.preventDefault();
 
-    const target = buildTargetFromSelections();
-    const relevantToppings = toppings.filter(t => {
-        const key = Object.keys(t.adds)[0];
-        return target[key] !== undefined;
-    });
+  
+
+    
       
 const bases = [
   {
@@ -656,8 +652,13 @@ function buildTargetFromSelections() {
     'topping-eleven',
     'topping-twelve'
   ];
+  const target = buildTargetFromSelections();
+    const relevantToppings = toppings.filter(t => {
+        const key = Object.keys(t.adds)[0];
+        return target[key] !== undefined;
+    });
 
-  const target = {};
+
 
   for (const id of ids) {
     const value = document.getElementById(id).value;
