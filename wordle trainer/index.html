@@ -44,6 +44,7 @@
     margin: 10px;
     cursor: pointer;
   }
+  #nextBtn { display: none; }
 </style>
 </head>
 <body>
@@ -54,10 +55,11 @@
 
 <input id="answer" maxlength="5" placeholder="YOUR GUESS">
 <br>
-<button onclick="check()">Submit</button>
+<button id="nextBtn" onclick="check()">Submit</button>
 <button onclick="next()">Next</button>
 
 <p id="result"></p>
+  <p id="score">Correct: 0 / 0 | 0%</p>
 
 <script>
 const letters = ["S","L","A","T","E"];
@@ -117,6 +119,7 @@ const solutions = {
   "ATE": "TREED",
 
   ".SAE": "PERCH",
+  ".LAE": "CRUMB",
   ".ATE": "CARGO",
 
   "SA.E": "CRUMP",
@@ -133,7 +136,9 @@ const solutions = {
   "L.SE": "SMILE",
   "L.AE": "WHALE",
   "T.SE": "RAVEN",
+  "T.AE": "TRACE",
 
+  "SLE.A": "LEASH",
   "LAT.S": "SPLAT",
   "SA.TE": "PEACH",
   "LT.SE": "IRONY"
@@ -141,7 +146,9 @@ const solutions = {
 
 let currentKey = "";
 let currentPattern = [];
-
+let total = 0;
+let correct = 0;
+  
 function generatePattern(key) {
   let pattern = Array(5).fill("gray");
 
@@ -182,18 +189,26 @@ function next() {
   draw(currentPattern);
   document.getElementById("answer").value = "";
   document.getElementById("result").textContent = "";
+  document.getElementById("submitBtn").style.display = "inline-block";
+document.getElementById("nextBtn").style.display = "none";
 }
 
 function check() {
   let guess = document.getElementById("answer").value.toUpperCase();
   let correct = solutions[currentKey];
 
+  total++;
   if (guess === correct) {
     document.getElementById("result").textContent = "Correct";
+    correct++;
+document.getElementById("score").textContent = 
+  `Correct: ${correct} / ${total} | ${Math.round(correct / total * 100)}%`;
   } else {
     document.getElementById("result").textContent =
       "Wrong (Answer: " + correct + ")";
   }
+  document.getElementById("submitBtn").style.display = "none";
+document.getElementById("nextBtn").style.display = "inline-block";
 }
 
 next();
