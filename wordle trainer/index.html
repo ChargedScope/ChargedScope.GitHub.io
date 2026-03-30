@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Wordle Trainer</title>
+<style>
+  body {
+    font-family: Arial;
+    text-align: center;
+    background: #121213;
+    color: white;
+  }
+
+  .grid {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  .tile {
+    width: 60px;
+    height: 60px;
+    margin: 5px;
+    line-height: 60px;
+    font-size: 28px;
+    font-weight: bold;
+    border: 2px solid #3a3a3c;
+  }
+
+  .gray { background: #3a3a3c; }
+  .yellow { background: #b59f3b; }
+  .green { background: #538d4e; }
+
+  input {
+    padding: 10px;
+    font-size: 18px;
+    text-transform: uppercase;
+    width: 140px;
+    text-align: center;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Wordle SLATE Trainer</h1>
+
+<div class="grid" id="grid"></div>
+
+<input id="answer" maxlength="5" placeholder="YOUR GUESS">
+<br>
+<button onclick="check()">Submit</button>
+<button onclick="next()">Next</button>
+
+<p id="result"></p>
+
+<script>
+const letters = ["S","L","A","T","E"];
+
+// YOUR mapping (extend this)
+const solutions = {
+  "": "CRONY",
+
+  "S": "HOKUM",
+  "L": "DILLY",
+  "A": "CORNY",
+  "T": "COUNT",
+  "E": "DINER",
+
+  ".S": "CROUP",
+  ".L": "BIPOD",
+  ".A": "CHURN",
+  ".T": "IRONY",
+  ".E": "GROIN",
+
+  "SA": "OASIS",
+  "ST": "TROUT",
+  "SE": "ROSES",
+  "LA": "MOLAR",
+  "LT": "GROUT",
+  "LE": "RIVEN",
+  "AT": "TAROT",
+  "AE": "RAMEN",
+  "TE": "TITER",
+
+  ".SA": "PRANK",
+  ".SE": "CHIRP",
+  ".LA": "PRICK",
+  ".LE": "BIPOD",
+  ".AT": "WRATH",
+  ".AE": "PRICK",
+  ".TE": "TURBO",
+
+  "S.A": "CURBS",
+  "S.E": "GROUP",
+  "L.S": "CHILL",
+  "L.A": "BRICK",
+  "L.E": "BINGO",
+  "A.T": "TAINT",
+  "A.E": "CORGI",
+  "T.S": "PINOT",
+  "T.A": "PRINT",
+  "E.L": "DEFER",
+  "E.T": "PINCH",
+  "E.A": "DERBY",
+
+  "SAL": "BASIL",
+  "STE": "HEIST",
+  "LAT": "TAINT",
+  "LAE": "RANGY",
+  "LTE": "INTEL",
+  "ATE": "TREED",
+
+  ".SAE": "PERCH",
+  ".ATE": "CARGO",
+
+  "SA.E": "CRUMP",
+  "LE.A": "LEAKY",
+  "AT.S": "PRIVY",
+  "AT.E": "BATHE",
+  "AE.L": "ANGER",
+  "AE.T": "EARTH",
+  "TE.L": "ENACT",
+  "TE.A": "ENACT",
+
+  "S.LE": "CLOSE",
+  "L.SA": "HILLY",
+  "L.SE": "SMILE",
+  "L.AE": "WHALE",
+  "T.SE": "RAVEN",
+
+  "LAT.S": "SPLAT",
+  "SA.TE": "PEACH",
+  "LT.SE": "IRONY"
+};
+
+let currentKey = "";
+let currentPattern = [];
+
+function generatePattern(key) {
+  let pattern = Array(5).fill("gray");
+
+  for (let i = 0; i < key.length; i++) {
+    let char = key[i];
+
+    if (char === ".") continue;
+
+    let index = letters.indexOf(char);
+
+    if (key.includes("." + char)) {
+      pattern[index] = "green";
+    } else {
+      pattern[index] = "yellow";
+    }
+  }
+
+  return pattern;
+}
+
+function draw(pattern) {
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+
+  for (let i = 0; i < 5; i++) {
+    let div = document.createElement("div");
+    div.className = "tile " + pattern[i];
+    div.textContent = letters[i];
+    grid.appendChild(div);
+  }
+}
+
+function next() {
+  const keys = Object.keys(solutions);
+  currentKey = keys[Math.floor(Math.random() * keys.length)];
+  currentPattern = generatePattern(currentKey);
+
+  draw(currentPattern);
+  document.getElementById("answer").value = "";
+  document.getElementById("result").textContent = "";
+}
+
+function check() {
+  let guess = document.getElementById("answer").value.toUpperCase();
+  let correct = solutions[currentKey];
+
+  if (guess === correct) {
+    document.getElementById("result").textContent = "Correct";
+  } else {
+    document.getElementById("result").textContent =
+      "Wrong (Answer: " + correct + ")";
+  }
+}
+
+next();
+</script>
+
+</body>
+</html>
