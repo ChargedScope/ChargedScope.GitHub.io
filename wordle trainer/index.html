@@ -152,17 +152,21 @@ let correct = 0;
 function generatePattern(key) {
   let pattern = Array(5).fill("gray");
 
-  for (let i = 0; i < key.length; i++) {
-    let char = key[i];
+  let parts = key.split("."); // split by dot
 
-    if (char === ".") continue;
+  // yellow letters (before dot)
+  if (parts[0]) {
+    for (let char of parts[0]) {
+      let index = letters.indexOf(char);
+      if (index >= 0) pattern[index] = "yellow";
+    }
+  }
 
-    let index = letters.indexOf(char);
-
-    if (key.includes("." + char)) {
-      pattern[index] = "green";
-    } else {
-      pattern[index] = "yellow";
+  // green letters (after dot)
+  if (parts[1]) {
+    for (let char of parts[1]) {
+      let index = letters.indexOf(char);
+      if (index >= 0) pattern[index] = "green";
     }
   }
 
