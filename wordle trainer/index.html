@@ -55,8 +55,8 @@
 
 <input id="answer" maxlength="5" placeholder="YOUR GUESS">
 <br>
-<button id="nextBtn" onclick="check()">Submit</button>
-<button onclick="next()">Next</button>
+<button id="submitBtn" onclick="check()">Submit</button>
+<button id="nextBtn" onclick="next()">Next</button>
 
 <p id="result"></p>
   <p id="score">Correct: 0 / 0 | 0%</p>
@@ -195,18 +195,16 @@ document.getElementById("nextBtn").style.display = "none";
 
 function check() {
   let guess = document.getElementById("answer").value.toUpperCase();
-  let correct = solutions[currentKey];
-
+  let answer = solutions[currentKey];
   total++;
-  if (guess === correct) {
-    document.getElementById("result").textContent = "Correct";
-    correct++;
+if (guess === answer) {
+  document.getElementById("result").textContent = "Correct";
+  correct++; // this is the global counter
+} else {
+  document.getElementById("result").textContent = "Wrong (Answer: " + answer + ")";
+}
 document.getElementById("score").textContent = 
   `Correct: ${correct} / ${total} | ${Math.round(correct / total * 100)}%`;
-  } else {
-    document.getElementById("result").textContent =
-      "Wrong (Answer: " + correct + ")";
-  }
   document.getElementById("submitBtn").style.display = "none";
 document.getElementById("nextBtn").style.display = "inline-block";
 }
