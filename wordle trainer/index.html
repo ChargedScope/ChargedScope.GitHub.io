@@ -222,6 +222,7 @@ function check() {
 if (guess === answer) {
   document.getElementById("result").textContent = "Correct";
   correct++; // this is the global counter
+  delete solutions[currentKey]; // this line deletes the entry once you get it right
 } else {
   document.getElementById("result").textContent = "Wrong (Answer: " + answer + ")";
 }
