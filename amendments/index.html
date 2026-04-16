@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Amendments Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f0f4f8;
+            --text-color: #102a43;
+            --primary: #d32f2f; /* Independence Red */
+            --primary-hover: #b71c1c;
+            --success: #2e7d32;
+            --error: #c62828;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #627d98;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .prompt-display {
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 30px 0;
+            color: var(--text-color);
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.3;
+        }
+
+        input[type="number"] {
+            font-size: 2rem;
+            padding: 15px;
+            width: 120px;
+            text-align: center;
+            border: 3px solid #bcccdc;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+            font-weight: bold;
+            color: var(--primary);
+        }
+
+        /* Remove arrows from number input */
+        input[type="number"]::-webkit-inner-spin-button, 
+        input[type="number"]::-webkit-outer-spin-button { 
+            -webkit-appearance: none; 
+            margin: 0; 
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+
+        input[type="number"]:focus {
+            border-color: var(--primary);
+        }
+
+        .feedback {
+            height: 24px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .feedback.correct { color: var(--success); }
+        .feedback.incorrect { color: var(--error); }
+
+        .instructions {
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: #829ab1;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <div class="stats">
+            <span id="score-display">Score: 0</span>
+            <span id="streak-display">Streak: 0</span>
+        </div>
+        
+        <div class="prompt-display" id="prompt-display">Loading...</div>
+        
+        <input type="number" id="answer-input" autocomplete="off" placeholder="#" autofocus>
+        
+        <div class="feedback" id="feedback-display"></div>
+        
+        <div class="instructions">
+            <strong>Pro Tip:</strong> Type the Amendment number (1-27) and press <strong>Enter</strong>.
+        </div>
+    </div>
+
+    <script>
+        // The complete exhaustive set of the 27 US Constitutional Amendments
+        const amendments = [
+            { num: 1, text: "Freedom of speech, religion, press, assembly, and petition" },
+            { num: 2, text: "Right to keep and bear arms" },
+            { num: 3, text: "Protection from quartering of soldiers" },
+            { num: 4, text: "Protection from unreasonable search and seizure" },
+            { num: 5, text: "Right to due process, protection from double jeopardy and self-incrimination" },
+            { num: 6, text: "Right to a speedy and public trial, right to counsel" },
+            { num: 7, text: "Right to a jury trial in civil cases" },
+            { num: 8, text: "Protection from excessive bail and cruel/unusual punishment" },
+            { num: 9, text: "Unenumerated rights retained by the people" },
+            { num: 10, text: "Powers not delegated to the federal government are reserved to the states" },
+            { num: 11, text: "Sovereign immunity of states from lawsuits by out-of-state citizens" },
+            { num: 12, text: "Separate electoral ballots for President and Vice President" },
+            { num: 13, text: "Abolition of slavery" },
+            { num: 14, text: "Equal protection under the law, birthright citizenship" },
+            { num: 15, text: "Prohibition of voting restrictions based on race" },
+            { num: 16, text: "Power of Congress to levy a federal income tax" },
+            { num: 17, text: "Direct popular election of US Senators" },
+            { num: 18, text: "Prohibition of alcoholic beverages" },
+            { num: 19, text: "Women's suffrage (Right to vote based on sex)" },
+            { num: 20, text: "Lame-duck period shortened (Inauguration moved to Jan 20)" },
+            { num: 21, text: "Repeal of Prohibition (18th Amendment)" },
+            { num: 22, text: "Two-term limit for the President" },
+            { num: 23, text: "Electoral votes granted to Washington D.C." },
+            { num: 24, text: "Abolition of poll taxes" },
+            { num: 25, text: "Presidential succession and disability procedures" },
+            { num: 26, text: "Voting age lowered to 18" },
+            { num: 27, text: "Congressional pay raises delayed until the next term" }
+        ];
+
+        let currentAmendment = null;
+        let score = 0;
+        let streak = 0;
+
+        const promptDisplay = document.getElementById('prompt-display');
+        const answerInput = document.getElementById('answer-input');
+        const feedbackDisplay = document.getElementById('feedback-display');
+        const scoreDisplay = document.getElementById('score-display');
+        const streakDisplay = document.getElementById('streak-display');
+
+        function getRandomAmendment() {
+            const randomIndex = Math.floor(Math.random() * amendments.length);
+            return amendments[randomIndex];
+        }
+
+        function loadNewPrompt() {
+            currentAmendment = getRandomAmendment();
+            promptDisplay.textContent = currentAmendment.text;
+            answerInput.value = '';
+            answerInput.focus();
+        }
+
+        function checkAnswer() {
+            const userAnswer = parseInt(answerInput.value.trim(), 10);
+            
+            if (isNaN(userAnswer)) return; // Ignore empty or invalid submissions
+
+            if (userAnswer === currentAmendment.num) {
+                // Correct
+                score++;
+                streak++;
+                feedbackDisplay.textContent = 'Correct!';
+                feedbackDisplay.className = 'feedback correct';
+                setTimeout(() => {
+                    feedbackDisplay.textContent = '';
+                    loadNewPrompt();
+                }, 600); // Short delay to register success
+            } else {
+                // Incorrect
+                streak = 0;
+                feedbackDisplay.innerHTML = `Incorrect. It was the <strong>${currentAmendment.num}</strong>`;
+                feedbackDisplay.className = 'feedback incorrect';
+                answerInput.value = ''; // Clear input for the retry
+            }
+
+            updateStats();
+        }
+
+        function updateStats() {
+            scoreDisplay.textContent = `Score: ${score}`;
+            streakDisplay.textContent = `Streak: ${streak}`;
+        }
+
+        // Event listener for "Enter" key
+        answerInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        // Initialize first prompt on load
+        window.onload = loadNewPrompt;
+
+    </script>
+</body>
+</html>
