@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bible Books Quiz</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: #eee;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 60px;
+    }
+    #number {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+    input {
+        font-size: 24px;
+        padding: 10px;
+        width: 350px;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+        font-size: 28px;
+        height: 40px;
+    }
+</style>
+</head>
+<body>
+
+<h1>Bible Books Quiz</h1>
+<div id="number">1</div>
+
+<input id="answer" placeholder="Type the book name..." autofocus>
+
+<div id="result"></div>
+
+<script>
+const books = [
+    "Genesis","Exodus","Leviticus","Numbers","Deuteronomy",
+    "Joshua","Judges","Ruth","1 Samuel","2 Samuel",
+    "1 Kings","2 Kings","1 Chronicles","2 Chronicles","Ezra",
+    "Nehemiah","Esther","Job","Psalms","Proverbs",
+    "Ecclesiastes","Song of Solomon","Isaiah","Jeremiah","Lamentations",
+    "Ezekiel","Daniel","Hosea","Joel","Amos",
+    "Obadiah","Jonah","Micah","Nahum","Habakkuk",
+    "Zephaniah","Haggai","Zechariah","Malachi","Matthew",
+    "Mark","Luke","John","Acts","Romans",
+    "1 Corinthians","2 Corinthians","Galatians","Ephesians","Philippians",
+    "Colossians","1 Thessalonians","2 Thessalonians","1 Timothy","2 Timothy",
+    "Titus","Philemon","Hebrews","James","1 Peter",
+    "2 Peter","1 John","2 John","3 John","Jude",
+    "Revelation"
+];
+
+const numberDiv = document.getElementById("number");
+const answerInput = document.getElementById("answer");
+const resultDiv = document.getElementById("result");
+
+function newQuestion() {
+    const index = Math.floor(Math.random() * books.length);
+    numberDiv.textContent = index + 1;
+    numberDiv.dataset.index = index;
+    answerInput.value = "";
+    resultDiv.textContent = "";
+}
+
+answerInput.addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        const user = answerInput.value.trim().toLowerCase();
+        const correct = books[numberDiv.dataset.index].toLowerCase();
+
+        if (user === correct) {
+            resultDiv.textContent = "Correct!";
+            resultDiv.style.color = "lime";
+        } else {
+            resultDiv.textContent = "Incorrect — " + books[numberDiv.dataset.index];
+            resultDiv.style.color = "red";
+        }
+
+        setTimeout(newQuestion, 1200);
+    }
+});
+
+newQuestion();
+</script>
+
+</body>
+</html>
