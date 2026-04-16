@@ -1,0 +1,209 @@
+<html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyrillic Alphabet Quiz</title>
+    <style>
+        :root {
+            --bg-color: #f4f4f9;
+            --text-color: #333;
+            --primary: #4a90e2;
+            --success: #2ecc71;
+            --error: #e74c3c;
+            --card-bg: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .quiz-container {
+            background-color: var(--card-bg);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            color: #777;
+            margin-bottom: 20px;
+        }
+
+        .cyrillic-display {
+            font-size: 8rem;
+            font-weight: bold;
+            margin: 20px 0;
+            color: var(--primary);
+        }
+
+        input[type="text"] {
+            font-size: 1.5rem;
+            padding: 12px;
+            width: 80%;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus {
+            border-color: var(--primary);
+        }
+
+        .feedback {
+            height: 24px;
+            margin-top: 16px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .feedback.correct { color: var(--success); }
+        .feedback.incorrect { color: var(--error); }
+
+        .instructions {
+            margin-top: 30px;
+            font-size: 0.85rem;
+            color: #666;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quiz-container">
+        <div class="stats">
+            <span id="score-display">Score: 0</span>
+            <span id="streak-display">Streak: 0</span>
+        </div>
+        
+        <div class="cyrillic-display" id="letter-display">А</div>
+        
+        <input type="text" id="answer-input" autocomplete="off" placeholder="Type Latin equivalent" autofocus="">
+        
+        <div class="feedback" id="feedback-display"></div>
+        
+        <div class="instructions">
+            <strong>Pro Tip:</strong> Type the Latin letter(s) and press <strong>Enter</strong>.<br>
+            
+        </div>
+    </div>
+
+    <script>
+        // The complete 33-letter standard Russian Cyrillic alphabet
+        // Allowing arrays for answers to accept common transliteration variations
+        const alphabet = [
+            { cyrillic: 'А', answers: ['a'] },
+            { cyrillic: 'Б', answers: ['b'] },
+            { cyrillic: 'В', answers: ['v'] },
+            { cyrillic: 'Г', answers: ['g'] },
+            { cyrillic: 'Д', answers: ['d'] },
+            { cyrillic: 'Е', answers: ['e', 'ye'] },
+            { cyrillic: 'Ё', answers: ['yo', 'jo'] },
+            { cyrillic: 'Ж', answers: ['zh'] },
+            { cyrillic: 'З', answers: ['z'] },
+            { cyrillic: 'И', answers: ['i'] },
+            { cyrillic: 'Й', answers: ['y', 'j'] },
+            { cyrillic: 'К', answers: ['k'] },
+            { cyrillic: 'Л', answers: ['l'] },
+            { cyrillic: 'М', answers: ['m'] },
+            { cyrillic: 'Н', answers: ['n'] },
+            { cyrillic: 'О', answers: ['o'] },
+            { cyrillic: 'П', answers: ['p'] },
+            { cyrillic: 'Р', answers: ['r'] },
+            { cyrillic: 'С', answers: ['s'] },
+            { cyrillic: 'Т', answers: ['t'] },
+            { cyrillic: 'У', answers: ['u'] },
+            { cyrillic: 'Ф', answers: ['f'] },
+            { cyrillic: 'Х', answers: ['kh', 'h'] },
+            { cyrillic: 'Ц', answers: ['ts', 'c'] },
+            { cyrillic: 'Ч', answers: ['ch'] },
+            { cyrillic: 'Ш', answers: ['sh'] },
+            { cyrillic: 'Щ', answers: ['shch'] },
+            { cyrillic: 'Ъ', answers: ['"', 'hard sign', 'hard'] },
+            { cyrillic: 'Ы', answers: ['y', 'i'] },
+            { cyrillic: 'Ь', answers: ["'", 'soft sign', 'soft'] },
+            { cyrillic: 'Э', answers: ['e'] },
+            { cyrillic: 'Ю', answers: ['yu', 'ju'] },
+            { cyrillic: 'Я', answers: ['ya', 'ja'] }
+        ];
+
+        let currentLetter = null;
+        let score = 0;
+        let streak = 0;
+
+        const letterDisplay = document.getElementById('letter-display');
+        const answerInput = document.getElementById('answer-input');
+        const feedbackDisplay = document.getElementById('feedback-display');
+        const scoreDisplay = document.getElementById('score-display');
+        const streakDisplay = document.getElementById('streak-display');
+
+        function getRandomLetter() {
+            const randomIndex = Math.floor(Math.random() * alphabet.length);
+            return alphabet[randomIndex];
+        }
+
+        function loadNewLetter() {
+            currentLetter = getRandomLetter();
+            letterDisplay.textContent = currentLetter.cyrillic;
+            answerInput.value = '';
+            answerInput.focus();
+        }
+
+        function checkAnswer() {
+            const userAnswer = answerInput.value.trim().toLowerCase();
+            
+            if (userAnswer === '') return;
+
+            if (currentLetter.answers.includes(userAnswer)) {
+                // Correct
+                score++;
+                streak++;
+                feedbackDisplay.textContent = 'Correct!';
+                feedbackDisplay.className = 'feedback correct';
+                setTimeout(() => {
+                    feedbackDisplay.textContent = '';
+                    loadNewLetter();
+                }, 500); // Short delay to see success
+            } else {
+                // Incorrect
+                streak = 0;
+                feedbackDisplay.textContent = `Incorrect. It was ${currentLetter.answers[0].toUpperCase()}`;
+                feedbackDisplay.className = 'feedback incorrect';
+                answerInput.value = ''; // Clear for retry
+            }
+
+            updateStats();
+        }
+
+        function updateStats() {
+            scoreDisplay.textContent = `Score: ${score}`;
+            streakDisplay.textContent = `Streak: ${streak}`;
+        }
+
+        // Event listener for "Enter" key
+        answerInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        // Initialize first letter on load
+        window.onload = loadNewLetter;
+
+    </script>
+
+</body></html>
