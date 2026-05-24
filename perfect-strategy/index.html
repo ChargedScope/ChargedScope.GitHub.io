@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackjack Perfect Strategy Tester</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --felt: #0d3320;
+    --felt-light: #14472d;
+    --felt-mid: #0a2418;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --cream: #f5edd6;
+    --red: #e03030;
+    --green-action: #3a9e5f;
+    --blue-action: #2e7bbf;
+    --orange-action: #d4770a;
+    --teal-action: #1a8a7e;
+    --correct: #3fc97e;
+    --wrong: #e05050;
+    --card-bg: #fdfaf2;
+    --card-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    --text-main: #f5edd6;
+    --chip-red: #c0392b;
+    --chip-blue: #2471a3;
+    --chip-green: #1e8449;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--felt-mid);
+    background-image:
+      radial-gradient(ellipse at 50% 0%, #1a5c35 0%, transparent 60%),
+      repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(255,255,255,0.012) 2px, rgba(255,255,255,0.012) 4px);
+    min-height: 100vh;
+    font-family: 'DM Sans', sans-serif;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 16px 40px;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 28px;
+  }
+  .header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.4rem, 6vw, 4rem);
+    letter-spacing: 0.1em;
+    color: var(--gold);
+    text-shadow: 0 2px 12px rgba(201,168,76,0.35), 0 0 40px rgba(201,168,76,0.12);
+    line-height: 1;
+  }
+  .header p {
+    font-size: 0.82rem;
+    color: rgba(245,237,214,0.5);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* Score bar */
+  .score-bar {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .score-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+  }
+  .score-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    line-height: 1;
+    color: var(--gold);
+  }
+  .score-val.correct-color { color: var(--correct); }
+  .score-val.wrong-color { color: var(--wrong); }
+  .score-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,237,214,0.45);
+  }
+  .score-divider {
+    width: 1px;
+    height: 40px;
+    background: rgba(201,168,76,0.2);
+  }
+  .streak-badge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 20px;
+    padding: 5px 14px;
+    font-size: 0.78rem;
+    color: var(--gold-light);
+    font-family: 'DM Mono', monospace;
+  }
+
+  /* Table area */
+  .table-area {
+    width: 100%;
+    max-width: 680px;
+    background: var(--felt);
+    border-radius: 28px;
+    border: 2px solid rgba(201,168,76,0.25);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.04);
+    padding: 28px 24px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+  .table-area::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% -10%, rgba(255,255,255,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Dealer area */
+  .dealer-label {
+    text-align: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(245,237,214,0.35);
+    margin-bottom: 10px;
+  }
+  .dealer-card-area {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 22px;
+    gap: 10px;
+  }
+
+  /* Cards */
+  .card {
+    width: 64px;
+    height: 92px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 1.3rem;
+    font-weight: 500;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.1);
+    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    animation: cardDeal 0.4s cubic-bezier(.34,1.56,.64,1);
+  }
+  @keyframes cardDeal {
+    from { transform: scale(0.7) translateY(-20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+  }
+  .card.red { color: var(--red); }
+  .card.black { color: #1a1a1a; }
+  .card .suit {
+    font-size: 0.75rem;
+    margin-top: 2px;
+  }
+  .card.back {
+    background: linear-gradient(135deg, #1a3a8a 0%, #0d1f50 100%);
+    border: 2px solid rgba(255,255,255,0.1);
+  }
+  .card.back::after {
+    content: '🂠';
+    font-size: 2rem;
+    opacity: 0.4;
+  }
+  .card.placeholder {
+    background: rgba(0,0,0,0.15);
+    border: 2px dashed rgba(201,168,76,0.15);
+    box-shadow: none;
+  }
+
+  /* Player cards */
+  .vs-row {
+    text-align: center;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    color: rgba(245,237,214,0.25);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  .player-label {
+    text-align: center;
+    font-size: 0.68rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: rgba(245,237,214,0.35);
+    margin-bottom: 10px;
+  }
+  .player-card-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 26px;
+  }
+  .hand-desc {
+    text-align: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.08em;
+    color: rgba(245,237,214,0.6);
+    margin-bottom: 20px;
+  }
+  .hand-type-badge {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 10px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .hand-type-badge.pair { background: rgba(46,123,191,0.25); color: #79b8f5; }
+  .hand-type-badge.soft { background: rgba(26,138,126,0.25); color: #7de8df; }
+  .hand-type-badge.hard { background: rgba(158,87,31,0.25); color: #f5c07a; }
+
+  /* Action buttons */
+  .action-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .action-btn {
+    padding: 14px 8px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 0.08em;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.12s, box-shadow 0.12s, filter 0.12s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
+  }
+  .action-btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .action-btn:hover { transform: translateY(-2px); box-shadow: 0 7px 20px rgba(0,0,0,0.4); }
+  .action-btn:active { transform: translateY(0px); }
+  .action-btn.hit    { background: linear-gradient(160deg, #3aaf6b, #2a8050); color: #fff; }
+  .action-btn.stand  { background: linear-gradient(160deg, #c0392b, #8e1a0f); color: #fff; }
+  .action-btn.double { background: linear-gradient(160deg, #e8a020, #a06010); color: #fff; }
+  .action-btn.split  { background: linear-gradient(160deg, #2e7bbf, #1a4a80); color: #fff; }
+  .action-btn.surrender { background: linear-gradient(160deg, #7d5fa0, #4a3060); color: #fff; }
+  .action-btn.disabled-btn { opacity: 0.35; cursor: not-allowed; pointer-events: none; }
+
+  /* Feedback */
+  .feedback-panel {
+    border-radius: 12px;
+    padding: 14px 18px;
+    text-align: center;
+    min-height: 56px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    margin-bottom: 14px;
+  }
+  .feedback-panel.correct {
+    background: rgba(63,201,126,0.12);
+    border: 1px solid rgba(63,201,126,0.3);
+  }
+  .feedback-panel.wrong {
+    background: rgba(224,80,80,0.12);
+    border: 1px solid rgba(224,80,80,0.3);
+  }
+  .feedback-panel.neutral {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+  .feedback-icon { font-size: 1.4rem; line-height: 1; }
+  .feedback-text {
+    font-size: 0.88rem;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+  .feedback-subtext {
+    font-size: 0.74rem;
+    color: rgba(245,237,214,0.55);
+    margin-top: 2px;
+    font-family: 'DM Mono', monospace;
+  }
+  .feedback-panel.correct .feedback-text { color: var(--correct); }
+  .feedback-panel.wrong .feedback-text { color: var(--wrong); }
+  .feedback-panel.neutral .feedback-text { color: var(--gold); }
+
+  /* Next button */
+  .next-btn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--gold) 0%, #a07828 100%);
+    color: #1a0e00;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.35rem;
+    letter-spacing: 0.12em;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(201,168,76,0.3);
+    transition: transform 0.12s, box-shadow 0.12s, opacity 0.2s;
+    display: none;
+  }
+  .next-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+  .next-btn.visible { display: block; }
+
+  /* Reference toggle */
+  .ref-toggle {
+    margin-top: 18px;
+    text-align: center;
+  }
+  .ref-toggle-btn {
+    background: none;
+    border: 1px solid rgba(201,168,76,0.25);
+    color: rgba(245,237,214,0.45);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 7px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .ref-toggle-btn:hover { border-color: rgba(201,168,76,0.5); color: var(--gold-light); }
+
+  /* Reference chart */
+  .ref-panel {
+    display: none;
+    margin-top: 18px;
+    background: rgba(0,0,0,0.25);
+    border-radius: 14px;
+    padding: 16px;
+    border: 1px solid rgba(201,168,76,0.1);
+    overflow-x: auto;
+  }
+  .ref-panel.open { display: block; }
+  .ref-section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 8px;
+    text-align: center;
+  }
+  .ref-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    margin-bottom: 14px;
+  }
+  .ref-table th {
+    background: rgba(201,168,76,0.1);
+    color: var(--gold);
+    padding: 4px 5px;
+    text-align: center;
+    font-size: 0.6rem;
+    letter-spacing: 0.05em;
+  }
+  .ref-table td {
+    padding: 3px 5px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.04);
+    color: #111;
+    font-weight: 500;
+    font-size: 0.62rem;
+  }
+  .ref-table tr:first-child td { color: rgba(245,237,214,0.6); background: transparent; }
+  .cell-Y   { background: #27ae60 !important; color: #fff !important; }
+  .cell-YN  { background: #f39c12 !important; color: #fff !important; }
+  .cell-N   { background: #7f8c8d !important; color: #fff !important; }
+  .cell-S   { background: #f39c12 !important; color: #fff !important; }
+  .cell-H   { background: #2980b9 !important; color: #fff !important; }
+  .cell-D   { background: #8e44ad !important; color: #fff !important; }
+  .cell-Ds  { background: #16a085 !important; color: #fff !important; }
+  .cell-SUR { background: #7f8c8d !important; color: #fff !important; }
+  .cell-sp  { background: #e74c3c !important; color: #fff !important; } /* special colored numbers */
+
+  /* Settings row */
+  .settings-row {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 14px;
+    flex-wrap: wrap;
+  }
+  .setting-toggle {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(0,0,0,0.2);
+    border: 1px solid rgba(201,168,76,0.18);
+    border-radius: 20px;
+    padding: 6px 13px;
+    font-size: 0.72rem;
+    color: rgba(245,237,214,0.55);
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .setting-toggle:hover { border-color: rgba(201,168,76,0.4); color: var(--gold-light); }
+  .setting-toggle input[type=checkbox] { accent-color: var(--gold); width: 13px; height: 13px; }
+
+  /* Progress bar */
+  .progress-bar-wrap {
+    width: 100%;
+    max-width: 680px;
+    height: 4px;
+    background: rgba(255,255,255,0.07);
+    border-radius: 4px;
+    margin-bottom: 16px;
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 100%);
+    border-radius: 4px;
+    transition: width 0.5s;
+  }
+
+  @media (max-width: 460px) {
+    .table-area { padding: 18px 14px 22px; }
+    .card { width: 52px; height: 76px; font-size: 1.1rem; }
+    .action-row { grid-template-columns: repeat(3, 1fr); }
+    .action-btn { font-size: 1rem; padding: 12px 4px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>BLACKJACK STRATEGY</h1>
+  <p>Perfect Play Training</p>
+</div>
+
+<div class="score-bar">
+  <div class="score-item">
+    <div class="score-val correct-color" id="correct-count">0</div>
+    <div class="score-label">Correct</div>
+  </div>
+  <div class="score-divider"></div>
+  <div class="score-item">
+    <div class="score-val wrong-color" id="wrong-count">0</div>
+    <div class="score-label">Wrong</div>
+  </div>
+  <div class="score-divider"></div>
+  <div class="score-item">
+    <div class="score-val" id="pct-val">—</div>
+    <div class="score-label">Accuracy</div>
+  </div>
+  <div class="streak-badge" id="streak-badge">🔥 Streak: <span id="streak-val">0</span></div>
+</div>
+
+<div class="progress-bar-wrap">
+  <div class="progress-bar-fill" id="progress-bar" style="width:0%"></div>
+</div>
+
+<div class="table-area">
+  <div class="dealer-label">Dealer Upcard</div>
+  <div class="dealer-card-area" id="dealer-area"></div>
+
+  <div class="vs-row">— vs —</div>
+
+  <div class="player-label">Your Hand</div>
+  <div class="player-card-area" id="player-area"></div>
+
+  <div class="hand-desc" id="hand-desc">Loading...</div>
+
+  <div class="action-row" id="action-row"></div>
+
+  <div class="feedback-panel neutral" id="feedback-panel">
+    <div class="feedback-text">What's your move?</div>
+  </div>
+
+  <button class="next-btn" id="next-btn" onclick="nextHand()">Next Hand →</button>
+
+  <div class="ref-toggle">
+    <button class="ref-toggle-btn" onclick="toggleRef()">📋 Show Reference Chart</button>
+  </div>
+
+  <div class="ref-panel" id="ref-panel"></div>
+
+  <div class="settings-row">
+    <label class="setting-toggle">
+      <input type="checkbox" id="das-opt" checked> DAS Allowed
+    </label>
+    <label class="setting-toggle">
+      <input type="checkbox" id="surrender-opt" checked> Late Surrender
+    </label>
+    <label class="setting-toggle">
+      <input type="checkbox" id="pairs-opt" checked> Include Pairs
+    </label>
+    <label class="setting-toggle">
+      <input type="checkbox" id="soft-opt" checked> Include Soft
+    </label>
+    <label class="setting-toggle">
+      <input type="checkbox" id="hard-opt" checked> Include Hard
+    </label>
+  </div>
+</div>
+
+<script>
+// ─── SUITS & RANKS ───────────────────────────────────────────────────────────
+const SUITS = ['♠','♥','♦','♣'];
+const SUIT_COLOR = {'♠':'black','♣':'black','♥':'red','♦':'red'};
+
+function randSuit() { return SUITS[Math.floor(Math.random()*4)]; }
+function cardVal(rank) {
+  if (['J','Q','K'].includes(rank)) return 10;
+  if (rank === 'A') return 11;
+  return parseInt(rank);
+}
+
+// Dealer upcards 2-9, T(10), A
+const DEALER_RANKS = ['2','3','4','5','6','7','8','9','10','A'];
+const DEALER_DISPLAY = {'2':'2','3':'3','4':'4','5':'5','6':'6','7':'7','8':'8','9':'9','10':'10','A':'A'};
+
+// ─── STRATEGY TABLES ─────────────────────────────────────────────────────────
+// Columns: 2,3,4,5,6,7,8,9,10,A
+// Actions: H=Hit, S=Stand, D=Double(else hit), Ds=Double(else stand), Y=Split, N=DontSplit, YN=Split if DAS, SUR=Surrender
+
+// PAIR SPLITTING (player has pair of X, dealer upcard index 0-9)
+// Y=split, N=don't, YN=split only if DAS
+const PAIR_TABLE = {
+  'A': ['Y','Y','Y','Y','Y','Y','Y','Y','Y','Y'],
+  'T': ['N','N','N','N','N','N','N','N','N','N'],
+  '9': ['Y','Y','Y','Y','Y','N','Y','Y','N','N'],
+  '8': ['Y','Y','Y','Y','Y','Y','Y','Y','Y','Y'],
+  '7': ['Y','Y','Y','Y','Y','Y','N','N','N','N'],
+  '6': ['YN','Y','Y','Y','Y','N','N','N','N','N'],
+  '5': ['N','N','N','N','N','N','N','N','N','N'],
+  '4': ['N','N','N','YN','YN','N','N','N','N','N'],
+  '3': ['YN','YN','Y','Y','Y','Y','N','N','N','N'],
+  '2': ['YN','YN','Y','Y','Y','Y','N','N','N','N'],
+};
+
+// SOFT TOTALS (A,x where x=2..9)  player total = A + x
+// Key = value of the second card (2..9)
+// H, S, D, Ds
+const SOFT_TABLE = {
+  9: ['S','S','S','S','S','S','S','S','S','S'],   // A,9 = soft 20
+  8: ['S','S','S','S','S','S','S','S','S','S'],   // A,8 = soft 19  (5/6 -> Ds per chart: 3+/1+/0-)
+  // Actually chart shows A,8: 2=S,3=S,4=S(3+),5=S(1+),6=Ds(0-),7=S,8=S,9=S,10=S,A=S
+  // Let me encode precisely:
+};
+// Re-encode exactly from chart image:
+// Rows: A,9 / A,8 / A,7 / A,6 / A,5 / A,4 / A,3 / A,2
+// Cols: 2,3,4,5,6,7,8,9,10,A
+const SOFT_TABLE_EXACT = {
+  'A9': ['S','S','S','S','S','S','S','S','S','S'],
+  'A8': ['S','S','S','S','Ds','S','S','S','S','S'],
+  'A7': ['Ds','Ds','Ds','Ds','Ds','S','S','H','H','H'],
+  'A6': ['H','D','D','D','D','H','H','H','H','H'],
+  'A5': ['H','H','D','D','D','H','H','H','H','H'],
+  'A4': ['H','H','D','D','D','H','H','H','H','H'],
+  'A3': ['H','H','H','D','D','H','H','H','H','H'],
+  'A2': ['H','H','H','D','D','H','H','H','H','H'],
+};
+
+// HARD TOTALS: rows 17,16,15,14,13,12,11,10,9,8
+// H, S, D, SUR
+const HARD_TABLE_EXACT = {
+  17: ['S','S','S','S','S','S','S','S','S','S'],
+  16: ['S','S','S','S','S','H','H','H','S','S'],  // 9=SUR,10=SUR,A=SUR; but surrender handled separately
+  15: ['S','S','S','S','S','H','H','H','H','S'],
+  14: ['S','S','S','S','S','H','H','H','H','H'],
+  13: ['S','S','S','S','S','H','H','H','H','H'],
+  12: ['H','H','S','S','S','H','H','H','H','H'],
+  11: ['D','D','D','D','D','D','D','D','D','H'],
+  10: ['D','D','D','D','D','D','D','D','H','H'],
+  9:  ['H','D','D','D','D','H','H','H','H','H'],
+  8:  ['H','H','H','H','H','H','H','H','H','H'],
+};
+
+// LATE SURRENDER table - when to surrender instead
+// {playerTotal: [dealer cols 2..A]} true = surrender
+const SURRENDER_TABLE = {
+  17: [false,false,false,false,false,false,false,false,false,true],
+  16: [false,false,false,false,false,false,false,true,true,true],
+  15: [false,false,false,false,false,false,false,false,true,false],
+  14: [false,false,false,false,false,false,false,false,false,false],
+};
+
+// ─── STATE ────────────────────────────────────────────────────────────────────
+let correct = 0, wrong = 0, streak = 0, bestStreak = 0, totalHands = 0;
+let currentHand = null;
+let answered = false;
+
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
+function dealerIndex(rank) { return DEALER_RANKS.indexOf(String(rank)); }
+
+function getCorrectAction(hand, dasAllowed, surrenderAllowed) {
+  const { type, dealerRank } = hand;
+  const di = dealerIndex(dealerRank);
+
+  if (type === 'pair') {
+    const raw = PAIR_TABLE[hand.pairRank][di];
+    if (raw === 'Y') return 'split';
+    if (raw === 'N') {
+      // Fall through to hard total for 5s and Ts
+      const pv = cardVal(hand.pairRank);
+      const total = pv === 11 ? 12 : pv * 2; // pair of Aces = 12 in hard logic? Actually AA always split
+      return getHardAction(total, di, surrenderAllowed);
+    }
+    if (raw === 'YN') return dasAllowed ? 'split' : getHardFallback(hand.pairRank, di, surrenderAllowed);
+  }
+
+  if (type === 'soft') {
+    const key = 'A' + hand.softOther;
+    const raw = SOFT_TABLE_EXACT[key][di];
+    return decodeAction(raw);
+  }
+
+  if (type === 'hard') {
+    return getHardAction(hand.total, di, surrenderAllowed);
+  }
+}
+
+function getHardFallback(pairRank, di, surrenderAllowed) {
+  const pv = cardVal(pairRank);
+  return getHardAction(pv * 2, di, surrenderAllowed);
+}
+
+function getHardAction(total, di, surrenderAllowed) {
+  // Check surrender first
+  if (surrenderAllowed && SURRENDER_TABLE[total] && SURRENDER_TABLE[total][di]) {
+    return 'surrender';
+  }
+  const clamp = Math.min(Math.max(total, 8), 17);
+  const row = HARD_TABLE_EXACT[clamp] || HARD_TABLE_EXACT[8];
+  return decodeAction(row[di]);
+}
+
+function decodeAction(raw) {
+  if (raw === 'S') return 'stand';
+  if (raw === 'H') return 'hit';
+  if (raw === 'D') return 'double';
+  if (raw === 'Ds') return 'double'; // double else stand
+  if (raw === 'SUR') return 'surrender';
+  return 'hit';
+}
+
+// ─── HAND GENERATION ──────────────────────────────────────────────────────────
+function randomRank() {
+  const ranks = ['2','3','4','5','6','7','8','9','10','A'];
+  return ranks[Math.floor(Math.random()*ranks.length)];
+}
+
+function generateHand() {
+  const dasAllowed = document.getElementById('das-opt').checked;
+  const surAllowed = document.getElementById('surrender-opt').checked;
+  const incPairs   = document.getElementById('pairs-opt').checked;
+  const incSoft    = document.getElementById('soft-opt').checked;
+  const incHard    = document.getElementById('hard-opt').checked;
+
+  const types = [];
+  if (incPairs) types.push('pair');
+  if (incSoft)  types.push('soft');
+  if (incHard)  types.push('hard');
+  if (!types.length) types.push('hard');
+
+  const type = types[Math.floor(Math.random()*types.length)];
+  const dealerRank = DEALER_RANKS[Math.floor(Math.random()*10)];
+  const dealerSuit = randSuit();
+
+  let hand = { type, dealerRank, dealerSuit };
+
+  if (type === 'pair') {
+    const pairRanks = ['A','T','9','8','7','6','5','4','3','2'];
+    // Weight toward interesting pairs (not T which is always N)
+    const pr = pairRanks[Math.floor(Math.random()*pairRanks.length)];
+    const displayRank = pr === 'T' ? '10' : pr;
+    hand.pairRank = pr;
+    hand.card1 = { rank: displayRank, suit: randSuit() };
+    hand.card2 = { rank: displayRank, suit: randSuit() };
+    hand.desc = `Pair of ${displayRank}s`;
+  } else if (type === 'soft') {
+    // softOther: 2..9 (the non-ace card)
+    const others = ['2','3','4','5','6','7','8','9'];
+    const other = others[Math.floor(Math.random()*others.length)];
+    hand.softOther = other;
+    hand.card1 = { rank: 'A', suit: randSuit() };
+    hand.card2 = { rank: other, suit: randSuit() };
+    hand.desc = `A, ${other} (Soft ${11 + parseInt(other)})`;
+  } else {
+    // Hard total 8-17, generated as realistic two-card combos
+    // generate two non-ace cards summing to 8-17
+    let c1, c2, total;
+    let tries = 0;
+    do {
+      tries++;
+      const r1 = randomRank();
+      const r2 = randomRank();
+      if (r1 === 'A' || r2 === 'A') continue; // no aces for hard (would be soft)
+      c1 = r1; c2 = r2;
+      const v1 = cardVal(r1 === 'A' ? '1' : r1);
+      const v2 = cardVal(r2 === 'A' ? '1' : r2);
+      total = Math.min(v1,10) + Math.min(v2,10);
+    } while ((total < 8 || total > 17 || c1 === c2) && tries < 200);
+    // if same rank, they'd be a pair - re-roll handled by incPairs
+    if (c1 === c2 && incPairs && tries < 200) {
+      // recursively get a new hand
+      return generateHand();
+    }
+    const v1 = Math.min(cardVal(c1), 10);
+    const v2 = Math.min(cardVal(c2), 10);
+    total = v1 + v2;
+    hand.total = total;
+    hand.card1 = { rank: c1, suit: randSuit() };
+    hand.card2 = { rank: c2, suit: randSuit() };
+    hand.desc = `Hard ${total}`;
+  }
+
+  hand.correctAction = getCorrectAction(hand, dasAllowed, surAllowed);
+  return hand;
+}
+
+// ─── RENDER ───────────────────────────────────────────────────────────────────
+function renderCard(container, card, animate=true) {
+  const div = document.createElement('div');
+  div.className = 'card ' + SUIT_COLOR[card.suit];
+  if (!animate) div.style.animation = 'none';
+  div.innerHTML = `<span>${card.rank}</span><span class="suit">${card.suit}</span>`;
+  container.appendChild(div);
+}
+
+function renderHand(hand) {
+  const dArea = document.getElementById('dealer-area');
+  const pArea = document.getElementById('player-area');
+  dArea.innerHTML = '';
+  pArea.innerHTML = '';
+
+  // Dealer: show upcard + face-down card
+  renderCard(dArea, { rank: hand.dealerRank, suit: hand.dealerSuit });
+  const back = document.createElement('div');
+  back.className = 'card back';
+  dArea.appendChild(back);
+
+  // Player cards
+  renderCard(pArea, hand.card1);
+  renderCard(pArea, hand.card2);
+
+  // Hand desc
+  const desc = document.getElementById('hand-desc');
+  let badge = '';
+  if (hand.type === 'pair') badge = '<span class="hand-type-badge pair">Pair</span>';
+  else if (hand.type === 'soft') badge = '<span class="hand-type-badge soft">Soft</span>';
+  else badge = '<span class="hand-type-badge hard">Hard</span>';
+  desc.innerHTML = hand.desc + badge;
+}
+
+function renderButtons(hand) {
+  const row = document.getElementById('action-row');
+  const surAllowed = document.getElementById('surrender-opt').checked;
+  row.innerHTML = '';
+
+  const allActions = [
+    { id: 'hit',       label: 'Hit',       cls: 'hit'       },
+    { id: 'stand',     label: 'Stand',     cls: 'stand'     },
+    { id: 'double',    label: 'Double',    cls: 'double'    },
+    { id: 'split',     label: 'Split',     cls: 'split',    onlyPair: true },
+    { id: 'surrender', label: 'Surrender', cls: 'surrender', onlySur: true },
+  ];
+
+  for (const a of allActions) {
+    if (a.onlyPair && hand.type !== 'pair') continue;
+    if (a.onlySur && !surAllowed) continue;
+    const btn = document.createElement('button');
+    btn.className = `action-btn ${a.cls}`;
+    btn.textContent = a.label;
+    btn.dataset.action = a.id;
+    btn.onclick = () => checkAnswer(a.id);
+    row.appendChild(btn);
+  }
+}
+
+// ─── GAME LOGIC ───────────────────────────────────────────────────────────────
+function checkAnswer(chosen) {
+  if (answered) return;
+  answered = true;
+  totalHands++;
+
+  const isCorrect = chosen === currentHand.correctAction;
+  const panel = document.getElementById('feedback-panel');
+  const btns = document.querySelectorAll('.action-btn');
+
+  // Highlight buttons
+  btns.forEach(b => {
+    b.style.pointerEvents = 'none';
+    if (b.dataset.action === currentHand.correctAction) {
+      b.style.outline = '3px solid #3fc97e';
+      b.style.outlineOffset = '2px';
+    }
+    if (b.dataset.action === chosen && !isCorrect) {
+      b.style.outline = '3px solid #e05050';
+      b.style.outlineOffset = '2px';
+      b.style.opacity = '0.7';
+    }
+  });
+
+  if (isCorrect) {
+    correct++;
+    streak++;
+    if (streak > bestStreak) bestStreak = streak;
+    panel.className = 'feedback-panel correct';
+    panel.innerHTML = `<div class="feedback-icon">✅</div><div class="feedback-text">Correct! ${actionDesc(chosen)}</div><div class="feedback-subtext">Dealer showing ${currentHand.dealerRank} — ${currentHand.desc}</div>`;
+  } else {
+    wrong++;
+    streak = 0;
+    const why = getExplanation(currentHand);
+    panel.className = 'feedback-panel wrong';
+    panel.innerHTML = `<div class="feedback-icon">❌</div><div class="feedback-text">Wrong — correct play is ${actionLabel(currentHand.correctAction)}</div><div class="feedback-subtext">${why}</div>`;
+  }
+
+  updateStats();
+  document.getElementById('next-btn').classList.add('visible');
+}
+
+function actionLabel(a) {
+  return {hit:'Hit',stand:'Stand',double:'Double',split:'Split',surrender:'Surrender'}[a] || a;
+}
+function actionDesc(a) {
+  return {hit:'Take a card.',stand:'Stand pat.',double:'Double down.',split:'Split the pair.',surrender:'Late surrender.'}[a] || a;
+}
+
+function getExplanation(hand) {
+  if (hand.type === 'pair') return `With a pair of ${hand.pairRank}s vs dealer ${hand.dealerRank}, you should ${actionLabel(hand.correctAction)}.`;
+  if (hand.type === 'soft') return `Soft ${11+parseInt(hand.softOther)} (A,${hand.softOther}) vs dealer ${hand.dealerRank}: ${actionLabel(hand.correctAction)}.`;
+  return `Hard ${hand.total} vs dealer ${hand.dealerRank}: ${actionLabel(hand.correctAction)}.`;
+}
+
+function updateStats() {
+  document.getElementById('correct-count').textContent = correct;
+  document.getElementById('wrong-count').textContent = wrong;
+  const pct = totalHands > 0 ? Math.round(correct/totalHands*100) : 0;
+  document.getElementById('pct-val').textContent = totalHands > 0 ? pct + '%' : '—';
+  document.getElementById('streak-val').textContent = streak;
+  const progress = Math.min(correct, 100);
+  document.getElementById('progress-bar').style.width = progress + '%';
+}
+
+function nextHand() {
+  answered = false;
+  currentHand = generateHand();
+  renderHand(currentHand);
+  renderButtons(currentHand);
+  const panel = document.getElementById('feedback-panel');
+  panel.className = 'feedback-panel neutral';
+  panel.innerHTML = `<div class="feedback-text">What's your move?</div>`;
+  document.getElementById('next-btn').classList.remove('visible');
+}
+
+// ─── REFERENCE CHART ─────────────────────────────────────────────────────────
+function toggleRef() {
+  const p = document.getElementById('ref-panel');
+  if (p.classList.contains('open')) {
+    p.classList.remove('open');
+    document.querySelector('.ref-toggle-btn').textContent = '📋 Show Reference Chart';
+  } else {
+    buildRefChart();
+    p.classList.add('open');
+    document.querySelector('.ref-toggle-btn').textContent = '✖ Hide Reference Chart';
+  }
+}
+
+function cellClass(v) {
+  if (v === 'Y') return 'cell-Y';
+  if (v === 'N') return 'cell-N';
+  if (v === 'YN') return 'cell-YN';
+  if (v === 'S') return 'cell-S';
+  if (v === 'H') return 'cell-H';
+  if (v === 'D' || v === 'D+') return 'cell-D';
+  if (v === 'Ds') return 'cell-Ds';
+  if (v === 'SUR') return 'cell-SUR';
+  return '';
+}
+
+function buildRefChart() {
+  const p = document.getElementById('ref-panel');
+  const cols = ['2','3','4','5','6','7','8','9','10','A'];
+
+  let html = '';
+
+  // PAIR SPLITTING
+  html += '<div class="ref-section-title">Pair Splitting</div>';
+  html += '<table class="ref-table"><tr><th>Pair</th>' + cols.map(c=>`<th>${c}</th>`).join('') + '</tr>';
+  const pairOrder = ['A','T','9','8','7','6','5','4','3','2'];
+  for (const pr of pairOrder) {
+    html += `<tr><td style="color:var(--cream);background:rgba(255,255,255,0.04)">${pr==='T'?'10':pr},${pr==='T'?'10':pr}</td>`;
+    for (let i=0;i<10;i++) {
+      const v = PAIR_TABLE[pr][i];
+      html += `<td class="${cellClass(v)}">${v}</td>`;
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+
+  // SOFT TOTALS
+  html += '<div class="ref-section-title">Soft Totals</div>';
+  html += '<table class="ref-table"><tr><th>Hand</th>' + cols.map(c=>`<th>${c}</th>`).join('') + '</tr>';
+  const softOrder = [['A9',20],['A8',19],['A7',18],['A6',17],['A5',16],['A4',15],['A3',14],['A2',13]];
+  for (const [key,tot] of softOrder) {
+    html += `<tr><td style="color:var(--cream);background:rgba(255,255,255,0.04)">A,${key[1]} (${tot})</td>`;
+    for (let i=0;i<10;i++) {
+      const v = SOFT_TABLE_EXACT[key][i];
+      html += `<td class="${cellClass(v)}">${v}</td>`;
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+
+  // HARD TOTALS
+  html += '<div class="ref-section-title">Hard Totals</div>';
+  html += '<table class="ref-table"><tr><th>Total</th>' + cols.map(c=>`<th>${c}</th>`).join('') + '</tr>';
+  for (let t=17;t>=8;t--) {
+    const row = HARD_TABLE_EXACT[t];
+    html += `<tr><td style="color:var(--cream);background:rgba(255,255,255,0.04)">${t}</td>`;
+    for (let i=0;i<10;i++) {
+      let v = row[i];
+      // override with surrender where applicable
+      if (SURRENDER_TABLE[t] && SURRENDER_TABLE[t][i]) v = 'SUR';
+      html += `<td class="${cellClass(v)}">${v}</td>`;
+    }
+    html += '</tr>';
+  }
+  html += '</table>';
+
+  // Legend
+  html += `<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:6px;">
+    <span class="ref-table td cell-H" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">H = Hit</span>
+    <span class="ref-table td cell-S" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">S = Stand</span>
+    <span class="ref-table td cell-D" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">D = Double/Hit</span>
+    <span class="ref-table td cell-Ds" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">Ds = Double/Stand</span>
+    <span class="ref-table td cell-Y" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">Y = Split</span>
+    <span class="ref-table td cell-YN" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">YN = Split if DAS</span>
+    <span class="ref-table td cell-N" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">N = No Split</span>
+    <span class="ref-table td cell-SUR" style="padding:3px 8px;border-radius:4px;color:#fff;font-size:0.65rem;font-family:DM Mono">SUR = Surrender</span>
+  </div>`;
+
+  p.innerHTML = html;
+}
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+nextHand();
+</script>
+</body>
+</html>
