@@ -313,20 +313,26 @@
       return decision;
     }
 
-    function getBetUnitsFromSpread(trueCount, spreadInputs) {
-      let bestMin = -Infinity;
-      let units = 1; // default at least 1 unit
-      for (const input of spreadInputs) {
-        const minTc = parseInt(input.dataset.minTc, 10);
-        const val = parseFloat(input.value);
-        if (Number.isNaN(val)) continue;
-        if (trueCount >= minTc && minTc >= bestMin) {
-          bestMin = minTc;
-          units = Math.max(1, val); // force >= 1
-        }
-      }
-      return units;
+function getBetUnitsFromSpread(trueCount, spreadInputs) {
+  let bestMin = -9999;
+  let units = 1;
+
+  for (let i = 0; i < spreadInputs.length; i++) {
+    const inp = spreadInputs[i];
+    const minTc = parseInt(inp.getAttribute("data-minTc"), 10);
+    const val = parseFloat(inp.value);
+
+    if (isNaN(val)) continue;
+
+    if (trueCount >= minTc && minTc >= bestMin) {
+      bestMin = minTc;
+      units = val;
     }
+  }
+
+  return units;
+}
+
 
     let stopRequested = false;
 
