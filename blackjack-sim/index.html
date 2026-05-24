@@ -1,443 +1,646 @@
-<script>
-  const RANKS = [2,3,4,5,6,7,8,9,10,'J','Q','K','A'];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blackjack Simulator (Fixed)</title>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin: 20px;
+      background: #111;
+      color: #eee;
+    }
+    h1, h2 { margin-bottom: 0.3em; }
+    fieldset {
+      border: 1px solid #444;
+      margin-bottom: 15px;
+      padding: 10px 15px;
+    }
+    legend { padding: 0 5px; font-weight: bold; }
+    label { display: inline-block; margin: 4px 0; }
+    input[type="number"], select {
+      margin-left: 6px;
+      margin-right: 10px;
+      width: 80px;
+    }
+    input[type="checkbox"] { margin-left: 6px; margin-right: 4px; }
+    #controls { margin-top: 10px; }
+    button {
+      padding: 6px 12px;
+      margin-right: 10px;
+      cursor: pointer;
+      border-radius: 4px;
+      border: 1px solid #555;
+      background: #222;
+      color: #eee;
+    }
+    button:disabled { opacity: 0.5; cursor: default; }
+    #results {
+      margin-top: 15px;
+      padding: 10px;
+      border: 1px solid #444;
+      background: #181818;
+    }
+    #log {
+      margin-top: 10px;
+      max-height: 200px;
+      overflow-y: auto;
+      font-size: 12px;
+      background: #050505;
+      padding: 8px;
+      border-radius: 4px;
+      border: 1px solid #333;
+      white-space: pre-wrap;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 20px;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Blackjack Simulator (Fixed)</h1>
 
-  function cardValue(card) {
-    if (card.rank === 'A') return 11;
-    if (['J','Q','K'].includes(card.rank)) return 10;
-    return card.rank;
-  }
+  <fieldset>
+    <legend>House rules</legend>
+    <div class="row">
+      <label>Decks:
+        <input type="number" id="decks" min="1" max="8" value="6">
+      </label>
+      <label>Dealer hits soft 17
+        <input type="checkbox" id="hitSoft17" checked>
+      </label>
+      <label>Blackjack pays:
+        <select id="bjPayout">
+          <option value="1.5">3:2</option>
+          <option value="1.2">6:5</option>
+          <option value="1.0">1:1</option>
+        </select>
+      </label>
+      <label>Double after split (DAS)
+        <input type="checkbox" id="das" checked>
+      </label>
+      <label>Late surrender
+        <input type="checkbox" id="surrender">
+      </label>
+      <label>Penetration (% of shoe dealt):
+        <input type="number" id="penetration" min="10" max="100" value="75">
+      </label>
+    </div>
+  </fieldset>
 
-  function hiLoValue(card) {
-    const r = card.rank;
-    if ([2,3,4,5,6].includes(r)) return 1;
-    if ([7,8,9].includes(r)) return 0;
-    return -1;
-  }
+  <fieldset>
+    <legend>Strategy & counting</legend>
+    <div class="row">
+      <label>Strategy:
+        <select id="strategy">
+          <option value="basic">Basic strategy (simplified)</option>
+          <option value="countDeviations">Basic + simple count deviations</option>
+        </select>
+      </label>
+      <label>Count system:
+        <select id="countSystem">
+          <option value="hiLo">Hi-Lo</option>
+        </select>
+      </label>
+      <label>Use true count (per deck)
+        <input type="checkbox" id="useTrueCount" checked>
+      </label>
+    </div>
+  </fieldset>
 
-  function buildShoe(numDecks) {
-    const shoe = [];
-    for (let d = 0; d < numDecks; d++) {
-      for (const r of RANKS) {
-        for (let s = 0; s < 4; s++) {
-          shoe.push({ rank: r });
+  <fieldset>
+    <legend>Bet spread by count</legend>
+    <p style="font-size: 13px; margin-top: 0;">
+      Define bet size (in units) for each true count range. Simulator will force at least 1 unit.
+    </p>
+    <div id="spreadTable">
+      <div class="row">
+        <label>TC ≤ 0: bet
+          <input type="number" class="spreadTc" data-minTc="-99" value="1">
+          units
+        </label>
+      </div>
+      <div class="row">
+        <label>TC ≥ 1: bet
+          <input type="number" class="spreadTc" data-minTc="1" value="2">
+          units
+        </label>
+      </div>
+      <div class="row">
+        <label>TC ≥ 2: bet
+          <input type="number" class="spreadTc" data-minTc="2" value="4">
+          units
+        </label>
+      </div>
+      <div class="row">
+        <label>TC ≥ 3: bet
+          <input type="number" class="spreadTc" data-minTc="3" value="8">
+          units
+        </label>
+      </div>
+      <div class="row">
+        <label>TC ≥ 5: bet
+          <input type="number" class="spreadTc" data-minTc="5" value="12">
+          units
+        </label>
+      </div>
+    </div>
+    <div style="margin-top: 6px;">
+      <label>Base unit size:
+        <input type="number" id="unitSize" min="1" value="10">
+      </label>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Simulation</legend>
+    <div class="row">
+      <label>Rounds to simulate:
+        <input type="number" id="rounds" min="100" step="100" value="20000">
+      </label>
+      <label>Max hands per shoe:
+        <input type="number" id="maxHandsPerShoe" min="1" value="1000">
+      </label>
+      <label>Starting bankroll:
+        <input type="number" id="bankroll" min="0" value="10000">
+      </label>
+    </div>
+    <div id="controls" style="margin-top: 10px;">
+      <button id="runBtn">Run simulation</button>
+      <button id="stopBtn" disabled>Stop</button>
+    </div>
+  </fieldset>
+
+  <div id="results">
+    <h2>Results</h2>
+    <div id="summary">
+      No simulation yet.
+    </div>
+    <div id="log"></div>
+  </div>
+
+  <script>
+    const RANKS = [2,3,4,5,6,7,8,9,10,'J','Q','K','A'];
+
+    function cardValue(card) {
+      if (card.rank === 'A') return 11;
+      if (['J','Q','K'].includes(card.rank)) return 10;
+      return card.rank;
+    }
+
+    function hiLoValue(card) {
+      const r = card.rank;
+      if ([2,3,4,5,6].includes(r)) return 1;
+      if ([7,8,9].includes(r)) return 0;
+      return -1;
+    }
+
+    function buildShoe(numDecks) {
+      const shoe = [];
+      for (let d = 0; d < numDecks; d++) {
+        for (const r of RANKS) {
+          for (let s = 0; s < 4; s++) {
+            shoe.push({ rank: r });
+          }
         }
       }
-    }
-    for (let i = shoe.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shoe[i], shoe[j]] = [shoe[j], shoe[i]];
-    }
-    return shoe;
-  }
-
-  function handTotals(cards) {
-    let total = 0;
-    let aces = 0;
-    for (const c of cards) {
-      if (c.rank === 'A') {
-        aces++;
-        total += 11;
-      } else if (['J','Q','K'].includes(c.rank)) {
-        total += 10;
-      } else {
-        total += c.rank;
+      for (let i = shoe.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [shoe[i], shoe[j]] = [shoe[j], shoe[i]];
       }
+      return shoe;
     }
-    while (total > 21 && aces > 0) {
-      total -= 10;
-      aces--;
-    }
-    return { total, soft: aces > 0 };
-  }
 
-  function isBlackjack(cards) {
-    return cards.length === 2 && handTotals(cards).total === 21;
-  }
-
-  function basicStrategyDecision(playerCards, dealerUp, canDouble, canSplit, canSurrender) {
-    const { total, soft } = handTotals(playerCards);
-    const upVal = cardValue(dealerUp);
-
-    if (canSplit && playerCards.length === 2 && playerCards[0].rank === playerCards[1].rank) {
-      const r = playerCards[0].rank;
-      if (r === 'A' || r === 8) return 'split';
-      if (r === 9 && ![7,10,11].includes(upVal)) return 'split';
-      if (r === 7 && upVal <= 7) return 'split';
-      if (r === 6 && upVal <= 6) return 'split';
-      if (r === 2 || r === 3) {
-        if (upVal <= 7) return 'split';
+    function handTotals(cards) {
+      let total = 0;
+      let aces = 0;
+      for (const c of cards) {
+        if (c.rank === 'A') {
+          aces++;
+          total += 11;
+        } else if (['J','Q','K'].includes(c.rank)) {
+          total += 10;
+        } else {
+          total += c.rank;
+        }
       }
-      if (r === 4 && [5,6].includes(upVal)) return 'split';
-    }
-
-    if (canSurrender && playerCards.length === 2) {
-      if (!soft && total === 16 && [9,10,11].includes(upVal)) return 'surrender';
-      if (!soft && total === 15 && upVal === 10) return 'surrender';
-    }
-
-    if (soft) {
-      if (total <= 17) {
-        if (canDouble && [4,5,6].includes(upVal)) return 'double';
-        return 'hit';
+      while (total > 21 && aces > 0) {
+        total -= 10;
+        aces--;
       }
-      if (total === 18) {
-        if (canDouble && [3,4,5,6].includes(upVal)) return 'double';
-        if ([9,10,11].includes(upVal)) return 'hit';
+      return { total, soft: aces > 0 };
+    }
+
+    function isBlackjack(cards) {
+      return cards.length === 2 && handTotals(cards).total === 21;
+    }
+
+    function basicStrategyDecision(playerCards, dealerUp, canDouble, canSplit, canSurrender) {
+      const { total, soft } = handTotals(playerCards);
+      const upVal = cardValue(dealerUp);
+
+      if (canSplit && playerCards.length === 2 && playerCards[0].rank === playerCards[1].rank) {
+        const r = playerCards[0].rank;
+        if (r === 'A' || r === 8) return 'split';
+        if (r === 9 && ![7,10,11].includes(upVal)) return 'split';
+        if (r === 7 && upVal <= 7) return 'split';
+        if (r === 6 && upVal <= 6) return 'split';
+        if (r === 2 || r === 3) {
+          if (upVal <= 7) return 'split';
+        }
+        if (r === 4 && [5,6].includes(upVal)) return 'split';
+      }
+
+      if (canSurrender && playerCards.length === 2) {
+        if (!soft && total === 16 && [9,10,11].includes(upVal)) return 'surrender';
+        if (!soft && total === 15 && upVal === 10) return 'surrender';
+      }
+
+      if (soft) {
+        if (total <= 17) {
+          if (canDouble && [4,5,6].includes(upVal)) return 'double';
+          return 'hit';
+        }
+        if (total === 18) {
+          if (canDouble && [3,4,5,6].includes(upVal)) return 'double';
+          if ([9,10,11].includes(upVal)) return 'hit';
+          return 'stand';
+        }
+        if (total >= 19) return 'stand';
+      }
+
+      if (!soft) {
+        if (total <= 8) return 'hit';
+        if (total === 9) {
+          if (canDouble && upVal >= 3 && upVal <= 6) return 'double';
+          return 'hit';
+        }
+        if (total === 10) {
+          if (canDouble && upVal <= 9) return 'double';
+          return 'hit';
+        }
+        if (total === 11) {
+          if (canDouble) return 'double';
+          return 'hit';
+        }
+        if (total === 12) {
+          if (upVal >= 4 && upVal <= 6) return 'stand';
+          return 'hit';
+        }
+        if (total >= 13 && total <= 16) {
+          if (upVal >= 2 && upVal <= 6) return 'stand';
+          return 'hit';
+        }
+        if (total >= 17) return 'stand';
+      }
+
+      return 'stand';
+    }
+
+    function applyCountDeviations(decision, playerCards, dealerUp, trueCount) {
+      const { total, soft } = handTotals(playerCards);
+      const upVal = cardValue(dealerUp);
+
+      if (!soft && total === 16 && upVal === 10 && trueCount >= 0) {
         return 'stand';
       }
-      if (total >= 19) return 'stand';
+      if (!soft && total === 15 && upVal === 10 && trueCount >= 4) {
+        return 'stand';
+      }
+      return decision;
     }
 
-    if (!soft) {
-      if (total <= 8) return 'hit';
-      if (total === 9) {
-        if (canDouble && upVal >= 3 && upVal <= 6) return 'double';
-        return 'hit';
+    function getBetUnitsFromSpread(trueCount, spreadInputs) {
+      let bestMin = -Infinity;
+      let units = 1; // default at least 1 unit
+      for (const input of spreadInputs) {
+        const minTc = parseInt(input.dataset.minTc, 10);
+        const val = parseFloat(input.value);
+        if (Number.isNaN(val)) continue;
+        if (trueCount >= minTc && minTc >= bestMin) {
+          bestMin = minTc;
+          units = Math.max(1, val); // force >= 1
+        }
       }
-      if (total === 10) {
-        if (canDouble && upVal <= 9) return 'double';
-        return 'hit';
-      }
-      if (total === 11) {
-        if (canDouble) return 'double';
-        return 'hit';
-      }
-      if (total === 12) {
-        if (upVal >= 4 && upVal <= 6) return 'stand';
-        return 'hit';
-      }
-      if (total >= 13 && total <= 16) {
-        if (upVal >= 2 && upVal <= 6) return 'stand';
-        return 'hit';
-      }
-      if (total >= 17) return 'stand';
+      return units;
     }
 
-    return 'stand';
-  }
+    let stopRequested = false;
 
-  function applyCountDeviations(decision, playerCards, dealerUp, trueCount) {
-    const { total, soft } = handTotals(playerCards);
-    const upVal = cardValue(dealerUp);
+    async function runSimulation() {
+      const runBtn = document.getElementById('runBtn');
+      const stopBtn = document.getElementById('stopBtn');
+      const summaryEl = document.getElementById('summary');
+      const logEl = document.getElementById('log');
 
-    if (!soft && total === 16 && upVal === 10 && trueCount >= 0) {
-      return 'stand';
-    }
-    if (!soft && total === 15 && upVal === 10 && trueCount >= 4) {
-      return 'stand';
-    }
-    return decision;
-  }
+      runBtn.disabled = true;
+      stopBtn.disabled = false;
+      stopRequested = false;
+      logEl.textContent = '';
 
-  function getBetUnitsFromSpread(trueCount, spreadInputs) {
-    let bestMin = -Infinity;
-    let units = 1; // at least 1 unit
-    for (const input of spreadInputs) {
-      const minTc = parseInt(input.dataset.minTc, 10);
-      const val = parseFloat(input.value);
-      if (Number.isNaN(val)) continue;
-      if (trueCount >= minTc && minTc >= bestMin) {
-        bestMin = minTc;
-        units = Math.max(1, val);
+      const decks = parseInt(document.getElementById('decks').value, 10) || 6;
+      const hitSoft17 = document.getElementById('hitSoft17').checked;
+      const bjPayout = parseFloat(document.getElementById('bjPayout').value);
+      const das = document.getElementById('das').checked;
+      const surrender = document.getElementById('surrender').checked;
+      const penetration = Math.min(100, Math.max(10, parseFloat(document.getElementById('penetration').value) || 75));
+      const strategy = document.getElementById('strategy').value;
+      const countSystem = document.getElementById('countSystem').value;
+      const useTrueCount = document.getElementById('useTrueCount').checked;
+      const rounds = parseInt(document.getElementById('rounds').value, 10) || 20000;
+      const maxHandsPerShoe = parseInt(document.getElementById('maxHandsPerShoe').value, 10) || 1000;
+      const unitSize = parseFloat(document.getElementById('unitSize').value) || 10;
+      let bankroll = parseFloat(document.getElementById('bankroll').value) || 0;
+
+      const spreadInputs = Array.from(document.querySelectorAll('.spreadTc'));
+
+      let shoe = buildShoe(decks);
+      const shoeSize = shoe.length;
+      const minCardsRemaining = shoeSize * (1 - penetration / 100); // reshuffle when remaining <= this
+
+      let runningCount = 0;
+      let handsPlayed = 0;
+      let totalBet = 0;
+      let totalWon = 0;
+      let pushes = 0;
+      let wins = 0;
+      let losses = 0;
+      let surrenders = 0;
+      let blackjacks = 0;
+
+      function drawCard() {
+        if (shoe.length === 0) {
+          shoe = buildShoe(decks);
+          runningCount = 0;
+        }
+        const card = shoe.pop();
+        if (countSystem === 'hiLo') {
+          runningCount += hiLoValue(card);
+        }
+        return card;
       }
-    }
-    return units;
-  }
 
-  let stopRequested = false;
-
-  function runSimulation() {
-    const runBtn = document.getElementById('runBtn');
-    const stopBtn = document.getElementById('stopBtn');
-    const summaryEl = document.getElementById('summary');
-    const logEl = document.getElementById('log');
-
-    runBtn.disabled = true;
-    stopBtn.disabled = false;
-    stopRequested = false;
-    logEl.textContent = '';
-    summaryEl.textContent = 'Running simulation...';
-
-    const decks = parseInt(document.getElementById('decks').value, 10) || 6;
-    const hitSoft17 = document.getElementById('hitSoft17').checked;
-    const bjPayout = parseFloat(document.getElementById('bjPayout').value);
-    const das = document.getElementById('das').checked; // not deeply used but kept
-    const surrender = document.getElementById('surrender').checked;
-    const penetration = Math.min(100, Math.max(10, parseFloat(document.getElementById('penetration').value) || 75));
-    const strategy = document.getElementById('strategy').value;
-    const countSystem = document.getElementById('countSystem').value;
-    const useTrueCount = document.getElementById('useTrueCount').checked;
-    const rounds = parseInt(document.getElementById('rounds').value, 10) || 20000;
-    const maxHandsPerShoe = parseInt(document.getElementById('maxHandsPerShoe').value, 10) || 1000;
-    const unitSize = parseFloat(document.getElementById('unitSize').value) || 10;
-    let bankroll = parseFloat(document.getElementById('bankroll').value) || 0;
-
-    const spreadInputs = Array.from(document.querySelectorAll('.spreadTc'));
-
-    let shoe = buildShoe(decks);
-    const shoeSize = shoe.length;
-    const minCardsRemaining = shoeSize * (1 - penetration / 100);
-
-    let runningCount = 0;
-    let handsPlayed = 0;
-    let totalBet = 0;
-    let totalWon = 0;
-    let pushes = 0;
-    let wins = 0;
-    let losses = 0;
-    let surrenders = 0;
-    let blackjacks = 0;
-
-    function drawCard() {
-      if (shoe.length === 0) {
-        shoe = buildShoe(decks);
-        runningCount = 0;
+      function decksRemaining() {
+        return shoe.length / 52;
       }
-      const card = shoe.pop();
-      if (countSystem === 'hiLo') {
-        runningCount += hiLoValue(card);
+
+      function currentTrueCount() {
+        if (!useTrueCount) return runningCount;
+        const dr = decksRemaining();
+        if (dr <= 0) return runningCount;
+        return runningCount / dr;
       }
-      return card;
-    }
 
-    function decksRemaining() {
-      return shoe.length / 52;
-    }
-
-    function currentTrueCount() {
-      if (!useTrueCount) return runningCount;
-      const dr = decksRemaining();
-      if (dr <= 0) return runningCount;
-      return runningCount / dr;
-    }
-
-    function dealerPlay(dealerCards) {
-      while (true) {
-        const { total, soft } = handTotals(dealerCards);
-        if (total > 21) break;
-        if (total > 17) break;
-        if (total === 17) {
-          if (soft && hitSoft17) {
-            dealerCards.push(drawCard());
-            continue;
+      function dealerPlay(dealerCards) {
+        while (true) {
+          const { total, soft } = handTotals(dealerCards);
+          if (total > 21) break;
+          if (total > 17) break;
+          if (total === 17) {
+            if (soft && hitSoft17) {
+              dealerCards.push(drawCard());
+              continue;
+            }
+            break;
           }
-          break;
+          dealerCards.push(drawCard());
         }
-        dealerCards.push(drawCard());
-      }
-      return dealerCards;
-    }
-
-    function resolveHand(playerCards, dealerCards, bet, didSurrender, isOriginalBJ) {
-      const playerTotal = handTotals(playerCards).total;
-      const dealerTotal = handTotals(dealerCards).total;
-
-      if (didSurrender) {
-        surrenders++;
-        return -bet / 2;
+        return dealerCards;
       }
 
-      const playerBJ = isBlackjack(playerCards);
-      const dealerBJ = isBlackjack(dealerCards);
+      function resolveHand(playerCards, dealerCards, bet, didSurrender, isOriginalBJ) {
+        const playerTotal = handTotals(playerCards).total;
+        const dealerTotal = handTotals(dealerCards).total;
 
-      if (isOriginalBJ && playerBJ) {
-        if (dealerBJ) {
-          pushes++;
-          return 0;
-        } else {
-          blackjacks++;
-          wins++;
-          return bet * bjPayout;
+        if (didSurrender) {
+          surrenders++;
+          return -bet / 2;
         }
-      }
 
-      if (playerTotal > 21) {
-        losses++;
-        return -bet;
-      }
-      if (dealerTotal > 21) {
-        wins++;
-        return bet;
-      }
-      if (playerTotal > dealerTotal) {
-        wins++;
-        return bet;
-      }
-      if (playerTotal < dealerTotal) {
-        losses++;
-        return -bet;
-      }
-      pushes++;
-      return 0;
-    }
+        const playerBJ = isBlackjack(playerCards);
+        const dealerBJ = isBlackjack(dealerCards);
 
-    for (let round = 0; round < rounds; round++) {
-      if (stopRequested) break;
-
-      if (shoe.length <= minCardsRemaining || handsPlayed >= maxHandsPerShoe) {
-        shoe = buildShoe(decks);
-        runningCount = 0;
-        handsPlayed = 0;
-      }
-
-      const trueCount = currentTrueCount();
-      const betUnits = getBetUnitsFromSpread(trueCount, spreadInputs);
-      const bet = betUnits * unitSize;
-      totalBet += bet;
-
-      const playerHands = [];
-      const playerBets = [];
-      const playerSurrendered = [];
-      const playerOriginalBJ = [];
-
-      let dealerCards = [drawCard(), drawCard()];
-      let playerCards = [drawCard(), drawCard()];
-
-      handsPlayed++;
-
-      const originalBJ = isBlackjack(playerCards);
-      playerHands.push(playerCards);
-      playerBets.push(bet);
-      playerSurrendered.push(false);
-      playerOriginalBJ.push(originalBJ);
-
-      const dealerHasBJ = isBlackjack(dealerCards);
-
-      if (dealerHasBJ) {
-        let roundResult = 0;
-        for (let i = 0; i < playerHands.length; i++) {
-          const pc = playerHands[i];
-          const b = playerBets[i];
-          const isOrigBJ = playerOriginalBJ[i];
-          if (isOrigBJ && isBlackjack(pc)) {
+        if (isOriginalBJ && playerBJ) {
+          if (dealerBJ) {
             pushes++;
+            return 0;
           } else {
-            losses++;
-            roundResult -= b;
+            blackjacks++;
+            wins++;
+            return bet * bjPayout;
           }
         }
-        bankroll += roundResult;
-        totalWon += roundResult;
-        continue;
+
+        if (playerTotal > 21) {
+          losses++;
+          return -bet;
+        }
+        if (dealerTotal > 21) {
+          wins++;
+          return bet;
+        }
+        if (playerTotal > dealerTotal) {
+          wins++;
+          return bet;
+        }
+        if (playerTotal < dealerTotal) {
+          losses++;
+          return -bet;
+        }
+        pushes++;
+        return 0;
       }
 
-      for (let h = 0; h < playerHands.length; h++) {
-        let hand = playerHands[h];
-        let betForHand = playerBets[h];
-        let surrendered = false;
-        const isOrigBJ = playerOriginalBJ[h];
+      for (let round = 0; round < rounds; round++) {
+        if (stopRequested) break;
 
-        if (isOrigBJ) {
-          playerSurrendered[h] = false;
+        if (shoe.length <= minCardsRemaining || handsPlayed >= maxHandsPerShoe) {
+          shoe = buildShoe(decks);
+          runningCount = 0;
+          handsPlayed = 0;
+        }
+
+        const trueCount = currentTrueCount();
+        const betUnits = getBetUnitsFromSpread(trueCount, spreadInputs);
+        const bet = betUnits * unitSize;
+        totalBet += bet;
+
+        const playerHands = [];
+        const playerBets = [];
+        const playerSurrendered = [];
+        const playerOriginalBJ = [];
+
+        let dealerCards = [drawCard(), drawCard()];
+        let playerCards = [drawCard(), drawCard()];
+
+        handsPlayed++;
+
+        const originalBJ = isBlackjack(playerCards);
+        playerHands.push(playerCards);
+        playerBets.push(bet);
+        playerSurrendered.push(false);
+        playerOriginalBJ.push(originalBJ);
+
+        const dealerHasBJ = isBlackjack(dealerCards);
+
+        if (dealerHasBJ) {
+          let roundResult = 0;
+          for (let i = 0; i < playerHands.length; i++) {
+            const pc = playerHands[i];
+            const b = playerBets[i];
+            const isOrigBJ = playerOriginalBJ[i];
+            if (isOrigBJ && isBlackjack(pc)) {
+              pushes++;
+            } else {
+              losses++;
+              roundResult -= b;
+            }
+          }
+          bankroll += roundResult;
+          totalWon += roundResult;
+
+          if (round % 1000 === 0) {
+            summaryEl.textContent = `Hands: ${round + 1}, Bankroll: ${bankroll.toFixed(2)}`;
+            await new Promise(r => setTimeout(r, 0));
+          }
           continue;
         }
 
-        let canSplit = (hand.length === 2 && hand[0].rank === hand[1].rank);
-        let canDouble = (hand.length === 2);
-        let canSurrender = surrender && hand.length === 2;
+        for (let h = 0; h < playerHands.length; h++) {
+          let hand = playerHands[h];
+          let betForHand = playerBets[h];
+          let surrendered = false;
+          const isOrigBJ = playerOriginalBJ[h];
 
-        while (true) {
-          const decisionBase = basicStrategyDecision(hand, dealerCards[0], canDouble, canSplit, canSurrender);
-          const tc = currentTrueCount();
-          let decision = decisionBase;
-          if (strategy === 'countDeviations') {
-            decision = applyCountDeviations(decisionBase, hand, dealerCards[0], tc);
-          }
-
-          if (decision === 'surrender' && canSurrender) {
-            surrendered = true;
-            break;
-          }
-
-          if (decision === 'split' && canSplit) {
-            const cardToSplit = hand[0];
-            const otherCard = hand[1];
-
-            hand = [cardToSplit, drawCard()];
-            playerHands[h] = hand;
-
-            const newHand = [otherCard, drawCard()];
-            playerHands.splice(h + 1, 0, newHand);
-            playerBets.splice(h + 1, 0, betForHand);
-            playerSurrendered.splice(h + 1, 0, false);
-            playerOriginalBJ.splice(h + 1, 0, false);
-
-            totalBet += betForHand;
-            canSplit = false;
-            canDouble = true;
-            canSurrender = surrender;
+          if (isOrigBJ) {
+            playerSurrendered[h] = false;
             continue;
           }
 
-          if (decision === 'double' && canDouble) {
-            hand.push(drawCard());
-            betForHand *= 2;
-            totalBet += betForHand / 2;
+          let canSplit = (hand.length === 2 && hand[0].rank === hand[1].rank);
+          let canDouble = (hand.length === 2);
+          let canSurrender = surrender && hand.length === 2;
+
+          while (true) {
+            const decisionBase = basicStrategyDecision(hand, dealerCards[0], canDouble, canSplit, canSurrender);
+            const tc = currentTrueCount();
+            let decision = decisionBase;
+            if (strategy === 'countDeviations') {
+              decision = applyCountDeviations(decisionBase, hand, dealerCards[0], tc);
+            }
+
+            if (decision === 'surrender' && canSurrender) {
+              surrendered = true;
+              break;
+            }
+
+            if (decision === 'split' && canSplit) {
+              const cardToSplit = hand[0];
+              const otherCard = hand[1];
+
+              hand = [cardToSplit, drawCard()];
+              playerHands[h] = hand;
+
+              const newHand = [otherCard, drawCard()];
+              playerHands.splice(h + 1, 0, newHand);
+              playerBets.splice(h + 1, 0, betForHand);
+              playerSurrendered.splice(h + 1, 0, false);
+              playerOriginalBJ.splice(h + 1, 0, false);
+
+              totalBet += betForHand;
+              canSplit = false;
+              canDouble = true;
+              canSurrender = surrender;
+              continue;
+            }
+
+            if (decision === 'double' && canDouble) {
+              hand.push(drawCard());
+              betForHand *= 2;
+              totalBet += betForHand / 2;
+              break;
+            }
+
+            if (decision === 'hit') {
+              hand.push(drawCard());
+              const { total } = handTotals(hand);
+              if (total >= 21) break;
+              canDouble = false;
+              canSplit = false;
+              canSurrender = false;
+              continue;
+            }
+
+            if (decision === 'stand') {
+              break;
+            }
+
             break;
           }
 
-          if (decision === 'hit') {
-            hand.push(drawCard());
-            const { total } = handTotals(hand);
-            if (total >= 21) break;
-            canDouble = false;
-            canSplit = false;
-            canSurrender = false;
-            continue;
-          }
-
-          if (decision === 'stand') {
-            break;
-          }
-
-          break;
+          playerHands[h] = hand;
+          playerBets[h] = betForHand;
+          playerSurrendered[h] = surrendered;
         }
 
-        playerHands[h] = hand;
-        playerBets[h] = betForHand;
-        playerSurrendered[h] = surrendered;
+        dealerCards = dealerPlay(dealerCards);
+
+        let roundResult = 0;
+        for (let h = 0; h < playerHands.length; h++) {
+          const res = resolveHand(
+            playerHands[h],
+            dealerCards,
+            playerBets[h],
+            playerSurrendered[h],
+            playerOriginalBJ[h]
+          );
+          roundResult += res;
+        }
+
+        bankroll += roundResult;
+        totalWon += roundResult;
+
+        if (round % 1000 === 0) {
+          const hands = wins + losses + pushes;
+          const evPerHand = hands > 0 ? totalWon / hands : 0;
+          summaryEl.textContent =
+            `Hands: ${hands}, Bankroll: ${bankroll.toFixed(2)}, ` +
+            `EV/hand: ${evPerHand.toFixed(4)}, ` +
+            `Win%: ${(wins / (hands || 1) * 100).toFixed(1)}%`;
+          await new Promise(r => setTimeout(r, 0));
+        }
       }
 
-      dealerCards = dealerPlay(dealerCards);
+      const hands = wins + losses + pushes;
+      const evPerHand = hands > 0 ? totalWon / hands : 0;
+      const roi = totalBet !== 0 ? (totalWon / totalBet) * 100 : 0;
 
-      let roundResult = 0;
-      for (let h = 0; h < playerHands.length; h++) {
-        const res = resolveHand(
-          playerHands[h],
-          dealerCards,
-          playerBets[h],
-          playerSurrendered[h],
-          playerOriginalBJ[h]
-        );
-        roundResult += res;
-      }
+      summaryEl.innerHTML =
+        `<strong>Hands played:</strong> ${hands}<br>` +
+        `<strong>Total bet:</strong> ${totalBet.toFixed(2)}<br>` +
+        `<strong>Profit/Loss:</strong> ${totalWon.toFixed(2)} (final bankroll: ${bankroll.toFixed(2)})<br>` +
+        `<strong>EV per hand:</strong> ${evPerHand.toFixed(4)}<br>` +
+        `<strong>ROI:</strong> ${roi.toFixed(2)}%<br>` +
+        `<strong>Wins / Losses / Pushes:</strong> ${wins} / ${losses} / ${pushes}<br>` +
+        `<strong>Blackjacks:</strong> ${blackjacks}, <strong>Surrenders:</strong> ${surrenders}`;
 
-      bankroll += roundResult;
-      totalWon += roundResult;
+      logEl.textContent += `\nSimulation complete.\n`;
+
+      runBtn.disabled = false;
+      stopBtn.disabled = true;
     }
 
-    const hands = wins + losses + pushes;
-    const evPerHand = hands > 0 ? totalWon / hands : 0;
-    const roi = totalBet !== 0 ? (totalWon / totalBet) * 100 : 0;
+    document.getElementById('runBtn').addEventListener('click', () => {
+      runSimulation();
+    });
 
-    summaryEl.innerHTML =
-      `<strong>Hands played:</strong> ${hands}<br>` +
-      `<strong>Total bet:</strong> ${totalBet.toFixed(2)}<br>` +
-      `<strong>Profit/Loss:</strong> ${totalWon.toFixed(2)} (final bankroll: ${bankroll.toFixed(2)})<br>` +
-      `<strong>EV per hand:</strong> ${evPerHand.toFixed(4)}<br>` +
-      `<strong>ROI:</strong> ${roi.toFixed(2)}%<br>` +
-      `<strong>Wins / Losses / Pushes:</strong> ${wins} / ${losses} / ${pushes}<br>` +
-      `<strong>Blackjacks:</strong> ${blackjacks}, <strong>Surrenders:</strong> ${surrenders}`;
-
-    logEl.textContent += `Simulation complete.\n`;
-
-    runBtn.disabled = false;
-    stopBtn.disabled = true;
-  }
-
-  document.getElementById('runBtn').addEventListener('click', runSimulation);
-  document.getElementById('stopBtn').addEventListener('click', function () {
-    stopRequested = true;
-    this.disabled = true;
-  });
-</script>
+    document.getElementById('stopBtn').addEventListener('click', () => {
+      stopRequested = true;
+      document.getElementById('stopBtn').disabled = true;
+    });
+  </script>
+</body>
+</html>
