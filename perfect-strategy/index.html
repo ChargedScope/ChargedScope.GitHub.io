@@ -624,7 +624,7 @@ const PAIR = {
 // Note: Ds = double if allowed, otherwise stand
 const SOFT = {
   'A9': [['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null]],
-  'A8': [['S',null],['S',3,'+',' Double'],['S',1,'+',' Double'],['S',null],['Ds',0,'-',' Stand (no double)'],['S',null],['S',null],['S',null],['S',null],['S',null]],
+  'A8': [['S',null],['S',null],['S',3,'+',' Double'],['S',1,'+',' Double'],['Ds',0,'-',' Stand (no double)'],['S',null],['S',null],['S',null],['S',null],['S',null]],
   'A7': [['Ds',null],['Ds',null],['Ds',null],['Ds',null],['Ds',null],['S',null],['S',null],['H',null],['H',null],['H',null]],
   'A6': [['H',1,'+',' Double'],['D',null],['D',null],['D',null],['D',null],['H',null],['H',null],['H',null],['H',null],['H',null]],
   'A5': [['H',null],['H',null],['D',null],['D',null],['D',null],['H',null],['H',null],['H',null],['H',null],['H',null]],
@@ -653,12 +653,12 @@ const SOFT = {
 // H=hit, S=stand, D=double/hit
 const HARD = {
   17: [['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null],['S',null]],
-  16: [['S',null],['S',null],['S',null],['S',null],['S',null],['H',null],['H',null],['H',0,'+',' Stand'],['H',0,'+',' Stand'],['H',3,'+',' Stand']],
+  16: [['S',null],['S',null],['S',null],['S',null],['S',null],['H',null],['H',null],['H',5,'+',' Stand'],['H',0,'+',' Stand'],['H',3,'+',' Stand']],
   15: [['S',null],['S',null],['S',null],['S',null],['S',null],['H',null],['H',null],['H',null],['H',4,'+',' Stand'],['H',5,'+',' Surrender']],
   14: [['S',null],['S',null],['S',null],['S',null],['S',null],['H',null],['H',null],['H',null],['H',null],['H',null]],
   13: [['S',-1,'-',' Hit'],['S',null],['S',null],['S',null],['S',null],['H',null],['H',null],['H',null],['H',null],['H',null]],
   12: [['H',3,'+',' Stand'],['H',2,'+',' Stand'],['S',0,'-',' Hit'],['S',null],['S',null],['H',null],['H',null],['H',null],['H',null],['H',null]],
-  11: [['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['H',null]],
+  11: [['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null]],
   10: [['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['D',null],['H',4,'+',' Double'],['H',3,'+',' Double']],
   9:  [['H',1,'+',' Double'],['D',null],['D',null],['D',null],['D',null],['H',null],['H',null],['H',null],['H',null],['H',null]],
   8:  [['H',null],['H',null],['H',null],['H',null],['H',2,'+',' Double'],['H',null],['H',null],['H',null],['H',null],['H',null]],
