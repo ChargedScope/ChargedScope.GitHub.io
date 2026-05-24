@@ -496,11 +496,12 @@
       for (let round = 0; round < rounds; round++) {
         if (stopRequested) break;
 
-        if (shoe.length <= shoeSize - penetrationPoint || handsPlayed >= maxHandsPerShoe) {
-          shoe = buildShoe(decks);
-          runningCount = 0;
-          handsPlayed = 0;
-        }
+if (shoe.length <= (shoeSize * (1 - penetration / 100)) || handsPlayed >= maxHandsPerShoe) {
+  shoe = buildShoe(decks);
+  runningCount = 0;
+  handsPlayed = 0;
+}
+
 
         const trueCount = currentTrueCount();
         const betUnits = getBetUnitsFromSpread(trueCount, spreadInputs);
