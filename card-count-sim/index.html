@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hi-Lo Card Counting Trainer</title>
+<title>Card Counting Simulator</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: system-ui, sans-serif; background: #f5f4f0; display: flex; justify-content: center; padding: 2rem 1rem; min-height: 100vh; }
@@ -29,7 +29,7 @@
   .action-btn.plus { border-color: #1D9E75; color: #1D9E75; }
   .action-btn.zero { border-color: #888; color: #555; }
   .action-btn.minus { border-color: #D85A30; color: #D85A30; }
-  .feedback { text-align: center; min-height: 28px; font-size: 14px; font-weight: 500; margin-bottom: 1rem; }
+  .feedback { text-align: center; min-height: 24px; font-size: 13px; font-weight: 500; margin-bottom: 1rem; }
   .feedback.correct { color: #1D9E75; }
   .feedback.wrong { color: #D85A30; }
   .feedback.reshuffle { color: #185FA5; }
@@ -39,12 +39,11 @@
   .shoe-label { font-size: 12px; color: #999; margin-bottom: 5px; }
   .shoe-bar-bg { background: #ddd; border-radius: 4px; height: 6px; width: 100%; overflow: hidden; }
   .shoe-bar-fill { height: 6px; border-radius: 4px; background: #1D9E75; transition: width 0.3s, background 0.3s; }
-  #balance.negative { color: #D85A30; }
 </style>
 </head>
 <body>
 <div class="game-wrap">
-  <h1>Card Counting Sim</h1></h1>
+  <h1>Hi-Lo Card Counting Trainer</h1>
  
   <div class="stats-row">
     <div class="stat-card">
@@ -78,7 +77,7 @@
   </div>
  
   <div class="shoe-row">
-    <div class="shoe-label" id="shoe-label">Shoe: 0 / 312 cards dealt</div>
+    <div class="shoe-label" id="shoe-label">Shoe: 0 / 312 cards dealt (6 decks)</div>
     <div class="shoe-bar-bg"><div class="shoe-bar-fill" id="shoe-bar" style="width:0%"></div></div>
   </div>
 </div>
@@ -94,7 +93,6 @@
   let shoeSize = 0;
   let balance = 0;
   let currentCard = null;
-  let waiting = false;
  
   function buildShoe() {
     deck = [];
@@ -120,27 +118,19 @@
     bar.style.width = (pct * 100).toFixed(1) + '%';
     bar.style.background = pct >= RESHUFFLE_PCT ? '#D85A30' : pct >= 0.5 ? '#BA7517' : '#1D9E75';
     document.getElementById('shoe-label').textContent =
-      'Shoe: ' + dealt + ' / ' + shoeSize + ' cards dealt (' + NUM_DECKS + ' decks)';
+      'Shoe: ' + dealt + ' / ' + shoeSize + ' cards dealt (6 decks)';
   }
  
   function dealCard() {
     const dealt = shoeSize - deck.length;
     if (dealt / shoeSize >= RESHUFFLE_PCT) {
       buildShoe();
-      const fb = document.getElementById('feedback');
-      fb.textContent = '↺ Shoe reshuffled';
-      fb.className = 'feedback reshuffle';
+      document.getElementById('feedback').textContent = '↺ Shoe reshuffled';
+      document.getElementById('feedback').className = 'feedback reshuffle';
       updateShoeBar();
-      setBtnsEnabled(false);
-      setTimeout(doActualDeal, 1200);
-      return;
     }
-    doActualDeal();
-  }
  
-  function doActualDeal() {
     currentCard = deck.pop();
-    waiting = false;
  
     const isRed = redSuits.has(currentCard.suit);
     document.getElementById('card').className = 'playing-card ' + (isRed ? 'red-card' : 'black-card');
@@ -148,12 +138,6 @@
     document.getElementById('card-suit').textContent = currentCard.suit;
     document.getElementById('corner-tl').textContent = currentCard.rank + '\n' + currentCard.suit;
     document.getElementById('corner-br').textContent = currentCard.rank + '\n' + currentCard.suit;
- 
-    const fb = document.getElementById('feedback');
-    if (fb.className !== 'feedback reshuffle') {
-      fb.textContent = '';
-      fb.className = 'feedback';
-    }
  
     updateShoeBar();
     setBtnsEnabled(true);
@@ -166,14 +150,11 @@
   }
  
   function updateBalance() {
-    const balEl = document.getElementById('balance');
-    balEl.textContent = (balance >= 0 ? '$' : '-$') + Math.abs(balance).toFixed(2);
-    balEl.className = 'stat-value' + (balance < 0 ? ' negative' : '');
+    document.getElementById('balance').textContent = '$' + balance.toFixed(2);
   }
  
   function answer(choice) {
-    if (!currentCard || waiting) return;
-    waiting = true;
+    if (!currentCard) return;
     setBtnsEnabled(false);
  
     const correct = hiloValue(currentCard.rank);
@@ -181,23 +162,26 @@
  
     if (choice === correct) {
       balance += 0.01;
+      balance = Math.round(balance * 100) / 100;
       fb.textContent = '✓ Correct!';
       fb.className = 'feedback correct';
     } else {
-      balance -= 0.01;
+      if (balance > 0) {
+        balance -= 0.01;
+        balance = Math.round(balance * 100) / 100;
+      }
       const expected = correct === 1 ? '+1 (low card)' : correct === -1 ? '−1 (high card)' : '0 (neutral)';
       fb.textContent = '✗ Wrong — should be ' + expected;
       fb.className = 'feedback wrong';
     }
  
     updateBalance();
-    setTimeout(dealCard, 1100);
+    currentCard = null;
+    dealCard();
   }
  
   buildShoe();
-  doActualDeal();
+  dealCard();
 </script>
 </body>
 </html>
- 
-
