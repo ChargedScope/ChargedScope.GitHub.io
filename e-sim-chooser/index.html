@@ -4707,13 +4707,6 @@ var solver = (function () {
 <script>
 // ── Backend plan database (not user-editable) ────────────────────────────────
 const PLANS = [
-  { name: 'no plan 1d',   gb: 0,  days: 1,  price: 0 },
-  { name: 'no plan 2d',   gb: 0,  days: 1,  price: 0 },
-  { name: 'no plan 3d',   gb: 0,  days: 1,  price: 0 },
-  { name: 'no plan 4d',   gb: 0,  days: 1,  price: 0 },
-  { name: 'no plan 5d',   gb: 0,  days: 1,  price: 0 },
-  { name: 'no plan 6d',   gb: 0,  days: 1,  price: 0 },
-  { name: 'no plan 7d',   gb: 0,  days: 1,  price: 0 },
   { name: 'AbesteSIM Unlimited 1d',   gb: 1000,  days: 1,  price: 2.10 },
   { name: 'Roamify Unlimited 2d',     gb: 2000,  days: 2,  price: 4.82 },
   { name: 'Roamify Unlimited 3d',     gb: 3000,  days: 3,  price: 4.82 },
@@ -4811,45 +4804,50 @@ function solve() {
 function runSolver(usage, numDays, planList) {
   const MAX_BUY = 10;
   const variables = {};
+  const constraints = {};
+  const ints = {};
   const varList = [];
 
+  // 1. Demand constraints: Each day's data usage must be met
+  for (let d = 0; d < numDays; d++) {
+    if (usage[d] > 0) {
+      constraints[`demand_${d}`] = { min: usage[d] };
+    }
+  }
+
+  // 2. Define plans and link capacities to daily consumption
   planList.forEach((plan, p) => {
     for (let start = 0; start < numDays; start++) {
       const end = Math.min(start + plan.days, numDays);
       const key = `x_${p}_${start}`;
+
       varList.push({ key, p, start, end, gb: plan.gb, price: plan.price });
+
+      // The plan purchase variable
       variables[key] = { cost: plan.price };
+      ints[key] = 1; // Must buy integer amounts of plans
+
+      // Max buy limit per plan (using proper jsLPSolver constraint format)
+      constraints[`max_buy_${key}`] = { max: MAX_BUY };
+      variables[key][`max_buy_${key}`] = 1;
+
+      // Capacity constraint: Total data consumed <= Data bought
+      // Mathematically: sum(used_data) - plan.gb * x <= 0
+      constraints[`cap_${key}`] = { max: 0 };
+      variables[key][`cap_${key}`] = -plan.gb;
+
+      // 3. Create a continuous consumption variable for each active day
+      for (let d = start; d < end; d++) {
+        // We only care about days that actually have demand
+        if (usage[d] > 0) {
+          const useKey = `use_${key}_${d}`;
+          variables[useKey] = {
+            [`demand_${d}`]: 1, // Fulfills 1 GB of that day's demand
+            [`cap_${key}`]: 1   // Drains 1 GB of this plan's capacity
+          };
+        }
+      }
     }
-  });
-
-  const constraints = {};
-
-  // Per-day: active plan capacity >= that day's usage
-  for (let d = 0; d < numDays; d++) {
-    if (usage[d] === 0) continue;
-    const cname = `day_${d}`;
-    constraints[cname] = { min: usage[d] };
-    varList.forEach(v => {
-      if (v.start <= d && d < v.end) variables[v.key][cname] = v.gb;
-    });
-  }
-
-  // Window: for every sub-window [s,e], plans fully covering it must supply enough data
-  for (let s = 0; s < numDays; s++) {
-    for (let e = s + 1; e <= numDays; e++) {
-      const wu = usage.slice(s, e).reduce((a,b)=>a+b, 0);
-      if (wu === 0) continue;
-      const cname = `win_${s}_${e}`;
-      constraints[cname] = { min: wu };
-      varList.forEach(v => {
-        if (v.start <= s && e <= v.end) variables[v.key][cname] = v.gb;
-      });
-    }
-  }
-
-  varList.forEach(v => {
-    variables[v.key].type = 'integer';
-    variables[v.key].max = MAX_BUY;
   });
 
   const model = {
@@ -4857,11 +4855,14 @@ function runSolver(usage, numDays, planList) {
     opType: 'min',
     constraints,
     variables,
-    ints: Object.fromEntries(varList.map(v => [v.key, 1])),
+    ints
   };
 
   const sol = solver.Solve(model);
-  if (!sol.feasible) throw new Error('No solution found — the available plans may not have enough capacity or validity to cover your usage. Contact support.');
+  
+  if (!sol.feasible) {
+    throw new Error('No solution found — the available plans may not have enough capacity or validity to cover your usage. Contact support.');
+  }
 
   const purchases = [];
   varList.forEach(v => {
@@ -4882,6 +4883,7 @@ function runSolver(usage, numDays, planList) {
   });
 
   purchases.sort((a,b) => a.startDay - b.startDay);
+  
   return {
     purchases,
     totalCost: sol.result,
