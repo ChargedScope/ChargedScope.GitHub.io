@@ -4802,60 +4802,91 @@ function solve() {
 }
 
 function runSolver(usage, numDays, planList) {
-  const MAX_BUY = 10;
+  const totalUsage = usage.reduce((a, b) => a + b, 0);
+  const activeDays = usage.filter(u => u > 0).length;
+
+  // --- 1. HEURISTIC PRUNING ---
+  // Find the maximum plausible cost: buying the cheapest 1-day unlimited plan for every active day.
+  // We assume any plan >= 100GB is "unlimited".
+  const oneDayPlans = planList.filter(p => p.gb >= 100 && p.days === 1);
+  let maxPlausibleCost = Infinity;
+  if (oneDayPlans.length > 0) {
+    const cheapest1d = Math.min(...oneDayPlans.map(p => p.price));
+    maxPlausibleCost = activeDays * cheapest1d;
+  }
+
   const variables = {};
   const constraints = {};
   const ints = {};
   const varList = [];
 
-  // 1. Demand constraints: Each day's data usage must be met
+  // Demand constraints: Each day's data usage must be met
   for (let d = 0; d < numDays; d++) {
     if (usage[d] > 0) {
       constraints[`demand_${d}`] = { min: usage[d] };
     }
   }
 
-  // 2. Define plans and link capacities to daily consumption
+  // Define plans and link capacities to daily consumption
   planList.forEach((plan, p) => {
-    for (let start = 0; start < numDays; start++) {
-      const end = Math.min(start + plan.days, numDays);
-      const key = `x_${p}_${start}`;
+    // Optimization: Skip plans that are ridiculously expensive compared to daily unlimited purchases
+    if (plan.price > maxPlausibleCost + 0.05) return;
 
+    for (let start = 0; start < numDays; start++) {
+      
+      // --- 2. SYMMETRY REDUCTION ---
+      // If a plan's duration is long enough to cover the rest of the trip 
+      // from an earlier start day, we don't need to consider starting it today.
+      if (start > 0 && start + plan.days > numDays) {
+        continue; 
+      }
+
+      const end = Math.min(start + plan.days, numDays);
+      
+      // If this specific date window has ZERO usage, don't create a variable for it
+      let windowUsage = 0;
+      for (let d = start; d < end; d++) windowUsage += usage[d];
+      if (windowUsage === 0) continue;
+
+      const key = `x_${p}_${start}`;
       varList.push({ key, p, start, end, gb: plan.gb, price: plan.price });
 
-      // The plan purchase variable
       variables[key] = { cost: plan.price };
-      ints[key] = 1; // Must buy integer amounts of plans
+      ints[key] = 1;
 
-      // Max buy limit per plan (using proper jsLPSolver constraint format)
-      constraints[`max_buy_${key}`] = { max: MAX_BUY };
+      // --- 3. DYNAMIC BOUNDS ---
+      // Shrink the maximum integer bound based on total trip usage to cut down the math tree
+      const maxBuyNeeded = Math.max(1, Math.ceil(totalUsage / plan.gb));
+      const maxBuy = Math.min(10, maxBuyNeeded); // Never buy more than 10 of identical plans
+      
+      constraints[`max_buy_${key}`] = { max: maxBuy };
       variables[key][`max_buy_${key}`] = 1;
 
-      // Capacity constraint: Total data consumed <= Data bought
-      // Mathematically: sum(used_data) - plan.gb * x <= 0
+      // Capacity constraint: sum(used_data) - plan.gb * x <= 0
       constraints[`cap_${key}`] = { max: 0 };
       variables[key][`cap_${key}`] = -plan.gb;
 
-      // 3. Create a continuous consumption variable for each active day
+      // Create a continuous consumption variable for each active day in the plan's window
       for (let d = start; d < end; d++) {
-        // We only care about days that actually have demand
         if (usage[d] > 0) {
           const useKey = `use_${key}_${d}`;
           variables[useKey] = {
-            [`demand_${d}`]: 1, // Fulfills 1 GB of that day's demand
-            [`cap_${key}`]: 1   // Drains 1 GB of this plan's capacity
+            [`demand_${d}`]: 1, 
+            [`cap_${key}`]: 1   
           };
         }
       }
     }
   });
 
+  // --- 4. SAFETY TIMEOUT ---
   const model = {
     optimize: 'cost',
     opType: 'min',
     constraints,
     variables,
-    ints
+    ints,
+    timeout: 3500 // Force solver to terminate after 3.5 seconds and return best found
   };
 
   const sol = solver.Solve(model);
