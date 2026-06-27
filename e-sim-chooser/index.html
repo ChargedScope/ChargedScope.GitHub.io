@@ -4423,7 +4423,7 @@ var solver = (function () {
   }
 
   main {
-    max-width: 700px;
+    max-width: 780px;
     margin: 0 auto;
     padding: 2rem 1.5rem 4rem;
     display: flex;
@@ -4454,11 +4454,11 @@ var solver = (function () {
   }
   .card-body { padding: 1.5rem; }
 
-  /* ── 7-day grid ── */
+  /* ── monthly grid (31 days) ── */
   .days-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+    gap: 8px;
   }
 
   .day-col {
@@ -4657,8 +4657,9 @@ var solver = (function () {
   }
 
   @media (max-width: 500px) {
-    .days-grid { gap: 6px; }
-    .day-input { font-size: 0.8rem; padding: 0.5rem 0.1rem 0.3rem; }
+    .days-grid { gap: 5px; grid-template-columns: repeat(7, 1fr); }
+    .day-input { font-size: 0.75rem; padding: 0.45rem 0.05rem 0.25rem; }
+    .day-name { font-size: 0.58rem; }
     .result-stats { grid-template-columns: 1fr 1fr; }
   }
 </style>
@@ -4686,7 +4687,7 @@ var solver = (function () {
       <div class="days-grid" id="days-grid"></div>
     </div>
     <div class="total-bar">
-      <span class="total-label">Total data needed this week</span>
+      <span class="total-label">Total data needed this month</span>
       <span class="total-val" id="total-val">0.0 GB</span>
     </div>
   </div>
@@ -4751,8 +4752,8 @@ const PLANS = [
 { name: 'ESIM.DOG 30GB 7d', gb: 30, days: 7, price: 10.51 },
 ];
 
-const DAY_NAMES = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-const NUM_DAYS = 7;
+const DAY_NAMES = Array.from({length: 31}, (_, i) => i + 1);
+const NUM_DAYS = 31;
 let dailyUsage = Array(NUM_DAYS).fill(0);
 
 // ── Render day inputs ────────────────────────────────────────────────────────
