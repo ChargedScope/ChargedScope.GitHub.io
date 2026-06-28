@@ -4758,7 +4758,7 @@ const PLANS = [
 { name: 'ESIM.DOG 20GB 30d', gb: 20, days: 30, price: 7.00 },
 { name: 'ESIM.DOG 30GB 7d', gb: 30, days: 7, price: 10.51 },
 { name: 'ESIM.DOG 3GB 30d', gb: 3, days: 30, price: 1.65 },
-{ name: 'Strong eSIM 1GB 30d', gb: 1, days: 30, price: 0.89 },
+{ name: 'ESIM.DOG 1GB 30d', gb: 1, days: 30, price: 0.93 },
 { name: 'ESIM.DOG 5GB 30d', gb: 5, days: 30, price: 2.69 },
 { name: 'ESIM.DOG 10GB 30d', gb: 10, days: 30, price: 4.37 },
 ];
@@ -4808,121 +4808,106 @@ function updateTotal() {
 }
 
 // ── Greedy fallback solver ────────────────────────────────────────────────────
+// Mental model: a plan bought on day S covers days S..S+duration-1 and has
+// a total GB pool. Each day's usage must be satisfied by the pool of some
+// active plan. We find the cheapest non-overlapping sequence of plans using DP.
 function runGreedy(usage, numDays, planList) {
+  // Step 1: handle spike days (> 10GB) first with cheapest single plan
   const remaining = usage.slice();
   const purchases = [];
 
-  const sortedPlans = [...planList].sort((a, b) => a.price - b.price);
+  const byPrice = [...planList].sort((a, b) => a.price - b.price);
 
-  function addPurchase(plan, startDay, endDay) {
-    const existing = purchases.find(x => x.name === plan.name && x.startDay === startDay + 1);
-    if (existing) {
-      existing.count++;
-      existing.subtotal += plan.price;
-    } else {
-      purchases.push({
-        name: plan.name, gb: plan.gb, days: plan.days, price: plan.price,
-        startDay: startDay + 1, endDay,
-        count: 1, subtotal: plan.price,
-      });
-    }
-    // Deduct capacity across the window
+  function deduct(plan, startDay) {
+    const endDay = Math.min(startDay + plan.days, numDays);
     let cap = plan.gb;
     for (let d = startDay; d < endDay && cap > 0; d++) {
       const take = Math.min(remaining[d], cap);
       remaining[d] -= take;
       cap -= take;
     }
+    const existing = purchases.find(x => x.name === plan.name && x.startDay === startDay + 1);
+    if (existing) { existing.count++; existing.subtotal += plan.price; }
+    else purchases.push({ name: plan.name, gb: plan.gb, days: plan.days, price: plan.price,
+      startDay: startDay + 1, endDay, count: 1, subtotal: plan.price });
   }
 
-  // Phase 1: identify spike days (days where need > max non-unlimited plan GB)
-  // and cover them with the cheapest plan that fits, starting on that day
-  const MAX_ITERS = 500;
-  let iters = 0;
+  // Handle spikes first
+  for (let d = 0; d < numDays; d++) {
+    if (remaining[d] <= 10) continue;
+    const plan = byPrice.find(p => p.gb >= remaining[d]);
+    if (plan) deduct(plan, d);
+  }
 
-  // Find the cheapest plan that can cover a given GB need on a single day
-  function cheapestPlanForDay(d) {
-    // Try plans starting on day d, prefer shortest duration that covers the need
-    let best = null, bestScore = -Infinity;
-    for (const p of sortedPlans) {
-      if (p.gb < remaining[d]) continue;
+  // Step 2: DP over the remaining[] array.
+  // dp[d] = minimum cost to cover all remaining need from day d to numDays-1
+  // dp[numDays] = 0
+  // For each day d, try every plan starting on d; a plan is valid if its GB pool
+  // >= sum of remaining[d..d+duration-1] (i.e. it alone covers the window).
+  // If no single plan covers the window, we allow partial cover and recurse
+  // but that gets complex — instead we do a simpler valid check:
+  // a plan is usable if remaining[d] <= plan.gb (covers the first day at minimum)
+  // and we carry forward any uncovered days to dp[d+plan.days].
+  // This works because we process left-to-right and remaining[] has no gaps
+  // after spike removal.
+
+  const dp = new Float64Array(numDays + 1).fill(Infinity);
+  const choice = new Array(numDays + 1).fill(null); // which plan to pick at day d
+  dp[numDays] = 0;
+
+  for (let d = numDays - 1; d >= 0; d--) {
+    // If no need on this day, skip forward
+    if (remaining[d] <= 0) {
+      dp[d] = dp[d + 1];
+      choice[d] = null; // skip
+      continue;
+    }
+
+    // Try every plan starting on day d
+    for (const p of byPrice) {
       const end = Math.min(d + p.days, numDays);
-      // Score: prefer low price, then short duration (don't waste multi-day plans on spikes)
-      const score = -(p.price) - (p.days * 0.001);
-      if (score > bestScore) { bestScore = score; best = p; }
-    }
-    return best;
-  }
 
-  // Phase 1: cover spike days (days with need > 10GB) individually first
-  for (let d = 0; d < numDays && iters++ < MAX_ITERS; d++) {
-    if (remaining[d] <= 0) continue;
-    // Check if this day's need is a spike — no affordable multi-day plan can cover it
-    // alongside the rest of the month better than a dedicated plan
-    const isSpike = remaining[d] > 10;
-    if (!isSpike) continue;
-
-    const plan = cheapestPlanForDay(d);
-    if (!plan) continue;
-    const end = Math.min(d + plan.days, numDays);
-    addPurchase(plan, d, end);
-  }
-
-  // Phase 2: cover remaining need greedily, now that spikes are handled
-  let day = 0;
-  while (day < numDays && iters++ < MAX_ITERS) {
-    while (day < numDays && remaining[day] <= 0) day++;
-    if (day >= numDays) break;
-
-    // Count active days remaining from here
-    let activeDaysAhead = 0;
-    for (let d = day; d < numDays; d++) if (remaining[d] > 0) activeDaysAhead++;
-
-    let bestPlan = null, bestScore = -Infinity;
-    for (const p of sortedPlans) {
-      const end = Math.min(day + p.days, numDays);
-      let windowNeed = 0, maxDay = 0;
-      for (let d = day; d < end; d++) {
-        windowNeed += remaining[d];
-        if (remaining[d] > maxDay) maxDay = remaining[d];
+      // Simulate: how much of remaining[d..end-1] does this plan cover?
+      let cap = p.gb;
+      let uncovered = 0;
+      for (let dd = d; dd < end; dd++) {
+        const take = Math.min(remaining[dd], cap);
+        cap -= take;
+        uncovered += remaining[dd] - take;
       }
-      if (windowNeed <= 0) continue;
-      if (p.gb < maxDay) continue; // must cover the peak day in window
 
-      // Simulate: if we pick this plan, how much does it cost to cover
-      // ALL remaining need from `day` onwards?
-      // We estimate by: cost of this plan + projected cost of remaining need after this window
-      // using cheapest GB/€ plan as a proxy for remaining cost.
-      const gbUsed = Math.min(p.gb, windowNeed);
-      
-      // Remaining need after this plan's window
-      let remainingAfter = 0;
-      for (let d = end; d < numDays; d++) remainingAfter += remaining[d];
-      // Also any need in window not covered by this plan
-      const uncoveredInWindow = Math.max(0, windowNeed - p.gb);
-      remainingAfter += uncoveredInWindow;
+      // Only accept plans that fully cover their window
+      if (uncovered > 0.001) continue;
 
-      // Cheapest GB/€ ratio among all plans (as proxy for future cost)
-      let bestGbPerEuro = 0;
-      for (const q of sortedPlans) bestGbPerEuro = Math.max(bestGbPerEuro, q.gb / q.price);
-      const projectedFutureCost = remainingAfter / bestGbPerEuro;
-
-      const totalProjectedCost = p.price + projectedFutureCost;
-      // Score: higher is better — negate total cost
-      const score = -totalProjectedCost;
-      if (score > bestScore) { bestScore = score; bestPlan = p; }
-    }
-
-    if (!bestPlan) {
-      // Last resort: cheapest plan that covers this day
-      for (const p of sortedPlans) {
-        if (p.gb >= remaining[day]) { bestPlan = p; break; }
+      const total = p.price + dp[end];
+      if (total < dp[d]) {
+        dp[d] = total;
+        choice[d] = { plan: p, end };
       }
     }
-    if (!bestPlan) { day++; continue; }
 
-    const end = Math.min(day + bestPlan.days, numDays);
-    addPurchase(bestPlan, day, end);
+    // If nothing fully covers from d, take cheapest partial and continue
+    // (handles edge cases like leftover fractions)
+    if (dp[d] === Infinity) {
+      const p = byPrice.find(q => q.gb >= remaining[d]);
+      if (p) {
+        const end = Math.min(d + p.days, numDays);
+        dp[d] = p.price + dp[end];
+        choice[d] = { plan: p, end };
+      } else {
+        dp[d] = dp[d + 1];
+        choice[d] = null;
+      }
+    }
+  }
+
+  // Step 3: walk the choice array to build purchases
+  let d = 0;
+  while (d < numDays) {
+    if (remaining[d] <= 0 || !choice[d]) { d++; continue; }
+    const { plan, end } = choice[d];
+    deduct(plan, d);
+    d = end;
   }
 
   purchases.sort((a, b) => a.startDay - b.startDay);
