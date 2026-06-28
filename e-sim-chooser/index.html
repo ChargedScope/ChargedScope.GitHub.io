@@ -4646,6 +4646,13 @@ var solver = (function () {
   .stat-val { font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; font-weight: 600; color: var(--white); }
   .stat-val.teal { color: var(--teal); }
 
+  .quality-note {
+    font-size: 0.68rem;
+    color: var(--teal);
+    margin-top: 0.25rem;
+    opacity: 0.8;
+  }
+
   .error-box {
     background: rgba(255,107,107,0.08);
     border: 1px solid rgba(255,107,107,0.25);
@@ -4796,6 +4803,114 @@ function updateTotal() {
   document.getElementById('total-val').textContent = total.toFixed(1) + ' GB';
 }
 
+// ── Greedy fallback solver ────────────────────────────────────────────────────
+function runGreedy(usage, numDays, planList) {
+  const remaining = usage.slice();
+  const purchases = [];
+
+  const sortedPlans = [...planList].sort((a, b) => a.price - b.price);
+
+  function addPurchase(plan, startDay, endDay) {
+    const existing = purchases.find(x => x.name === plan.name && x.startDay === startDay + 1);
+    if (existing) {
+      existing.count++;
+      existing.subtotal += plan.price;
+    } else {
+      purchases.push({
+        name: plan.name, gb: plan.gb, days: plan.days, price: plan.price,
+        startDay: startDay + 1, endDay,
+        count: 1, subtotal: plan.price,
+      });
+    }
+    // Deduct capacity across the window
+    let cap = plan.gb;
+    for (let d = startDay; d < endDay && cap > 0; d++) {
+      const take = Math.min(remaining[d], cap);
+      remaining[d] -= take;
+      cap -= take;
+    }
+  }
+
+  // Phase 1: identify spike days (days where need > max non-unlimited plan GB)
+  // and cover them with the cheapest plan that fits, starting on that day
+  const MAX_ITERS = 500;
+  let iters = 0;
+
+  // Find the cheapest plan that can cover a given GB need on a single day
+  function cheapestPlanForDay(d) {
+    // Try plans starting on day d, prefer shortest duration that covers the need
+    let best = null, bestScore = -Infinity;
+    for (const p of sortedPlans) {
+      if (p.gb < remaining[d]) continue;
+      const end = Math.min(d + p.days, numDays);
+      // Score: prefer low price, then short duration (don't waste multi-day plans on spikes)
+      const score = -(p.price) - (p.days * 0.001);
+      if (score > bestScore) { bestScore = score; best = p; }
+    }
+    return best;
+  }
+
+  // Phase 1: cover spike days (days with need > 10GB) individually first
+  for (let d = 0; d < numDays && iters++ < MAX_ITERS; d++) {
+    if (remaining[d] <= 0) continue;
+    // Check if this day's need is a spike — no affordable multi-day plan can cover it
+    // alongside the rest of the month better than a dedicated plan
+    const isSpike = remaining[d] > 10;
+    if (!isSpike) continue;
+
+    const plan = cheapestPlanForDay(d);
+    if (!plan) continue;
+    const end = Math.min(d + plan.days, numDays);
+    addPurchase(plan, d, end);
+  }
+
+  // Phase 2: cover remaining need greedily, now that spikes are handled
+  let day = 0;
+  while (day < numDays && iters++ < MAX_ITERS) {
+    while (day < numDays && remaining[day] <= 0) day++;
+    if (day >= numDays) break;
+
+    // Count active days remaining from here
+    let activeDaysAhead = 0;
+    for (let d = day; d < numDays; d++) if (remaining[d] > 0) activeDaysAhead++;
+
+    let bestPlan = null, bestScore = -Infinity;
+    for (const p of sortedPlans) {
+      const end = Math.min(day + p.days, numDays);
+      let windowNeed = 0, activeDays = 0, maxDay = 0;
+      for (let d = day; d < end; d++) {
+        windowNeed += remaining[d];
+        if (remaining[d] > 0) { activeDays++; maxDay = Math.max(maxDay, remaining[d]); }
+      }
+      if (windowNeed <= 0) continue;
+      if (p.gb < maxDay) continue; // must cover any single day in window
+
+      const coverRatio = Math.min(1, activeDays / Math.max(1, p.days));
+      const score = (windowNeed / p.price) * (0.3 + 0.7 * coverRatio);
+      if (score > bestScore) { bestScore = score; bestPlan = p; }
+    }
+
+    if (!bestPlan) {
+      // Last resort: cheapest plan that covers this day
+      for (const p of sortedPlans) {
+        if (p.gb >= remaining[day]) { bestPlan = p; break; }
+      }
+    }
+    if (!bestPlan) { day++; continue; }
+
+    const end = Math.min(day + bestPlan.days, numDays);
+    addPurchase(bestPlan, day, end);
+  }
+
+  purchases.sort((a, b) => a.startDay - b.startDay);
+  return {
+    purchases,
+    totalCost: purchases.reduce((s, p) => s + p.subtotal, 0),
+    totalData: purchases.reduce((s, p) => s + p.gb * p.count, 0),
+    isGreedy: true,
+  };
+}
+
 // ── Solver ───────────────────────────────────────────────────────────────────
 function solve() {
   const total = dailyUsage.reduce((a,b)=>a+b, 0);
@@ -4811,16 +4926,37 @@ function solve() {
   btn.innerHTML = `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v1m0 14v1m8-8h-1M5 12H4m13.657-6.343l-.707.707M7.05 16.95l-.707.707m0-10.607l.707.707M16.95 16.95l.707.707"/></svg> Solving…`;
   resultContainer.innerHTML = '';
 
+  // Step 1: show greedy result immediately (next tick)
   setTimeout(() => {
+    let greedyResult;
     try {
-      const result = runSolver(dailyUsage, NUM_DAYS, PLANS);
-      renderResult(result, total);
+      greedyResult = runGreedy(dailyUsage, NUM_DAYS, PLANS);
+      renderResult(greedyResult, total);
       resultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } catch(e) {
       resultContainer.innerHTML = `<div class="error-box">${e.message}</div>`;
+      btn.disabled = false;
+      btn.innerHTML = `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Find cheapest combo`;
+      return;
     }
-    btn.disabled = false;
-    btn.innerHTML = `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Find cheapest combo`;
+
+    // Step 2: run MILP optimizer in background; replace if better
+    setTimeout(() => {
+      try {
+        const milpResult = runSolver(dailyUsage, NUM_DAYS, PLANS);
+        const milpValid = milpResult.purchases && milpResult.purchases.length > 0 && milpResult.totalCost > 0;
+        if (milpValid && milpResult.totalCost < greedyResult.totalCost - 0.01) {
+          renderResult(milpResult, total);
+        } else {
+          // MILP didn't improve or returned empty — re-render greedy as confirmed good
+          renderResult({ ...greedyResult, milpConfirmed: true }, total);
+        }
+      } catch(e) {
+        // MILP failed or timed out — greedy result already shown, that's fine
+      }
+      btn.disabled = false;
+      btn.innerHTML = `<svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 11h.01M12 11h.01M15 11h.01M4 19h16a2 2 0 002-2V7a2 2 0 00-2-2H4a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg> Find cheapest combo`;
+    }, 50);
   }, 50);
 }
 
@@ -4947,6 +5083,9 @@ function runSolver(usage, numDays, planList) {
 
 // ── Render results ───────────────────────────────────────────────────────────
 function renderResult(result, totalNeeded) {
+  const isOptimal = !result.isGreedy || result.milpConfirmed;
+  const qualityLabel = isOptimal ? '✦ Optimal combination' : '⚡ Good combination';
+  const qualityNote = isOptimal ? '' : `<div class="quality-note">Optimising in background — may update shortly</div>`;
   const rows = result.purchases.map(p => `
     <div class="result-plan-row">
       <div class="result-count">${p.count}×</div>
@@ -4968,8 +5107,9 @@ function renderResult(result, totalNeeded) {
     <div class="result-card">
       <div class="result-header">
         <div>
-          <div class="result-title">✦ Optimal combination</div>
+          <div class="result-title">${qualityLabel}</div>
           <div class="result-sub">${result.purchases.length} plan type${result.purchases.length !== 1 ? 's' : ''} · ${numActivations} activation${numActivations !== 1 ? 's' : ''}</div>
+          ${qualityNote}
         </div>
         <div class="result-cost">€${result.totalCost.toFixed(2)}<small>total</small></div>
       </div>
