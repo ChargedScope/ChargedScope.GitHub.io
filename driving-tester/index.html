@@ -1,4 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Road Sign Quiz</title>
+</head>
+<body>
+
+<h1>Road Sign Quiz</h1>
+
+<div id="quizContainer">Loading photos...</div>
+
+<button type="button" id="submitBtn" style="display:none;" onclick="gradeQuiz()">Submit</button>
+
+<h2 id="result"></h2>
+
 <script>
+// ---------------------------------------------------------------
+// 1. Answers, in order (index 0 = sign #1, etc.)
+// ---------------------------------------------------------------
 const roadSignAnswers = [
   "No Entry",
   "Maximum Axle Weight 4T",
@@ -142,5 +161,148 @@ const roadSignAnswers = [
   "Tram Lane On Left",
 ];
 
-module.exports = roadSignAnswers;
+const IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp"];
+
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function buildChoices(correctAnswer) {
+  const wrongPool = roadSignAnswers.filter((a) => a !== correctAnswer);
+  const wrongChoices = shuffle(wrongPool).slice(0, 3);
+  return shuffle([correctAnswer, ...wrongChoices]);
+}
+
+// Fetches the "photos" directory listing (works when this page is served
+// by a static server with directory listing enabled, e.g. `python3 -m
+// http.server`) and pulls out the image filenames from the generated
+// HTML index page.
+async function loadPhotoList() {
+  const res = await fetch("photos/");
+  const html = await res.text();
+
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  const links = Array.from(doc.querySelectorAll("a"));
+
+  const filenames = links
+    .map((a) => decodeURIComponent(a.getAttribute("href")))
+    .filter((href) => {
+      const ext = "." + href.split(".").pop().toLowerCase();
+      return IMAGE_EXTENSIONS.includes(ext);
+    })
+    // strip any leading path, keep just the filename
+    .map((href) => href.split("/").filter(Boolean).pop());
+
+  // Sort by filename. "Screenshot 2026-07-17 214609.png" sorts correctly
+  // as plain text since the date/time is year-month-day hour-min-sec.
+  filenames.sort((a, b) => a.localeCompare(b));
+
+  return filenames;
+}
+
+async function init() {
+  const container = document.getElementById("quizContainer");
+
+  let filenames;
+  try {
+    filenames = await loadPhotoList();
+  } catch (err) {
+    container.textContent =
+      "Could not load photos/ — make sure this page is served by a local " +
+      "web server (not opened as a file://) and that a photos folder " +
+      "sits next to it.";
+    return;
+  }
+
+  if (filenames.length === 0) {
+    container.textContent = "No screenshots found in photos/.";
+    return;
+  }
+
+  if (filenames.length > roadSignAnswers.length) {
+    console.warn(
+      "Found " + filenames.length + " photos but only " + roadSignAnswers.length +
+      " answers. Extra photos beyond #" + roadSignAnswers.length + " will be ignored."
+    );
+  }
+
+  const questions = filenames.slice(0, roadSignAnswers.length).map((name, i) => ({
+    url: "photos/" + name,
+    answer: roadSignAnswers[i],
+    choices: buildChoices(roadSignAnswers[i]),
+  }));
+
+  renderQuiz(questions);
+}
+
+init();
+
+function renderQuiz(questions) {
+  const container = document.getElementById("quizContainer");
+  container.innerHTML = "";
+
+  questions.forEach((q, i) => {
+    const div = document.createElement("div");
+    div.className = "question";
+    div.setAttribute("data-answer", q.answer);
+
+    const heading = document.createElement("h3");
+    heading.textContent = "Question " + (i + 1);
+    div.appendChild(heading);
+
+    const img = document.createElement("img");
+    img.src = q.url;
+    img.width = 300;
+    div.appendChild(img);
+    div.appendChild(document.createElement("br"));
+
+    q.choices.forEach((choice) => {
+      const id = "q" + i + "_" + choice.replace(/\W+/g, "_");
+
+      const input = document.createElement("input");
+      input.type = "radio";
+      input.name = "q" + i;
+      input.value = choice;
+      input.id = id;
+
+      const label = document.createElement("label");
+      label.setAttribute("for", id);
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(" " + choice));
+
+      div.appendChild(label);
+      div.appendChild(document.createElement("br"));
+    });
+
+    container.appendChild(div);
+    container.appendChild(document.createElement("hr"));
+  });
+
+  document.getElementById("submitBtn").style.display = "inline";
+  document.getElementById("result").textContent = "";
+}
+
+function gradeQuiz() {
+  const questions = document.querySelectorAll(".question");
+  let correct = 0;
+
+  questions.forEach((q, i) => {
+    const answer = q.getAttribute("data-answer");
+    const selected = document.querySelector('input[name="q' + i + '"]:checked');
+    if (selected && selected.value === answer) {
+      correct++;
+    }
+  });
+
+  document.getElementById("result").textContent =
+    "You got " + correct + " out of " + questions.length + " correct.";
+}
 </script>
+
+</body>
+</html>
