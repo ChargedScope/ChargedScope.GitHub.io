@@ -178,29 +178,66 @@ function buildChoices(correctAnswer) {
   return shuffle([correctAnswer, ...wrongChoices]);
 }
 
-// Fetches the "photos" directory listing (works when this page is served
-// by a static server with directory listing enabled, e.g. `python3 -m
-// http.server`) and pulls out the image filenames from the generated
-// HTML index page.
+// ---------------------------------------------------------------
+// 2. Photos are named "Screenshot YYYY-MM-DD HHMMSS.png" and taken in a
+//    known time window. Since we can't list the folder (no directory
+//    listing on this host), generate every possible timestamp in the
+//    window, one per second, and check which files actually exist.
+// ---------------------------------------------------------------
+const SCREENSHOT_DATE = "2026-07-17";      // YYYY-MM-DD
+const RANGE_START = "21:46:09";            // HH:MM:SS, first known screenshot
+const RANGE_END = "22:11:50";              // HH:MM:SS, last known screenshot
+const CONCURRENCY = 20;                    // parallel existence checks at a time
+
+function pad2(n) {
+  return n.toString().padStart(2, "0");
+}
+
+function buildCandidateFilenames() {
+  const start = new Date(SCREENSHOT_DATE + "T" + RANGE_START);
+  const end = new Date(SCREENSHOT_DATE + "T" + RANGE_END);
+
+  const filenames = [];
+  for (let t = new Date(start); t <= end; t.setSeconds(t.getSeconds() + 1)) {
+    const hhmmss = pad2(t.getHours()) + pad2(t.getMinutes()) + pad2(t.getSeconds());
+    filenames.push("Screenshot " + SCREENSHOT_DATE + " " + hhmmss + ".png");
+  }
+  return filenames;
+}
+
+async function fileExists(url) {
+  try {
+    const res = await fetch(url, { method: "HEAD" });
+    return res.ok;
+  } catch (err) {
+    return false;
+  }
+}
+
+// Checks candidate filenames CONCURRENCY at a time, in order, and returns
+// the ones that actually exist (in the same, already-chronological order).
+async function findExistingPhotos(candidates, onProgress) {
+  const found = [];
+  for (let i = 0; i < candidates.length; i += CONCURRENCY) {
+    const batch = candidates.slice(i, i + CONCURRENCY);
+    const results = await Promise.all(
+      batch.map((name) => fileExists("photos/" + encodeURIComponent(name)))
+    );
+    batch.forEach((name, idx) => {
+      if (results[idx]) found.push(name);
+    });
+    if (onProgress) onProgress(Math.min(i + CONCURRENCY, candidates.length), candidates.length);
+  }
+  return found;
+}
+
 async function loadPhotoList() {
-  const res = await fetch("photos/");
-  const html = await res.text();
+  const container = document.getElementById("quizContainer");
+  const candidates = buildCandidateFilenames();
 
-  const doc = new DOMParser().parseFromString(html, "text/html");
-  const links = Array.from(doc.querySelectorAll("a"));
-
-  const filenames = links
-    .map((a) => decodeURIComponent(a.getAttribute("href")))
-    .filter((href) => {
-      const ext = "." + href.split(".").pop().toLowerCase();
-      return IMAGE_EXTENSIONS.includes(ext);
-    })
-    // strip any leading path, keep just the filename
-    .map((href) => href.split("/").filter(Boolean).pop());
-
-  // Sort by filename. "Screenshot 2026-07-17 214609.png" sorts correctly
-  // as plain text since the date/time is year-month-day hour-min-sec.
-  filenames.sort((a, b) => a.localeCompare(b));
+  const filenames = await findExistingPhotos(candidates, (done, total) => {
+    container.textContent = "Checking photos... (" + done + " / " + total + ")";
+  });
 
   return filenames;
 }
@@ -212,15 +249,12 @@ async function init() {
   try {
     filenames = await loadPhotoList();
   } catch (err) {
-    container.textContent =
-      "Could not load photos/ — make sure this page is served by a local " +
-      "web server (not opened as a file://) and that a photos folder " +
-      "sits next to it.";
+    container.textContent = "Something went wrong while checking for photos.";
     return;
   }
 
   if (filenames.length === 0) {
-    container.textContent = "No screenshots found in photos/.";
+    container.textContent = "No screenshots found in that time range.";
     return;
   }
 
@@ -232,7 +266,7 @@ async function init() {
   }
 
   const questions = filenames.slice(0, roadSignAnswers.length).map((name, i) => ({
-    url: "photos/" + name,
+    url: "photos/" + encodeURIComponent(name),
     answer: roadSignAnswers[i],
     choices: buildChoices(roadSignAnswers[i]),
   }));
