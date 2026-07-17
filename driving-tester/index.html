@@ -7,161 +7,59 @@
 <body>
 
 <h1>Road Sign Quiz</h1>
-
 <div id="quizContainer">Loading photos...</div>
-
-<button type="button" id="submitBtn" style="display:none;">Submit</button>
-
 <h2 id="result"></h2>
 
 <script>
-// ---------------------------------------------------------------
-// 1. Answers, in order (index 0 = sign #1, etc.)
-// ---------------------------------------------------------------
 const roadSignAnswers = [
-  "No Entry",
-  "Maximum Axle Weight 4T",
-  "Clearway",
-  "No Straight Ahead",
-  "No Right Turn",
-  "No Left Turn",
-  "No Overtaking",
-  "No Entry For Large Vehicles (3T+)",
-  "Max Speed Limit 80km/h",
-  "Height Restriction",
-  "No U-turn",
-  "Parking Permitted",
-  "No Parking Permitted",
-  "Taxi Rank",
-  "Pedestrianised Street",
-  "Max Speed 50km/h",
-  "Max Gross Weight (7.5T)",
-  "Max Vehicle Length (10.5m)",
-  "Max Vehicle Width (2.5m)",
-  "No Overtaking For 3-axle Vehicles",
-  "No Ridden Or Accompanied Horses",
-  "No Bicycles",
-  "Cul-de-sac",
-  "Entry To Motorway (M7)",
-  "300m Til The Next Exit",
-  "Motorway Ends 500m Ahead",
-  "End Of Motorway",
-  "Pedestrians & Bicycles Only",
-  "Separate Bicycle & Pedestrian Lanes",
-  "Hospital 100m Ahead",
-  "Roadworks Ahead",
-  "End Of Roadworks",
-  "Two-Way Traffic",
-  "One-Lane Crossover (Out)",
-  "One-Lane Crossover (Back)",
-  "End Of Central Reserve/Obstruction",
-  "Start Of Central Reserve/Obstruction",
-  "Road Narrows From Left",
-  "Road Narrows From Right",
-  "Road Narrows On Both Sides",
-  "Uneven Surface",
-  "Loose Chippings",
-  "Nearside Lane (Of Two) Closed",
-  "Flagman Ahead",
-  "Temporary Traffic Signals Ahead",
-  "Two Offside Lanes (Of Four) Closed",
-  "Move To Right (Two Lanes)",
-  "Single Lane (For Shuttle Working)",
-  "Move To Right (One Lane)",
-  "Site Access On Left",
-  "Pedestrians Cross To Left",
-  "Lanes Diverge At Crossover",
-  "Two-Lanes Crossover (Out)",
-  "Lanes Rejoin At Crossover",
-  "Two-Lanes Crossover (Back)",
-  "Site Access On Right",
-  "Queues Likely",
-  "Pedestrians Cross To Right",
+  "No Entry","Maximum Axle Weight 4T","Clearway","No Straight Ahead","No Right Turn",
+  "No Left Turn","No Overtaking","No Entry For Large Vehicles (3T+)","Max Speed Limit 80km/h",
+  "Height Restriction","No U-turn","Parking Permitted","No Parking Permitted","Taxi Rank",
+  "Pedestrianised Street","Max Speed 50km/h","Max Gross Weight (7.5T)","Max Vehicle Length (10.5m)",
+  "Max Vehicle Width (2.5m)","No Overtaking For 3-axle Vehicles","No Ridden Or Accompanied Horses",
+  "No Bicycles","Cul-de-sac","Entry To Motorway (M7)","300m Til The Next Exit",
+  "Motorway Ends 500m Ahead","End Of Motorway","Pedestrians & Bicycles Only",
+  "Separate Bicycle & Pedestrian Lanes","Hospital 100m Ahead","Roadworks Ahead","End Of Roadworks",
+  "Two-Way Traffic","One-Lane Crossover (Out)","One-Lane Crossover (Back)",
+  "End Of Central Reserve/Obstruction","Start Of Central Reserve/Obstruction",
+  "Road Narrows From Left","Road Narrows From Right","Road Narrows On Both Sides","Uneven Surface",
+  "Loose Chippings","Nearside Lane (Of Two) Closed","Flagman Ahead","Temporary Traffic Signals Ahead",
+  "Two Offside Lanes (Of Four) Closed","Move To Right (Two Lanes)","Single Lane (For Shuttle Working)",
+  "Move To Right (One Lane)","Site Access On Left","Pedestrians Cross To Left",
+  "Lanes Diverge At Crossover","Two-Lanes Crossover (Out)","Lanes Rejoin At Crossover",
+  "Two-Lanes Crossover (Back)","Site Access On Right","Queues Likely","Pedestrians Cross To Right",
   "Drivers must keep left of the continuous white line.",
   "Drivers must not cross the broken white lines unless it is safe to do so.",
-  "The edge of the carriageway or hard shoulder.",
-  "No Entry",
+  "The edge of the carriageway or hard shoulder.","No Entry",
   "Traffic must not enter until they can clear the box junction without stopping, or when turning right.",
-  "Continuous white lines ahead.",
-  "Drivers may not cross the lines to overtake.",
-  "Parking Prohibited",
-  "Parking Prohibited At Times Displayed",
-  "Zebra Crossing",
-  "Dangerous Left Corner Ahead",
-  "Dangerous Left Bend Ahead",
-  "Series Of Dangerous Corners Ahead",
-  "Series Of Dangerous Bends Ahead",
-  "Crossroads Ahead",
-  "Side Road On The Left Ahead",
-  "T-Junction",
-  "Y-Junction",
-  "Crossroads Ahead With Road Of Less Importance",
-  "Side Road Of Less Importance On The Left Ahead",
+  "Continuous white lines ahead.","Drivers may not cross the lines to overtake.","Parking Prohibited",
+  "Parking Prohibited At Times Displayed","Zebra Crossing","Dangerous Left Corner Ahead",
+  "Dangerous Left Bend Ahead","Series Of Dangerous Corners Ahead","Series Of Dangerous Bends Ahead",
+  "Crossroads Ahead","Side Road On The Left Ahead","T-Junction","Y-Junction",
+  "Crossroads Ahead With Road Of Less Importance","Side Road Of Less Importance On The Left Ahead",
   "T-Junction Ahead With Road Of Less Importance To The Right",
-  "Y-Junction Ahead With Road Of Less Importance To The Right",
-  "Staggered Crossroads",
-  "Traffic Cross-over Ahead",
-  "Roundabout Ahead",
-  "Crossroads Ahead With Road Of Higher Importance",
-  "T-Junction Ahead With Road Of Higher Importance",
-  "Crossroads With Dual-Carriageway",
-  "T-Junction With Dual-Carriageway",
-  "Sharp Rise Ahead",
-  "Sharp Dip Ahead",
-  "Series Of Bumps Or Hollows Ahead",
-  "Steep Descent Ahead",
-  "Steep Ascent Ahead",
-  "Danger Of Falling Rocks",
-  "Low Flying Aircraft",
-  "Slippery Road Ahead",
-  "School Ahead",
-  "Road Divides",
-  "Unguarded Level Crossing Ahead",
-  "Unprotected Body Of Water Ahead",
-  "Traffic Signals Ahead",
-  "Beware Of Sheep",
-  "Pedestrian Crossing Ahead",
-  "Two-Way Traffic",
-  "Dual-Carriageway Ends",
-  "Level Crossing With Lights & Barriers",
-  "Merging Traffic",
-  "Merging & Diverging Traffic",
-  "Road Narrows From The Left",
-  "Road Narrows On Both Sides",
-  "Road Narrows From The Right",
-  "Overhear Electric Cables",
-  "Mini-Roundabout Ahead",
-  "Accompanied Horses & Ponies",
-  "Beware Of Cattle",
-  "Beware Of Dear Or Wild Animals",
-  "Guarded Level Crossing Ahead",
-  "Children Crossing (Residential)",
-  "Tunnel Ahead",
-  "Tram Lane Crossing Ahead",
-  "Crosswinds",
-  "Loop Road Ahead",
-  "Lane Loss",
-  "Start Of Passing Lane",
-  "Start Of Climbing Lane",
-  "Sharp Change Of Direction (Left - Chevron Board)",
-  "Low Bridge Ahead",
-  "Sharp Change Of Direction (Right - Chevron Board)",
-  "Keep Left",
-  "Keep Right",
-  "Pass Either Side",
-  "Keep Straight Ahead",
-  "Turn Right",
-  "Turn Left",
-  "Turn Left Ahead",
-  "Turn Right Ahead",
-  "With Flow Bus Lane On Left",
-  "With Flow Bus Lane On Right",
-  "Contra-Flow Bus Lane",
-  "Tram Lane On Right",
-  "Tram Lane On Left",
+  "Y-Junction Ahead With Road Of Less Importance To The Right","Staggered Crossroads",
+  "Traffic Cross-over Ahead","Roundabout Ahead","Crossroads Ahead With Road Of Higher Importance",
+  "T-Junction Ahead With Road Of Higher Importance","Crossroads With Dual-Carriageway",
+  "T-Junction With Dual-Carriageway","Sharp Rise Ahead","Sharp Dip Ahead",
+  "Series Of Bumps Or Hollows Ahead","Steep Descent Ahead","Steep Ascent Ahead",
+  "Danger Of Falling Rocks","Low Flying Aircraft","Slippery Road Ahead","School Ahead","Road Divides",
+  "Unguarded Level Crossing Ahead","Unprotected Body Of Water Ahead","Traffic Signals Ahead",
+  "Beware Of Sheep","Pedestrian Crossing Ahead","Two-Way Traffic","Dual-Carriageway Ends",
+  "Level Crossing With Lights & Barriers","Merging Traffic","Merging & Diverging Traffic",
+  "Road Narrows From The Left","Road Narrows On Both Sides","Road Narrows From The Right",
+  "Overhear Electric Cables","Mini-Roundabout Ahead","Accompanied Horses & Ponies","Beware Of Cattle",
+  "Beware Of Dear Or Wild Animals","Guarded Level Crossing Ahead","Children Crossing (Residential)",
+  "Tunnel Ahead","Tram Lane Crossing Ahead","Crosswinds","Loop Road Ahead","Lane Loss",
+  "Start Of Passing Lane","Start Of Climbing Lane","Sharp Change Of Direction (Left - Chevron Board)",
+  "Low Bridge Ahead","Sharp Change Of Direction (Right - Chevron Board)","Keep Left","Keep Right",
+  "Pass Either Side","Keep Straight Ahead","Turn Right","Turn Left","Turn Left Ahead",
+  "Turn Right Ahead","With Flow Bus Lane On Left","With Flow Bus Lane On Right","Contra-Flow Bus Lane",
+  "Tram Lane On Right","Tram Lane On Left",
 ];
 
-const IMAGE_EXTENSIONS = [".png", ".jpg", ".jpeg", ".webp"];
+const DATE = "2026-07-17", RANGE_START = "21:46:09", RANGE_END = "22:11:50", CONCURRENCY = 20;
+const pad2 = n => n.toString().padStart(2, "0");
 
 function shuffle(arr) {
   const a = arr.slice();
@@ -172,203 +70,88 @@ function shuffle(arr) {
   return a;
 }
 
-function buildChoices(correctAnswer) {
-  const wrongPool = roadSignAnswers.filter((a) => a !== correctAnswer);
-  const wrongChoices = shuffle(wrongPool).slice(0, 3);
-  return shuffle([correctAnswer, ...wrongChoices]);
+function buildChoices(answer) {
+  return shuffle([answer, ...shuffle(roadSignAnswers.filter(a => a !== answer)).slice(0, 3)]);
 }
 
-// ---------------------------------------------------------------
-// 2. Photos are named "Screenshot YYYY-MM-DD HHMMSS.png" and taken in a
-//    known time window. Since we can't list the folder (no directory
-//    listing on this host), generate every possible timestamp in the
-//    window, one per second, and check which files actually exist.
-// ---------------------------------------------------------------
-const SCREENSHOT_DATE = "2026-07-17";      // YYYY-MM-DD
-const RANGE_START = "21:46:09";            // HH:MM:SS, first known screenshot
-const RANGE_END = "22:11:50";              // HH:MM:SS, last known screenshot
-const CONCURRENCY = 20;                    // parallel existence checks at a time
-
-function pad2(n) {
-  return n.toString().padStart(2, "0");
-}
-
-function buildCandidateFilenames() {
-  const start = new Date(SCREENSHOT_DATE + "T" + RANGE_START);
-  const end = new Date(SCREENSHOT_DATE + "T" + RANGE_END);
-
-  const filenames = [];
+function candidateFilenames() {
+  const start = new Date(DATE + "T" + RANGE_START), end = new Date(DATE + "T" + RANGE_END);
+  const names = [];
   for (let t = new Date(start); t <= end; t.setSeconds(t.getSeconds() + 1)) {
-    const hhmmss = pad2(t.getHours()) + pad2(t.getMinutes()) + pad2(t.getSeconds());
-    filenames.push("Screenshot " + SCREENSHOT_DATE + " " + hhmmss + ".png");
+    names.push(`Screenshot ${DATE} ${pad2(t.getHours())}${pad2(t.getMinutes())}${pad2(t.getSeconds())}.png`);
   }
-  return filenames;
+  return names;
 }
 
-async function fileExists(url) {
-  try {
-    const res = await fetch(url, { method: "HEAD" });
-    return res.ok;
-  } catch (err) {
-    return false;
-  }
+async function exists(url) {
+  try { return (await fetch(url, { method: "HEAD" })).ok; } catch { return false; }
 }
 
-// Checks candidate filenames CONCURRENCY at a time, in order, and returns
-// the ones that actually exist (in the same, already-chronological order).
-async function findExistingPhotos(candidates, onProgress) {
+async function findPhotos(candidates, onProgress) {
   const found = [];
   for (let i = 0; i < candidates.length; i += CONCURRENCY) {
     const batch = candidates.slice(i, i + CONCURRENCY);
-    const results = await Promise.all(
-      batch.map((name) => fileExists("photos/" + encodeURIComponent(name)))
-    );
-    batch.forEach((name, idx) => {
-      if (results[idx]) found.push(name);
-    });
-    if (onProgress) onProgress(Math.min(i + CONCURRENCY, candidates.length), candidates.length);
+    const results = await Promise.all(batch.map(n => exists("photos/" + encodeURIComponent(n))));
+    batch.forEach((n, idx) => results[idx] && found.push(n));
+    onProgress(Math.min(i + CONCURRENCY, candidates.length), candidates.length);
   }
   return found;
 }
 
-async function loadPhotoList() {
+let questions = [], currentIndex = 0, score = 0;
+
+function showQuestion() {
   const container = document.getElementById("quizContainer");
-  const candidates = buildCandidateFilenames();
+  const q = questions[currentIndex];
+  container.innerHTML = `
+    <h3>Question ${currentIndex + 1} of ${questions.length}</h3>
+    <img src="${q.url}" width="300"><br>
+    ${q.choices.map(c => `<label><input type="radio" name="choice" value="${c}"> ${c}</label><br>`).join("")}
+    <p id="feedback"></p>`;
 
-  const filenames = await findExistingPhotos(candidates, (done, total) => {
-    container.textContent = "Checking photos... (" + done + " / " + total + ")";
+  document.querySelectorAll('input[name="choice"]').forEach(input => {
+    input.onchange = () => {
+      document.querySelectorAll('input[name="choice"]').forEach(i => i.disabled = true);
+      const correct = input.value === q.answer;
+      if (correct) score++;
+      document.getElementById("feedback").textContent =
+        correct ? "Correct!" : "Incorrect. The correct answer was: " + q.answer;
+
+      setTimeout(() => {
+        currentIndex++;
+        if (currentIndex < questions.length) {
+          showQuestion();
+        } else {
+          container.innerHTML = "";
+          document.getElementById("result").textContent =
+            `You got ${score} out of ${questions.length} correct.`;
+        }
+      }, 1500);
+    };
   });
-
-  return filenames;
 }
 
 async function init() {
   const container = document.getElementById("quizContainer");
-
-  let filenames;
-  try {
-    filenames = await loadPhotoList();
-  } catch (err) {
-    container.textContent = "Something went wrong while checking for photos.";
-    return;
-  }
+  const filenames = await findPhotos(candidateFilenames(), (done, total) => {
+    container.textContent = `Checking photos... (${done} / ${total})`;
+  });
 
   if (filenames.length === 0) {
     container.textContent = "No screenshots found in that time range.";
     return;
   }
 
-  if (filenames.length > roadSignAnswers.length) {
-    console.warn(
-      "Found " + filenames.length + " photos but only " + roadSignAnswers.length +
-      " answers. Extra photos beyond #" + roadSignAnswers.length + " will be ignored."
-    );
-  }
-
-  const questions = filenames.slice(0, roadSignAnswers.length).map((name, i) => ({
+  questions = shuffle(filenames.slice(0, roadSignAnswers.length).map((name, i) => ({
     url: "photos/" + encodeURIComponent(name),
     answer: roadSignAnswers[i],
     choices: buildChoices(roadSignAnswers[i]),
-  }));
+  })));
 
-  renderQuiz(questions);
-}
-
-init();
-
-let currentQuestions = [];
-let currentIndex = 0;
-let score = 0;
-let answered = false;
-
-function renderQuiz(questions) {
-  currentQuestions = questions;
-  currentIndex = 0;
-  score = 0;
-  answered = false;
   showQuestion();
 }
 
-function showQuestion() {
-  const container = document.getElementById("quizContainer");
-  container.innerHTML = "";
-  answered = false;
-
-  const q = currentQuestions[currentIndex];
-
-  const heading = document.createElement("h3");
-  heading.textContent = "Question " + (currentIndex + 1) + " of " + currentQuestions.length;
-  container.appendChild(heading);
-
-  const img = document.createElement("img");
-  img.src = q.url;
-  img.width = 300;
-  container.appendChild(img);
-  container.appendChild(document.createElement("br"));
-
-  q.choices.forEach((choice) => {
-    const id = "choice_" + choice.replace(/\W+/g, "_");
-
-    const input = document.createElement("input");
-    input.type = "radio";
-    input.name = "choice";
-    input.value = choice;
-    input.id = id;
-
-    const label = document.createElement("label");
-    label.setAttribute("for", id);
-    label.appendChild(input);
-    label.appendChild(document.createTextNode(" " + choice));
-
-    container.appendChild(label);
-    container.appendChild(document.createElement("br"));
-  });
-
-  const feedback = document.createElement("p");
-  feedback.id = "feedback";
-  container.appendChild(feedback);
-
-  const btn = document.getElementById("submitBtn");
-  btn.style.display = "inline";
-  btn.textContent = "Submit Answer";
-  btn.onclick = handleSubmitOrNext;
-
-  document.getElementById("result").textContent = "";
-}
-
-function handleSubmitOrNext() {
-  if (!answered) {
-    const selected = document.querySelector('input[name="choice"]:checked');
-    if (!selected) {
-      alert("Pick an answer first.");
-      return;
-    }
-
-    const q = currentQuestions[currentIndex];
-    const correct = selected.value === q.answer;
-    if (correct) score++;
-
-    document.getElementById("feedback").textContent = correct
-      ? "Correct!"
-      : "Incorrect. The correct answer was: " + q.answer;
-
-    answered = true;
-
-    const btn = document.getElementById("submitBtn");
-    btn.textContent =
-      currentIndex < currentQuestions.length - 1 ? "Next Question" : "Finish";
-  } else {
-    currentIndex++;
-    if (currentIndex < currentQuestions.length) {
-      showQuestion();
-    } else {
-      document.getElementById("quizContainer").innerHTML = "";
-      document.getElementById("submitBtn").style.display = "none";
-      document.getElementById("result").textContent =
-        "You got " + score + " out of " + currentQuestions.length + " correct.";
-    }
-  }
-}
+init();
 </script>
 
 </body>
