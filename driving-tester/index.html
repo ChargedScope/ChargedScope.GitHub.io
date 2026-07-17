@@ -10,7 +10,7 @@
 
 <div id="quizContainer">Loading photos...</div>
 
-<button type="button" id="submitBtn" style="display:none;" onclick="gradeQuiz()">Submit</button>
+<button type="button" id="submitBtn" style="display:none;">Submit</button>
 
 <h2 id="result"></h2>
 
@@ -276,65 +276,98 @@ async function init() {
 
 init();
 
+let currentQuestions = [];
+let currentIndex = 0;
+let score = 0;
+let answered = false;
+
 function renderQuiz(questions) {
+  currentQuestions = questions;
+  currentIndex = 0;
+  score = 0;
+  answered = false;
+  showQuestion();
+}
+
+function showQuestion() {
   const container = document.getElementById("quizContainer");
   container.innerHTML = "";
+  answered = false;
 
-  questions.forEach((q, i) => {
-    const div = document.createElement("div");
-    div.className = "question";
-    div.setAttribute("data-answer", q.answer);
+  const q = currentQuestions[currentIndex];
 
-    const heading = document.createElement("h3");
-    heading.textContent = "Question " + (i + 1);
-    div.appendChild(heading);
+  const heading = document.createElement("h3");
+  heading.textContent = "Question " + (currentIndex + 1) + " of " + currentQuestions.length;
+  container.appendChild(heading);
 
-    const img = document.createElement("img");
-    img.src = q.url;
-    img.width = 300;
-    div.appendChild(img);
-    div.appendChild(document.createElement("br"));
+  const img = document.createElement("img");
+  img.src = q.url;
+  img.width = 300;
+  container.appendChild(img);
+  container.appendChild(document.createElement("br"));
 
-    q.choices.forEach((choice) => {
-      const id = "q" + i + "_" + choice.replace(/\W+/g, "_");
+  q.choices.forEach((choice) => {
+    const id = "choice_" + choice.replace(/\W+/g, "_");
 
-      const input = document.createElement("input");
-      input.type = "radio";
-      input.name = "q" + i;
-      input.value = choice;
-      input.id = id;
+    const input = document.createElement("input");
+    input.type = "radio";
+    input.name = "choice";
+    input.value = choice;
+    input.id = id;
 
-      const label = document.createElement("label");
-      label.setAttribute("for", id);
-      label.appendChild(input);
-      label.appendChild(document.createTextNode(" " + choice));
+    const label = document.createElement("label");
+    label.setAttribute("for", id);
+    label.appendChild(input);
+    label.appendChild(document.createTextNode(" " + choice));
 
-      div.appendChild(label);
-      div.appendChild(document.createElement("br"));
-    });
-
-    container.appendChild(div);
-    container.appendChild(document.createElement("hr"));
+    container.appendChild(label);
+    container.appendChild(document.createElement("br"));
   });
 
-  document.getElementById("submitBtn").style.display = "inline";
+  const feedback = document.createElement("p");
+  feedback.id = "feedback";
+  container.appendChild(feedback);
+
+  const btn = document.getElementById("submitBtn");
+  btn.style.display = "inline";
+  btn.textContent = "Submit Answer";
+  btn.onclick = handleSubmitOrNext;
+
   document.getElementById("result").textContent = "";
 }
 
-function gradeQuiz() {
-  const questions = document.querySelectorAll(".question");
-  let correct = 0;
-
-  questions.forEach((q, i) => {
-    const answer = q.getAttribute("data-answer");
-    const selected = document.querySelector('input[name="q' + i + '"]:checked');
-    if (selected && selected.value === answer) {
-      correct++;
+function handleSubmitOrNext() {
+  if (!answered) {
+    const selected = document.querySelector('input[name="choice"]:checked');
+    if (!selected) {
+      alert("Pick an answer first.");
+      return;
     }
-  });
 
-  document.getElementById("result").textContent =
-    "You got " + correct + " out of " + questions.length + " correct.";
+    const q = currentQuestions[currentIndex];
+    const correct = selected.value === q.answer;
+    if (correct) score++;
+
+    document.getElementById("feedback").textContent = correct
+      ? "Correct!"
+      : "Incorrect. The correct answer was: " + q.answer;
+
+    answered = true;
+
+    const btn = document.getElementById("submitBtn");
+    btn.textContent =
+      currentIndex < currentQuestions.length - 1 ? "Next Question" : "Finish";
+  } else {
+    currentIndex++;
+    if (currentIndex < currentQuestions.length) {
+      showQuestion();
+    } else {
+      document.getElementById("quizContainer").innerHTML = "";
+      document.getElementById("submitBtn").style.display = "none";
+      document.getElementById("result").textContent =
+        "You got " + score + " out of " + currentQuestions.length + " correct.";
+    }
+  }
 }
 </script>
 
